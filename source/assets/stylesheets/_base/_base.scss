@@ -1,0 +1,174 @@
+// Establish a vertical rhythm
+@include establish-baseline;
+
+// Include Open Sans from Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+
+@include breakpoint(bp(step-1)) {
+  html {
+    font-size: 1.1rem;
+  }
+}
+
+@include breakpoint(bp(full)) {
+  html {
+    font-size: 1.25rem;
+  }
+}
+
+body {
+  background-color: color(white);
+  color: color(gray);
+  font-family: font(base);
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @include type-weight(semi-bold);
+  @include margin-leader(0);
+  @include margin-trailer(1);
+  @include type-ligatures;
+  color: color(black);
+}
+
+h1 {
+  @include type-scale(xxlarge);
+}
+
+h2 {
+  @include type-scale(xlarge);
+}
+
+h3 {
+  @include type-scale(large);
+}
+
+h4 {
+  @include type-scale(medium);
+}
+
+h5 {
+  @include type-scale(base);
+}
+
+// Paragraph
+p {
+  @include margin-trailer(1);
+  // @include word-break(break-word);
+  // @include hyphens(auto);
+  @include type-ligatures;
+
+  &:last-child {
+    @include margin-trailer(0);
+  }
+}
+
+ul, ol {
+  @include margin-trailer(1)
+}
+
+li {
+  display: list-item;
+  list-style-type: disc;
+  margin-left: rhythm(1);
+}
+
+// Small
+small {
+  @include type-scale(small);
+}
+
+// Strong
+strong {
+  @include type-weight(bold);
+}
+
+// Blockquote
+blockquote {
+  margin: 0;
+}
+
+// Table
+table {
+  background-color: color(white);
+  border: 1px solid color(gray--light);
+  border-bottom-width: 4px;
+  border-spacing: 0;
+  border-collapse: separate;
+  color: color(gray--dark);
+  width: 100%;
+
+  thead {
+    th {
+      border-bottom: 4px solid color(gray--light);
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(2n-1) {
+        background-color: color(gray--lighter);
+      }
+    }
+  }
+
+  tr {
+    &:last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid color(gray--light);
+    border-right: 1px solid color(gray--light);
+    padding: rhythm(0.5);
+    vertical-align: top;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+// Anchor
+a {
+  background-image: linear-gradient(to bottom, rgba(color(red),0) 50%, rgba(color(red),0.6) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 1.1em;
+  color: color(red);
+  text-decoration: none;
+}
+
+// Horizontal Rule
+hr {
+  @include span(8 no-gutters);
+  @include pre(2);
+  @include post(2);
+  @include margin-leader(1);
+  @include margin-trailer(2);
+  @include clearfix;
+  clear: both;
+  background-color: color(gray--light);
+  border: 0;
+  color: color(gray);
+  display: block;
+  height: 2px;
+  @include breakpoint(bp(full)) {
+    @include margin-leader(2);
+    @include margin-trailer(3);
+  }
+}
+
+// Code
+pre {
+  margin: 0;
+}

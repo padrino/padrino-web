@@ -1,0 +1,5 @@
+.padrino-name {
+  font-family: font(logo);
+  @include type-weight(bold);
+  letter-spacing: -0.07em;
+}

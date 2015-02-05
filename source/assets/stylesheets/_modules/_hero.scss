@@ -1,0 +1,53 @@
+.hero {
+  @include margin-trailer(1);
+  text-align: center;
+
+  &__logo {
+    display: block;
+    margin: 0 auto;
+    max-width: rhythm(8);
+    width: 100%;
+    @include breakpoint(bp(full)) {
+      max-width: span(4);
+    }
+  }
+
+  &__headline {
+    @include type-scale(large);
+    @include type-weight(regular);
+    color: color(black);
+    @include breakpoint(bp(full)) {
+      @include type-scale(xxlarge, false);
+    }
+  }
+
+  &__text {
+    @include margin-trailer(1);
+    @include breakpoint(bp(step-1)) {
+      @include margin-leader(2);
+      @include margin-trailer(2);
+      @include type-scale(medium, false);
+    }
+  }
+
+  &__button {
+    @include type-scale(medium);
+  }
+
+  &__latest-stable {
+    @include type-scale(medium);
+    @include type-weight(semi-bold);
+    color: color(gray--dark);
+
+    &__label {
+      color: color(red);
+    }
+
+    &__link {
+      @include type-scale(base);
+      @include type-weight(regular);
+      background-image: linear-gradient(to bottom, rgba(color(gray),0) 50%, rgba(color(gray),0.6) 50%);
+      color: color(gray);
+    }
+  }
+}

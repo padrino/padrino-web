@@ -1,0 +1,22 @@
+.navigation {
+  &__toggler {
+    background: none;
+    background-color: rgba(color(white), 0.9);
+    border: 2px solid rgba(color(black), 0.15);
+    border-radius: 100em;
+    display: block;
+    text-align: center;
+    height: rhythm(2.25);
+    width: rhythm(2.25);
+
+    &__icon {
+      @include type-scale(large);
+      @include adjust-leading-to(2.2);
+      color: rgba(color(black), 0.5);
+    }
+  }
+
+  &__items {
+    display: none;
+  }
+}

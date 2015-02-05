@@ -1,0 +1,49 @@
+.excerpt {
+  color: color(black);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-style: italic;
+  @include margin-leader(1.5);
+  @include margin-trailer(1.5);
+
+  &--tiny {
+    @extend .excerpt;
+    @include type-scale(small);
+    width: span(8 no-gutters);
+  }
+
+  &--small {
+    @extend .excerpt;
+    @include type-scale(small);
+    width: span(10 no-gutters);
+  }
+
+  &--large {
+    @extend .excerpt;
+    @include type-scale(medium);
+    @include breakpoint(bp(step-1)) {
+      @include type-scale(large, false);
+    }
+    @include breakpoint(bp(full-plus)) {
+      @include pull(1);
+      width: span(14 no-gutters);
+    }
+  }
+
+  &--inline {
+    text-align: left;
+  }
+
+  &--code {
+    @extend .excerpt--inline;
+    @include type-scale(base);
+    @include adjust-leading-to(0.8);
+    border: 2px solid color(gray--light);
+    border-radius: 5px;
+    color: color(white);
+    font-family: font(monospaced);
+    overflow: auto;
+    padding: rhythm(0.75) rhythm(1);
+  }
+}

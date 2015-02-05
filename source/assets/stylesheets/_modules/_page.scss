@@ -1,0 +1,7 @@
+.page {
+  @include margin-trailer(2);
+
+  &--index {
+    text-align: center;
+  }
+}

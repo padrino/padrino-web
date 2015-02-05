@@ -1,0 +1,13 @@
+header.header
+  h1.header__name
+    = link_to 'Padrino', '/', class: 'padrino-name'
+  .header__navigation
+    nav.navigation
+      a.navigation__toggler href='#'
+        span.navigation__toggler__icon.fa.fa-navicon
+      ul.navigation__items
+        li.navigation__item= link_to 'Code', '#'
+        li.navigation__item= link_to 'Posts', '#'
+        li.navigation__item= link_to 'Guides', '#'
+        li.navigation__item= link_to 'API', '#'
+        li.navigation__item= link_to 'Features', '#'

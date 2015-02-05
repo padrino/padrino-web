@@ -1,0 +1,31 @@
+.button {
+  @include type-weight(semi-bold);
+  background-color: color(red--semi-dark);
+  background-image: none;
+  border-radius: 5px;
+  color: color(white);
+  display: inline-block;
+  padding: rhythm(0.25) rhythm(0.75);
+
+  @include breakpoint(bp(step-1)) {
+    display: inline-block;
+  }
+
+  &--large {
+    @extend .button;
+    padding: rhythm(0.5) rhythm(1);
+  }
+
+  &--raised {
+    @extend .button;
+    border: 1px solid color(red--dark);
+    box-shadow: 0 3px 0 0 color(red--dark);
+    text-shadow: 0 1px 0 color(red--dark);
+  }
+
+  &__icon {
+    @include type-scale(large);
+    @include adjust-leading-to(0.5);
+    margin-right: rhythm(0.5);
+  }
+}

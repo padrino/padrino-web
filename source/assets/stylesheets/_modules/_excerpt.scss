@@ -7,16 +7,17 @@
   @include margin-leader(1.5);
   @include margin-trailer(1.5);
 
-  &--tiny {
-    @extend .excerpt;
-    @include type-scale(small);
-    width: span(8 no-gutters);
-  }
-
   &--small {
     @extend .excerpt;
     @include type-scale(small);
     width: span(10 no-gutters);
+  }
+
+  &--tiny {
+    @extend .excerpt--small;
+    @include breakpoint(bp(full)) {
+      width: span(8 no-gutters);
+    }
   }
 
   &--large {

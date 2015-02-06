@@ -25,3 +25,6 @@ gem 'kramdown'
 
 # Syntax highlighting
 gem 'rouge'
+
+# Publish to GitHub Pages
+gem 'middleman-gh-pages'

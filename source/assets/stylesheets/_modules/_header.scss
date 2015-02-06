@@ -1,8 +1,6 @@
 .header {
   @include margin-trailer(2);
   height: rhythm(2.25);
-  left: 0;
-  top: 0;
   width: 100%;
 
   &__name {
@@ -21,7 +19,8 @@
 
   &__navigation {
     position: fixed;
-    right: rhythm(0.8);
-    top: rhythm(0.8);
+    left: 0;
+    right: 0;
+    top: 0;
   }
 }

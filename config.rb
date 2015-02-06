@@ -1,6 +1,5 @@
 require 'kramdown'
 require 'rouge'
-require 'middleman-gh-pages'
 
 helpers do
   # ...

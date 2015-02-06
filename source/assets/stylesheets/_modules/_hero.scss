@@ -36,8 +36,6 @@
 
   &__latest-stable {
     @include type-scale(medium);
-    @include type-weight(semi-bold);
-    color: color(gray--dark);
 
     &__label {
       color: color(red);

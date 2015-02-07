@@ -1,56 +1,79 @@
 .navigation {
-  padding: rhythm(0.8);
-  position: relative;
-
-  &__toggler {
-    background: none;
-    background-color: rgba(color(white), 0.9);
-    border: 2px solid rgba(color(black), 0.15);
-    border-radius: 100em;
-    display: block;
-    text-align: center;
-    height: rhythm(2.25);
-    position: absolute;
-    right: rhythm(0.8);
-    width: rhythm(2.25);
-
-    &__icon {
-      @include type-scale(large);
-      @include adjust-leading-to(2.2);
-      color: rgba(color(black), 0.5);
-    }
-  }
-
-  &__items {
-    @include margin-trailer(0);
-    display: none;
-  }
-
   &__item {
-    @include type-scale(medium);
+    display: inline-block;
     list-style: none;
     margin-left: 0;
-    text-align: center;
+    margin-right: rhythm(0.5);
 
-    &__link {
-      @include type-weight(semi-bold);
-      background: none;
-      color: color(white);
-      display: block;
-      padding: rhythm(0.2);
-
-      &:hover {
-        color: color(red--semi-dark);
-      }
+    &:last-child {
+      margin-right: 0;
     }
   }
 
-  &--is-active {
-    @extend .navigation;
-    background-color: rgba(color(black), 0.9);
+  &__link {
+    @include type-weight(semi-bold);
+    background: none;
+    color: color(black);
 
-    .navigation__items {
-      display: block;
+    &:hover {
+      color: color(red--semi-dark);
     }
   }
 }
+
+// .navigation {
+//   padding: rhythm(0.8);
+//   position: relative;
+//
+//   &__toggler {
+//     background: none;
+//     background-color: rgba(color(white), 0.9);
+//     border: 2px solid rgba(color(black), 0.15);
+//     border-radius: 100em;
+//     display: block;
+//     text-align: center;
+//     height: rhythm(2.25);
+//     position: absolute;
+//     right: rhythm(0.8);
+//     width: rhythm(2.25);
+//
+//     &__icon {
+//       @include type-scale(large);
+//       @include adjust-leading-to(2.2);
+//       color: rgba(color(black), 0.5);
+//     }
+//   }
+//
+//   &__items {
+//     @include margin-trailer(0);
+//     display: none;
+//   }
+//
+//   &__item {
+//     @include type-scale(medium);
+//     list-style: none;
+//     margin-left: 0;
+//     text-align: center;
+//
+//     &__link {
+//       @include type-weight(semi-bold);
+//       background: none;
+//       color: color(white);
+//       display: block;
+//       padding: rhythm(0.2);
+//
+//       &:hover {
+//         color: color(red--semi-dark);
+//       }
+//     }
+//   }
+//
+//   &--is-active {
+//     @extend .navigation;
+//     background-color: rgba(color(black), 0.9);
+//
+//     .navigation__items {
+//       display: block;
+//     }
+//   }
+// }

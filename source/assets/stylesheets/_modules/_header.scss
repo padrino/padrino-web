@@ -1,11 +1,9 @@
 .header {
-  @include margin-trailer(2);
-  height: rhythm(2.25);
+  @include margin-trailer(4.25);
   width: 100%;
 
   &__name {
     @include type-scale(large);
-    @include adjust-leading-to(2.25);
     @include margin-trailer(0);
     color: color(black);
     position: absolute;
@@ -18,9 +16,8 @@
   }
 
   &__navigation {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
+    position: absolute;
+    top: rhythm(1);
+    right: rhythm(0.8);
   }
 }

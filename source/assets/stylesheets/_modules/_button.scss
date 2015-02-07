@@ -6,7 +6,6 @@
   color: color(white);
   display: inline-block;
   padding: rhythm(0.25) rhythm(0.75);
-
   @include breakpoint(bp(step-1)) {
     display: inline-block;
   }
@@ -14,6 +13,11 @@
   &--large {
     @extend .button;
     padding: rhythm(0.5) rhythm(1);
+  }
+
+  &--slim {
+    @extend.button;
+    padding: rhythm(0.125) rhythm(0.5);
   }
 
   &--raised {

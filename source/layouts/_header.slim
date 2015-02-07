@@ -3,11 +3,13 @@ header.header
     = link_to 'Padrino', '/', class: 'padrino-name'
   .header__navigation
     nav.navigation
-      a.navigation__toggler href='#'
-        span.navigation__toggler__icon.fa.fa-navicon
+      // a.navigation__toggler href='#'
+      //   span.navigation__toggler__icon.fa.fa-navicon
       ul.navigation__items
-        li.navigation__item= link_to 'Code', '#', class: 'navigation__item__link'
-        li.navigation__item= link_to 'Posts', '#', class: 'navigation__item__link'
-        li.navigation__item= link_to 'Guides', '#', class: 'navigation__item__link'
-        li.navigation__item= link_to 'API', '#', class: 'navigation__item__link'
-        li.navigation__item= link_to 'Features', '#', class: 'navigation__item__link'
+        li.navigation__item= link_to 'Code', '#', class: 'navigation__link'
+        li.navigation__item= link_to 'Docs', '#', class: 'navigation__link'
+        li.navigation__item= link_to 'Features', '#', class: 'navigation__link'
+        li.navigation__item= link_to 'Guides', '#', class: 'navigation__link'
+        li.navigation__item= link_to 'API', '#', class: 'navigation__link'
+        li.navigation__item= link_to 'Blog', '#', class: 'navigation__link'
+        li.navigation__item= link_to 'Fork It', '#', class: 'button--slim'

@@ -136,10 +136,10 @@ PLATFORMS
 
 DEPENDENCIES
   breakpoint (~> 2.5.0)
-  kramdown
+  kramdown (~> 1.5.0)
   middleman (~> 3.3.7)
   middleman-livereload (~> 3.1.0)
-  rouge
+  rouge (~> 1.8.0)
   slim (~> 3.0.1)
   susy (~> 2.2.1)
   tzinfo-data

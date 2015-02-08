@@ -6,6 +6,9 @@ helpers do
   # ...
 end
 
+# Pretty URLs (Directory Indexes)
+activate :directory_indexes
+
 # Assets configuration
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'

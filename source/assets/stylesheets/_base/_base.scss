@@ -75,7 +75,7 @@ ul, ol {
 li {
   display: list-item;
   list-style-type: disc;
-  margin-left: rhythm(1);
+  list-style-position: inside;
 }
 
 // Small
@@ -150,9 +150,9 @@ a {
 
 // Horizontal Rule
 hr {
-  @include span(8 no-gutters);
-  @include pre(2);
-  @include post(2);
+  @include span(6 no-gutters);
+  @include pre(3);
+  @include post(3);
   @include margin-leader(1);
   @include margin-trailer(2);
   @include clearfix;
@@ -162,10 +162,6 @@ hr {
   color: color(gray);
   display: block;
   height: 2px;
-  @include breakpoint(bp(full)) {
-    @include margin-leader(2);
-    @include margin-trailer(3);
-  }
 }
 
 // Code

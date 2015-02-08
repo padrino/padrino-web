@@ -1,6 +1,6 @@
 ## Guides
 
-Learn Padrino from the maintainers.
+Learn Padrino from the creators.
 
 ---
 

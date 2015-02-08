@@ -18,6 +18,9 @@ set :images_dir, 'assets/images'
 set :markdown_engine, :kramdown
 set :markdown, syntax_highlighter: 'rouge'
 
+# Set layouts
+page 'guides/*', :layout => :guides
+
 # Development-specific configuration
 configure :development do
   activate :livereload

@@ -1,7 +1,17 @@
 .page {
+  @include clearfix;
   @include margin-trailer(2);
 
   &--index {
     text-align: center;
+  }
+
+  &__sidebar {
+    @include span(3);
+    @include type-scale(small);
+  }
+
+  &__content {
+    @include span(9 last);
   }
 }

@@ -1,10 +1,4 @@
-## Guides
-
-Learn Padrino from the creators.
-
----
-
-### Getting Started
+## Getting Started
 
 This is a guide intended for a developer that is just getting started with the Padrino web framework (and perhaps Sinatra or Ruby). This guide will give an overview the various other guides, resources and steps towards becoming a Sinatra + Padrino aficionado.
 
@@ -14,25 +8,25 @@ If you have any questions be sure to contact us at: [@padrinorb](http://twitter.
 
 ---
 
-#### First Up, Why Learn Sinatra and Padrino?
+### First Up, Why Learn Sinatra and Padrino?
 
 A more detailed explanation of why you should take the time to learn Sinatra and Padrino is [presented later](http://www.padrinorb.com/pages/why), but let’s take a second to briefly enumerate three major advantages now:
 
-##### Easy to Learn
+#### Easy to Learn
 
 The most interesting aspect of the Padrino stack (Rack, Sinatra, et al) in comparison to other web development tools is how modular and standalone each individual piece of the stack is. This makes learning each part much easier, and allows people to be productive right away, organically building up their knowledge of different aspects as they become necessary within a system. This concept of genuine graduated complexity within a web development stack is relatively unique to Sinatra and Padrino in the Ruby web world.
 
-##### Fast
+#### Fast
 
 Sinatra and Padrino are **very fast** relative to other full stack frameworks. The Padrino stack is lightweight and slim which can be demonstrated in our [performance benchmarks](https://github.com/DAddYE/web-frameworks-benchmark/wiki). While all benchmarks should be taken with a grain of salt, over the course of developing hundreds of applications, we have found that the memory usage, stability and requests per second speak for themselves.
 
-##### Extensible
+#### Extensible
 
 The other benefit of Sinatra and Padrino is the rich ecosystem of extensions that can be applied at any level of the stack. For rack, there is a [wealth of middlewares](http://coderack.org/middlewares) that can help do almost anything. For Sinatra, there is also a [large base](http://www.sinatrarb.com/extensions-wild.html) of extensions to add most any functionality you might need. Best of all, these are all 100% compatible with Padrino, and using our [Recipe Box](http://github.com/padrino/padrino-recipes) and our use of [Bundler](http://gembundler.com/), you can enable nearly any library or functionality you will need with a single command.
 
 ---
 
-#### Getting to Know Ruby
+### Getting to Know Ruby
 
 A detailed overview of Ruby is beyond the scope of our documentation, but this guide is intended to point you in the right direction and get you familiarized with the important terms. The Padrino web framework is built in the [Ruby programming language](http://www.ruby-lang.org/en/). The Padrino codebase is a set of modular libraries for Ruby which are packaged using [RubyGems](http://rubygems.org/).
 
@@ -57,7 +51,7 @@ Through these guides, learning Ruby the language should be fairly painless and h
 
 ---
 
-#### Learning to Love Sinatra
+### Learning to Love Sinatra
 
 Padrino is a framework which builds on the existing functionality of the [Sinatra](http://sinatrarb.com) Ruby web DSL and provides a variety of additional tools and helpers to extend this foundation. To use Padrino, one should be familiar with the basic usage of Sinatra itself.
 
@@ -107,7 +101,7 @@ Read through these tutorials to understand routes, helpers, and the request/resp
 
 ---
 
-#### Scalable Sinatra using Padrino
+### Scalable Sinatra using Padrino
 
 Once you have a solid understanding of Sinatra then you can also already understand the simplest functionality of Padrino. This is because Padrino acts as a super-set of Sinatra.
 
@@ -149,7 +143,7 @@ These guides should shed light on the various aspects that make Padrino helpful 
 
 ---
 
-#### Extending Padrino Projects
+### Extending Padrino Projects
 
 As you being building real projects with Padrino, you will quickly require additional functionality not built into Padrino itself. Thankfully finding and using modular libraries that add additional functionality to your Sinatra and Padrino applications is quite painless.
 
@@ -192,3 +186,6 @@ which will install that gem into your project (and Gemfile) automatically. If yo
 - [Padrino Integrations](https://github.com/padrino/padrino-framework/wiki/Integrations)
 
 and of course never underestimate searching [GitHub](https://github.com) and finding Rack or Sinatra compatible repositories. Any Rack / Sinatra / Padrino libraries will all generally work seamlessly in Padrino projects. Consider [adding a recipe](http://github.com/padrino/padrino-recipes) for your favorite extensions!
+
+[Next Section &ndash; Installation](#){: .button}
+{: .excerpt}

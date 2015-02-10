@@ -10,6 +10,10 @@
     display: inline-block;
   }
 
+  &:hover {
+    color: color(white);
+  }
+
   &--large {
     @extend .button;
     padding: rhythm(0.5) rhythm(1);

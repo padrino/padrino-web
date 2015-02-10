@@ -57,6 +57,7 @@ sup {
 a,
 button {
   color: inherit;
+  @include transition($global-transition-duration);
 }
 
 a {

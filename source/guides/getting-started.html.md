@@ -187,5 +187,5 @@ which will install that gem into your project (and Gemfile) automatically. If yo
 
 and of course never underestimate searching [GitHub](https://github.com) and finding Rack or Sinatra compatible repositories. Any Rack / Sinatra / Padrino libraries will all generally work seamlessly in Padrino projects. Consider [adding a recipe](http://github.com/padrino/padrino-recipes) for your favorite extensions!
 
-[Next Section &ndash; Installation](#){: .button}
+[Next Section &ndash; Installation](/guides/installation){: .button}
 {: .excerpt}

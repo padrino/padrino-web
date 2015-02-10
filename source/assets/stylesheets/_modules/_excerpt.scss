@@ -7,6 +7,10 @@
   @include margin-leader(1.5);
   @include margin-trailer(1.5);
 
+  &:last-child {
+    @include margin-trailer(0);
+  }
+
   &--small {
     @extend .excerpt;
     @include type-scale(small);
@@ -41,11 +45,20 @@
     @extend .excerpt--inline;
     @include type-scale(base);
     @include adjust-leading-to(0.8);
-    border: 2px solid color(gray--light);
+    background-color: color(gray--extra-light);
     border-radius: 5px;
-    color: color(white);
     font-family: font(monospaced);
     overflow: auto;
-    padding: rhythm(0.75) rhythm(1);
+    padding: rhythm(0.75);
+
+    &--light {
+      @extend .excerpt--code;
+      background: none;
+      border: 2px solid color(gray--light);
+
+      code {
+        background: none;
+      }
+    }
   }
 }

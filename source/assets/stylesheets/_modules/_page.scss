@@ -7,10 +7,14 @@
   }
 
   &__sidebar {
-    @include span(3);
+    @include breakpoint(bp(step-1)) {
+      @include span(3);
+    }
   }
 
   &__content {
-    @include span(9 last);
+    @include breakpoint(bp(step-1)) {
+      @include span(9 last);
+    }
   }
 }

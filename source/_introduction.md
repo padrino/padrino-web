@@ -32,7 +32,7 @@ $ cd cool
 $ padrino-gen admin
 $ padrino-gen admin page post
 ~~~
-{: .excerpt--tiny.excerpt--code}
+{: .excerpt--tiny.excerpt--code--light}
 
 [Learn more](#){: .button}
 {: .excerpt}
@@ -90,7 +90,7 @@ $ padrino g project cool --script mootools
 $ padrino g project cool --orm mongoid --script mootools
 $ padrino g project -h # shows available options
 ~~~
-{: .excerpt--tiny.excerpt--code}
+{: .excerpt--tiny.excerpt--code--light}
 
 [Learn more](#){: .button}
 {: .excerpt}

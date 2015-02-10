@@ -19,7 +19,7 @@ set :markdown_engine, :kramdown
 set :markdown, syntax_highlighter: 'rouge'
 
 # Set layouts
-page 'guides/*', :layout => :guides
+page 'guides/*', :layout => :sidebar
 
 # Development-specific configuration
 configure :development do

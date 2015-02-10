@@ -1,0 +1,32 @@
+// Paragraphs
+p {
+  @include margin-trailer(1);
+  // @include word-break(break-word);
+  // @include hyphens(auto);
+  @include type-ligatures;
+
+  &:last-child {
+    @include margin-trailer(0);
+  }
+}
+
+// Lists
+ul, ol {
+  @include margin-trailer(1)
+}
+
+li {
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+// Small
+small {
+  @include type-scale(small);
+}
+
+// Strong
+strong {
+  @include type-weight(bold);
+}

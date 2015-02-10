@@ -22,7 +22,7 @@
         '_mixins/_typomatic';
 
 // Base
-@import '_base/_base';
+@import '_base/**/*';
 
 // Modules
 @import '_modules/**/*';

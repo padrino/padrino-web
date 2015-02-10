@@ -1,0 +1,43 @@
+table {
+  background-color: color(white);
+  border: 1px solid color(gray--light);
+  border-bottom-width: 4px;
+  border-spacing: 0;
+  border-collapse: separate;
+  color: color(gray--dark);
+  width: 100%;
+
+  thead {
+    th {
+      border-bottom: 4px solid color(gray--light);
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(2n-1) {
+        background-color: color(gray--lighter);
+      }
+    }
+  }
+
+  tr {
+    &:last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid color(gray--light);
+    border-right: 1px solid color(gray--light);
+    padding: rhythm(0.5);
+    vertical-align: top;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}

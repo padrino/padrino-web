@@ -1,0 +1,31 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @include type-weight(semi-bold);
+  @include margin-leader(0);
+  @include margin-trailer(1);
+  @include type-ligatures;
+  color: color(black);
+}
+
+h1 {
+  @include type-scale(xxlarge);
+}
+
+h2 {
+  @include type-scale(xlarge);
+}
+
+h3 {
+  @include type-scale(large);
+}
+
+h4 {
+  @include type-scale(medium);
+}
+
+h5 {
+  @include type-scale(base);
+}

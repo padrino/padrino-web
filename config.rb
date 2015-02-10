@@ -3,7 +3,11 @@ require 'rouge'
 
 # Helpers
 helpers do
-  # ...
+  def nav_link_to(link_text, url, options = {})
+    options[:class] ||= ''
+    options[:class] << '--is-active' if url == current_page.url
+    link_to(link_text, url, options)
+  end
 end
 
 # Pretty URLs (Directory Indexes)

@@ -1,3 +1,7 @@
+---
+sidebar: 'guides/sidebar'
+---
+
 ## Guides
 
 When getting started with Sinatra or Padrino for the first time, we recommend that you check out the [Getting Started](/guides/getting-started) guide which provides an overview of the rest of our resources. Also be sure to check out the [Blog Tutorial](/guides/blog-tutorial) for a step-by-step walkthrough of building your first Padrino project.

@@ -18,6 +18,11 @@
     &:hover {
       color: color(red--semi-dark);
     }
+
+    &--is-active {
+      @extend .navigation__link;
+      @extend .navigation__link:hover;
+    }
   }
 }
 

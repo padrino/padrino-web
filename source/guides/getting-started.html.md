@@ -1,3 +1,7 @@
+---
+sidebar: 'guides/sidebar'
+---
+
 ## Getting Started
 
 This is a guide intended for a developer that is just getting started with the Padrino web framework (and perhaps Sinatra or Ruby). This guide will give an overview the various other guides, resources and steps towards becoming a Sinatra + Padrino aficionado.

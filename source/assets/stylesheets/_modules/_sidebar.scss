@@ -15,5 +15,15 @@
     color: inherit;
     display: block;
     padding: rhythm(0.25);
+
+    &:hover {
+      color: color(red--semi-dark);
+    }
+
+    &--is-active {
+      @extend .sidebar__link;
+      @include type-weight(semi-bold);
+      color: color(red--semi-dark);
+    }
   }
 }

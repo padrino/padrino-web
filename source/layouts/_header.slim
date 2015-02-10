@@ -6,10 +6,10 @@ header.header
       // a.navigation__toggler href='#'
       //   span.navigation__toggler__icon.fa.fa-navicon
       ul.navigation__items
-        li.navigation__item= link_to 'Code', '#', class: 'navigation__link'
-        li.navigation__item= link_to 'Docs', '#', class: 'navigation__link'
-        li.navigation__item= link_to 'Features', '#', class: 'navigation__link'
-        li.navigation__item= link_to 'Guides', '/guides', class: 'navigation__link'
-        li.navigation__item= link_to 'API', '#', class: 'navigation__link'
-        li.navigation__item= link_to 'Blog', '#', class: 'navigation__link'
-        li.navigation__item= link_to 'Fork It', '#', class: 'button--slim'
+        li.navigation__item= nav_link_to 'Code', '#', class: 'navigation__link'
+        li.navigation__item= nav_link_to 'Docs', '#', class: 'navigation__link'
+        li.navigation__item= nav_link_to 'Features', '#', class: 'navigation__link'
+        li.navigation__item= nav_link_to 'Guides', '/guides/', class: 'navigation__link'
+        li.navigation__item= nav_link_to 'API', '#', class: 'navigation__link'
+        li.navigation__item= nav_link_to 'Blog', '#', class: 'navigation__link'
+        li.navigation__item= nav_link_to 'Fork It', '#', class: 'button--slim'

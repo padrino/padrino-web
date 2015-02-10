@@ -1,3 +1,7 @@
+---
+sidebar: 'guides/sidebar'
+---
+
 ## Installation
 
 In order to use Padrino, you need a few prerequisite libraries.

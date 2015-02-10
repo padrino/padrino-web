@@ -1,6 +1,10 @@
 ---
+date: 2011-09-05
+update: 2014-11-21
+author: Nathan
+email: nesquena@gmail.com
+title: Getting Started
 sidebar: 'guides/sidebar'
-title: 'Guides: Getting Started'
 ---
 
 ## Getting Started
@@ -43,7 +47,7 @@ You should now be able to execute the following commands in the terminal:
 $ ruby -v
 $ gem -v
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 and these should return with version numbers and no errors if everything is installed correctly. Once you have Ruby and Rubygems installed locally, you should become familiar with the Ruby syntax. We recommend a few resources below to get yourself familiar with Ruby:
 
@@ -65,7 +69,7 @@ First, let’s install Sinatra through RubyGems:
 ~~~ shell
 $ gem install sinatra
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 Thankfully, Sinatra is probably the easiest to learn tool for making web apps you have yet encountered. Here is an example of a Sinatra application:
 
@@ -76,7 +80,7 @@ get '/hi' do
   "Hello World!"
 end
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 and then you can start the application with this in your terminal:
 
@@ -85,7 +89,7 @@ $ ruby -rubygems app.rb
 == Sinatra has taken the stage ...
 >> Listening on 0.0.0.0:4567
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 and then visit `http://localhost:4567/hi` in your web browser. It really is that easy, but there’s a lot more to learn!
 
@@ -121,7 +125,7 @@ You should also take time to familiarize yourself with the various “components
 ~~~ shell
 $ padrino g project my_project -d datamapper -t riot -s jquery -e haml -m mocha
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 And then read up on these components:
 
@@ -165,14 +169,14 @@ gem 'sinatra-flash'
 # ...more gems...
 gem 'padrino', '0.10.2'
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 All dependencies and libraries required for your project should be declared in the Bundler `Gemfile` which is generated automatically with every Padrino application. Once the dependencies have been declared, simply run
 
 ~~~ shell
 $ bundle install
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 which will resolve and install all the required libraries. Check out the [Bundler documentation](http://gembundler.com/) for more details about how this works.
 
@@ -181,7 +185,7 @@ The best extensions to look for are those that have already been included as “
 ~~~ shell
 $ padrino g plugin will_paginate
 ~~~
-{: .excerpt--small.excerpt--code }
+{: .excerpt--code }
 
 which will install that gem into your project (and Gemfile) automatically. If you can’t find a recipe in the [Recipe Box](http://github.com/padrino/padrino-recipes) then be sure to search for rack middlewares or sinatra compatible libraries to use in your app:
 

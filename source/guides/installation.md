@@ -1,6 +1,10 @@
 ---
+date: 2010-03-01
+update: 2014-11-21
+author: Nathan
+email: nesquena@gmail.com
+title: Installation
 sidebar: 'guides/sidebar'
-title: 'Guides: Installation'
 ---
 
 ## Installation
@@ -34,3 +38,4 @@ This will install all the necessary padrino dependencies to get you started crea
 
 [Next Section &ndash; Basic Projects](/guides/basic-projects){: .button}
 {: .excerpt}
+

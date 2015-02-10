@@ -1,6 +1,11 @@
 ---
+date: 2010-03-01
+update: 2014-12-14
+author: Nathan
+update_author: Matthias
+email: nesquena@gmail.com
+title: Guides
 sidebar: 'guides/sidebar'
-title: 'Guides'
 ---
 
 ## Guides

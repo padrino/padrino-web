@@ -33,6 +33,7 @@
   }
 
   &--inline {
+    @extend .excerpt;
     text-align: left;
   }
 

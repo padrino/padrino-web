@@ -8,7 +8,8 @@ $colors: (
   gray--dark: #333,
   red: #f00,
   red--semi-dark: #d0021b,
-  red--dark: #970019
+  red--dark: #970019,
+  red--extra-dark: darken(#970019, 10%)
 );
 
 // Fonts

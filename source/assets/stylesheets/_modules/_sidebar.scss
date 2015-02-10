@@ -1,0 +1,19 @@
+.sidebar {
+  @include type-scale(small);
+
+  &__item {
+    border-bottom: 1px solid color(gray--light);
+    display: block;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__link {
+    background: none;
+    color: inherit;
+    display: block;
+    padding: rhythm(0.25);
+  }
+}

@@ -8,7 +8,6 @@
 
   &__sidebar {
     @include span(3);
-    @include type-scale(small);
   }
 
   &__content {

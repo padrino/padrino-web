@@ -44,7 +44,7 @@
     &__link {
       @include type-scale(base);
       @include type-weight(regular);
-      background-image: linear-gradient(to bottom, rgba(color(gray),0) 50%, rgba(color(gray),0.6) 50%);
+      // background-image: linear-gradient(to bottom, rgba(color(gray),0) 50%, rgba(color(gray),0.6) 50%);
       color: color(gray);
     }
   }

@@ -1,10 +1,13 @@
 ---
 sidebar: 'guides/sidebar'
+title: 'Guides: Installation'
 ---
 
 ## Installation
 
 In order to use Padrino, you need a few prerequisite libraries.
+
+---
 
 ### Ruby & RubyGems
 
@@ -15,6 +18,8 @@ Once you have ruby, you need to make sure you have [RubyGems](https://rubygems.o
 #### Windows
 
 A caveat: If you are on Windows, we recommend the [RubyInstaller](http://rubyinstaller.org) project which takes care of the above steps for you.
+
+---
 
 ### Padrino
 

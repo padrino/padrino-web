@@ -1,5 +1,6 @@
 ---
 sidebar: 'guides/sidebar'
+title: 'Guides: Getting Started'
 ---
 
 ## Getting Started

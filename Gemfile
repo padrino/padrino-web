@@ -20,8 +20,5 @@ gem 'slim', '~> 3.0.1'
 gem 'breakpoint', '~> 2.5.0'
 gem 'susy', '~> 2.2.1'
 
-# Markdown
-gem 'kramdown', '~> 1.5.0'
-
 # Syntax highlighting
 gem 'rouge', '~> 1.8.0'

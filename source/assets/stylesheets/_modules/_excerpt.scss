@@ -30,10 +30,10 @@
     @include breakpoint(bp(step-1)) {
       @include type-scale(large, false);
     }
-    @include breakpoint(bp(full-plus)) {
-      @include pull(1);
-      width: span(14 no-gutters);
-    }
+    // @include breakpoint(bp(full-plus)) {
+    //   @include pull(1);
+    //   width: span(14 no-gutters);
+    // }
   }
 
   &--inline {

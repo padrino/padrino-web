@@ -22,19 +22,6 @@
     padding: rhythm(0.125) rhythm(0.5);
   }
 
-  &--raised {
-    @extend .button;
-    border: 1px solid color(red--dark);
-    box-shadow: 0 3px 0 0 color(red--dark);
-    text-shadow: 0 1px 0 color(red--dark);
-
-    &:hover {
-      border-color: color(red--extra-dark);
-      box-shadow: 0 3px 0 0 color(red--extra-dark);
-      text-shadow: 0 1px 0 color(red--extra-dark);
-    }
-  }
-
   &__icon {
     @include type-scale(large);
     @include adjust-leading-to(0.5);

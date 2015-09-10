@@ -56,6 +56,10 @@ $type-scale: (
     font-size: $base-font-size * 0.75,
     base-lines: 0.75
   ),
+  semismall: (
+    font-size: $base-font-size * 0.85,
+    base-lines: 0.85
+  ),
   base: (
     font-size: $base-font-size,
     base-lines: 1

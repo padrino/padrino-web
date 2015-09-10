@@ -1,7 +1,7 @@
 // Establish a vertical rhythm
 @include establish-baseline;
 
-// Include Open Sans from Google Fonts
+// Include fonts from Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 
@@ -13,7 +13,7 @@
 
 @include breakpoint(bp(full)) {
   html {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -30,10 +30,6 @@ blockquote {
 
 // Anchor
 a {
-  // background-image: linear-gradient(to bottom, rgba(color(red--semi-dark),0) 50%, rgba(color(red--semi-dark),0.6) 50%);
-  // background-repeat: repeat-x;
-  // background-size: 2px 2px;
-  // background-position: 0 1.05em;
   color: color(red--semi-dark);
   text-decoration: none;
 

@@ -7,6 +7,11 @@ helpers do
   end
 end
 
+# Blog
+activate :blog do |blog|
+  blog.prefix = 'blog'
+end
+
 # Syntax highlighting
 activate :syntax
 

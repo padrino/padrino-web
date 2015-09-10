@@ -8,10 +8,13 @@ gem 'middleman', '~> 3.4.0'
 gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
 
 # Syntax highlighting plugin
-gem 'middleman-syntax', '~> 2.0.0'
 
 # Livereload plugin
+
+# Middleman plugins
+gem 'middleman-blog', '~> 3.5.3'
 gem 'middleman-livereload', '~> 3.4.3'
+gem 'middleman-syntax', '~> 2.0.0'
 
 # Templating
 gem 'slim', '~> 3.0.6'

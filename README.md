@@ -8,8 +8,6 @@ Uses the following gems:
 * [Slim](https://github.com/slim-template/slim) - Templating engine
 * [Breakpoint](https://github.com/at-import/breakpoint) - Easy Sass media queries
 * [Susy](https://github.com/ericam/susy) - Sass layout toolkit
-* [Kramdown](https://github.com/gettalong/kramdown) - Enhanced Markdown
-* [Rouge](https://github.com/jneen/rouge) - Syntax highlighting
 
 ## Build instructions
 

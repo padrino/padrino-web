@@ -7,7 +7,7 @@ title: Standalone Usage in Sinatra
 sidebar: 'guides/sidebar'
 ---
 
-### Standalone Usage in Sinatra
+## Standalone Usage in Sinatra
 
 Padrino is by default a full-stack framework which provides a large number of enhancements to Sinatra and uses a new base application `Padrino::Application`. However, there are clearly times when even Padrino itself is far too ‘heavyweight’ for an application.
 

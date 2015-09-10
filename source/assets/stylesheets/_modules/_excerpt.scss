@@ -50,6 +50,7 @@
     font-family: font(monospaced);
     overflow: auto;
     padding: rhythm(0.75);
+    -webkit-overflow-scrolling: touch;
 
     &--light {
       @extend .excerpt--code;

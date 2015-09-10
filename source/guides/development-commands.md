@@ -196,3 +196,5 @@ Padrino.require_dependencies("path/one/**/*.rb")
 ~~~
 {: .excerpt--code }
 
+[Next Section &ndash; Mounting Applications](/guides/mounting-applications){: .button}
+{: .excerpt}

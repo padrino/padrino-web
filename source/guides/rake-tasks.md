@@ -229,3 +229,6 @@ else
   account.errors.full_messages.each { |m| shell.say "   - #{m}" }
 end
 ~~~
+
+[Next Section &ndash; The Bleeding Edge](/guides/the-bleeding-edge){: .button}
+{: .excerpt}

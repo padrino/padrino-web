@@ -224,3 +224,5 @@ blog $ padrino g admin_page post
 
 That’s all! Start your webserver and begin adding some posts.
 
+[Next Section &ndash; Generators](/guides/generators){: .button}
+{: .excerpt}

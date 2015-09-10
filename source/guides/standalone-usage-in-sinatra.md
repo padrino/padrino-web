@@ -151,3 +151,6 @@ end
 ~~~
 
 This will allow for use of the caching functionality within Sinatra.
+
+[Next Section &ndash; Running Padrino on JRuby](/guides/running-padrino-on-jruby){: .button}
+{: .excerpt}

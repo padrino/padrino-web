@@ -160,3 +160,6 @@ Make changes accordingly to your */src/padrino-framework* to see them reflected 
 
 
 **REMEMBER** to add always `--dev` when generating a project because without that the generated project will use the gem instead the git checkout.
+
+[Next Section &ndash; Adding New Components](/guides/adding-new-components){: .button}
+{: .excerpt}

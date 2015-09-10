@@ -844,3 +844,6 @@ A link with a custom method, when clicked by the user, visits the link using the
 ~~~
 
 This will ensure jquery and the jquery ujs adapter are properly loaded to work with the helpers listed above.
+
+[Next Section &ndash; Padrino Admin](/guides/padrino-admin){: .button}
+{: .excerpt}

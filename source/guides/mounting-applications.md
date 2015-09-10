@@ -55,3 +55,5 @@ Padrino.mount("Foo").to("/foo").host("bar.example.org")
 
 This will configure each application to match to the given host pattern simplifying routing considerably.
 
+[Next Section &ndash; Blog Tutorial](/guides/blog-tutorial){: .button}
+{: .excerpt}

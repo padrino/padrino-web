@@ -761,3 +761,6 @@ Generate the task file with namespace and description options:
 $ padrino g task bar --namespace=sample --description="This\ is\ a\ sample"
 ~~~
 {: .excerpt--code }
+
+[Next Section &ndash; Development Commands](/guides/development-commands){: .button}
+{: .excerpt}

@@ -829,3 +829,6 @@ sample_blog $ heroku open
 ~~~
 
 Enjoy!
+
+[Next Section &ndash; Application Helpers](/guides/application-helpers){: .button}
+{: .excerpt}

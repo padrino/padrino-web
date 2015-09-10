@@ -677,3 +677,6 @@ This completes the full integration of a new locale into Padrino. Once all of th
 
 
 An example of the [actual commit](http://github.com/padrino/padrino-framework/commit/64465d1835cf32996bc36bb14ed9fd1c21e3cd76) of the Russian locale translations are a great example of how to contribute to Padrino.
+
+[Next Section &ndash; Standalone Usage in Sinatra](/guides/standalone-usage-in-sinatra){: .button}
+{: .excerpt}

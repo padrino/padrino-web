@@ -150,3 +150,6 @@ Using *form\_builder* like:
 
 
 the tag **label** automatically translates for **you** the field name!!
+
+[Next Section &ndash; Extensions](/guides/extensions){: .button}
+{: .excerpt}

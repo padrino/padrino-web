@@ -32,3 +32,6 @@ If the extension is a gem put it in Gemfile otherwise create a file under your l
   Permalink|Generates ActiveRecord permalinks for your fields|[gist](http://gist.github.com/308928#file_permalink.rb)
   Flash|Helps setup cookie sessions with swfupload|[gist](http://gist.github.com/313322#file_flashmiddleware.rb)
 {: .excerpt--small }
+
+[Next Section &ndash; Rake Tasks](/guides/rake-tasks){: .button}
+{: .excerpt}

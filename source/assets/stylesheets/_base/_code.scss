@@ -4,5 +4,7 @@ pre {
 
 code {
   background-color: color(gray--extra-light);
+  border-radius: rhythm(0.125);
   color: color(black);
+  padding: rhythm(0.125) rhythm(0.25);
 }

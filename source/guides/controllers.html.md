@@ -656,3 +656,6 @@ domain with a `.` like this instead:
 set :sessions, :domain => '.foo.com'
 ~~~
 {: .excerpt--code}
+
+[Next Section &ndash; Localization](/guides/localization){: .button}
+{: .excerpt}

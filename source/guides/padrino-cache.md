@@ -440,3 +440,6 @@ set :cache, Padrino::Cache::Store::Mongo.new(::Mongo::Connection.new(...))
 
 
 The Mongo Store takes a Mongo connection instance.
+
+[Next Section &ndash; Controllers](/guides/controllers){: .button}
+{: .excerpt}

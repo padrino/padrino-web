@@ -32,10 +32,8 @@ Once you have ruby and rubygems installed properly, you just need to install the
 ~~~ sh
 $ gem install padrino
 ~~~
-{: .excerpt--small.excerpt--code}
 
 This will install all the necessary padrino dependencies to get you started creating applications. Now you are ready to use this gem to [enhance your Sinatra projects](/guides/standalone-usage-in-sinatra) or to create new Padrino applications. If you are new to Ruby or Sinatra, be sure to check out the [Getting Started](/guides/getting-started) guide for more information.
 
 [Next Section &ndash; Basic Projects](/guides/basic-projects){: .button}
 {: .excerpt}
-

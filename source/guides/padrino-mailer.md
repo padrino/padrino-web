@@ -254,3 +254,6 @@ mailer :sample do
   end
 end
 ~~~
+
+[Next Section &ndash; Padrino Cache](/guides/padrino-cache){: .button}
+{: .excerpt}

@@ -152,3 +152,6 @@ Sessions can be shared between mounted applications by setting a `:session_id` w
 ### Contributing Persistence Adapters
 
 If you are planning to use padrino with other adapters rather than the currently supported ones, and you want to contribute to the project by extending its support with additional adapters like ohm, cassandra and so on, be sure to check out the [adding new components](/guides/adding-new-components) guide.
+
+[Next Section &ndash; Padrino Mailer](/guides/padrino-mailer){: .button}
+{: .excerpt}

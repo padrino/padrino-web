@@ -7,30 +7,33 @@ title: Application Helpers
 sidebar: 'guides/sidebar'
 ---
 
-This component provides a great deal of view helpers related to html markup generation. There are helpers for generating tags, forms, links, images, and more. Most of the basic methods should be very familiar to anyone who has used rails view helpers.
- 
+## Application Helpers
 
-## Output Helpers
+This component provides a great deal of view helpers related to html markup generation. There are helpers for generating tags, forms, links, images, and more. Most of the basic methods should be very familiar to anyone who has used rails view helpers.
+
+---
+
+### Output Helpers
 
 Output helpers are a collection of important methods for managing, capturing and displaying output in various ways and is used frequently to support higher-level helper functions. There are three output helpers worth mentioning: `content_for`, `capture_html`, and `concat_content`
 
 The content\_for functionality supports capturing content and then rendering this into a different place such as within a layout. One such popular example is including assets onto the layout from a template:
 
 
-```erb
+~~~ erb
 # app/views/site/index.erb
 ...
 <% content_for :assets do %>
   <%= stylesheet_link_tag 'index', 'custom' %>
 <% end %>
 ...
-```
+~~~
 
 
 Added to a template, this will capture the includes from the block and allow them to be yielded into the layout:
 
 
-```erb
+~~~ erb
 # app/views/layout.erb
 ...
 <head>
@@ -38,7 +41,7 @@ Added to a template, this will capture the includes from the block and allow the
   <%= stylesheet_link_tag 'style' %>
   <%= yield_content :assets %>
 </head>
-```
+~~~
 
 
 This will automatically insert the contents of the block (in this case a stylesheet include) into the location the content is yielded within the layout.
@@ -47,25 +50,25 @@ This will automatically insert the contents of the block (in this case a stylesh
 You can also check if a `content_for` block exists for a given key using `content_for?`:
 
 
-```erb
+~~~ erb
 # app/views/layout.erb
 <% if content_for?(:assets) %>
   <div><%= yield_content :assets %></div<
 <% end %>
-```
+~~~
 
 
 The `capture_html` and the `concat_content` methods allow content to be manipulated and stored for use in building additional helpers accepting blocks or displaying information in a template. One example is the use of these in constructing a simplified ‘form\_tag’ helper which accepts a block.
 
 
-```ruby
+~~~ ruby
 # form_tag '/register' do ... end
 def form_tag(url, options={}, &block)
   # ... truncated ...
   inner_form_html = capture_html(&block)
   concat_content '<form>' + inner_form_html + '</form>'
 end
-```
+~~~
 
 
 This will capture the template body passed into the form\_tag block and then append the content to the template through the use of `concat_content`. Note have been built to work for both haml and erb templates using the same syntax.
@@ -91,9 +94,9 @@ The list of defined helpers in the ‘output helpers’ category:
   - Outputs the given text to the templates buffer directly in erb or haml
   - `concat_content(“This will be output to the template buffer in erb or haml”)`
 
- 
+---
 
-## Tag Helpers
+### Tag Helpers
 
 Tag helpers are the basic building blocks used to construct html ‘tags’ within a view template. There are three major functions for this category: `tag`, `content_tag` and `input_tag`.
 
@@ -104,10 +107,10 @@ The tag and content\_tag are for building arbitrary html tags with a name and sp
 The input\_tag is used to build tags that are related to accepting input from the user:
 
 
-```erb
+~~~ erb
 input_tag :text, :class => "demo" # => <input type='text' class='demo' />
 input_tag :password, :value => "secret", :class => "demo"
-```
+~~~
 
 Note that all of these accept html options and result in returning a string containing html tags.
 
@@ -125,14 +128,15 @@ The list of defined helpers in the ‘tag helpers’ category:
   - Creates an html input field with given type and options
   - `input_tag :text,     :class => “demo”`
   - `input_tag :password, :value => “secret”, :class => “demo”`
- 
 
-## Asset Helpers
+---
+
+### Asset Helpers
 
 Asset helpers are intended to help insert useful html onto a view template such as ‘flash’ notices, hyperlinks, mail\_to links, images, stylesheets and javascript. An example of their uses would be on a simple view template:
 
 
-```haml
+~~~ haml
 # app/views/example.haml
 ...
 %head
@@ -145,7 +149,7 @@ Asset helpers are intended to help insert useful html onto a view template such 
   %p= link_to 'Blog', '/blog', :class => 'example'
   %p Mail me at #{mail_to 'fake@faker.com', "Fake Email Link", :cc => "test@demo.com"}
   %p= image_tag 'padrino.png', :width => '35', :class => 'logo'
-```
+~~~
 
 
 The list of defined helpers in the ‘asset helpers’ category:
@@ -183,14 +187,15 @@ The list of defined helpers in the ‘asset helpers’ category:
 
 
 By default, all ‘assets’ including images, scripts, and stylesheets have a timestamp appended at the end to clear the stale cache for the item when modified. To disable this, simply put the setting `disable :asset_stamp` in your application configuration within `app/app.rb`.
- 
 
-## Form Helpers
+---
+
+### Form Helpers
 
 Form helpers are the ‘standard’ form tag helpers you would come to expect when building forms. A simple example of constructing a non-object form would be:
 
 
-```haml
+~~~ haml
 # app/views/example.haml
 = form_tag '/destroy', :class => 'destroy-form', :method => 'delete' do
   = flash_tag(:notice)
@@ -208,7 +213,7 @@ Form helpers are the ‘standard’ form tag helpers you would come to expect wh
       = check_box_tag :confirm_delete
   = field_set_tag(:class => 'buttons') do
     = submit_tag "Remove"
-```
+~~~
 
 
 The list of defined helpers in the ‘form helpers’ category:
@@ -280,16 +285,17 @@ The list of defined helpers in the ‘form helpers’ category:
 - `image_submit_tag(source, options={})`
   - Constructs an image submit button from the given options
   - `image_submit_tag “submit.png”, :class => ‘success’`
- 
 
-## FormBuilders
+---
+
+### FormBuilders
 
 Form builders are full-featured objects allowing the construction of complex object-based forms using a simple, intuitive syntax.
 
 A form\_for using these basic fields might look like:
 
 
-```haml
+~~~ haml
 # app/views/example.haml
 = form_for @user, '/register', :id => 'register' do |f|
   = f.error_messages
@@ -314,7 +320,7 @@ A form\_for using these basic fields might look like:
       = location.text_field :city
   %p
     = f.submit "Create", :class => 'button'
-```
+~~~
 
 
 The list of defined helpers in the ‘form builders’ category:
@@ -373,6 +379,8 @@ The following are fields provided by AbstractFormBuilder that can be used within
 - `image_submit(source, options={})`
   - `f.image_submit “submit.png”, :class => ‘long’`
 
+---
+
 ### Standard Form Builder
 
 There is also an additional StandardFormBuilder which builds on the abstract fields that can be used within a form\_for.
@@ -380,7 +388,7 @@ There is also an additional StandardFormBuilder which builds on the abstract fie
 A form\_for using these standard fields might be:
 
 
-```haml
+~~~ haml
 # app/views/example.haml
 = form_for @user, '/register', :id => 'register' do |f|
     = f.error_messages
@@ -390,20 +398,20 @@ A form\_for using these standard fields might be:
     = f.select_block     :fav_color, :options => ['red', 'blue']
     = f.password_field_block :password
     = f.submit_block "Create", :class => 'button'
-```
+~~~
 
 
 and would generate this html (with each input contained in a paragraph and containing a label):
 
 
-```html
+~~~ html
 <form id="register" action="/register" method="post">
   <label for="user_name">Full name:</label>
   <input type="text" id="user_name" name="user[name]" />
     ...omitted...
   <input type="submit" value="Create" class="button" />
 </form>
-```
+~~~
 
 The following are fields provided by StandardFormBuilder that can be used within a form\_for or fields\_for:
 
@@ -424,13 +432,14 @@ The following are fields provided by StandardFormBuilder that can be used within
 - `image_submit_block(source, options={})`
   - `image_submit_block(‘submit.png’, :class => ‘big’)`
 
+---
 
 ### Custom Form Builders
 
 You can also easily build your own FormBuilder which allows for customized fields and behavior:
 
 
-```ruby
+~~~ ruby
 class MyCustomFormBuilder < AbstractFormBuilder
   # Here we have access to a number of useful variables
   #
@@ -442,37 +451,38 @@ class MyCustomFormBuilder < AbstractFormBuilder
   # In addition, we have access to all the existing field tag
   # helpers (text_field, hidden_field, file_field, ...)
 end
-```
+~~~
 
 
 Once a custom builder is defined, any call to form\_for can use the new builder:
 
 
-```haml
+~~~ haml
 = form_for @user, '/register', :builder => 'MyCustomFormBuilder', :id => 'register' do |f|
   ...fields here...
-```
+~~~
 
 
 The form builder can even be made into the default builder when form\_for is invoked:
 
 
-```ruby
+~~~ ruby
 # anywhere in the Padrino or Sinatra application
 set :default_builder, 'MyCustomFormBuilder'
-```
+~~~
 
 
 And there you have it, a fairly complete form builder solution for Padrino (and Sinatra).
 I hope to create or merge in an even better ‘default’ form\_builder in the near future.
 
+---
 
 ### Nested Object Form Support
 
 Available in the 0.9.21 Padrino release is support for nested object form helpers. This allows forms to have arbitrarily complex nested forms that can build multiple related objects together. Let’s take a simple example of a person with an address. Here are the related psuedo models:
 
 
-```ruby
+~~~ ruby
 class Person < ORM::Base
   has_many :addresses, :class_name => 'Address'
   accepts_nested_attributes_for :addresses, :allow_destroy => true
@@ -481,13 +491,13 @@ end
 class Address < ORM::Base
   belongs_to :person
 end
-```
+~~~
 
 
 The model declarations are dependent on your chosen ORM. Check the documentation to understand how to declare nested attributes in your given ORM component. Given those models and enabling nested attributes for the association, the following view will allow nested form creation:
 
 
-```haml
+~~~ haml
 # app/views/person/_form.html.haml
 = form_for @person, '/person/create'  do |f|
   = f.text_field :name
@@ -502,13 +512,14 @@ The model declarations are dependent on your chosen ORM. Check the documentation
       = address_form.label '_destroy', :caption => 'Remove'
     = submit_tag "Save"
 
-```
+~~~
 
 
 This will present a form that allows the person’s name and color to be set along with their first address. Using this functionality, the controller does not need to change whatsoever as the nested data will be passed in and instantiated as part of the parent model.
- 
 
-## Format Helpers
+---
+
+### Format Helpers
 
 Format helpers are several useful utilities for manipulating the format of text to achieve a goal.
  The four format helpers are `escape_html`, `distance_of_time_in_words`, `time_ago_in_words`, and `js_escape_html`.
@@ -527,14 +538,14 @@ There is also an alias for escape\_html called `h` for even easier usage within 
 Format helpers also includes a number of useful text manipulation functions such as `simple_format`, `pluralize`, `word_wrap`, and `truncate`.
 
 
-```ruby
+~~~ ruby
 simple_format("hello\nworld") # => "<p>hello<br/>world</p>"
 pluralize(2, 'person') => '2 people'
 word_wrap('Once upon a time', :line_width => 8) => "Once upon\na time"
 truncate("Once upon a time in a world far far away", :length => 8) => "Once upon..."
 truncate_words("Once upon a time in a world far far away", :length => 4) => "Once upon a time..."
 highlight('Lorem dolor sit', 'dolor') => "Lorem <strong class="highlight">dolor</strong> sit"
-```
+~~~
 
 
 These helpers can be invoked from any route or view within your application.
@@ -586,9 +597,10 @@ The list of defined helpers in the ‘format helpers’ category:
 - `js_escape_html(html_content)`
   - Escapes html to allow passing information to javascript. Used for passing data inside an ajax .js.erb template
   - `js_escape_html("<h1>Hey</h1>")`
- 
 
-## Render Helpers
+---
+
+### Render Helpers
 
 This component provides a number of rendering helpers making the process of displaying templates a bit easier.
 This plugin also has support for useful additions such as partials (with support for :collection) for the templating system.
@@ -597,43 +609,43 @@ This plugin also has support for useful additions such as partials (with support
 Using render plugin helpers is extremely simple. If you want to render an erb template in your view path:
 
 
-```ruby
+~~~ ruby
 render :erb, 'path/to/erb/template'
-```
+~~~
 
 
 or using haml templates works just as well:
 
 
-```ruby
+~~~ ruby
 render :haml, 'path/to/haml/template'
-```
+~~~
 
 
 There is also a method which renders the first view matching the path and removes the need to define an engine:
 
 
-```ruby
+~~~ ruby
 render 'path/to/any/template'
-```
+~~~
 
 
 It is worth noting these are mostly for convenience. With nested view file paths in Sinatra, this becomes tiresome:
 
 
-```ruby
+~~~ ruby
 haml :"the/path/to/file"
 erb "/path/to/file".to_sym
-```
+~~~
 
 
 Finally, we have the all-important partials support for rendering mini-templates onto a page:
 
 
-```ruby
+~~~ ruby
 partial 'photo/item', :object => @photo, :locals => { :foo => 'bar' }
 partial 'photo/item', :collection => @photos
-```
+~~~
 
 
 This works as you would expect and also supports the collection counter inside the partial `item_counter`
@@ -655,9 +667,10 @@ The list of defined helpers in the ‘render helpers’ category:
     - Renders the html related to the partial template for object or collection
     - `partial ‘photo/item’, :object => @photo, :locals => { :foo => ‘bar’ }`
     - `partial ‘photo/item’, :collection => @photos`
- 
 
-## Custom Defined Helpers
+---
+
+### Custom Defined Helpers
 
 In addition to the helpers provided by Padrino out of the box, you can also add your own helper methods and classes that will be accessible within any controller or view automatically.
 
@@ -665,33 +678,33 @@ In addition to the helpers provided by Padrino out of the box, you can also add 
 To define a helper method, simply use an existing helper file (created when generating a controller) or define your own file in `app/helpers` within your application. Methods can be made available within you controller by simply wrapping the methods in the `helpers` block:
 
 
-```ruby
+~~~ ruby
 # app/helpers/some_helper.rb
 MyAppName.helpers do
   def some_method
     # ...do something here...
   end
 end
-```
+~~~
 
 
 You can also define entire classes for use as helpers just as easily:
 
 
-```ruby
+~~~ ruby
 # app/helpers/some_helper.rb
 class SomeHelper
   def self.do_something
     # ...do something here...
   end
 end
-```
+~~~
 
 
 These helpers can then easily be invoked in any controllers or templates within your application:
 
 
-```ruby
+~~~ ruby
 # app/controllers/posts.rb
 MyAppName.controllers :posts do
   get :index do
@@ -699,43 +712,45 @@ MyAppName.controllers :posts do
     SomeHelper.do_something # helper class
   end
 end
-```
+~~~
 
 
 Use these in situations where you wish to cleanup your controller or your view code. Helpers are particularly useful for DRY’ing up repeated use of the same markup or behavior. **Note** that helper methods and objects should be reloaded automatically for you in development.
- 
 
-## Unobtrusive Javascript Helpers
+---
+
+### Unobtrusive Javascript Helpers
 
 In addition to the helpers above, certain helpers also have certain unobtrusive javascript options that are available to be used with any of the javascript adapters packaged with padrino. Once your app has been [generated](http://www.padrinorb.com/guides/generators) with a particular javascript adapter, you can utilize the baked in support with the `link_to` and `form_for` tags.
 
+---
 
 ### Remote Forms
 
 To generate a ‘remote’ form in a view:
 
 
-```haml
+~~~ haml
 # /app/views/users/new.html.haml
 = form_for :user, url(:create, :format => :js), :remote => true do |f|
   .content=partial "/users/form"
-```
+~~~
 
 
 which will generate the following unobtrusive markup:
 
 
-```html
+~~~ html
 <form data-remote="true" action="/items/create.js" method="post">
   <div class="content">
     <input type="text" id="post_title" name="post[title]">
     <input type="submit" value="Create">
   </div>
 </form>
-```
+~~~
 
 
-```ruby
+~~~ ruby
 # /app/controllers/users.rb
 post :create, :provides => :js do
   @user = User.new(params[:user])
@@ -745,83 +760,87 @@ post :create, :provides => :js do
     "alert('User is not valid');"
   end
 end
-```
+~~~
 
 
 A remote form, when submitted by the user, invokes an xhr request to the specified url (with the appropriate form parameters) and then evaluates the response as javascript.
 
+---
 
 ### Remote Links
 
 To generate a ‘remote’ link in a view:
 
 
-```ruby
+~~~ ruby
 link_to "add item", url(:items, :new, :format => :js), :remote => true
-```
+~~~
 
 
 which will generate the following unobtrusive markup:
 
 
-```html
+~~~ html
 <a href="/items/new.js" data-remote="true">add item</a>
-```
+~~~
 
 
 A remote link, when clicked by the user, invokes an xhr request to the specified url and then evaluates the response as javascript.
 
+---
 
 ### Link Confirmations
 
 To generate a ‘confirmation’ link in a view:
 
 
-```ruby
+~~~ ruby
 link_to "delete item", url(:items, :destroy, :format => :js), :confirm => "Are You Sure?"
-```
+~~~
 
 
 which will generate the following unobtrusive markup:
 
 
-```html
+~~~ html
 <a data-confirm="Are You Sure?" href="/posts/destroy/7">[destroy]</a>
-```
+~~~
 
 
 A link with confirmation, when clicked by the user, displays an alert box confirming the action before invoking the link.
 
+---
 
 ### Custom Method Links
 
 To generate a ‘method’ link in a view:
 
 
-```ruby
+~~~ ruby
 link_to "logout", url(:session, :destroy, :format => :js), :method => :delete
-```
+~~~
 
 
 which will generate the following unobtrusive markup:
 
 
-```html
+~~~ html
 <a data-method="delete" href="/posts/destroy/7" rel="nofollow">[destroy]</a>
-```
+~~~
 
 
 A link with a custom method, when clicked by the user, visits the link using the http method specified rather than via the ‘GET’ method.
+
+---
 
 ### Enabling UJS Adapter
 
 **Note**: In order for the unobstrusive javascript to work, you must be sure to include the chosen javascript framework and ujs adapter in your views (or layout). For instance, if I selected jquery for my project:
 
 
-```haml
+~~~ haml
 # /apps/views/layouts/application.haml
 = javascript_include_tag 'jquery', 'jquery-ujs', 'application'
-```
+~~~
 
 This will ensure jquery and the jquery ujs adapter are properly loaded to work with the helpers listed above.
-

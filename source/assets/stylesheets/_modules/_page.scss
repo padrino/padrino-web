@@ -4,6 +4,13 @@
 
   &--index {
     text-align: center;
+
+    // Auto styling of code blocks
+    pre {
+      @extend .excerpt--tiny;
+      @extend .excerpt--code--light;
+      display: block;
+    }
   }
 
   &__sidebar {
@@ -15,6 +22,12 @@
   &__content {
     @include breakpoint(bp(step-1)) {
       @include span(9 last);
+    }
+
+    // Auto styling of code blocks
+    pre {
+      @extend .excerpt--code;
+      display: block;
     }
   }
 }

@@ -124,7 +124,7 @@ Note: Be careful with your naming when using generators and do not have your pro
 
 ---
 
-### Some examples:
+### Some examples
 
 **Generate a project with a different application name from the project path**
 
@@ -135,7 +135,7 @@ $ padrino g my_project -n blog
 {: .excerpt--code }
 
 
-this will generate the project at path *my\_project/* but the applications name will be **Blog**.
+This will generate the project at path *my\_project/* but the applications name will be **Blog**.
 
 
 **Generate a project with mongoid and run bundler after**
@@ -761,4 +761,3 @@ Generate the task file with namespace and description options:
 $ padrino g task bar --namespace=sample --description="This\ is\ a\ sample"
 ~~~
 {: .excerpt--code }
-

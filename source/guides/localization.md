@@ -7,13 +7,13 @@ title: Localization
 sidebar: 'guides/sidebar'
 ---
 
-Padrino supports full localization in:
+## Localization
 
+Padrino supports full localization in:
 
 - padrino-core (date formats, time formats etc…)
 - padrino-admin (admin language, orm fields, orm errors, etc…)
 - padrino-helpers (currency, percentage, precision, duration etc…)
-
 
 At the moment we support the following list of languages:
 
@@ -34,9 +34,10 @@ At the moment we support the following list of languages:
 - Traditional Chinese
 - Simplified Chinese
 - Japanese
- 
 
-## Provide your translations
+---
+
+### Provide your translations
 
 Download and translate these files:
 
@@ -47,19 +48,20 @@ Download and translate these files:
 
 
 zip your files and send it to [padrinorb@gmail.com](mailto:padrinorb@gmail.org)
- 
 
-## How to localize your app
+---
+
+### How to localize your app
 
 The first thing that you need to do is to set your locale by appending it to boot.rb:
 
 
-```ruby
+~~~ruby
 # config/boot.rb
 Padrino.before_load do
   I18n.locale = :de
 end
-```
+~~~
 
 
 By default Padrino will search for all `.yml` or `.rb` files located in `app/locale`; as an example try to add the following to your `app/locale/de.yml`:
@@ -68,24 +70,25 @@ By default Padrino will search for all `.yml` or `.rb` files located in `app/loc
 in your view or controller or wherever you prefer add:
 
 
-```ruby
+~~~ruby
 I18n.t("foo")
-```
+~~~
 
 
 you will get:
 
     => "Bar"
- 
 
-## Translate Models (ActiveRecord)
+---
+
+### Translate Models (ActiveRecord)
 
 Translating models via Padrino requires few seconds thanks to a builtin rake task!
 
 Assuming the following Account model:
 
 
-```ruby
+~~~ruby
 create_table :accounts do |t|
   t.string   :name
   t.string   :surname
@@ -94,26 +97,26 @@ create_table :accounts do |t|
   t.string   :crypted_password
   t.string   :role
 end
-```
+~~~
 
 
 add this to your boot.rb (or anywhere else):
 
 
-```ruby
+~~~ruby
 # config/boot.rb
 Padrino.before_load do
   I18n.locale = :it
 end
-```
+~~~
 
 
 run padrino rake task for localizing your model:
 
 
-```sh
+~~~sh
 padrino rake ar:translate
-```
+~~~
 
 
 a new it.yml file will be created into `/app/locale/models/account/it.yml` with the following:
@@ -123,14 +126,15 @@ you can now edit your generated `it.yml` file to reflect your current locale (It
 
 
 padrino-admin will now use your newly created yml file for translating the column names of grids, forms, error\_messages etc…
- 
 
-## Bonus
+---
+
+### Bonus
 
 Using *form\_builder* like:
 
 
-```haml
+~~~haml
 -form_for :account, url(:accounts_create, :format => :js), :remote => true do |f|
   %table
     %tr
@@ -142,8 +146,7 @@ Using *form\_builder* like:
     %tr
       %td=f.label :role
       %td=f.select :role, :options => access_control.roles
-```
+~~~
 
 
 the tag **label** automatically translates for **you** the field name!!
-

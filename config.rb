@@ -1,6 +1,3 @@
-require 'kramdown'
-require 'rouge'
-
 # Helpers
 helpers do
   def nav_link_to(link_text, url, options = {})
@@ -9,6 +6,9 @@ helpers do
     link_to(link_text, url, options)
   end
 end
+
+# Syntax highlighting
+activate :syntax
 
 # Pretty URLs (Directory Indexes)
 activate :directory_indexes
@@ -19,7 +19,7 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 
 # Markdown configration
-set :markdown, syntax_highlighter: 'rouge'
+set :markdown_engine, :kramdown
 
 # Set layouts
 page 'guides/*', :layout => :sidebar

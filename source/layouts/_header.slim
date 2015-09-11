@@ -3,12 +3,12 @@ header.header
     = link_to 'Padrino', '/', class: 'padrino-name'
   .header__navigation
     nav.navigation
-      // a.navigation__toggler href='#'
-      //   span.navigation__toggler__icon.fa.fa-navicon
-      ul.navigation__items
+      a#navigation__toggler.navigation__toggler href='#'
+        span.navigation__toggler__icon.fa.fa-navicon
+      ul#navigation__items.navigation__items
         li.navigation__item= link_to 'Overview', '/', class: 'navigation__link'
         li.navigation__item= nav_link_to 'Guides', '/guides/', class: 'navigation__link'
         li.navigation__item= nav_link_to 'API', 'http://www.rubydoc.info/github/padrino/padrino-framework', class: 'navigation__link'
         li.navigation__item= nav_link_to 'Contribute', '/contribute/', class: 'navigation__link'
         li.navigation__item= nav_link_to 'Blog', '/blog/', class: 'navigation__link'
-        li.navigation__item= nav_link_to 'GitHub', 'https://github.com/padrino/padrino-framework', class: 'button--slim'
+        li.navigation__item= nav_link_to '<span class="button--slim">GitHub</span>', 'https://github.com/padrino/padrino-framework', class: 'navigation__link'

@@ -1,13 +1,21 @@
 .header {
-  @include margin-trailer(4.25);
+  @include margin-trailer(2);
+  @include breakpoint(bp(step-1)) {
+    @include margin-trailer(3);
+  }
+  @include breakpoint(bp(full)) {
+    @include margin-trailer(4.25);
+  }
   width: 100%;
 
   &__name {
     @include type-scale(large);
-    @include margin-trailer(0);
     color: color(black);
-    position: absolute;
-    left: rhythm(0.8);
+    @include breakpoint(bp(step-1)) {
+      @include margin-trailer(0);
+      position: absolute;
+      left: rhythm(0.8);
+    }
 
     a {
       background: none;
@@ -16,8 +24,10 @@
   }
 
   &__navigation {
-    position: absolute;
-    top: rhythm(1);
-    right: rhythm(0.8);
+    @include breakpoint(bp(step-1)) {
+      position: absolute;
+      right: rhythm(0.8);
+      top: rhythm(1);
+    }
   }
 }

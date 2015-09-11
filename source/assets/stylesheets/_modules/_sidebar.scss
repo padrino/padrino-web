@@ -1,6 +1,14 @@
 .sidebar {
   @include type-scale(small);
 
+  &__header {
+    &--first {
+      @include breakpoint(bp(step-1)) {
+        @include adjust-leading-to(2);
+      }
+    }
+  }
+
   &__item {
     border-bottom: 1px solid color(gray--light);
     display: block;

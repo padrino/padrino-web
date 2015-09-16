@@ -1,0 +1,14 @@
+doctype html
+html
+  head= partial 'layouts/head'
+  body class=page_classes
+    .grid
+      = partial 'layouts/header'
+      .page
+        .page__sidebar
+          .sidebar
+            = partial (current_page.data.sidebar || 'blog/sidebar')
+        .page__content
+          = partial 'blog/article', object: current_article, locals: { link_title: false, show_comments: true }
+      = partial 'layouts/footer'
+    script src="https://angeloashmore.disqus.com/embed.js"

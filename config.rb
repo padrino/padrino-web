@@ -10,6 +10,10 @@ end
 # Blog
 activate :blog do |blog|
   blog.prefix = 'blog'
+  blog.permalink = '{title}.html'
+  blog.layout = 'article'
+  blog.paginate = true
+  blog.per_page = 4
 end
 
 # Syntax highlighting

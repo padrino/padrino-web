@@ -12,13 +12,13 @@ p {
 
 // Lists
 ul, ol {
-  @include margin-trailer(1)
+  @include margin-trailer(1);
+  margin-left: rhythm(1.25);
 }
 
 li {
   display: list-item;
   list-style-type: disc;
-  list-style-position: inside;
 }
 
 // Small

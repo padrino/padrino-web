@@ -15,6 +15,7 @@
 
   &__items {
     display: none;
+    margin-left: 0;
     margin-top: rhythm(1);
     @include breakpoint(bp(step-1)) {
       display: block;

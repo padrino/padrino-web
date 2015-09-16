@@ -2,11 +2,19 @@
   @include type-scale(small);
 
   &__header {
+    @include margin-trailer(0.25);
+
     &--first {
+      @extend .sidebar__header;
       @include breakpoint(bp(step-1)) {
+        @include margin-trailer(1);
         @include adjust-leading-to(2);
       }
     }
+  }
+
+  &__items {
+    margin-left: 0;
   }
 
   &__item {
@@ -22,7 +30,7 @@
     background: none;
     color: inherit;
     display: block;
-    padding: rhythm(0.25);
+    padding: rhythm(0.25) 0;
 
     &:hover {
       color: color(red--semi-dark);

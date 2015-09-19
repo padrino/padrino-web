@@ -2,7 +2,7 @@
 helpers do
   def nav_link_to(link_text, url, options = {})
     options[:class] ||= ''
-    options[:class] << '--is-active' if url == current_page.url
+    options[:class] << '--is-active' if current_page.url.start_with?(url)
     link_to(link_text, url, options)
   end
 end

@@ -11,6 +11,7 @@ gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
 gem 'middleman-blog', '~> 3.5.3'
 gem 'middleman-livereload', '~> 3.4.3'
 gem 'middleman-syntax', '~> 2.0.0'
+gem 'middleman-deploy', '~> 1.0.0'
 
 # Templating
 gem 'slim', '~> 3.0.6'

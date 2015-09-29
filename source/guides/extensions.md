@@ -7,7 +7,7 @@ title: Extensions
 sidebar: 'guides/sidebar'
 ---
 
-## Extensions
+# Extensions
 
 Extensions provide helper or class methods for Sinatra and Padrino applications. See [the Sinatra extensions page](http://www.sinatrarb.com/extensions-wild.html) for more information about this topic.
 
@@ -15,13 +15,13 @@ We also have some 3rd party extensions (ex: for ActiveRecord/MongoMapper/DataMap
 
 ---
 
-### Usage
+## Usage
 
 If the extension is a gem put it in Gemfile otherwise create a file under your lib directory.
 
 ---
 
-### Extension List
+## Extension List
 
 >
   What|Description|Where

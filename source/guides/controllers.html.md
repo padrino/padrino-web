@@ -7,7 +7,7 @@ title: 'Guides: Controllers'
 sidebar: 'guides/sidebar'
 ---
 
-## Controllers
+# Controllers
 
 Suppose we wanted to add routes to our Padrino application, and we want to organize a set of related routes within a more structured grouping. Padrino has the notion of a ‘controller’ block which can group related routes and make URL generation much easier. Simply add a `controllers.rb` file or `app/controllers` folder and create a file as such:
 
@@ -33,11 +33,11 @@ In this case, the controller merely acts as a structured grouping mechanism to a
 
 ---
 
-### Enhanced Routing
+## Enhanced Routing
 
 Padrino provides advanced routing definition support to make routes and URL generation much easier. This routing system supports named route aliases and easy access to url paths. The benefits of this is that instead of having to hard-code route URLs into every area of your application, now we can just define the URLs in a single spot and then attach an alias which can be used to refer to the URL throughout the application.
 
-#### Basic Routing Aliases
+### Basic Routing Aliases
 
 The routing system supports named aliases by using symbols instead of strings for your routes:
 
@@ -70,7 +70,7 @@ These routes can then be referenced anywhere in the application:
 ~~~
 {: .excerpt--code}
 
-#### Inline Route Alias Definitions
+### Inline Route Alias Definitions
 
 The routing plugin also supports inline route definitions in which the explicit URL and the named alias are both defined:
 
@@ -101,7 +101,7 @@ Routes defined inline this way can be accessed and treated the same way as tradi
 ~~~
 {: .excerpt--code}
 
-#### Namespaced Route Aliases
+### Namespaced Route Aliases
 
 There is also support for namespaced routes which are organized into a named controller group:
 
@@ -151,7 +151,7 @@ end
 ~~~
 {: .excerpt--code}
 
-#### Named Parameters
+### Named Parameters
 
 With Padrino you can also specify named parameters within your route definition:
 
@@ -183,7 +183,7 @@ You can then reference the URLs using the same `url_for` method:
 {: .excerpt--code}
 
 
-#### Nested Routes
+### Nested Routes
 
 You can specify parent resources in padrino with the :parent option on the controller:
 
@@ -221,7 +221,7 @@ end
 
 ---
 
-### Layouts
+## Layouts
 
 With Padrino, a custom layout can be specified or the layout can be disabled altogether:
 
@@ -278,7 +278,7 @@ end
 
 ---
 
-### Provides Formats
+## Provides Formats
 
 With Padrino you can simply declare which formats a request will respond to by using the `provides` route configuration:
 
@@ -315,7 +315,7 @@ and these formatted route paths can be accessed easily using `url_for` and then 
 
 ---
 
-### Route Filters
+## Route Filters
 
 Before filters are evaluated before each request within the context of the request and can modify the request and response. Instance variables set in filters are accessible by routes and templates:
 
@@ -390,7 +390,7 @@ This gives developers a lot more flexibility when running filters and enables mu
 
 ---
 
-### Prioritized Routes
+## Prioritized Routes
 
 Padrino (0.10.0+) has added support for respecting route order in controllers and also allows the developer to specify certain routes as less or more “important” then others in the route recognition order. Consider two controllers, the first with a “catch-all” route:
 
@@ -441,7 +441,7 @@ When setting a routes priority to `:low`, this route is then recognized lower th
 
 ---
 
-### Custom Conditions
+## Custom Conditions
 
 Padrino has support for Sinatra’s custom route conditions as well. This allows you to apply custom condition checks to evaluate before a route is executed for an incoming request:
 
@@ -502,7 +502,7 @@ This gives the developer considerable power to construct arbitrarily complex rou
 
 ---
 
-### Parsing params inside a request's body
+## Parsing params inside a request's body
 
 Padrino is often used for web service applications. One common need these applications have is to
 parse incoming messages, typically JSON or XML.
@@ -541,7 +541,7 @@ for a more detailed guide of how this middleware works.
 
 ---
 
-### Rendering
+## Rendering
 
 Unlike Sinatra, Padrino supports automatic template engine lookups with:
 
@@ -582,12 +582,12 @@ When you visit the `:show` route with `I18n.locale == :ru` enabled, Padrino will
 
 ---
 
-### Using Sessions
+## Using Sessions
 
 *Kindly borrowed from Sinatra's docs :)*
 
 
-#### Using Sessions
+### Using Sessions
 
 A session is used to keep state during requests. If activated, you have one
 session hash per user session:

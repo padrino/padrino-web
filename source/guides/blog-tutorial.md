@@ -7,14 +7,14 @@ title: Blog Tutorial
 sidebar: 'guides/sidebar'
 ---
 
-## Blog Turorial
+# Blog Turorial
 
 When reading about a new framework, I often find that the best way to get familiar is to read a brief tutorial on how to develop a simple application. This can quickly give new users a sense of the development flow and processes involved in using a framework. This guide will show new users how to develop a simple blog using the Padrino framework. Along the way, each step will be explained and links will be provided to further information on different relevant topics.
 
 ---
 
 
-### Screencast
+## Screencast
 
 There is also a screencast available for this tutorial. You can check it out by:
 
@@ -24,7 +24,7 @@ There is also a screencast available for this tutorial. You can check it out by:
 
 ---
 
-### Study Guide
+## Study Guide
 
 
 To skip this tutorial or immediately see the complete blog tutorial project, you can either checkout the [blog tutorial repository](http://github.com/padrino/sample_blog) using Git:
@@ -47,7 +47,7 @@ To learn more about our template generator, be sure to check out the [generators
 
 ---
 
-### Installation
+## Installation
 
 In order to develop a Padrino application, we must have a few things installed. First, we must obviously have [ruby](http://www.ruby-lang.org/en/) and [rubygems](http://rubygems.org/) installed. Next, we must install the padrino framework gems:
 
@@ -61,7 +61,7 @@ For more details on installation, check out the [installation guide](/guides/ins
 
 ---
 
-### Project Generation
+## Project Generation
 
 To create a Padrino application, the best place to start is using the convenient Padrino generator. Similar to Rails, Padrino has a project generator which will create a skeleton application with all the files you need to being development of your new idea. Padrino is an agnostic framework and supports using a variety of different template, testing, JavaScript and database components. You can learn more by reading the [generators guide](/guides/generators).
 
@@ -140,7 +140,7 @@ Be sure to check out the [controllers guide](/guides/controllers) for a comprehe
 
 ---
 
-### Admin Dashboard Setup
+## Admin Dashboard Setup
 
 Next, this is a good time to setup the Padrino Admin panel which allows us to easily view, search and modify data for a project. Let’s go back to the console and enter:
 
@@ -171,7 +171,7 @@ To read more about the features of the admin panel, check out the [Admin Panel G
 
 ---
 
-### Booting Padrino
+## Booting Padrino
 
 Now the Padrino project has been generated, the database has been configured and created and the admin panel has been properly setup. We can now start up our Padrino application server. This is quite easy to do with the built-in Padrino tasks. Simply execute the following in the terminal:
 
@@ -207,7 +207,7 @@ Worth noting here is that Padrino has full support for code reloading in develop
 
 ---
 
-### Creating Posts
+## Creating Posts
 
 Now that the application is ready and the layouts have been defined, let’s implement the functionality to view our blog posts and even add the ability to create new posts!
 
@@ -366,7 +366,7 @@ This can be helpful to understand the mapping between controllers and urls.
 
 ---
 
-### Attaching Accounts to Posts
+## Attaching Accounts to Posts
 
 So far, a post does not have a user associated as the author. Suppose that now we want to let every post have an author. Let’s revisit our post model. We’ll start by adding a new migration to attach an Account to a Post.
 
@@ -483,7 +483,7 @@ See the effects of our changes by visiting <http://localhost:3000/posts> to see 
 
 ---
 
-### Site Layout
+## Site Layout
 
 Now that the application has been properly configured and the server has been started, let’s create a few basic styles and define a layout to prepare the application for continued development.
 
@@ -546,7 +546,7 @@ With the layout and these two stylesheets in place, the blog will now have a muc
 
 ---
 
-### Generating RSS Feed for Posts
+## Generating RSS Feed for Posts
 
 Finally, before the application is deployed, let’s set up RSS and Atom feeds for our new blog so people can subscribe to our posts. For the feeds, we’re going to head back to the posts controller and make a few changes by appending a `provides` option to our `index` block. This command below instructs the route that it should respond to HTML, RSS and Atom formats.
 
@@ -638,7 +638,7 @@ Let’s check out our changes. View the available feeds at <http://localhost:300
 
 ---
 
-### Deploying our Application
+## Deploying our Application
 
 Finally, our basic blog has been built and we should deploy our application so the world can check it out! The easiest way to do this quickly and for free is to use a service such as Heroku. Let’s deploy our application to Heroku right now.
 

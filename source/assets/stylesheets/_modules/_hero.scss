@@ -12,7 +12,8 @@
     }
   }
 
-  &__headline {
+  // Needed to increase specificity to override .content's heading styles
+  h1.hero__headline {
     @include type-scale(large);
     @include type-weight(regular);
     color: color(black);

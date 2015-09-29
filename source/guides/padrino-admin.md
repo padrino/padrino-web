@@ -7,7 +7,7 @@ title: Padrino Admin
 sidebar: 'guides/sidebar'
 ---
 
-## Padrino Admin
+# Padrino Admin
 
 Padrino comes shipped with a slick and beautiful Admin Interface, with the following features:
 
@@ -21,7 +21,7 @@ Padrino comes shipped with a slick and beautiful Admin Interface, with the follo
 
 ---
 
-### Admin Usage
+## Admin Usage
 
 Create a new project:
 
@@ -66,13 +66,13 @@ That’s it! Browse to <http://localhost:3000/admin> and access your model by cl
 
 ---
 
-### Admin Authentication
+## Admin Authentication
 
 Padrino Admin uses a single model Account for managing roles, memberships and permissions (User Authentication and Authorization).
 
 ---
 
-### Scenario Ecommerce (User Authentication)
+## Scenario Ecommerce (User Authentication)
 
 To make some practical example, let’s examine some common ecommerce application scenario, where we usually need to restrain some users to get access to some of our controllers actions; we can easily accomplish this by editing `app.rb` accordingly:
 
@@ -100,7 +100,7 @@ When successfully logged in, he will be granted access to those two pages.
 
 ---
 
-### Admin Scenario (User Authorization)
+## Admin Scenario (User Authorization)
 
 For Another example, let’s suppose that you need your **admin** account to do certain things and have access to certain controller actions, and your **editor** account needs to be restrained to get access to those same admin actions.
 
@@ -143,13 +143,13 @@ If we are logged in as an **editor** (account.role == ‘editor’) we will have
 
 ---
 
-### Sharing Sessions Between Mounted Applications
+## Sharing Sessions Between Mounted Applications
 
 Sessions can be shared between mounted applications by setting a `:session_id` with the line `set :session_id, "your_session_id"` in each apps `app.rb`.
 
 ---
 
-### Contributing Persistence Adapters
+## Contributing Persistence Adapters
 
 If you are planning to use padrino with other adapters rather than the currently supported ones, and you want to contribute to the project by extending its support with additional adapters like ohm, cassandra and so on, be sure to check out the [adding new components](/guides/adding-new-components) guide.
 

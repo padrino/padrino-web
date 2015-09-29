@@ -7,7 +7,7 @@ title: Rake Tasks
 sidebar: 'guides/sidebar'
 ---
 
-## Rake Tasks
+# Rake Tasks
 
 After generating a new padrino project, you will not find any Rakefile in your generated project folder structure; in fact it’s not strictly needed to build a new one because we can already use padrino rake:
 
@@ -33,7 +33,7 @@ Padrino by default has some useful tasks.
 
 ---
 
-### Basic
+## Basic
 
 Like other frameworks we have an *:environment* task that loads our `environment` and apps. Example:
 
@@ -48,7 +48,7 @@ end
 
 ---
 
-### Routes
+## Routes
 
 *currently not in stable release (coming in 0.9.10)*
 
@@ -75,7 +75,7 @@ which will return all the named routes for your project:
 
 ---
 
-### Testing
+## Testing
 
 When testing with Padrino you have a builtin `padrino rake test` or for rspec `padrino rake spec`.
 
@@ -90,7 +90,7 @@ you can customize *test/test.rake* or *spec/spec.rake*
 
 ---
 
-### I18n
+## I18n
 
 You can auto generate a *yml* file for localizing your models using this command:
 
@@ -104,7 +104,7 @@ See [Localization](/guides/localization) for detailed instructions.
 
 ---
 
-### Orm
+## Orm
 
 Padrino has rake tasks for *DataMapper* , *ActiveRecord*, *Sequel*, *Mongomapper*,and *Mongoid* with some **bonuses**.
 
@@ -112,7 +112,7 @@ Padrino has rake tasks for *DataMapper* , *ActiveRecord*, *Sequel*, *Mongomapper
 
 ---
 
-### ActiveRecord Tasks:
+## ActiveRecord Tasks:
 
 
 ~~~ruby
@@ -151,7 +151,7 @@ Basically, instead of writing migrations you can directly edit your **schema.rb*
 
 ---
 
-### DataMapper Tasks:
+## DataMapper Tasks:
 
 
 ~~~sh
@@ -168,7 +168,7 @@ rake dm:setup                  # Create the database migrate and initialize with
 
 ---
 
-### Sequel Tasks:
+## Sequel Tasks:
 
 ~~~sh
 rake sq:migrate:auto           # Perform automigration (reset your db data)
@@ -180,7 +180,7 @@ rake sq:reset                  # Drops the database, and migrates from scratch
 
 ---
 
-### Mongomapper Tasks:
+## Mongomapper Tasks:
 
 ~~~sh
 rake mm:translate              # Generates .yml files for I18n translations
@@ -188,7 +188,7 @@ rake mm:translate              # Generates .yml files for I18n translations
 
 ---
 
-### Mongoid Tasks:
+## Mongoid Tasks:
 
 Available in 0.9.21
 
@@ -201,7 +201,7 @@ rake mi:cleanup_old_collections # Clean up old collections backed up by objectid
 
 ---
 
-### Seed:
+## Seed:
 
 Like in Rails we can populate our db using *db/seeds.rb* here’s an example (from our padrino-admin):
 

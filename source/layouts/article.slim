@@ -9,6 +9,7 @@ html
           .sidebar
             = partial (current_page.data.sidebar || 'blog/sidebar')
         .page__content
-          = partial 'blog/article', object: current_article, locals: { link_title: false, show_comments: true }
+          .content
+            = partial 'blog/article', object: current_article, locals: { link_title: false, show_comments: true }
       = partial 'layouts/footer'
     script src="https://padrinorb.disqus.com/embed.js"

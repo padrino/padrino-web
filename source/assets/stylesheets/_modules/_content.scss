@@ -1,0 +1,27 @@
+.content {
+  // Auto styling of code blocks
+  pre {
+    @extend .excerpt--code;
+    display: block;
+  }
+
+  h1 {
+    @include type-scale(xlarge);
+  }
+
+  h2 {
+    @include type-scale(large);
+  }
+
+  h3 {
+    @include type-scale(medium);
+  }
+
+  h4 {
+    @include type-scale(base);
+  }
+
+  h5 {
+    @include type-scale(base);
+  }
+}

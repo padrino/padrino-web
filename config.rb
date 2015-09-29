@@ -13,7 +13,7 @@ activate :blog do |blog|
   blog.permalink = '{title}.html'
   blog.layout = 'article'
   blog.paginate = true
-  blog.per_page = 4
+  blog.per_page = 2
 end
 
 # Syntax highlighting

@@ -1,4 +1,4 @@
-## Contribute
+# Contribute
 
 Want to show Padrino some love? Help out by contributing to our framework!
 
@@ -7,29 +7,29 @@ Want to show Padrino some love? Help out by contributing to our framework!
 
 ---
 
-### Need help?
+## Need help?
 
 You can use our new [Padrino Google Group](http://groups.google.com/group/padrino) or send us an [email](mailto:padrinorb@gmail.com) or write a [message](http://github.com/padrino) also directly to our [team](http://github.com/padrino/following). Also, be sure to join our official IRC channel at [#padrino](irc://chat.freenode.net/#padrino) on [freenode](http://freenode.net) for live help.
 
 ---
 
-### Find a bug?
+## Find a bug?
 
 Log it onto github by [creating a new issue](http://github.com/padrino/padrino-framework/issues). Be sure to include all relevant information, like the versions of Padrino and Ruby you are using. A [gist](http://gist.github.com/) of the code that caused the issue as well as any error messages are also very helpful.
 
 ---
 
-### Want to integrate a component?
+## Want to integrate a component?
 
 Have a particular javascript engine you like? Know of a popular orm or testing framework that we have overlooked in Padrino generators? We encourage you to contribute by creating a patch to integrate your favorite components into Padrino! Check out the guide for [adding new components](http://www.padrinorb.com/guides/adding-new-components) to read a detailed walkthrough of how to do this!
 
 ---
 
-### Want to help with documentation?
+## Want to help with documentation?
 
 The process for contributing to Padrino’s website or documentation is as simple as forking the [docs repository](https://github.com/padrino/padrino-docs) and sending in any changes as a pull request. Once a change has been accepted, the documentation will be updated on our website. The website guides and docs are currently in the [textile](http://textile.thresholdstate.com) format as can be seen for the [Getting Started](https://github.com/padrino/padrino-docs/blob/master/guides/getting-started.textile) guide on Github.
 
-#### YARD
+### YARD
 
 There is also important YARD documentation within the framework code itself which could always use improvements. An example is the [asset tag](https://github.com/padrino/padrino-framework/blob/master/padrino-helpers/lib/padrino-helpers/asset_tag_helpers.rb) helpers file which is marked up with YARD annotations for every object and method.
 
@@ -39,7 +39,7 @@ You can also contact us for access to modifying the pages and guides within our 
 
 ---
 
-### Code Guidelines
+## Code Guidelines
 
 Padrino core contributors also have several code guidelines and conventions that we try and keep consistent within our codebase. We try to follow the common [Ruby code guidelines](http://pathfindersoftware.com/2008/10/elements-of-ruby-style) such as two space soft tab indentations, and we also like to keep a newline at the end of every ruby file.
 
@@ -47,7 +47,7 @@ Another convention to keep in mind is to minimize all trailing and unnecessary w
 
 ---
 
-### Have a patch?
+## Have a patch?
 
 Bugs and feature requests that include patches are much more likely to get attention. Here are some guidelines that will help ensure your patch can be applied as quickly as possible:
 
@@ -60,6 +60,6 @@ Bugs and feature requests that include patches are much more likely to get atten
 
 ---
 
-### Looking for something to do?
+## Looking for something to do?
 
 If you’d like to help out but aren’t sure how, take a look at the [GitHub Issues](http://github.com/padrino/padrino-framework/issues) page. If you find something that looks interesting, leave a comment on the ticket noting that you’re investigating (a simple “Taking…” is fine). Once you’ve worked on a few issues, someone will add you as an assignee.

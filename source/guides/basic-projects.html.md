@@ -7,13 +7,13 @@ title: 'Guides: Basic Projects'
 sidebar: 'guides/sidebar'
 ---
 
-## Basic Projects
+# Basic Projects
 
 Be sure to read the [Installation](/guides/installation) instructions first. You might also want to check out the [Getting Started](/guides/getting-started) guide for a better understanding of Sinatra and Padrino if you are new to the stack.
 
 ---
 
-### Generating a Project
+## Generating a Project
 
 To generate a new Padrino project using its defaults (RSpec for testing and Haml for rendering) and no database adapter, simply invoke the following command:
 
@@ -36,7 +36,7 @@ $ padrino g project custom_project -t rspec -d activerecord -s prototype
 For a breakdown of all the available components options please refer to the [Generators](/guides/generators) page.
 
 
-#### Persistence Engine
+### Persistence Engine
 
 
 Whenever you are creating a new project, Padrino will assume by default that a database is not required for your project.
@@ -72,7 +72,7 @@ The adapters currently supported are *sqlite*, *mysql*, and *postgres* for use w
 ---
 
 
-### Generating Applications
+## Generating Applications
 
 
 Padrino’s main concept is to generate a default "project" or "core application":
@@ -112,7 +112,7 @@ You can easily change and configure your "mounted" application path and decide w
 ---
 
 
-### Generating the Admin Section
+## Generating the Admin Section
 
 
 Let’s start by creating a new Padrino project using Active Record:
@@ -192,7 +192,7 @@ Point your browser to `http://localhost:3000/admin` and log in by using the emai
 ---
 
 
-#### Adding a model
+### Adding a model
 
 
 Let’s add a new `Post` model to our blog:

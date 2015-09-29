@@ -7,7 +7,7 @@ title: Development Commands
 sidebar: 'guides/sidebar'
 ---
 
-## Development Commands
+# Development Commands
 
 Padrino also supports robust logging capabilities. By default, logging information will go to the STDOUT in development (for use in a console) and in an environment-specific log file `log/development.log` in test and production environments.
 
@@ -41,7 +41,7 @@ For more information about the logger, check out our [Logger RDOC](http://www.pa
 
 ---
 
-### Development Reloader
+## Development Reloader
 
 Padrino applications also have the enabled ability to automatically reload all changing application files without the need to restart the server. Through the use of a customized Rack middleware, all files on the ‘load path’ are monitored and reloaded whenever changes are applied.
 
@@ -62,7 +62,7 @@ end
 {: .excerpt--code }
 ---
 
-### Gemfile Dependency Resolution
+## Gemfile Dependency Resolution
 
 Padrino has native support for `bundler` and the Gemfile system. If your Padrino application was generated with `padrino g`, a Gemfile has already been created for your application. This file will contain a list of all the dependencies for our application.
 
@@ -87,7 +87,7 @@ If the dependencies are not on the system, you can automatically vendor all nece
 
 ---
 
-### Auto Load Paths
+## Auto Load Paths
 
 Padrino also intelligently supports requiring useful files within your application automatically and provides functionality for easily splitting up your application into separate files. Padrino automatically requires `config/database.rb` as a convention for establishing database connection. Also, any files within the `lib` folder will be required automatically by Padrino.
 
@@ -111,7 +111,7 @@ This will instruct Padrino to autoload these files (and reload them when changes
 
 ---
 
-### Terminal Commands
+## Terminal Commands
 
 Padrino also comes equipped with multiple useful terminal commands which can be activated to perform common tasks such as starting / stopping the application, executing the unit tests or activating an irb session.
 
@@ -159,7 +159,7 @@ Using these commands can simplify common tasks making development that much smoo
 
 ---
 
-### Special Folders
+## Special Folders
 
 Padrino load these paths:
 

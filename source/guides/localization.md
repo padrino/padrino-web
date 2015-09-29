@@ -7,7 +7,7 @@ title: Localization
 sidebar: 'guides/sidebar'
 ---
 
-## Localization
+# Localization
 
 Padrino supports full localization in:
 
@@ -37,7 +37,7 @@ At the moment we support the following list of languages:
 
 ---
 
-### Provide your translations
+## Provide your translations
 
 Download and translate these files:
 
@@ -51,7 +51,7 @@ zip your files and send it to [padrinorb@gmail.com](mailto:padrinorb@gmail.org)
 
 ---
 
-### How to localize your app
+## How to localize your app
 
 The first thing that you need to do is to set your locale by appending it to boot.rb:
 
@@ -81,7 +81,7 @@ you will get:
 
 ---
 
-### Translate Models (ActiveRecord)
+## Translate Models (ActiveRecord)
 
 Translating models via Padrino requires few seconds thanks to a builtin rake task!
 
@@ -129,7 +129,7 @@ padrino-admin will now use your newly created yml file for translating the colum
 
 ---
 
-### Bonus
+## Bonus
 
 Using *form\_builder* like:
 

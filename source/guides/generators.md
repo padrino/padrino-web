@@ -7,7 +7,7 @@ title: Generators
 sidebar: 'guides/sidebar'
 ---
 
-## Generators
+# Generators
 
 Padrino provides generator support for quickly creating new Padrino applications. This provides many benefits such as constructing the recommended Padrino application structure, auto-generating a Gemfile listing all starting dependencies and guidelines provided within the generated files to help orient a new user to using Padrino.
 
@@ -21,7 +21,7 @@ This means that Padrino generators do **not** lock you into using any particular
 ---
 
 
-### Project Generator
+## Project Generator
 
 The usage for the project generator is quite simple:
 
@@ -124,7 +124,7 @@ Note: Be careful with your naming when using generators and do not have your pro
 
 ---
 
-### Some examples
+## Some examples
 
 **Generate a project with a different application name from the project path**
 
@@ -200,7 +200,7 @@ Visit [The Bleeding Edge](/guides/the-bleeding-edge) for more info how to setup 
 
 ---
 
-### Plugin Generator
+## Plugin Generator
 
 The Plugin Generator allows you to create Padrino projects based on a template file that contains all the necessary actions needed to create the project. Plugins can also be executed within an existing Padrino application. The plugin generator provides a simple DSL in addition with leveraging Thor to make generating projects a breeze!
 
@@ -290,7 +290,7 @@ Keep in mind that the template file is pure ruby and has full access to [all ava
 
 ---
 
-### Controller Generator
+## Controller Generator
 
 >
   Options|Default|Aliases|Description
@@ -374,7 +374,7 @@ This removes all created controller files.
 
 ---
 
-### Model Generator
+## Model Generator
 
 >
   Options|Default|Aliases|Description
@@ -435,7 +435,7 @@ This remove all created model files.
 
 ---
 
-### Migration Generator
+## Migration Generator
 
 >
   Options|Default|Aliases|Description
@@ -490,7 +490,7 @@ This removes the migration file.
 
 ---
 
-### Mailer Generator
+## Mailer Generator
 
 >
   Options|Default|Aliases|Description
@@ -550,7 +550,7 @@ This remove all created mailer files.
 
 ---
 
-### Sub App Generator
+## Sub App Generator
 
 >
   Options|Default|Aliases|Description
@@ -617,7 +617,7 @@ your_project$ padrino g mailer registration --app bar  # This will be created fo
 
 ---
 
-### Tiny Skeleton Generator
+## Tiny Skeleton Generator
 
 Both the Project Generator and Sub App Generator allow you to create an even smaller project skeleton. Instead of the default skeleton, the tiny option removes the need for a controllers, helpers, and mailers folder and instead generates controllers.rb, helpers.rb, and mailers.rb in its place.
 
@@ -642,7 +642,7 @@ my_app$ padrino g app tiny_app --tiny
 
 ---
 
-### Admin Generator
+## Admin Generator
 
 >
   Options|Default|Aliases|Description
@@ -683,7 +683,7 @@ This will generate the admin application and mount this at `/admin`. For more in
 
 ---
 
-### Component Generator
+## Component Generator
 
 >
   Options|Default|Aliases|Description
@@ -698,7 +698,7 @@ The available components and their default options are same as the Project Gener
 
 ---
 
-### Some examples:
+## Some examples:
 
 Show help and selected components:
 
@@ -720,7 +720,7 @@ $ padrino g component -d minirecord -a mysql2 -t rspec
 
 ---
 
-### Task Generator
+## Task Generator
 
 >
   Options|Default|Aliases|Description
@@ -734,7 +734,7 @@ Padrino provides generator for quickly generating new task for your app.
 
 ---
 
-### Some examples:
+## Some examples:
 
 Show help:
 

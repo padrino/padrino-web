@@ -7,7 +7,7 @@ title: Adding New Components
 sidebar: 'guides/sidebar'
 ---
 
-## Adding New Components
+# Adding New Components
 
 Padrino is an agnostic web framework. This means that the framework has been built from the ground up to easily allow support for any arbitrary number of different developer choices with respect to object permanence, stylesheet templaters, javascript libraries, testing libraries, mocking libraries and rendering engines. For a detailed overview of the available components, check out the [generators guide](/guides/generators).
 
@@ -19,7 +19,7 @@ This guide will outline in detail how to properly contribute new components to P
 
 ---
 
-### Persistence Engine
+## Persistence Engine
 
 Contributing an object persistence library is probably the most involved component to integrate with Padrino. For this guide, let us pretend that we would like to integrate `Datamapper` into Padrino. First, let’s add `Datamapper` to the project generator’s available components in [padrino-gen/generators/project.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb#L28):
 
@@ -228,7 +228,7 @@ class Account
   # Callbacks
   before :save, :generate_password
 
-  ##
+  #
   # This method is for authentication purpose
   #
   def self.authenticate(email, password)
@@ -236,14 +236,14 @@ class Account
     account && account.password_clean == password ? account : nil
   end
 
-  ##
+  #
   # This method is used from AuthenticationHelper
   #
   def self.find_by_id(id)
     get(id) rescue nil
   end
 
-  ##
+  #
   # This method is used for retrive the original password.
   #
   def password_clean
@@ -277,7 +277,7 @@ This completes the full integration of a persistence engine into Padrino. Once a
 
 ---
 
-### Javascript Library
+## Javascript Library
 
 Contributing an additional javascript library to Padrino is actually quite straightforward. For this guide, let’s assume we want to add `extcore` as a javascript component integrated into Padrino. First, let’s add `extcore` to the project generator’s available components in [padrino-gen/generators/project.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb#L31):
 
@@ -413,7 +413,7 @@ end
 
 ---
 
-### Testing Library
+## Testing Library
 
 Contributing an additional testing library to Padrino is actually quite straightforward. For this guide, let’s assume we want to add `shoulda` as a testing component integrated into Padrino. First, let’s add `shoulda` to the project generator’s available components in [padrino-gen/generators/project.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb#L29):
 
@@ -484,7 +484,7 @@ test:: rspec (default), bacon, shoulda, cucumber, testspec, riot
 
 ---
 
-### Rendering Engine
+## Rendering Engine
 
 Contributing a rendering engine to Padrino is actually quite straightforward. For this guide, let’s assume we want to add `haml` as a rendering engine integrated into Padrino. First, let’s add `haml` to the project generator’s available components in [padrino-gen/generators/project.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb#L32):
 
@@ -547,7 +547,7 @@ This completes the full integration of a rendering engine into Padrino. Once all
 
 ---
 
-### Mocking Library
+## Mocking Library
 
 Contributing an additional mocking library to Padrino is actually quite straightforward. For this guide, let’s assume we want to add `mocha` as a mocking component integrated into Padrino. First, let’s add `mocha` to the project generator’s available components in [padrino-gen/generators/project.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb#L30):
 
@@ -597,7 +597,7 @@ This completes the full integration of a mocking library into Padrino. Once all 
 
 ---
 
-### Stylesheet Engine
+## Stylesheet Engine
 
 Contributing an additional stylesheet engine to Padrino is actually quite straightforward. For this guide, let’s assume we want to add `less` as a stylesheet engine component integrated into Padrino. First, let’s add `less` to the project generator’s available components in [padrino-gen/generators/project.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb#L33):
 
@@ -659,7 +659,7 @@ This completes the full integration of a stylesheet engine into Padrino. Once al
 
 ---
 
-### Locale Translations
+## Locale Translations
 
 In addition to components, we also encourage developers to send us their locale translations allowing Padrino to support a wide variety of different languages.
 

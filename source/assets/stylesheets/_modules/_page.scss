@@ -23,11 +23,5 @@
     @include breakpoint(bp(step-1)) {
       @include span(9 last);
     }
-
-    // Auto styling of code blocks
-    pre {
-      @extend .excerpt--code;
-      display: block;
-    }
   }
 }

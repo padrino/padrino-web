@@ -7,7 +7,7 @@ title: The Bleeding Edge
 sidebar: 'guides/sidebar'
 ---
 
-## The Bleeding Edge
+# The Bleeding Edge
 
 You have three ways of using Padrino edge; the first one is using the git source code in a gem file, the second one is using a vendored version, and the third is to install edge into system gems from repository.
 
@@ -22,7 +22,7 @@ You have three ways of using Padrino edge; the first one is using the git source
 
 ---
 
-### Git in Gemfile
+## Git in Gemfile
 
 ~~~ruby
 # Edit Gemfile
@@ -61,7 +61,7 @@ You can find more info about bundler usage on their [site](http://gembundler.com
 
 ---
 
-### System Gems from Repository
+## System Gems from Repository
 
 If you want to install the padrino edge gems into your system rubygems, simply follow the following steps. First, clone the padrino repository:
 
@@ -114,7 +114,7 @@ This should allow you to use the latest padrino code from your system.
 
 ---
 
-### Path in Gemfile
+## Path in Gemfile
 
 ~~~sh
 $ mkdir /src

@@ -7,7 +7,7 @@ title: Mounting Applications
 sidebar: 'guides/sidebar'
 ---
 
-## Mounting Applications
+# Mounting Applications
 
 Padrino applications are all automatically mountable into other Padrino projects. This means that a given Padrino project directory can easily mount multiple applications. This allows for better organization of complex applications, re-usable applications that can be applied (i.e admin, auth, blog) and even more flexibility.
 
@@ -17,7 +17,7 @@ You can think of mountable applications as a ‘full-featured’ merb slice or r
 
 ---
 
-### Mounting Syntax
+## Mounting Syntax
 
 Padrino stores application mounting information by default within `config/apps.rb`. This file is intended to keep all information regarding what applications are mounted to which uri’s. An `apps.rb` file has the following structure:
 
@@ -35,7 +35,7 @@ This would mount three applications onto the Padrino project, one served from th
 
 ---
 
-### Advanced Mounting Support
+## Advanced Mounting Support
 
 In addition to the basic mounting capabilities afforded by Padrino for each application within a project, the [Padrino::Router](http://github.com/padrino/padrino-framework/blob/master/padrino-core/lib/padrino-core/router.rb) also allows for more advanced mounting conditions.
 

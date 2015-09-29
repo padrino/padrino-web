@@ -8,15 +8,11 @@ Our team is pleased to announce the 0.9.10 release of the Padrino Framework!
 
 We have been working hard on Padrino since our first ‘public’ announcement and we have gotten a lot of amazing feedback and suggestions! This new release contains three major types of changes:
 
-1) Performance Optimizations
-
-2) Added Features
-
-3) Bug Fixes
+1. Performance Optimizations
+2. Added Features
+3. Bug Fixes
 
 In the full post below, we will take you through a detailed tour of the biggest changes in this release (for a more compact view, see our [changelog](http://www.padrinorb.com/changes)). Also, the full post contains benchmarks comparing Padrino to other popular ruby frameworks!
-
-
 
 ## Performance Optimizations
 

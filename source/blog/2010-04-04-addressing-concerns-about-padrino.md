@@ -10,9 +10,7 @@ The [chatter on twitter](http://search.twitter.com/search?q=padrino+framework) a
 
 At the same time, there have been a couple questions that have popped up along with some valid criticisms and/or confusion as to what the Padrino framework is all about. I would like to take this blog post as an opportunity to address many of these concerns as well as talk a little bit about the future of Padrino.
 
-
-
-**Why another web framework? Aren’t there enough out there already?**
+## Why another web framework? Aren’t there enough out there already?
 
 This is probably the most common criticism that I have seen so far when a developer immediately reacts to hearing about Padrino. I definitely understand this reaction and I consider this a reasonable question to ask whenever a new web development framework pops onto the stage.
 
@@ -22,7 +20,7 @@ Second, I would argue that Padrino is very different from a typical ‘new’ we
 
 Third, while we have indeed taken the time to combine excellent libraries and integrate them for the purpose of enhancing Sinatra, it is also important to point out that we have **not** become an ‘opinionated’ framework’. In fact, we have worked hard to make Padrino agnostic and yet still maintain a smooth and easy development flow. The [generators](http://www.padrinorb.com/guides/generators) and the [admin system](http://www.padrinorb.com/guides/padrino-admin) are both engineered to be able to support an arbitrary number of different tools or library choices. A Padrino application could just as easily be using Mongoid, Rspec, Less and Erb or Datamapper, Shoulda, Sass, and Haml. We don’t mind and make it easy to use any stack that you already like working with!
 
-**Hasn’t Padrino ruined the whole intention of Sinatra by making it too heavyweight?**
+## Hasn’t Padrino ruined the whole intention of Sinatra by making it too heavyweight?
 
 All three current core developers of Padrino have fairly extensive experience using Rails and Sinatra. We have developed many applications for hobby, for clients and for companies we have worked for in the past. I personally cannot say I have much disdain for Rails at all. In fact, I sincerely enjoyed programming web applications with Rails for years. However, once I stumbled onto Sinatra and started experimenting with simple applications, I was very impressed with how lightweight and expressive Sinatra could be. I appreciated Sinatra and the spirit of that micro-framework so much that I started using it for more and more of my development work.
 
@@ -30,9 +28,9 @@ However, anyone who has fallen in love with Sinatra knows that eventually you ru
 
 Padrino is about building where Sinatra leaves off and creating a cohesive set of standardized building blocks to allow developers to push Sinatra development to new heights and far more complex applications than typically feasible prior. Keep in mind that Padrino is simply a superset of Sinatra and that a developer can pick and choose which Padrino features he would like to include in his application. In fact, Padrino is modular enough that most of the [functionality can be included](http://www.padrinorb.com/guides/standalone-usage-in-sinatra) right inside an [existing Sinatra application](http://www.padrinorb.com/guides/standalone-usage-in-sinatra) rather easily.
 
-**How does Padrino compare to Monk, Chicago, sinatra\_more, Pancake, etc?**
+## How does Padrino compare to Monk, Chicago, sinatra\_more, Pancake, etc?
 
-Another common question that I have seen emerge is an explanation on how Padrino compares to existing Sinatra ‘glue’ extension such as [Monk](http://monkrb.com/) , [Chicago](http://github.com/thumblemonks/chicago) , [sinatra\_more](http://github.com/nesquena/sinatra_more) , [Pancake](http://github.com/hassox/pancake). Here I will briefly outline what each existing one is and how this differs from Padrino.
+Another common question that I have seen emerge is an explanation on how Padrino compares to existing Sinatra ‘glue’ extension such as [Monk](http://monkrb.com/), [Chicago](http://github.com/thumblemonks/chicago) , [sinatra\_more](http://github.com/nesquena/sinatra_more) , [Pancake](http://github.com/hassox/pancake). Here I will briefly outline what each existing one is and how this differs from Padrino.
 
 **Monk** is primarily a skeleton (bare application) which gives you a solid starting point for developing a Sinatra application. The default skeleton will give you a Sinatra application with a structure, which can be tested using Contest, Rack::Test and Webrat. To store things you’ll have Ohm, a persistence layer that talks to Redis. Other niceties included, like a logger, a settings hash and proper reloading for easier development. While monk is a very cool library, it is actually quite a bit different in scope from Padrino. Monk does allow for creating skeletons of different types, but no proper ‘generator’ is available and the skeletons provided do not really compare to totally agnostic [generators](http://www.padrinorb.com/guides/generators) that are offered by Padrino. Padrino also provides all of the niceties afforded by monk (improved logger, configuration hash, proper development reloaded) along with other great features like i18n localization, admin dashboard, mail delivery, view helpers, form helpers, form builders, enhanced routing and much more.
 
@@ -45,4 +43,3 @@ Another common question that I have seen emerge is an explanation on how Padrino
 In addition, there are admittedly lots of libraries that provide small subsets of the functionality afforded by Padrino. Many of these libraries are great and there is nothing about Padrino that prevents them from being used! In fact, any library that you can use in Sinatra can be used the exact same way with Padrino. Padrino simply gives you a very strong starting point for building powerful Sinatra applications.
 
 For more information on Padrino, be sure to read our page devoted to [why to use our framework](http://www.padrinorb.com/pages/why) which contains additional explanations and comparisons.
-

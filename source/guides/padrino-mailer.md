@@ -7,13 +7,13 @@ title: Padrino Mailer
 sidebar: 'guides/sidebar'
 ---
 
-## Padrino Mailer
+# Padrino Mailer
 
 This component creates an easy and intuitive interface for delivering email within a Sinatra application. The [mail](http://github.com/mikel/mail) library is utilized to do the bulk of the work. There is full support for rendering email templates, using an html content type and for file attachments. The Padrino Mailer uses a familiar Sinatra syntax similar to that of defining routes for a controller.
 
 ---
 
-### Configuration
+## Configuration
 
 Let’s take a look at using the Mailer in an application. By default, the mailer uses the built-in sendmail
  binary on the server. However, smtp is also supported using the following declaration in your application:
@@ -45,7 +45,7 @@ set :delivery_method, :test
 
 ---
 
-### Quick Usage
+## Quick Usage
 
 Padrino supports sending any arbitrary email (using either sendmail or smtp) right from your controllers. This is ideal for ‘one-off’ emails where the ‘full’ mailer object is simply unnecessary or too heavy for your simple task.
 
@@ -82,7 +82,7 @@ This is all you need to send simple emails. However, Padrino also supports a mor
 
 ---
 
-### Mailer Usage
+## Mailer Usage
 
 To use the structured mailer syntax, we should define a custom mailer using the `mailer` block:
 
@@ -136,7 +136,7 @@ And that will then deliver the email according the the configured options.
 
 ---
 
-### Multipart Emails
+## Multipart Emails
 
 The mailer supports multipart emails quite easily:
 
@@ -175,7 +175,7 @@ These will deliver a multipart/alternative email with the appropriate plain text
 
 ---
 
-### File Attachments
+## File Attachments
 
 Using the mailer attaching files to a message is easy:
 
@@ -198,7 +198,7 @@ This will deliver your email with the appropriate body and the specified files a
 
 ---
 
-### Defaults
+## Defaults
 
 To define mailer defaults for a message, we can do so app-wide or within a `mailer` block.
 
@@ -226,7 +226,7 @@ Using defaults makes sending email even easier when certain attributes are repea
 
 ---
 
-### Rendering Variations
+## Rendering Variations
 
 To render a short body inline:
 

@@ -1,4 +1,4 @@
-### Lightweight
+## Lightweight
 
 The Padrino code base has been kept simple and easy to understand, maintain and enhance. The generator for each new project creates a clean and compact directory structure keeping **your** code simple and well organized.
 
@@ -14,7 +14,7 @@ This framework can be used with ease for web development for a project of any si
 
 ---
 
-### Drop-In Admin
+## Drop-In Admin
 
 Padrino ships with an Admin Interface that includes the following features:
 
@@ -39,7 +39,7 @@ $ padrino-gen admin page post
 
 ---
 
-### Comprehensive
+## Comprehensive
 
 Building on our experience in developing web applications, we designed a framework that meets all the requirements for creating a top notch web application in a clean, concise and simple environment, with minimal deadline delays.
 
@@ -64,7 +64,7 @@ We provide you with the following out of the box:
 
 ---
 
-### Agnostic
+## Agnostic
 
 Padrino is ORM/ODM, JavaScript, testing, rendering, and mocking agnostic supporting the use of any number of available libraries.
 
@@ -97,7 +97,7 @@ $ padrino g project -h # shows available options
 
 ---
 
-### Sinatra Core
+## Sinatra Core
 
 Many people love the simplicity and expressiveness of Sinatra but quickly find themselves missing a great deal of functionality provided by other web frameworks such as Rails when building non-trivial applications.
 

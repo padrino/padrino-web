@@ -8,7 +8,7 @@ title: Guides
 sidebar: 'guides/sidebar'
 ---
 
-## Guides
+# Guides
 
 When getting started with Sinatra or Padrino for the first time, we recommend that you check out the [Getting Started](/guides/getting-started) guide which provides an overview of the rest of our resources. Also be sure to check out the [Blog Tutorial](/guides/blog-tutorial) for a step-by-step walkthrough of building your first Padrino project.
 
@@ -28,6 +28,6 @@ Note that as a user of Padrino, each of the major components can be used [standa
 
 ---
 
-### Support
+## Support
 
 These guides should provide a pretty good overview but if you have any questions be sure to contact us: [@padrinorb](http://twitter.com/#!/padrinorb), discuss things on the [google groups](https://groups.google.com/forum/?hl=en#!forum/padrino), join us on freenode IRC at “\#padrinorb” or [open an issue](https://github.com/padrino/padrino-framework/issues) on GitHub.

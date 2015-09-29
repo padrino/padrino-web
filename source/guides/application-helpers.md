@@ -7,13 +7,13 @@ title: Application Helpers
 sidebar: 'guides/sidebar'
 ---
 
-## Application Helpers
+# Application Helpers
 
 This component provides a great deal of view helpers related to html markup generation. There are helpers for generating tags, forms, links, images, and more. Most of the basic methods should be very familiar to anyone who has used rails view helpers.
 
 ---
 
-### Output Helpers
+## Output Helpers
 
 Output helpers are a collection of important methods for managing, capturing and displaying output in various ways and is used frequently to support higher-level helper functions. There are three output helpers worth mentioning: `content_for`, `capture_html`, and `concat_content`
 
@@ -96,7 +96,7 @@ The list of defined helpers in the ‘output helpers’ category:
 
 ---
 
-### Tag Helpers
+## Tag Helpers
 
 Tag helpers are the basic building blocks used to construct html ‘tags’ within a view template. There are three major functions for this category: `tag`, `content_tag` and `input_tag`.
 
@@ -131,7 +131,7 @@ The list of defined helpers in the ‘tag helpers’ category:
 
 ---
 
-### Asset Helpers
+## Asset Helpers
 
 Asset helpers are intended to help insert useful html onto a view template such as ‘flash’ notices, hyperlinks, mail\_to links, images, stylesheets and javascript. An example of their uses would be on a simple view template:
 
@@ -190,7 +190,7 @@ By default, all ‘assets’ including images, scripts, and stylesheets have a t
 
 ---
 
-### Form Helpers
+## Form Helpers
 
 Form helpers are the ‘standard’ form tag helpers you would come to expect when building forms. A simple example of constructing a non-object form would be:
 
@@ -288,7 +288,7 @@ The list of defined helpers in the ‘form helpers’ category:
 
 ---
 
-### FormBuilders
+## FormBuilders
 
 Form builders are full-featured objects allowing the construction of complex object-based forms using a simple, intuitive syntax.
 
@@ -381,7 +381,7 @@ The following are fields provided by AbstractFormBuilder that can be used within
 
 ---
 
-### Standard Form Builder
+## Standard Form Builder
 
 There is also an additional StandardFormBuilder which builds on the abstract fields that can be used within a form\_for.
 
@@ -434,7 +434,7 @@ The following are fields provided by StandardFormBuilder that can be used within
 
 ---
 
-### Custom Form Builders
+## Custom Form Builders
 
 You can also easily build your own FormBuilder which allows for customized fields and behavior:
 
@@ -477,7 +477,7 @@ I hope to create or merge in an even better ‘default’ form\_builder in the n
 
 ---
 
-### Nested Object Form Support
+## Nested Object Form Support
 
 Available in the 0.9.21 Padrino release is support for nested object form helpers. This allows forms to have arbitrarily complex nested forms that can build multiple related objects together. Let’s take a simple example of a person with an address. Here are the related psuedo models:
 
@@ -519,7 +519,7 @@ This will present a form that allows the person’s name and color to be set alo
 
 ---
 
-### Format Helpers
+## Format Helpers
 
 Format helpers are several useful utilities for manipulating the format of text to achieve a goal.
  The four format helpers are `escape_html`, `distance_of_time_in_words`, `time_ago_in_words`, and `js_escape_html`.
@@ -600,7 +600,7 @@ The list of defined helpers in the ‘format helpers’ category:
 
 ---
 
-### Render Helpers
+## Render Helpers
 
 This component provides a number of rendering helpers making the process of displaying templates a bit easier.
 This plugin also has support for useful additions such as partials (with support for :collection) for the templating system.
@@ -670,7 +670,7 @@ The list of defined helpers in the ‘render helpers’ category:
 
 ---
 
-### Custom Defined Helpers
+## Custom Defined Helpers
 
 In addition to the helpers provided by Padrino out of the box, you can also add your own helper methods and classes that will be accessible within any controller or view automatically.
 
@@ -719,13 +719,13 @@ Use these in situations where you wish to cleanup your controller or your view c
 
 ---
 
-### Unobtrusive Javascript Helpers
+## Unobtrusive Javascript Helpers
 
 In addition to the helpers above, certain helpers also have certain unobtrusive javascript options that are available to be used with any of the javascript adapters packaged with padrino. Once your app has been [generated](http://www.padrinorb.com/guides/generators) with a particular javascript adapter, you can utilize the baked in support with the `link_to` and `form_for` tags.
 
 ---
 
-### Remote Forms
+## Remote Forms
 
 To generate a ‘remote’ form in a view:
 
@@ -767,7 +767,7 @@ A remote form, when submitted by the user, invokes an xhr request to the specifi
 
 ---
 
-### Remote Links
+## Remote Links
 
 To generate a ‘remote’ link in a view:
 
@@ -789,7 +789,7 @@ A remote link, when clicked by the user, invokes an xhr request to the specified
 
 ---
 
-### Link Confirmations
+## Link Confirmations
 
 To generate a ‘confirmation’ link in a view:
 
@@ -811,7 +811,7 @@ A link with confirmation, when clicked by the user, displays an alert box confir
 
 ---
 
-### Custom Method Links
+## Custom Method Links
 
 To generate a ‘method’ link in a view:
 
@@ -833,7 +833,7 @@ A link with a custom method, when clicked by the user, visits the link using the
 
 ---
 
-### Enabling UJS Adapter
+## Enabling UJS Adapter
 
 **Note**: In order for the unobstrusive javascript to work, you must be sure to include the chosen javascript framework and ujs adapter in your views (or layout). For instance, if I selected jquery for my project:
 

@@ -7,13 +7,13 @@ title: Running Padrino on JRuby
 sidebar: 'guides/sidebar'
 ---
 
-## Running Padrino on JRuby
+# Running Padrino on JRuby
 
 You can run Padrino (0.9.29 / 0.10.3 is tested) on JRuby 1.6.4.
 
 ---
 
-### Install on JRuby
+## Install on JRuby
 
 You can easily install Padrino on jruby when you use [rvm](https://rvm.beginrescueend.com/) :
 
@@ -102,7 +102,7 @@ You can access `localhost:3000` as you run padrino on MRI…
 
 ---
 
-### How to create WAR
+## How to create WAR
 
 Now you should have installed `warbler` gem, so you can:
 

@@ -9,5 +9,6 @@ html
           .sidebar
             = partial current_page.data.sidebar
         .page__content
-          = yield
+          .content
+            = yield
       = partial 'layouts/footer'

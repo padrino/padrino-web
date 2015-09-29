@@ -11,26 +11,19 @@ sidebar: 'guides/sidebar'
 
 Padrino provides generator support for quickly creating new Padrino applications. This provides many benefits such as constructing the recommended Padrino application structure, auto-generating a Gemfile listing all starting dependencies and guidelines provided within the generated files to help orient a new user to using Padrino.
 
-
 One important feature of the generators is that they were built from the ground up to support a wide variety of tools, libraries and gems for use within your padrino application.
 
-
 This means that Padrino generators do **not** lock you into using any particular database, ORM, testing framework, templating engine or javascript library. In fact, when generating an application you can actually tell Padrino which components you would like to use!
- 
 
 ---
-
 
 ## Project Generator
 
 The usage for the project generator is quite simple:
 
-
 ~~~ shell
 $ padrino g project <the_app_name> </path/to/create/app> --<component-name> <value>
 ~~~
-{: .excerpt--code }
-
 
 The simplest possible command to generate a base application would be:
 
@@ -38,60 +31,41 @@ The simplest possible command to generate a base application would be:
 ~~~ shell
 $ padrino g project demo_project
 ~~~
-{: .excerpt--code }
 
-
-This would construct a Padrino application DemoApp (which extends from Padrino::Application) inside the folder ‘demo\_project’ at our current path. Inside the application there would be configuration and setup performed for the default components.
-
+This would construct a Padrino application DemoApp (which extends from `Padrino::Application`) inside the folder `demo\_project` at our current path. Inside the application there would be configuration and setup performed for the default components.
 
 You can also define specific components to be used:
-
 
 ~~~ shell
 $ padrino g project demo_project -t rspec -e haml -m rr -s jquery -d datamapper -c sass
 ~~~
-{: .excerpt--code }
-
 
 You can also instruct the generator to skip a certain component to avoid using one at all (or to use your own):
-
 
 ~~~ shell
 $ padrino g project demo_project --test none --renderer none
 ~~~
-{: .excerpt--code }
-
 
 You can also specify an alternate name for your core application using the `--app` option:
-
 
 ~~~ shell
 $ padrino g project demo_project --app alternate_app_name # alias -n
 ~~~
-{: .excerpt--code }
-
 
 The generator uses the `bundler` gem to resolve any application dependencies when the application is newly created. The necessary bundler command can be executed automatically through the generator with:
-
 
 ~~~ shell
 $ padrino g project demo_project --run_bundler # alias -b
 ~~~
-{: .excerpt--code }
-
 
 or this can be done manually through executing command `bundle install` in the terminal at the root of the generated application.
 
-
 For more examples of using the project generator in common cases, check out the [Basic Projects](http://www.padrinorb.com/guides/basic-projects) guide.
 
-
-The generator framework within Padrino is extensible and additional components and tools can be added easily.
- This would be achieved through forking our project and reading through the code in `lib/generators/project.rb` and the setup instructions inside the relevant files within `lib/generators/components/`. We are happy to accept pull requests for additional component types not originally included (although helping us maintain them would also be appreciated).
+The generator framework within Padrino is extensible and additional components and tools can be added easily. This would be achieved through forking our project and reading through the code in `lib/generators/project.rb` and the setup instructions inside the relevant files within `lib/generators/components/`. We are happy to accept pull requests for additional component types not originally included (although helping us maintain them would also be appreciated).
 
 
 The project generator has several available configuration options:
-
 
 >
   Options|Default|Aliases|Description
@@ -107,7 +81,6 @@ The project generator has several available configuration options:
 
 The available components and their default options are listed below:
 
-
 >
   Component|Default|Aliases|Options
   :--------|:------|:------|:------
@@ -119,7 +92,6 @@ The available components and their default options are listed below:
   mock|none|-m|rr, mocha
 {: .excerpt--small }
 
-
 Note: Be careful with your naming when using generators and do not have your project name, or any models or controllers overlap. Avoid naming your app “Posts” and then your controller or subapp with the same name.
 
 ---
@@ -128,75 +100,51 @@ Note: Be careful with your naming when using generators and do not have your pro
 
 **Generate a project with a different application name from the project path**
 
-
 ~~~ shell
 $ padrino g my_project -n blog
 ~~~
-{: .excerpt--code }
 
-
-This will generate the project at path *my\_project/* but the applications name will be **Blog**.
-
+This will generate the project at path `my_project/` but the applications name will be **Blog**.
 
 **Generate a project with mongoid and run bundler after**
-
 
 ~~~ shell
 $ padrino g project your_project -d mongoid -b
 ~~~
-{: .excerpt--code }
-
 
 **Generate a project with riot test and rr mocking**
-
 
 ~~~ shell
 $ padrino g project your_project -t riot -m rr
 ~~~
-{: .excerpt--code }
-
 
 **Generate a project with sequel with mysql**
-
 
 ~~~ shell
 $ padrino g project your_project -d sequel -a mysql
 ~~~
-{: .excerpt--code }
-
 
 **Generate a tiny project skeleton**
-
 
 ~~~ shell
 $ padrino g project your_project --tiny
 ~~~
-{: .excerpt--code }
-
 
 **Choose a root for your project**
-
 
 ~~~ shell
 $ padrino g project your_project -r /usr/local/padrino
 ~~~
-{: .excerpt--code }
 
-
-This will create a new padrino project in */usr/local/padrino/your\_project/*
-
+This will create a new padrino project in `/usr/local/padrino/your_project/`
 
 **Use Padrino from a git cloned repository**
-
 
 ~~~ shell
 padrino g project your_project [--dev] # Use padrino from a git checkout
 ~~~
-{: .excerpt--code }
-
 
 Visit [The Bleeding Edge](/guides/the-bleeding-edge) for more info how to setup a **dev** environment.
- 
 
 ---
 
@@ -204,61 +152,43 @@ Visit [The Bleeding Edge](/guides/the-bleeding-edge) for more info how to setup 
 
 The Plugin Generator allows you to create Padrino projects based on a template file that contains all the necessary actions needed to create the project. Plugins can also be executed within an existing Padrino application. The plugin generator provides a simple DSL in addition with leveraging Thor to make generating projects a breeze!
 
-
 ~~~ shell
 $ padrino g project my_project --template path/to/my_template.rb
 ~~~
-{: .excerpt--code }
-
 
 This will generate a project based on the template file provided. You can also generate a project based on a remote url such as a [gist](http://gist.github.com/) for an additional level of convenience:
-
 
 ~~~ shell
 $ padrino g project my_project --template http://gist.github.com/356156
 ~~~
-{: .excerpt--code }
-
 
 You can also execute template files directly from [the official templates repo](http://github.com/padrino/padrino-recipes/tree/master/templates):
-
 
 ~~~ shell
 $ padrino g project my_project --template sampleblog
 ~~~
-{: .excerpt--code }
-
 
 You can also apply templates as plugins to existing Padrino applications:
-
 
 ~~~ shell
 $ cd path/to/existing/padrino/app
 $ padrino g plugin path/to/my_plugin.rb
 ~~~
-{: .excerpt--code }
-
 
 You can also execute plugin files directly from [the official plugins repo](http://github.com/padrino/padrino-recipes/tree/master/plugins/):
-
 
 ~~~ shell
 $ cd path/to/existing/padrino/app
 $ padrino g plugin hoptoad
 ~~~
-{: .excerpt--code }
 
 You can even get a list of available plugins with the following command:
-
 
 ~~~ shell
 $ padrino g plugin --list
 ~~~
-{: .excerpt--code }
-
 
 A simple template (plugin) file might look like this:
-
 
 ~~~ ruby
 # my_template.rb
@@ -282,15 +212,14 @@ end
 git :add, "."
 git :commit, "second commit"
 ~~~
-{: .excerpt--code }
 
-
-Keep in mind that the template file is pure ruby and has full access to [all available thor actions](http://rdoc.info/rdoc/wycats/thor/blob/f939a3e8a854616784cac1dcff04ef4f3ee5f7ff/Thor/Actions.html).
- 
+Keep in mind that the template file is pure Ruby and has full access to [all available thor actions](http://rdoc.info/rdoc/wycats/thor/blob/f939a3e8a854616784cac1dcff04ef4f3ee5f7ff/Thor/Actions.html).
 
 ---
 
 ## Controller Generator
+
+Padrino provides generator support for quickly creating new controllers within your Padrino application. Note that the controller tests are generated specifically tailored towards the testing framework chosen during application generation.
 
 >
   Options|Default|Aliases|Description
@@ -304,77 +233,55 @@ Keep in mind that the template file is pure ruby and has full access to [all ava
   destroy|false|-d|removes all generated files
 {: .excerpt--small }
 
-
-Padrino provides generator support for quickly creating new controllers within your Padrino application. Note that the controller tests are generated specifically tailored towards the testing framework chosen during application generation.
-
-
 Very important to note that controller generators are intended primarily to work within applications created through the Padrino application generator and that follow Padrino conventions.
 
-
 Using the controller generator is as simple as:
-
 
 ~~~ shell
 $ padrino g controller Admin
 ~~~
-{: .excerpt--code }
-
 
 If you want create a controller for a specified sub app you can:
-
 
 ~~~ shell
 $ padrino g controller Admin -a my_sub_app
 ~~~
-{: .excerpt--code }
-
 
 You can also specify desired actions to be added to your controller:
-
 
 ~~~ shell
 $ padrino g controller Admin get:index get:new post:create
 ~~~
-{: .excerpt--code }
-
 
 The controller generator will then construct the controller file within `app/controllers/admin.rb` and also a controller test file at `test/controllers/admin_controller_test.rb` according to the test framework chosen during app generation. A default route will also be generated mapping to name of the controller and the route name. For example:
-
 
 ~~~ shell
 $ padrino g controller User get:index
 ~~~
-{: .excerpt--code }
 
-
-will create a url route for :index mapping to “/user/index”
-
+will create a url route for `:index` mapping to `/user/index`.
 
 You may also specify layout, parent and provides respectively:
-
 
 ~~~ shell
 $ padrino g controller User -l global
 $ padrino g controller User -p users
 $ padrino g controller User -f :html,:json
 ~~~
-{: .excerpt--code }
 
-You can destroy controllers that you created via the destroy option and setting it to true. default is false.
-
+You can destroy controllers that you created via the destroy option and setting it to true. Default is false.
 
 ~~~ shell
 $ padrino g controller User -d
 ~~~
-{: .excerpt--code }
-
 
 This removes all created controller files.
- 
 
 ---
 
 ## Model Generator
+
+Padrino provides generator support for quickly creating new models within your Padrino application. Note that the models (and migrations) generated are specifically tailored towards the ORM component and testing framework chosen during application generation.
 
 >
   Options|Default|Aliases|Description
@@ -385,57 +292,41 @@ This removes all created controller files.
   destroy|false|-d|removes all generated files
 {: .excerpt--small }
 
-
-Padrino provides generator support for quickly creating new models within your Padrino application. Note that the models (and migrations) generated are specifically tailored towards the ORM component and testing framework chosen during application generation.
-
-
 Very important to note that model generators are intended primarily to work within applications created through the Padrino application generator and that follow Padrino conventions. Using model generators within an existing application not generated by Padrino will likely not work as expected.
 
-
 Using the model generator is as simple as:
-
 
 ~~~ shell
 $ padrino g model User
 ~~~
-{: .excerpt--code }
 
-
-You can also specify desired fields to be contained within your User model:
-
+You can also specify desired fields to be contained within your `User` model:
 
 ~~~ shell
 $ padrino g model User name:string age:integer email:string
 ~~~
-{: .excerpt--code }
-
 
 The model generator will create multiple files within your application and based on your ORM component.
 Usually the model file will generate files similar to the following:
 
-
-- model definition file [models/user.rb]
-- migration declaration [db/migrate/xxx\_create\_users.rb]
-
+- Model definition file [`models/user.rb`]
+- Migration declaration [`db/migrate/xxx\_create\_users.rb`]
 
 You can define as many models as you would like in a Padrino application using this generator.
 
-
 You can destroy models that you created via the destroy option and setting it to true. default is false.
-
 
 ~~~ shell
 $ padrino g model User -d
 ~~~
-{: .excerpt--code }
-
 
 This remove all created model files.
- 
 
 ---
 
 ## Migration Generator
+
+Padrino provides generator for quickly generating new migrations to change or manipulate the database schema. These migrations generated will be tailored towards the ORM chosen when generating the application.
 
 >
   Options|Default|Aliases|Description
@@ -444,53 +335,37 @@ This remove all created model files.
   destroy|false|-d|removes all generated files
 {: .excerpt--small }
 
-
-Padrino provides generator for quickly generating new migrations to change or manipulate the database schema.
-These migrations generated will be tailored towards the ORM chosen when generating the application.
-
-
 Very important to note that migration generators are intended primarily to work within applications created through the Padrino application generator and that follow Padrino conventions. Using migration generators within an existing application not generated by Padrino will likely not work as expected.
 
-
 Using the migration generator is as simple as:
-
 
 ~~~ shell
 $ padrino g migration AddFieldsToUsers
 $ padrino g migration RemoveFieldsFromUsers
 ~~~
-{: .excerpt--code }
-
 
 You can also specify desired columns to be added to the migration file:
-
 
 ~~~ shell
 $ padrino g migration AddFieldsToUsers last_login:datetime crypted_password:string
 $ padrino g migration RemoveFieldsFromUsers password:string ip_address:string
 ~~~
-{: .excerpt--code }
 
-
-The migration generator will then construct the migration file according to your ORM component chosen
-within `db/migrate/xxx_add_fields_to_users.rb` including the columns specified in the command.
-
+The migration generator will then construct the migration file according to your ORM component chosen within `db/migrate/xxx_add_fields_to_users.rb` including the columns specified in the command.
 
 You can destroy migrations that you created via the destroy option and setting it to true. default is false.
-
 
 ~~~ shell
 $ padrino g migration AddFieldsToUsers -d
 ~~~
-{: .excerpt--code }
-
 
 This removes the migration file.
- 
 
 ---
 
 ## Mailer Generator
+
+Padrino provides generator support for quickly creating new mailers within your Padrino application.
 
 >
   Options|Default|Aliases|Description
@@ -501,56 +376,41 @@ This removes the migration file.
   destroy|false|-d|removes all generated files
 {: .excerpt--small }
 
-
-Padrino provides generator support for quickly creating new mailers within your Padrino application.
- Very important to note that mailer generators are intended primarily to work within applications created through the Padrino application generator and that follow Padrino conventions.
-
+Very important to note that mailer generators are intended primarily to work within applications created through the Padrino application generator and that follow Padrino conventions.
 
 Using the mailer generator is as simple as:
-
 
 ~~~ shell
 $ padrino g mailer UserNotifier
 ~~~
-{: .excerpt--code }
-
 
 If you want create a mailer for a specified sub app you can:
-
 
 ~~~ shell
 $ padrino g mailer UserNotifier -a my_sub_app
 ~~~
-{: .excerpt--code }
-
 
 You can also specify desired delivery actions to be added to the mailer:
-
 
 ~~~ shell
 $ padrino g mailer UserNotifier confirm_account welcome inactive_account
 ~~~
-{: .excerpt--code }
-
 
 The mailer generator will then construct the mailer file within `app/mailers/user_notifier.rb`
 
-
-You can destroy mailer that you created via the destroy option and setting it to true. default is false.
-
+You can destroy mailer that you created via the destroy option and setting it to true. Default is false.
 
 ~~~ shell
 $ padrino g mailer UserNotifer -d
 ~~~
-{: .excerpt--code }
-
 
 This remove all created mailer files.
- 
 
 ---
 
 ## Sub App Generator
+
+Unlike other Ruby frameworks, Padrino is principally designed for mounting multiple apps at the same time.
 
 >
   Options|Default|Aliases|Description
@@ -560,60 +420,42 @@ This remove all created mailer files.
   destroy|false|-d|removes all generated files
 {: .excerpt--small }
 
-
-Unlike other ruby frameworks Padrino is principally designed for mounting multiple apps at the same time.
-
-
 First you need to create a project:
-
 
 ~~~ shell
 $ padrino g project demo_project
 $ cd demo_project
 ~~~
-{: .excerpt--code }
 
-
-Now you are in demo\_project and you can create your apps:
-
+Now you are in `demo_project` and you can create your apps:
 
 ~~~ shell
 $ padrino g app one
 $ padrino g app two
 ~~~
-{: .excerpt--code }
-
 
 By default these apps are mounted under:
 
-- /one
-- /two
+- `/one`
+- `/two`
 
+but you can edit `config/apps.rb` and change it.
 
-but you can edit config/apps.rb and change it.
-
-
-and create controllers:
-
+And create controllers:
 
 ~~~ shell
-your_project$ padrino g controller base --app foo # This will be created for app Foo
-your_project$ padrino g controller base           # This will be created for Core app
-your_project$ padrino g controller base --app bar # This will be created for app Bar
+$ padrino g controller base --app foo # This will be created for app Foo
+$ padrino g controller base           # This will be created for Core app
+$ padrino g controller base --app bar # This will be created for app Bar
 ~~~
-{: .excerpt--code }
 
-
-or mailers:
-
+Or mailers:
 
 ~~~ shell
-your_project$ padrino g mailer registration --app foo  # This will be created for app Foo
-your_project$ padrino g mailer registration            # This will be created for Core app
-your_project$ padrino g mailer registration --app bar  # This will be created for app Bar
+$ padrino g mailer registration --app foo  # This will be created for app Foo
+$ padrino g mailer registration            # This will be created for Core app
+$ padrino g mailer registration --app bar  # This will be created for app Bar
 ~~~
-{: .excerpt--code }
- 
 
 ---
 
@@ -621,28 +463,23 @@ your_project$ padrino g mailer registration --app bar  # This will be created fo
 
 Both the Project Generator and Sub App Generator allow you to create an even smaller project skeleton. Instead of the default skeleton, the tiny option removes the need for a controllers, helpers, and mailers folder and instead generates controllers.rb, helpers.rb, and mailers.rb in its place.
 
-
 To use the tiny skeleton generator for project run:
-
 
 ~~~ shell
 $ padrino g project tiny_app -d mongoid --tiny
 ~~~
-{: .excerpt--code }
-
 
 To use the tiny skeleton generator for app run in your project:
 
-
 ~~~ shell
-my_app$ padrino g app tiny_app --tiny
+$ padrino g app tiny_app --tiny
 ~~~
-{: .excerpt--code }
- 
 
 ---
 
 ## Admin Generator
+
+Padrino also comes with a built-in admin dashboard. To generate the admin application in your project:
 
 >
   Options|Default|Aliases|Description
@@ -656,34 +493,25 @@ my_app$ padrino g app tiny_app --tiny
   destroy|false|-d|removes all generated files
 {: .excerpt--small }
 
-
-Padrino also comes with a built-in admin dashboard. To generate the admin application in your project:
-
-
 ~~~ shell
 $ padrino g admin
 ~~~
-{: .excerpt--code }
-
 
 You can specify the theme to use for your admin application using the `theme` flag:
-
 
 ~~~ shell
 $ padrino g admin --theme blue
 ~~~
-{: .excerpt--code }
 
-
-The available themes are: *amro*, *bec*, *bec-green*, *blue*, *default*, *djime-cerulean*, *kathleene*, *olive*, *orange*, *reidb-greenish*, *ruby*, *warehouse*
-
+The available themes are: `amro`, `bec`, `bec-green`, `blue`, `default`, `djime-cerulean`, `kathleene`, `olive`, `orange`, `reidb-greenish`, `ruby`, `warehouse`.
 
 This will generate the admin application and mount this at `/admin`. For more information, check out the [Admin Guide](http://www.padrinorb.com/guides/padrino-admin).
-
 
 ---
 
 ## Component Generator
+
+The available components and their default options are same as the Project Generator.
 
 >
   Options|Default|Aliases|Description
@@ -692,35 +520,25 @@ This will generate the admin application and mount this at `/admin`. For more in
   adapter|sqlite|-a|specify orm db adapter (mysql, sqlite, postgres)
 {: .excerpt--small }
 
-
-The available components and their default options are same as the Project Generator.
-
-
----
-
-## Some examples:
+### Some examples:
 
 Show help and selected components:
-
 
 ~~~ shell
 $ padrino g component
 ~~~
-{: .excerpt--code }
 
-
-Add to minirecord with mysql and rspec in your project:
-
+Add to `minirecord` with `mysql` and `rspec` in your project:
 
 ~~~ shell
 $ padrino g component -d minirecord -a mysql2 -t rspec
 ~~~
-{: .excerpt--code }
-
 
 ---
 
 ## Task Generator
+
+Padrino provides generator for quickly generating new task for your app.
 
 >
   Options|Default|Aliases|Description
@@ -729,38 +547,25 @@ $ padrino g component -d minirecord -a mysql2 -t rspec
   namespace|nil|-n|specify the namespace of your application task
 {: .excerpt--small }
 
-Padrino provides generator for quickly generating new task for your app.
-
-
----
-
-## Some examples:
+### Some examples:
 
 Show help:
-
 
 ~~~ shell
 $ padrino g task
 ~~~
-{: .excerpt--code }
-
 
 Using the task generator is as simple as:
-
 
 ~~~ shell
 $ padrino g task foo
 ~~~
-{: .excerpt--code }
-
 
 Generate the task file with namespace and description options:
-
 
 ~~~ shell
 $ padrino g task bar --namespace=sample --description="This\ is\ a\ sample"
 ~~~
-{: .excerpt--code }
 
 [Next Section &ndash; Development Commands](/guides/development-commands){: .button}
 {: .excerpt}

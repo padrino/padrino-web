@@ -46,7 +46,6 @@ Download and translate these files:
 - [padrino-admin-orm.yml](http://raw.github.com/padrino/padrino-framework/master/padrino-admin/lib/padrino-admin/locale/orm/en.yml)
 - [padrino-helper.yml](http://raw.github.com/padrino/padrino-framework/master/padrino-helpers/lib/padrino-helpers/locale/en.yml)
 
-
 zip your files and send it to [padrinorb@gmail.com](mailto:padrinorb@gmail.org)
 
 ---
@@ -55,25 +54,20 @@ zip your files and send it to [padrinorb@gmail.com](mailto:padrinorb@gmail.org)
 
 The first thing that you need to do is to set your locale by appending it to boot.rb:
 
-
-~~~ruby
+~~~ ruby
 # config/boot.rb
 Padrino.before_load do
   I18n.locale = :de
 end
 ~~~
 
-
 By default Padrino will search for all `.yml` or `.rb` files located in `app/locale`; as an example try to add the following to your `app/locale/de.yml`:
-
 
 in your view or controller or wherever you prefer add:
 
-
-~~~ruby
+~~~ ruby
 I18n.t("foo")
 ~~~
-
 
 you will get:
 
@@ -87,8 +81,7 @@ Translating models via Padrino requires few seconds thanks to a builtin rake tas
 
 Assuming the following Account model:
 
-
-~~~ruby
+~~~ ruby
 create_table :accounts do |t|
   t.string   :name
   t.string   :surname
@@ -99,31 +92,24 @@ create_table :accounts do |t|
 end
 ~~~
 
-
 add this to your boot.rb (or anywhere else):
 
-
-~~~ruby
+~~~ ruby
 # config/boot.rb
 Padrino.before_load do
   I18n.locale = :it
 end
 ~~~
 
-
 run padrino rake task for localizing your model:
 
-
-~~~sh
+~~~ shell
 padrino rake ar:translate
 ~~~
 
-
 a new it.yml file will be created into `/app/locale/models/account/it.yml` with the following:
 
-
 you can now edit your generated `it.yml` file to reflect your current locale (Italian):
-
 
 padrino-admin will now use your newly created yml file for translating the column names of grids, forms, error\_messages etc…
 
@@ -133,8 +119,7 @@ padrino-admin will now use your newly created yml file for translating the colum
 
 Using *form\_builder* like:
 
-
-~~~haml
+~~~ haml
 -form_for :account, url(:accounts_create, :format => :js), :remote => true do |f|
   %table
     %tr
@@ -147,7 +132,6 @@ Using *form\_builder* like:
       %td=f.label :role
       %td=f.select :role, :options => access_control.roles
 ~~~
-
 
 the tag **label** automatically translates for **you** the field name!!
 

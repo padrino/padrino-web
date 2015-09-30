@@ -9,7 +9,11 @@ sidebar: 'guides/sidebar'
 
 # Controllers
 
-Suppose we wanted to add routes to our Padrino application, and we want to organize a set of related routes within a more structured grouping. Padrino has the notion of a ‘controller’ block which can group related routes and make URL generation much easier. Simply add a `controllers.rb` file or `app/controllers` folder and create a file as such:
+Suppose we wanted to add routes to our Padrino application, and we want to
+organize a set of related routes within a more structured grouping. Padrino has
+the notion of a ‘controller’ block which can group related routes and make URL
+generation much easier. Simply add a `controllers.rb` file or `app/controllers`
+folder and create a file as such:
 
 ~~~ ruby
 # app/controllers/main.rb or controllers.rb
@@ -26,17 +30,25 @@ SimpleApp.controller do
 end
 ~~~
 
-In this case, the controller merely acts as a structured grouping mechanism to allow better organization of routes. Controllers actually have other benefits as well when used in conjunction with the enhanced Padrino routing system.
+In this case, the controller merely acts as a structured grouping mechanism to
+allow better organization of routes. Controllers actually have other benefits as
+well when used in conjunction with the enhanced Padrino routing system.
 
 ---
 
 ## Enhanced Routing
 
-Padrino provides advanced routing definition support to make routes and URL generation much easier. This routing system supports named route aliases and easy access to url paths. The benefits of this is that instead of having to hard-code route URLs into every area of your application, now we can just define the URLs in a single spot and then attach an alias which can be used to refer to the URL throughout the application.
+Padrino provides advanced routing definition support to make routes and URL
+generation much easier. This routing system supports named route aliases and
+easy access to url paths. The benefits of this is that instead of having to
+hard-code route URLs into every area of your application, now we can just define
+the URLs in a single spot and then attach an alias which can be used to refer to
+the URL throughout the application.
 
 ### Basic Routing Aliases
 
-The routing system supports named aliases by using symbols instead of strings for your routes:
+The routing system supports named aliases by using symbols instead of strings
+for your routes:
 
 ~~~ ruby
 # app/app.rb
@@ -64,7 +76,8 @@ These routes can then be referenced anywhere in the application:
 
 ### Inline Route Alias Definitions
 
-The routing plugin also supports inline route definitions in which the explicit URL and the named alias are both defined:
+The routing plugin also supports inline route definitions in which the explicit
+URL and the named alias are both defined:
 
 ~~~ ruby
 # app/main.rb
@@ -80,7 +93,8 @@ class Demoer < Padrino::Application
 end
 ~~~
 
-Routes defined inline this way can be accessed and treated the same way as traditional named aliases:
+Routes defined inline this way can be accessed and treated the same way as
+traditional named aliases:
 
 ~~~ haml
 # app/views/example.haml
@@ -90,7 +104,8 @@ Routes defined inline this way can be accessed and treated the same way as tradi
 
 ### Namespaced Route Aliases
 
-There is also support for namespaced routes which are organized into a named controller group:
+There is also support for namespaced routes which are organized into a named
+controller group:
 
 ~~~ ruby
 # app/controllers/admin.rb
@@ -115,7 +130,8 @@ You can then reference these routes using the same `url_for` method:
 = link_to 'admin index page', url_for(:admin, :show, :id => 25)
 ~~~
 
-If you prefer explicit URLs to named aliases, that is also supported within a specified controller group:
+If you prefer explicit URLs to named aliases, that is also supported within a
+specified controller group:
 
 ~~~ ruby
 # app/controllers/example.rb
@@ -158,7 +174,8 @@ You can then reference the URLs using the same `url_for` method:
 
 ### Nested Routes
 
-You can specify parent resources in padrino with the :parent option on the controller:
+You can specify parent resources in padrino with the :parent option on the
+controller:
 
 ~~~ ruby
 # app/controllers/example.rb
@@ -174,7 +191,8 @@ SimpleApp.controllers :product, :parent => :user do
 end
 ~~~
 
-If need be the parent resource can also be specified on inline routes in addition:
+If need be the parent resource can also be specified on inline routes in
+addition:
 
 ~~~ ruby
 # app/controllers/example.rb
@@ -190,7 +208,8 @@ end
 
 ## Layouts
 
-With Padrino, a custom layout can be specified or the layout can be disabled altogether:
+With Padrino, a custom layout can be specified or the layout can be disabled
+altogether:
 
 ~~~ ruby
 class SimpleApp < Padrino::Application
@@ -202,7 +221,8 @@ class SimpleApp < Padrino::Application
 end
 ~~~
 
-Note that layouts are *scoped by controller*, so you can apply different layouts to different controllers:
+Note that layouts are *scoped by controller*, so you can apply different layouts
+to different controllers:
 
 ~~~ ruby
 SimpleApp.controllers :posts do
@@ -238,7 +258,8 @@ end
 
 ## Provides Formats
 
-With Padrino you can simply declare which formats a request will respond to by using the `provides` route configuration:
+With Padrino you can simply declare which formats a request will respond to by
+using the `provides` route configuration:
 
 ~~~ ruby
 # app/controllers/example.rb
@@ -269,7 +290,9 @@ and these formatted route paths can be accessed easily using `url_for` and then 
 
 ## Route Filters
 
-Before filters are evaluated before each request within the context of the request and can modify the request and response. Instance variables set in filters are accessible by routes and templates:
+Before filters are evaluated before each request within the context of the
+request and can modify the request and response. Instance variables set in
+filters are accessible by routes and templates:
 
 ~~~ ruby
 before do
@@ -277,7 +300,9 @@ before do
 end
 ~~~
 
-After filter are evaluated after each request within the context of the request and can also modify the request and response. Instance variables set in before filters and routes are accessible by after filters:
+After filter are evaluated after each request within the context of the request
+and can also modify the request and response. Instance variables set in before
+filters and routes are accessible by after filters:
 
 ~~~ ruby
 after do
@@ -285,7 +310,9 @@ after do
 end
 ~~~
 
-This is now standard in Sinatra but Padrino adds support for filters being *scoped by controller* which means that unlike Sinatra in which a filter is global, in Padrino you can run different filters for each controller:
+This is now standard in Sinatra but Padrino adds support for filters being
+*scoped by controller* which means that unlike Sinatra in which a filter is
+global, in Padrino you can run different filters for each controller:
 
 ~~~ ruby
 SimpleApp.controllers :posts do
@@ -299,7 +326,9 @@ SimpleApp.controllers :accounts do
 end
 ~~~
 
-This allows for more fine-grained filters and prevents the need to have unnecessary filters running on every route. As of Padrino 0.10.0, there is also a much more powerful route selection system that has been setup:
+This allows for more fine-grained filters and prevents the need to have
+unnecessary filters running on every route. As of Padrino 0.10.0, there is also
+a much more powerful route selection system that has been setup:
 
 ~~~ ruby
 # app/controllers/example_controller.rb
@@ -325,13 +354,17 @@ DemoApp.controller :example do
 end
 ~~~
 
-This gives developers a lot more flexibility when running filters and enables much more selective execution in a convenient way.
+This gives developers a lot more flexibility when running filters and enables
+much more selective execution in a convenient way.
 
 ---
 
 ## Prioritized Routes
 
-Padrino (0.10.0+) has added support for respecting route order in controllers and also allows the developer to specify certain routes as less or more “important” then others in the route recognition order. Consider two controllers, the first with a “catch-all” route:
+Padrino (0.10.0+) has added support for respecting route order in controllers
+and also allows the developer to specify certain routes as less or more
+“important” then others in the route recognition order. Consider two
+controllers, the first with a “catch-all” route:
 
 ~~~ ruby
 # app/controllers/pages.rb
@@ -349,7 +382,9 @@ MyApp.controller :projects do
 end
 ~~~
 
-This wouldn’t work by default because the second “/projects” endpoint would be eclipsed by the “/\*page” catch-all route and as such `projects` would not be accessible. To solve this, you can do the following:
+This wouldn’t work by default because the second “/projects” endpoint would be
+eclipsed by the “/\*page” catch-all route and as such `projects` would not be
+accessible. To solve this, you can do the following:
 
 ~~~ ruby
 # app/controllers/pages.rb
@@ -368,13 +403,18 @@ MyApp.controller :projects do
 end
 ~~~
 
-When setting a routes priority to `:low`, this route is then recognized lower then all “high” and “normal” priority routes. You are encouraged in cases where there is ambiguity, to mark key routes as `:priority => :high` or catch-all routes as `:priority => :low` in order to guarantee expected behavior.
+When setting a routes priority to `:low`, this route is then recognized lower
+then all “high” and “normal” priority routes. You are encouraged in cases where
+there is ambiguity, to mark key routes as `:priority => :high` or catch-all
+routes as `:priority => :low` in order to guarantee expected behavior.
 
 ---
 
 ## Custom Conditions
 
-Padrino has support for Sinatra’s custom route conditions as well. This allows you to apply custom condition checks to evaluate before a route is executed for an incoming request:
+Padrino has support for Sinatra’s custom route conditions as well. This allows
+you to apply custom condition checks to evaluate before a route is executed for
+an incoming request:
 
 ~~~ ruby
 # app/controllers/example.rb
@@ -422,19 +462,20 @@ SimpleApp.controller :conditions => {:protect => true} do
 end
 ~~~
 
-This gives the developer considerable power to construct arbitrarily complex route conditions and apply them to any route within their application.
+This gives the developer considerable power to construct arbitrarily complex
+route conditions and apply them to any route within their application.
 
 ---
 
 ## Parsing params inside a request's body
 
-Padrino is often used for web service applications. One common need these applications have is to
-parse incoming messages, typically JSON or XML.
-This data will come as part of the request's body instead of the typical form data approach, i.e.
-url parameters or multipart form data.
+Padrino is often used for web service applications. One common need these
+applications have is to parse incoming messages, typically JSON or XML. This
+data will come as part of the request's body instead of the typical form data
+approach, i.e. url parameters or multipart form data.
 
-Here's when [Rack::Parser](https://github.com/achiu/rack-parser) comes in handy since it will do
-just that. In `app/app.rb` or in `config.ru` just add:
+Here's when [Rack::Parser](https://github.com/achiu/rack-parser) comes in handy
+since it will do just that. In `app/app.rb` or in `config.ru` just add:
 
 ~~~ ruby
 use Rack::Parser, :content_types => {
@@ -442,8 +483,8 @@ use Rack::Parser, :content_types => {
 }
 ~~~
 
-Now all of your controllers will have the request's body JSON object parse as inside `params` and
-you would be able to do something along the lines of:
+Now all of your controllers will have the request's body JSON object parse as
+inside `params` and you would be able to do something along the lines of:
 
 ~~~ ruby
 post '/people'
@@ -452,7 +493,8 @@ post '/people'
 end
 ~~~
 
-Have a look at [this great Sinatra recipe](http://recipes.sinatrarb.com/p/middleware/rack_parser?#article)
+Have a look at
+[this great Sinatra recipe](http://recipes.sinatrarb.com/p/middleware/rack_parser?#article)
 for a more detailed guide of how this middleware works.
 
 ---
@@ -466,7 +508,9 @@ Unlike Sinatra, Padrino supports automatic template engine lookups with:
 render 'account/index'
 ~~~
 
-It will choose the first one that is discovered, without regards to the type of rendering (erb, haml). Otherwise you can explicitly specify the type of rendering of your choice (erb, haml).
+It will choose the first one that is discovered, without regards to the type of
+rendering (erb, haml). Otherwise you can explicitly specify the type of
+rendering of your choice (erb, haml).
 
 ~~~ ruby
 # will use example.haml
@@ -484,15 +528,17 @@ SimpleApp.controllers :admin do
 end
 ~~~
 
-When you visit the `:show` route with `I18n.locale == :ru` enabled, Padrino will first try to look for “admin/show.ru.js.\*” if nothing matches that criteria, it will try “admin/show.ru.\*” then “admin/show.js.\*”. As a last resort, if he finds nothing matching your criteria, it will return “admin/show.erb” (or admin/show.haml)
+When you visit the `:show` route with `I18n.locale == :ru` enabled, Padrino will
+first try to look for “admin/show.ru.js.\*” if nothing matches that criteria, it
+will try “admin/show.ru.\*” then “admin/show.js.\*”. As a last resort, if he
+finds nothing matching your criteria, it will return “admin/show.erb” (or
+admin/show.haml)
 
 ---
 
 ## Using Sessions
 
 *Kindly borrowed from Sinatra's docs :)*
-
-### Using Sessions
 
 A session is used to keep state during requests. If activated, you have one
 session hash per user session:
@@ -509,11 +555,11 @@ get '/:value' do
 end
 ~~~
 
-Note that `enable :sessions` actually stores all data in a cookie. This
-might not always be what you want (storing lots of data will increase your
-traffic, for instance). You can use any Rack session middleware: in order to
-do so, do **not** call `enable :sessions`, but instead pull in your
-middleware of choice as you would any other middleware:
+Note that `enable :sessions` actually stores all data in a cookie. This might
+not always be what you want (storing lots of data will increase your traffic,
+for instance). You can use any Rack session middleware: in order to do so, do
+**not** call `enable :sessions`, but instead pull in your middleware of choice
+as you would any other middleware:
 
 ~~~ ruby
 use Rack::Session::Pool, :expire_after => 2592000
@@ -529,8 +575,8 @@ end
 
 To improve security, the session data in the cookie is signed with a session
 secret. A random secret is generated for you by Sinatra. However, since this
-secret will change with every start of your application, you might want to
-set the secret yourself, so all your application instances share it:
+secret will change with every start of your application, you might want to set
+the secret yourself, so all your application instances share it:
 
 ~~~ ruby
 set :session_secret, 'super secret'

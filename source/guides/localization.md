@@ -52,7 +52,8 @@ zip your files and send it to [padrinorb@gmail.com](mailto:padrinorb@gmail.org)
 
 ## How to localize your app
 
-The first thing that you need to do is to set your locale by appending it to boot.rb:
+The first thing that you need to do is to set your locale by appending it to
+boot.rb:
 
 ~~~ ruby
 # config/boot.rb
@@ -61,7 +62,9 @@ Padrino.before_load do
 end
 ~~~
 
-By default Padrino will search for all `.yml` or `.rb` files located in `app/locale`; as an example try to add the following to your `app/locale/de.yml`:
+By default Padrino will search for all `.yml` or `.rb` files located in
+`app/locale`; as an example try to add the following to your
+`app/locale/de.yml`:
 
 in your view or controller or wherever you prefer add:
 
@@ -77,7 +80,8 @@ you will get:
 
 ## Translate Models (ActiveRecord)
 
-Translating models via Padrino requires few seconds thanks to a builtin rake task!
+Translating models via Padrino requires few seconds thanks to a builtin rake
+task!
 
 Assuming the following Account model:
 
@@ -107,11 +111,14 @@ run padrino rake task for localizing your model:
 padrino rake ar:translate
 ~~~
 
-a new it.yml file will be created into `/app/locale/models/account/it.yml` with the following:
+a new it.yml file will be created into `/app/locale/models/account/it.yml` with
+the following:
 
-you can now edit your generated `it.yml` file to reflect your current locale (Italian):
+you can now edit your generated `it.yml` file to reflect your current locale
+(Italian):
 
-padrino-admin will now use your newly created yml file for translating the column names of grids, forms, error\_messages etc…
+padrino-admin will now use your newly created yml file for translating the
+column names of grids, forms, error\_messages etc…
 
 ---
 

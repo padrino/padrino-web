@@ -9,17 +9,30 @@ sidebar: 'guides/sidebar'
 
 # Standalone Usage in Sinatra
 
-Padrino is by default a full-stack framework which provides a large number of enhancements to Sinatra and uses a new base application `Padrino::Application`. However, there are clearly times when even Padrino itself is far too ‘heavyweight’ for an application.
+Padrino is by default a full-stack framework which provides a large number of
+enhancements to Sinatra and uses a new base application `Padrino::Application`.
+However, there are clearly times when even Padrino itself is far too
+‘heavyweight’ for an application.
 
-In these instances, the ideal situation would be to cherry-pick individual enhancements and use them in your existing Sinatra application. Fortunately, Padrino is committed to allowing you to do exactly that! Each major component within Padrino can be used in isolation and applied to an existing Sinatra application. This guide will walk you through that process for each component. You can also find some examples [here](http://github.com/padrino/single-apps).
+In these instances, the ideal situation would be to cherry-pick individual
+enhancements and use them in your existing Sinatra application. Fortunately,
+Padrino is committed to allowing you to do exactly that! Each major component
+within Padrino can be used in isolation and applied to an existing Sinatra
+application. This guide will walk you through that process for each component.
+You can also find some examples [here](http://github.com/padrino/single-apps).
 
 ---
 
 ## Padrino Helpers
 
-This component provides a great deal of view helpers related to html markup generation. There are helpers for generating tags, forms, links, images, and more. Most of the basic methods should be very familiar to anyone who has used rails view helpers.
+This component provides a great deal of view helpers related to html markup
+generation. There are helpers for generating tags, forms, links, images, and
+more. Most of the basic methods should be very familiar to anyone who has used
+rails view helpers.
 
-You can check out the details of these helpers in the [Application Helpers](/guides/application-helpers) guide. To register these helpers within your Sinatra application:
+You can check out the details of these helpers in the
+[Application Helpers](/guides/application-helpers) guide. To register these
+helpers within your Sinatra application:
 
 ~~~ ruby
 # app.rb
@@ -35,9 +48,14 @@ end
 
 ## Padrino Mailer
 
-This component provides a powerful but simple mail delivery system within Padrino (and Sinatra). There is full support for using an html content type as well as for file attachments. The Padrino Mailer has many similarities to ActionMailer but is much lighter-weight and easier to use.
+This component provides a powerful but simple mail delivery system within
+Padrino (and Sinatra). There is full support for using an html content type as
+well as for file attachments. The Padrino Mailer has many similarities to
+ActionMailer but is much lighter-weight and easier to use.
 
-You can check out the details of the mailer in the [Padrino Mailer](/guides/padrino-mailer) guide. To register this mailer within your Sinatra application:
+You can check out the details of the mailer in the
+[Padrino Mailer](/guides/padrino-mailer) guide. To register this mailer within
+your Sinatra application:
 
 ~~~ ruby
 # app.rb
@@ -63,7 +81,9 @@ end
 
 ## Padrino Routing
 
-You can check out the details of the routing system in the [Routing](/guides/controllers) guide. To register the routing and controller functionality within your Sinatra application:
+You can check out the details of the routing system in the
+[Routing](/guides/controllers) guide. To register the routing and controller
+functionality within your Sinatra application:
 
 ~~~ ruby
 # app.rb
@@ -111,7 +131,8 @@ MyApp.run!(:port => 3000)
 
 ## Padrino Rendering
 
-Padrino enhances the Sinatra ‘render’ method to have support for automatic template engine detection, among other more advanced features.
+Padrino enhances the Sinatra ‘render’ method to have support for automatic
+template engine detection, among other more advanced features.
 
 ~~~ ruby
 # app.rb
@@ -130,7 +151,8 @@ end
 
 ## Padrino Cache
 
-**Note that the padrino-cache** gem does not currently do anything! This is a placeholder for when this gem has been implemented.
+**Note that the padrino-cache** gem does not currently do anything! This is a
+  placeholder for when this gem has been implemented.
 
 ~~~ ruby
 # app.rb

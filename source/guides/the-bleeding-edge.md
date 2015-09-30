@@ -9,16 +9,18 @@ sidebar: 'guides/sidebar'
 
 # The Bleeding Edge
 
-You have three ways of using Padrino edge; the first one is using the git source code in a gem file, the second one is using a vendored version, and the third is to install edge into system gems from repository.
+You have three ways of using Padrino edge; the first one is using the git source
+code in a gem file, the second one is using a vendored version, and the third is
+to install edge into system gems from repository.
 
+**Git in Gemfile** is suitable for those guys that **only** want Padrino’s
+  latest bleeding edge code.
 
-**Git in Gemfile** is suitable for those guys that **only** want Padrino’s latest bleeding edge code.
+**System Gems** is suitable for people that want to use the latest padrino and
+  freely use `padrino g` and `padrino`.
 
-
-**System Gems** is suitable for people that want to use the latest padrino and freely use `padrino g` and `padrino`.
-
-
-**Path in Gemfile** is recommended for developers because they can share their changes and merge repos between projects.
+**Path in Gemfile** is recommended for developers because they can share their
+  changes and merge repos between projects.
 
 ---
 
@@ -35,13 +37,15 @@ and from console:
 $ bundle install
 ~~~
 
-after that you need to run your app in the bundler environment because if you call directly:
+after that you need to run your app in the bundler environment because if you
+call directly:
 
 ~~~ shell
 $ padrino g admin
 ~~~
 
-you will use system wide gems. So for do that remember to run commands with `bundle exec` as a prefix like:
+you will use system wide gems. So for do that remember to run commands with
+`bundle exec` as a prefix like:
 
 ~~~ shell
 $ bundle exec padrino start
@@ -50,13 +54,15 @@ $ bundle exec padrino g admin
 $ bundle exec padrino g model post
 ~~~
 
-You can find more info about bundler usage on their [site](http://gembundler.com/)
+You can find more info about bundler usage on their
+[site](http://gembundler.com/)
 
 ---
 
 ## System Gems from Repository
 
-If you want to install the padrino edge gems into your system rubygems, simply follow the following steps. First, clone the padrino repository:
+If you want to install the padrino edge gems into your system rubygems, simply
+follow the following steps. First, clone the padrino repository:
 
 ~~~ shell
 $ cd /tmp
@@ -79,7 +85,8 @@ Finally, run the `fresh` rake command to install the latest version:
 padrino-framework$ sudo rake fresh
 ~~~
 
-this will install the latest ‘edge’ gems into rubygems. Be sure to verify your project’s Gemfile depends on the edge version you installed:
+this will install the latest ‘edge’ gems into rubygems. Be sure to verify your
+project’s Gemfile depends on the edge version you installed:
 
 ~~~ ruby
 Gemfile
@@ -87,7 +94,8 @@ Gemfile
 gem 'padrino', 'X.X.X'  # This should be the version you installed earlier
 ~~~
 
-or you can generate a new project easily and you can use padrino commands normally:
+or you can generate a new project easily and you can use padrino commands
+normally:
 
 ~~~ shell
 padrino g project test-project
@@ -108,7 +116,8 @@ alias padrino-dev="/src/padrino-framework/padrino-core/bin/padrino"
 alias padrino-dev-gen="/src/padrino-framework/padrino-gen/bin/padrino-gen" # you can omit this
 ~~~
 
-Reload source or open a new terminal window and check if you have *padrino-dev* and *padrino-dev-gen* commands correctly added to your path.
+Reload source or open a new terminal window and check if you have *padrino-dev*
+and *padrino-dev-gen* commands correctly added to your path.
 
 Create a new padrino project:
 
@@ -131,9 +140,12 @@ This will append the following lines to your test-app/Gemfile:
 end
 ~~~
 
-Make changes accordingly to your */src/padrino-framework* to see them reflected through your padrino project now using your own vendored version of the framework.
+Make changes accordingly to your */src/padrino-framework* to see them reflected
+through your padrino project now using your own vendored version of the
+framework.
 
-**REMEMBER** to add always `--dev` when generating a project because without that the generated project will use the gem instead the git checkout.
+**REMEMBER** to add always `--dev` when generating a project because without
+  that the generated project will use the gem instead the git checkout.
 
 [Next Section &ndash; Adding New Components](/guides/adding-new-components){: .button}
 {: .excerpt}

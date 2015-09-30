@@ -15,7 +15,8 @@ You can run Padrino (0.9.29 / 0.10.3 is tested) on JRuby 1.6.4.
 
 ## Install on JRuby
 
-You can easily install Padrino on jruby when you use [rvm](https://rvm.beginrescueend.com/) :
+You can easily install Padrino on jruby when you use
+[rvm](https://rvm.beginrescueend.com/) :
 
 ~~~ shell
 $ rvm use --create jruby-1.6.4@padrino
@@ -94,9 +95,12 @@ Now you should have installed `warbler` gem, so you can:
 warble config
 ~~~
 
-Edit `config/warble.rb` if you want to apply some customizations. You can access [JRuby-Rack official README](https://github.com/nicksieger/jruby-rack/#readme) and [Warbler rdoc](http://caldersphere.rubyforge.org/warbler/).
+Edit `config/warble.rb` if you want to apply some customizations. You can access
+[JRuby-Rack official README](https://github.com/nicksieger/jruby-rack/#readme)
+and [Warbler rdoc](http://caldersphere.rubyforge.org/warbler/).
 
-For example, if you want to deploy the app to server root directory, just add to `config/warble.rb`:
+For example, if you want to deploy the app to server root directory, just add to
+`config/warble.rb`:
 
 ~~~ ruby
 config.jar_name = "ROOT"
@@ -114,4 +118,6 @@ If you are ready, run:
 warble war
 ~~~
 
-You would get `jrack-test.war` (the same name as your project diresctory name), and you can deploy this war file to tomcat! I tested on tomcat 6.0.20, and it works well with quick response.
+You would get `jrack-test.war` (the same name as your project diresctory name),
+and you can deploy this war file to tomcat! I tested on tomcat 6.0.20, and it
+works well with quick response.

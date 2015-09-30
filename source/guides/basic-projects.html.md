@@ -9,31 +9,40 @@ sidebar: 'guides/sidebar'
 
 # Basic Projects
 
-Be sure to read the [Installation](/guides/installation) instructions first. You might also want to check out the [Getting Started](/guides/getting-started) guide for a better understanding of Sinatra and Padrino if you are new to the stack.
+Be sure to read the [Installation](/guides/installation) instructions first. You
+might also want to check out the [Getting Started](/guides/getting-started)
+guide for a better understanding of Sinatra and Padrino if you are new to the
+stack.
 
 ---
 
 ## Generating a Project
 
-To generate a new Padrino project using its defaults (RSpec for testing and Haml for rendering) and no database adapter, simply invoke the following command:
+To generate a new Padrino project using its defaults (RSpec for testing and Haml
+for rendering) and no database adapter, simply invoke the following command:
 
 ~~~ shell
 $ padrino g project my_project
 ~~~
 
-Padrino has also built-in support for several different mocking, testing, rendering, ORM, and JavaScript components.
+Padrino has also built-in support for several different mocking, testing,
+rendering, ORM, and JavaScript components.
 
 ~~~ shell
 $ padrino g project custom_project -t rspec -d activerecord -s prototype
 ~~~
 
-For a breakdown of all the available components options please refer to the [Generators](/guides/generators) page.
+For a breakdown of all the available components options please refer to the
+[Generators](/guides/generators) page.
 
 ### Persistence Engine
 
-Whenever you are creating a new project, Padrino will assume by default that a database is not required for your project.
+Whenever you are creating a new project, Padrino will assume by default that a
+database is not required for your project.
 
-To add support for a persistence engine, specify a supported ORM of your choice to use by flagging the `padrino g` command with the `-d` option followed by the name of your ORM:
+To add support for a persistence engine, specify a supported ORM of your choice
+to use by flagging the `padrino g` command with the `-d` option followed by the
+name of your ORM:
 
 ~~~ shell
 $ padrino g project your_project -d activerecord # Uses ActiveRecord
@@ -43,7 +52,8 @@ $ padrino g project your_project -d sequel       # Uses Sequel
 $ padrino g project your_project -d couchrest    # Uses CouchRest
 ~~~
 
-For the SQL-based persistence engines, you can even specify the RDBMS adapter to use with the `-a` option followed by the name of the adapter:
+For the SQL-based persistence engines, you can even specify the RDBMS adapter to
+use with the `-a` option followed by the name of the adapter:
 
 ~~~ shell
 $ padrino g project your_project -d datamapper   -a mysql    # Uses Datamapper and MySQL
@@ -51,7 +61,8 @@ $ padrino g project your_project -d activerecord -a postgres # Uses ActiveRecord
 $ padrino g project your_project -d sequel       -a sqlite   # Uses Sequel and Sqlite3
 ~~~
 
-The adapters currently supported are `sqlite`, `mysql`, and `postgres` for use with `datamapper`, `activerecord`, or `sequel`.
+The adapters currently supported are `sqlite`, `mysql`, and `postgres` for use
+with `datamapper`, `activerecord`, or `sequel`.
 
 ---
 
@@ -70,15 +81,19 @@ $ cd my_project
 $ padrino g app gallery
 ~~~
 
-You can also generate your own controllers, mailers, models, etc. for your "gallery" app as well.
+You can also generate your own controllers, mailers, models, etc. for your
+"gallery" app as well.
 
 ~~~ shell
 $ padrino g controller sample get:index --app gallery
 ~~~
 
-Whenever generating a "mounted" app, Padrino will mount that application automatically. As a reference, the above example "gallery" application will be mounted to: `/gallery`.
+Whenever generating a "mounted" app, Padrino will mount that application
+automatically. As a reference, the above example "gallery" application will be
+mounted to: `/gallery`.
 
-You can easily change and configure your "mounted" application path and decide where your applications will be mounted, by editing your `config/apps.rb` file.
+You can easily change and configure your "mounted" application path and decide
+where your applications will be mounted, by editing your `config/apps.rb` file.
 
 ---
 
@@ -97,21 +112,26 @@ $ cd blog
 $ bundle install
 ~~~
 
-Padrino ships with a beautiful Admin interface, highly inspired by the [web-app-theme](http://github.com/pilu/web-app-theme).
+Padrino ships with a beautiful Admin interface, highly inspired by the
+[web-app-theme](http://github.com/pilu/web-app-theme).
 
-Remember that Padrino has been principally structured and designed for mounting multiple applications at the same time. Under this perspective, our **admin** section is nothing but a new Padrino **application**:
+Remember that Padrino has been principally structured and designed for mounting
+multiple applications at the same time. Under this perspective, our **admin**
+section is nothing but a new Padrino **application**:
 
 ~~~ shell
 $ padrino g admin
 ~~~
 
-You need to configure your database settings in `config/database.rb` and run your migrations to add tables and columns to your database:
+You need to configure your database settings in `config/database.rb` and run
+your migrations to add tables and columns to your database:
 
 ~~~ shell
 $ padrino rake ar:migrate
 ~~~
 
-Create your first admin account; this is easily achieved by seeding your database with default admin data, stored in your `seed.rb` file:
+Create your first admin account; this is easily achieved by seeding your
+database with default admin data, stored in your `seed.rb` file:
 
 ~~~ shell
 $ padrino rake seed
@@ -136,7 +156,8 @@ You are now ready to start your webserver:
 $ padrino start
 ~~~
 
-Point your browser to `http://localhost:3000/admin` and log in by using the email and password provided while seeding your database:
+Point your browser to `http://localhost:3000/admin` and log in by using the
+email and password provided while seeding your database:
 
 ---
 
@@ -148,13 +169,15 @@ Let’s add a new `Post` model to our blog:
 $ padrino g model post name:string body:text
 ~~~
 
-Run the migrations to add database table columns to our database for our newly created Post model:
+Run the migrations to add database table columns to our database for our newly
+created Post model:
 
 ~~~ shell
 $ padrino rake ar:migrate
 ~~~
 
-Create a new admin section for managing (creating, updating, deleting) our blog posts:
+Create a new admin section for managing (creating, updating, deleting) our blog
+posts:
 
 ~~~ shell
 $ padrino g admin_page post

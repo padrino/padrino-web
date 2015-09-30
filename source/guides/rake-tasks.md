@@ -9,7 +9,9 @@ sidebar: 'guides/sidebar'
 
 # Rake Tasks
 
-After generating a new padrino project, you will not find any Rakefile in your generated project folder structure; in fact it’s not strictly needed to build a new one because we can already use padrino rake:
+After generating a new padrino project, you will not find any Rakefile in your
+generated project folder structure; in fact it’s not strictly needed to build a
+new one because we can already use padrino rake:
 
 ~~~ shell
 padrino rake
@@ -32,7 +34,8 @@ Padrino by default has some useful tasks.
 
 ## Basic
 
-Like other frameworks we have an *:environment* task that loads our `environment` and apps. Example:
+Like other frameworks we have an *:environment* task that loads our
+`environment` and apps. Example:
 
 ~~~ ruby
 # This is a custom task
@@ -48,7 +51,8 @@ end
 
 *currently not in stable release (coming in 0.9.10)*
 
-We have support for retrieving a list of named routes within your application for easy access.
+We have support for retrieving a list of named routes within your application
+for easy access.
 
 ~~~ shell
 padrino rake routes
@@ -72,7 +76,8 @@ Application: foo
 
 ## Testing
 
-When testing with Padrino you have a builtin `padrino rake test` or for rspec `padrino rake spec`.
+When testing with Padrino you have a builtin `padrino rake test` or for rspec
+`padrino rake spec`.
 
 ~~~ shell
 padrino rake test # => for bacon, riot, shoulda
@@ -85,7 +90,8 @@ you can customize *test/test.rake* or *spec/spec.rake*
 
 ## I18n
 
-You can auto generate a *yml* file for localizing your models using this command:
+You can auto generate a *yml* file for localizing your models using this
+command:
 
 ~~~ shell
 padrino rake locale:models
@@ -97,9 +103,15 @@ See [Localization](/guides/localization) for detailed instructions.
 
 ## ORM
 
-Padrino has rake tasks for *DataMapper* , *ActiveRecord*, *Sequel*, *Mongomapper*,and *Mongoid* with some **bonuses**.
+Padrino has rake tasks for *DataMapper* , *ActiveRecord*, *Sequel*,
+*Mongomapper*,and *Mongoid* with some **bonuses**.
 
-**NOTE**: we have a **namespace** for each orm, because of this, Padrino can mount several applications and each of them can use different orms without conflict, so that you can have multiple applications living together and one of them can use DataMapper, while another *ActiveRecord/MongoMapper/Couch/Sequel* instead. In this way we prevent collisions.
+**NOTE**: we have a **namespace** for each orm, because of this, Padrino can
+mount several applications and each of them can use different orms without
+conflict, so that you can have multiple applications living together and one
+of them can use DataMapper, while another
+*ActiveRecord/MongoMapper/Couch/Sequel* instead. In this way we prevent
+collisions.
 
 ---
 
@@ -133,9 +145,13 @@ rake ar:version                        # Retrieves the current schema version nu
 
 **rake ar:auto:upgrade**
 
-This is some sort of super cool and useful task for people like me who don’t love migrations (especially for small apps). It’s a forked version of [auto\_migrations](http://github.com/pjhyett/auto_migrations)
+This is some sort of super cool and useful task for people like me who don’t
+love migrations (especially for small apps). It’s a forked version of
+[auto\_migrations](http://github.com/pjhyett/auto_migrations)
 
-Basically, instead of writing migrations you can directly edit your **schema.rb** and perform *a non destructive* migration with `padrino rake ar:auto:upgrade`.
+Basically, instead of writing migrations you can directly edit your
+**schema.rb** and perform *a non destructive* migration with `padrino rake
+ar:auto:upgrade`.
 
 ---
 
@@ -190,7 +206,8 @@ rake mi:cleanup_old_collections # Clean up old collections backed up by objectid
 
 ## Seed:
 
-Like in Rails we can populate our db using *db/seeds.rb* here’s an example (from our padrino-admin):
+Like in Rails we can populate our db using *db/seeds.rb* here’s an example (from
+our padrino-admin):
 
 ~~~ ruby
 email     = shell.ask "Which email do you want use for loggin into admin?"

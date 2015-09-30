@@ -1,13 +1,17 @@
 ## Lightweight
 
-The Padrino code base has been kept simple and easy to understand, maintain and enhance. The generator for each new project creates a clean and compact directory structure keeping **your** code simple and well organized.
+The Padrino code base has been kept simple and easy to understand, maintain and
+enhance. The generator for each new project creates a clean and compact
+directory structure keeping **your** code simple and well organized.
 
 Padrino strives to adhere to the following basic principles:
 
 > Tiny and fast. Clean and compact. Creative and concise.
 {: .excerpt--large}
 
-This framework can be used with ease for web development for a project of any size from your lightweight json web service to a large full-stack web application!
+This framework can be used with ease for web development for a project of any
+size from your lightweight json web service to a large full-stack web
+application!
 
 [Learn more](#){: .button}
 {: .excerpt}
@@ -41,7 +45,10 @@ $ padrino-gen admin page post
 
 ## Comprehensive
 
-Building on our experience in developing web applications, we designed a framework that meets all the requirements for creating a top notch web application in a clean, concise and simple environment, with minimal deadline delays.
+Building on our experience in developing web applications, we designed a
+framework that meets all the requirements for creating a top notch web
+application in a clean, concise and simple environment, with minimal deadline
+delays.
 
 We provide you with the following out of the box:
 
@@ -66,7 +73,8 @@ We provide you with the following out of the box:
 
 ## Agnostic
 
-Padrino is ORM/ODM, JavaScript, testing, rendering, and mocking agnostic supporting the use of any number of available libraries.
+Padrino is ORM/ODM, JavaScript, testing, rendering, and mocking agnostic
+supporting the use of any number of available libraries.
 
 The available components and their defaults are listed below:
 
@@ -81,7 +89,8 @@ The available components and their defaults are listed below:
   Mock | none | rr, Mocha
 {: .excerpt--small.excerpt--inline}
 
-Just create the project with the usual generator command and pass in your preferred components!
+Just create the project with the usual generator command and pass in your
+preferred components!
 
 ~~~ shell
 $ padrino g project cool --orm datamapper
@@ -99,14 +108,22 @@ $ padrino g project -h # shows available options
 
 ## Sinatra Core
 
-Many people love the simplicity and expressiveness of Sinatra but quickly find themselves missing a great deal of functionality provided by other web frameworks such as Rails when building non-trivial applications.
+Many people love the simplicity and expressiveness of Sinatra but quickly find
+themselves missing a great deal of functionality provided by other web
+frameworks such as Rails when building non-trivial applications.
 
-Sinatra acts as a thin layer on top of Rack itself and the “micro”-framework is kept light introducing complexities only when required by the particular application.
+Sinatra acts as a thin layer on top of Rack itself and the “micro”-framework is
+kept light introducing complexities only when required by the particular
+application.
 
-> Our goal with Padrino is to stay true to the core principles of Sinatra including a focus on simplicity and modularity.
+> Our goal with Padrino is to stay true to the core principles of Sinatra
+including a focus on simplicity and modularity.
 {: .excerpt--large}
 
-Starting from this assumption, we have developed a different approach to a web development framework. We expand on Sinatra through the addition of standard libraries including helpers, components, and other functionality that are needed in a framework suitable for arbitrarily complex web applications.
+Starting from this assumption, we have developed a different approach to a web
+development framework. We expand on Sinatra through the addition of standard
+libraries including helpers, components, and other functionality that are needed
+in a framework suitable for arbitrarily complex web applications.
 
 [Learn more](#){: .button}
 {: .excerpt}

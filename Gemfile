@@ -21,3 +21,9 @@ gem 'slim', '~> 3.0.6'
 # Styling
 gem 'breakpoint', '~> 2.5.0'
 gem 'susy', '~> 2.2.6'
+
+group :development do
+  gem "capistrano", "~> 2.15.5"
+  gem "cap-recipes", :require => false
+  gem "capistrano-maintenance", :require => false
+end

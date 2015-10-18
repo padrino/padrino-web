@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 
 gem 'middleman', '~> 3.4.0'
 
+# ExecJs
+gem 'therubyracer', '~> 0.12'
+gem 'libv8', '3.16.14.3'
+
 # For faster file watcher updates on Windows:
 gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
 

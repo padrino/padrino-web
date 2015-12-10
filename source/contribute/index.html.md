@@ -2,7 +2,7 @@
 
 Want to show Padrino some love? Help out by contributing to our framework!
 
-[View on GitHub](#){: .button }
+[View on GitHub](https://github.com/padrino/padrino-framework){: .button }
 {: .excerpt }
 
 ---

@@ -1,7 +1,10 @@
 ---
-title: Padrino Welcomes New Core Contributors!
-date: 2010-05-07 22:21 UTC
+date: 2010-05-07
 author: Nathan
+email: nesquena@gmail.com
+categories: ruby update
+tags: padrino team core
+title: Padrino Welcomes New Core Contributors!
 ---
 
 The Padrino team is excited to welcome aboard three new core members to help us make Padrino even better towards a 1.0 release!

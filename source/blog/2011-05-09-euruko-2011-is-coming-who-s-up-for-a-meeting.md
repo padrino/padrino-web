@@ -1,7 +1,10 @@
 ---
-title: EuRuKo 2011 is coming, who's up for a meeting?
-date: 2011-05-09 22:21 UTC
+date: 2011-05-09
 author: Florian
+email: florian.gilcher@asquera.de
+categories: update
+tags: conferences fun enjoyment
+title: EuRuKo 2011 is coming, who's up for a meeting?
 ---
 
 EuRuKo is great fun. It would be even more fun with more Padrino action, so let’s meet up!
@@ -13,6 +16,7 @@ Also, if you have never been to Berlin and need a few pointers on what to do, fe
 
 If you are interested please drop me a note (either through the contact details or using this list) and maybe include:
 
+
 - the time of your stay in Berlin (so that I know when it makes sense to contact you)
 - your email address and twitter username (if you have one), maybe github
 - the kind of activity you are interested in (just eating, just drinking, seeing berlin, hacking, q&a or any combination of the former)
@@ -23,4 +27,5 @@ My contact details:
  twitter: @Argorak
  github: skade
  phone: ask and ye might receive
+
 

@@ -1,7 +1,10 @@
 ---
-title: Padrino 0.9.14 - Important Hotfixes
-date: 2010-07-01 22:21 UTC
+date: 2010-07-01
 author: Nathan
+email: nesquena@gmail.com
+categories: ruby update
+tags: padrino release version
+title: Padrino 0.9.14 - Important Hotfixes
 ---
 
 Padrino 0.9.14 is another small bugfix release which solves a few common problems revealed with the deprecation of `mount_core`. This is not at all a release which requires any changes to your app. The details of the bugs fixed are listed in the full post.
@@ -13,12 +16,13 @@ The next fix is we fixed a warning on mongo\_mapper because mongo\_mapper now re
 
 Here is a full list of changes in this version:
 
--   Application generator should create public subfolder
--   Refactored application mounter class
--   updated mongomapper to use bson\_ext
--   use entity code instead of copyright symbol
--   ensure app generation creates own public folder
--   fix padrino g alias
--   fixed distance\_of\_time\_in\_words helper(Thanks to Yannick Koechlin)
+- Application generator should create public subfolder
+- Refactored application mounter class
+- updated mongomapper to use bson\_ext
+- use entity code instead of copyright symbol
+- ensure app generation creates own public folder
+- fix padrino g alias
+- fixed distance\_of\_time\_in\_words helper(Thanks to Yannick Koechlin)
 
 Please download this version as soon as you can to correct these important issue.
+

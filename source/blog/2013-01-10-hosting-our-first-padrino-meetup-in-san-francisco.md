@@ -1,7 +1,10 @@
 ---
-title: Hosting our first Padrino meetup in San Francisco!
-date: 2013-01-10 22:21 UTC
+date: 2013-01-10
 author: Nathan
+email: nesquena@gmail.com
+categories: update
+tags: padrino meetup update
+title: Hosting our first Padrino meetup in San Francisco!
 ---
 
 One of our core Padrino members [DAddYE](https://github.com/DAddYE) has moved to San Francisco recently and has joined as a developer at [Triggit](http://triggit.com). The Padrino core team has always been a very distributed team with each of us living in different places until recently.
@@ -18,7 +21,9 @@ We will talking about the coming Padrino 0.11 release and we want to share our p
 
 There are more cool things like *full modularized templates*, *routes* etc… stay tuned for more details.
 
+
 We are excited about jump starting our development efforts again and would love everyone interested in Sinatra and Padrino to attend.
+
 
 Please [RSVP to the event](http://www.meetup.com/Padrino-SF/events/95840992/) so we can get a rough sense of the number of people attending. Look forward to seeing you guys there!
 

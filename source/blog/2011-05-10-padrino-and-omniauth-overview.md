@@ -1,13 +1,17 @@
 ---
-title: Padrino and OmniAuth Overview
-date: 2011-05-10 22:21 UTC
+date: 2011-05-10
 author: DAddYE
+email: d.dagostino@lipsiasoft.com
+categories: ruby faqs
+tags: padrino ruby sinatra omniauth
+title: Padrino and OmniAuth Overview
 ---
 
 In this post, we will show you how to mix our [Access Control](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/access_control.rb) described [here](/guides/padrino-admin#admin-authentication) with the beautiful [omniauth](https://github.com/intridea/omniauth) rack middleware.
 
 The Padrino admin authentication and access control system provides a simple foundation from which you can create your authentication system. Combined with [omniauth](https://github.com/intridea/omniauth) you can then easily leverage the system to allow authentication through a variety of methods. Read below for more details on how to integrate them.
 
+<break>
 
 In this article we’ll cover two topics:
 
@@ -76,23 +80,23 @@ If you are in a multiapp scenario you need to edit `config/boot.rb`:
 
 To obtain an app\_id and secret for Facebook, you need to:
 
--   Go to the [Facebook Developers Page](http://www.facebook.com/developers)
--   Browse and click [create a new app](http://www.facebook.com/developers/createapp.php)
--   Set your app name and complete the form…
--   One you finish that you are allowed to edit your settings, go to **website** section
--   Add to site url: `http://localhost:3000`
--   Add to domain: `localhost`
--   Write the **Application ID** and **Application Secret** to the `OmniAuth::Builder`
+- Go to the [Facebook Developers Page](http://www.facebook.com/developers)
+- Browse and click [create a new app](http://www.facebook.com/developers/createapp.php)
+- Set your app name and complete the form…
+- One you finish that you are allowed to edit your settings, go to **website** section
+- Add to site url: `http://localhost:3000`
+- Add to domain: `localhost`
+- Write the **Application ID** and **Application Secret** to the `OmniAuth::Builder`
 
 To obtain a consumer\_key and consumer\_secret for Twitter, you need to:
 
--   Go to [Twitter Applications Page](https://developer.twitter.com/apps/new)
--   Insert all details and be sure to check **Application Type: Browser**
--   Set a callback url with a valid domain ex: `www.mydomain.com/auth/twitter/callback`
--   Save and go to **Application Settings** and **Manage Domains**
--   Be sure that you can see your example domain: `www.mydomain.com/auth/twitter/callback`
--   Authorize domain: `localhost`
--   Now go to **Application Details** and save `Consumer key` and `Consumer Secret` to the `OmniAuth::Builder`
+- Go to [Twitter Applications Page](https://developer.twitter.com/apps/new)
+- Insert all details and be sure to check **Application Type: Browser**
+- Set a callback url with a valid domain ex: `www.mydomain.com/auth/twitter/callback`
+- Save and go to **Application Settings** and **Manage Domains**
+- Be sure that you can see your example domain: `www.mydomain.com/auth/twitter/callback`
+- Authorize domain: `localhost`
+- Now go to **Application Details** and save `Consumer key` and `Consumer Secret` to the `OmniAuth::Builder`
 
 **NOTE**: For domain, it is not important that this path exist because `omniauth` changes the callback url.
 
@@ -106,7 +110,7 @@ Next, we can integrate our authentication system within in `app/app.rb`:
 
     access_control.roles_for :any do |role|
       role.protect "/profile"
-      role.protect "/admin" # here a demo path
+      role.protect "/admin" # here is a demo path
     end
 
     # now we add a role for users
@@ -172,3 +176,4 @@ Follow your login process and then if needed <http://localhost:3000/destroy>
 That is all you need to setup a barebones authentication system in Padrino. This post has gotten you started with a working “Account” and role based authentication solution with integrated omniauth support. From here, obviously there are a number of other features you might want to add on top to flesh out, and that is left for another post or as an exercise to the reader.
 
 If you are interested in more Padrino information, check out [why you should use](http://www.padrinorb.com/pages/why) our framework and our [Blog Tutorial](http://www.padrinorb.com/guides/blog-tutorial) along with our other [Padrino Guides](http://www.padrinorb.com/guides).
+

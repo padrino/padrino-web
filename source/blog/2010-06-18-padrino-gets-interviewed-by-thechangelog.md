@@ -1,7 +1,10 @@
 ---
-title: Padrino Gets Interviewed by thechangelog!
-date: 2010-06-18 22:21 UTC
+date: 2010-06-18
 author: Nathan
+email: nesquena@gmail.com
+categories: press ruby update
+tags: padrino press audio podcast
+title: Padrino Gets Interviewed by thechangelog!
 ---
 
 [thechangelog](http://thechangelog.com/) is a weekly podcast hosted by [Adam](http://adamstacoviak.com) and [Wynn](http://wynnnetherland.com) that discusses “what’s fresh and new in open source”. Two of the core Padrino team members, Nathan and Arthur, recently had an opportunity to chat on air when Adam and Wynn decided to devote an entire episode to Padrino! The podcast runs for about 32 minutes and includes a nice discussion about Rack, Middleware, Sinatra and Padrino. Read the full blog post to listen to the interview!

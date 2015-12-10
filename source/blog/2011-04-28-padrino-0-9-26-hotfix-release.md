@@ -1,7 +1,10 @@
 ---
-title: Padrino 0.9.26 - Hotfix Release
-date: 2011-04-28 22:21 UTC
+date: 2011-04-28
 author: Nathan
+email: nesquena@gmail.com
+categories: update
+tags: padrino sinatra ruby
+title: Padrino 0.9.26 - Hotfix Release
 ---
 
 We recently released [0.9.25](http://www.padrinorb.com/blog/padrino-0-9-25-slim-and-erubis-caching-and-fixes) which was a milestone release with many significant improvements. Unfortunately, we let a few serious bugs slip into the release as well, so a hotfix release is required.
@@ -19,7 +22,7 @@ There were a [couple](https://github.com/padrino/padrino-framework/issues/496) [
 
 **Mongoid Rake Tasks**
 
-We had accidentally borked the mongoid rake tasks that come as part of Padrino, with a ‘gsub gone wrong’. bernerdschaefer:“https://github.com/bernerdschaefer” quickly identified and corrected the issue [here](https://github.com/padrino/padrino-framework/commit/8978c8c75ed84d2799dfe60805eda4ab1fa56df4). Thanks!
+We had accidentally forked the mongoid rake tasks that come as part of Padrino, with a ‘gsub gone wrong’. bernerdschaefer:“https://github.com/bernerdschaefer” quickly identified and corrected the issue [here](https://github.com/padrino/padrino-framework/commit/8978c8c75ed84d2799dfe60805eda4ab1fa56df4). Thanks!
 
 **Shared Sessions**
 
@@ -51,9 +54,10 @@ We have improved test generation to allow the various sub-apps in a project to h
 When tests are generated for an application, they are now separated into application-specific folders such as:
 
 test/app1
- test/app2
- test/app3
+test/app2
+test/app3
 
 Allowing more granular and isolated testing of each application.
 
 Be sure to upgrade from 0.9.25 to 0.9.26 as soon as possible. If you are experiencing issues please [let us know](https://github.com/padrino/padrino-framework/issues) on the issue tracker.
+

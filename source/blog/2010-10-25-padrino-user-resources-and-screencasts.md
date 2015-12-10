@@ -1,13 +1,17 @@
 ---
-title: Padrino User Resources and Screencasts
-date: 2010-10-25 22:21 UTC
+date: 2010-10-25
 author: DAddYE
+email: d.dagostino@lipsiasoft.com
+categories: Update
+tags: padrino, updates, screencasts
+title: Padrino User Resources and Screencasts
 ---
 
 There has been a lot of interest recently in additional Padrino resources such as more screencasts, advanced tutorials, user-editable wikis, etc. I think the team understands and values the interest in more resources because this means lots of people with varying levels of experience with web development are looking to become familiar with Padrino.
 
 Right now the team is very busy working on bug fixes and towards a 1.0 release. There have been bug reports trickling in on Padrino and we have been working to address them in a timely fashion. It is very important that for a 1.0 release that Padrino is rock-solid and easy to use for every experience level. There are a few thoughts I have about this topic of more Padrino resources.
 
+<break>
 
 First, I would love to hear more of all your thoughts about this subject. Email us, leave comments, send us Github messages about what you would like to see while learning Padrino. This is really important in trying to understand the next steps to improving the Padrino experience.
 

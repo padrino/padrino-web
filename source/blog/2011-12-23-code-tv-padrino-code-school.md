@@ -1,7 +1,10 @@
 ---
-title: Code TV - Padrino Code School
-date: 2011-12-23 22:21 UTC
+date: 2011-12-23
 author: Nathan
+email: nesquena@gmail.com
+categories: padrino codeschool
+tags: padrino codeschool
+title: Code TV - Padrino Code School
 ---
 
 We noticed [envylabs](http://envylabs.com) has released an [excellent screencast](http://www.codeschool.com/code_tv) recently on Padrino. We recommend checking this out and letting them know you appreciate their hard work. Thanks to Josh Cheek and everyone at Envylabs for taking them to put this together.
@@ -14,4 +17,5 @@ In the meantime, we are hard at work on making Padrino better. Our framework has
 
 
 As always if you want to keep up with Padrino updates, be sure to follow us on twitter: [@padrinorb](http://twitter.com/#!/padrinorb), join us on IRC at “\#padrinorb” on freenode or [open an issue](https://github.com/padrino/padrino-framework/issues) on GitHub.
+
 

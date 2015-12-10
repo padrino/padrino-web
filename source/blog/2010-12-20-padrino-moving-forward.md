@@ -1,13 +1,17 @@
 ---
-title: Padrino Moving Forward
-date: 2010-12-20 22:21 UTC
+date: 2010-12-20
 author: Nathan
+email: nesquena@gmail.com
+categories: update
+tags: padrino info
+title: Padrino Moving Forward
 ---
 
 Today on the [Padrino google groups](http://groups.google.com/group/padrino) a user named ‘sol’ asked [an interesting question](http://groups.google.com/group/padrino/browse_thread/thread/13e1ab4466d8794d?hl=en) about the roadmap for Padrino.
 
 I think this is an important question to explore. Padrino has really come a long way since the idea started life as [sinatra\_more](https://github.com/nesquena/sinatra_more) in [October 2009](https://github.com/nesquena/sinatra_more/commit/badb3e64bb00253ff2c2419d58ec9bbce5920804) . The code base has filled out and most of the original functionality we intended to provide on top of Sinatra now exists in full. So in this post, I want to talk about where Padrino is going in broad strokes.
 
+<break>
 
 The reason we originally built Padrino is that Sinatra by nature was intentionally constrained to be very limited in
  scope. This was by design and the constraint is what allows Sinatra to be universally accessible and useful for a wide variety of projects.
@@ -18,13 +22,13 @@ This is where Padrino fits into the ecosystem. As one of the original creators o
  first started this project, we knew there were a set number of things that needed to be added to Sinatra in an organic and natural way. This set has always been roughly the same since the project creation:
 
 1) Admin Panel Functionality (ala Django)
- 2) User Authentication and Permissions
- 3) View Helpers and Form Builders for templates
- 4) Generators for providing better default structure
- 5) Advanced routing, controller and alias functionality
- 6) Easy to use integrated mailer
- 7) Localization support baked-in
- 8) Caching (fragment, page, action) and adapters for cache storage
+2) User Authentication and Permissions
+3) View Helpers and Form Builders for templates
+4) Generators for providing better default structure
+5) Advanced routing, controller and alias functionality
+6) Easy to use integrated mailer
+7) Localization support baked-in
+8) Caching (fragment, page, action) and adapters for cache storage
 
 Beyond this there are some other niceties such as code reloading in development, better logging, et al. Really Padrino in it’s entirety does do quite a bit to extend Sinatra’s scope in almost every direction towards more powerful application development.
 
@@ -35,3 +39,4 @@ Obviously there is still **a lot** of work to do and Padrino will continue to gr
 Padrino is **not** looking be rails or YAWB (yet another web framework). Sinatra is already a tested and proven development option and we plan to continue our quest to make Sinatra development so flexible that it can be used for the smallest one line app or an advanced e-commerce consumer site without sacrificing what makes the development experience so pleasant.
 
 As always, we are also open to hearing any feedback Padrino users might have. So please let us know in irc (\#padrino) or in the [Padrino google groups](http://groups.google.com/group/padrino) or through [github](https://github.com/padrino/padrino-framework) (pull requests, tickets or otherwise). Also, if you want to help out Padrino in anyways please do let us know (or simply send me a message through github).
+

@@ -7,3 +7,12 @@ task :update do
   # Commit latest revision
   sh "git commit -am 'Update docs submodule'"
 end
+
+desc "Builds the static middleman site to build directory"
+task :build => :update do
+  sh "middleman build"
+end
+
+task :deploy => :build do
+  sh "middleman deploy"
+end

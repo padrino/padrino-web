@@ -5,7 +5,7 @@ task :update do
   # Pull latest changes from docs master
   Dir.chdir("docs") { sh "pwd; git stash; git checkout master; git pull origin master; git stash pop; true" }
   # Commit latest revision
-  sh "git commit -am 'Update docs submodule'; true"
+  sh "git add docs; git commit -am 'Update docs submodule'; true"
 end
 
 desc "Builds the static middleman site to build directory"

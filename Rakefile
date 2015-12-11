@@ -13,6 +13,7 @@ task :build => :update do
   sh "middleman build"
 end
 
+desc "Update and build and then deploy the site to gh-pages"
 task :publish => :build do
   sh "middleman deploy"
 end

@@ -13,7 +13,7 @@ This framework can be used with ease for web development for a project of any
 size from your lightweight json web service to a large full-stack web
 application!
 
-[Learn more](#){: .button}
+[Learn more](/guides/basic-projects/){: .button}
 {: .excerpt}
 
 ---
@@ -38,7 +38,7 @@ $ padrino-gen admin page post
 ~~~
 {: .excerpt--tiny.excerpt--code--light}
 
-[Learn more](#){: .button}
+[Learn more](/guides/padrino-admin/){: .button}
 {: .excerpt}
 
 ---
@@ -66,7 +66,7 @@ We provide you with the following out of the box:
   **Localization** | Full support for I18n localization.
 {: .excerpt--small.excerpt--inline}
 
-[Learn more](#){: .button}
+[Learn more](/guides/){: .button}
 {: .excerpt}
 
 ---
@@ -101,7 +101,7 @@ $ padrino g project -h # shows available options
 ~~~
 {: .excerpt--tiny.excerpt--code--light}
 
-[Learn more](#){: .button}
+[Learn more](/guides/generators/){: .button}
 {: .excerpt}
 
 ---
@@ -125,5 +125,5 @@ development framework. We expand on Sinatra through the addition of standard
 libraries including helpers, components, and other functionality that are needed
 in a framework suitable for arbitrarily complex web applications.
 
-[Learn more](#){: .button}
+[Learn more](/guides/standalone-usage-in-sinatra/){: .button}
 {: .excerpt}

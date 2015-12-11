@@ -42,14 +42,15 @@ to read a detailed walkthrough of how to do this!
 
 ## Want to help with documentation?
 
-The process for contributing to Padrino’s website or documentation is as simple
-as forking the [docs repository](https://github.com/padrino/padrino-docs) and
-sending in any changes as a pull request. Once a change has been accepted, the
-documentation will be updated on our website. The website guides and docs are
-currently in the [textile](http://textile.thresholdstate.com) format as can be
-seen for the
-[Getting Started](https://github.com/padrino/padrino-docs/blob/master/guides/getting-started.textile)
+The process for contributing to Padrino’s website or documentation is as simple 
+as forking the [docs repository](https://github.com/padrino/padrino-docs) and 
+sending in any changes as a pull request. Once a change has been accepted, the 
+documentation will be updated on our website. The website guides and docs are 
+currently in the [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) 
+format as can be seen for the 
+[Getting Started](https://github.com/padrino/padrino-docs/blob/master/guides/getting-started.md) 
 guide on Github.
+
 
 ### YARD
 

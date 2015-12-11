@@ -13,6 +13,6 @@ task :build => :update do
   sh "middleman build"
 end
 
-task :release => :build do
+task :publish => :build do
   sh "middleman deploy"
 end

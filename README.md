@@ -45,7 +45,7 @@ Uses the following gems:
 If you want to update the docs, build and deploy the update in a single command:
 
 ```
-rake release
+rake publish
 ```
 
 ## Manual Build Instructions

@@ -12,8 +12,10 @@
       span.fa.fa-github.button__icon
       | View on Github
   p.hero__release
-    span.label--dark Latest stable &ndash; 0.12.4
+    span.label--dark Latest stable &ndash; 0.13.0
     br
-    = link_to 'Mounting Rack, Doc Updates and Bug Fixes', '#', class: 'hero__release__link'
+    = link_to recent_release_post.title.gsub(/Padrino [\d\.]+\s?\-\s/, ""),
+      recent_release_post.url,
+      class: 'hero__release__link'
     br
-    small Released on December 13, 2014
+    small Released on #{recent_release_post.date.strftime("%B %-d, %Y")} 

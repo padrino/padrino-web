@@ -1,9 +1,17 @@
 # Helpers
 helpers do
+  # nav_link_to("Home", "/home", :root => true, :class => "foo")
   def nav_link_to(link_text, url, options = {})
+    root = options.delete(:root)
+    is_active = (!root && current_page.url.start_with?(url)) ||
+      current_page.url == url
     options[:class] ||= ''
-    options[:class] << '--is-active' if current_page.url.start_with?(url)
+    options[:class] << '--is-active' if is_active
     link_to(link_text, url, options)
+  end
+
+  def recent_release_post
+    blog.articles.find { |a| a.tags.include?("release") }
   end
 end
 

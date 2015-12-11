@@ -19,15 +19,29 @@ Uses the following gems:
 
 <img width="150" alt="screen shot 2015-09-10 at 2 29 23 pm" src="https://cloud.githubusercontent.com/assets/8601064/9804340/5b745ca4-57c8-11e5-8f24-886e40e22621.png"> <img width="150" alt="screen shot 2015-09-10 at 1 27 56 am" src="https://cloud.githubusercontent.com/assets/8601064/9787091/3fd182d2-575b-11e5-9e4a-2276d139ea5d.png"> <img width="150" alt="screen shot 2015-09-10 at 1 28 17 am" src="https://cloud.githubusercontent.com/assets/8601064/9787089/3fa6eaae-575b-11e5-9563-16247e686767.png"> <img width="150" alt="screen shot 2015-09-10 at 1 28 22 am" src="https://cloud.githubusercontent.com/assets/8601064/9787090/3fd13980-575b-11e5-9897-6f75310d6dfb.png">
 
-## Deployment instructions
+## Automated Deploy Instructions
 
-1. Update the docs through submodule
+If you want to update the docs, build and deploy the update in a single command:
+
+```
+rake release
+```
+
+## Manual Build Instructions
+
+Update the docs through submodule:
 
 ```
 rake update
 ```
 
-2. Deploy the site to gh-pages
+Build the static site:
+
+```
+middleman build
+```
+
+Deploy the site to gh-pages:
 
 ```
 middleman deploy
@@ -35,7 +49,7 @@ middleman deploy
 
 3. Visit the site at <http://padrinorb.com>
 
-## Build instructions
+## Local Server Instructions
 
 1. Clone to your machine.
    ```

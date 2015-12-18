@@ -51,10 +51,19 @@ configure :development do
   activate :livereload
 end
 
+
+set :url_root, 'http://padrinorb.com'
+
+
 # Build-specific configuration
 configure :build do
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash
   activate :relative_assets
+  activate :search_engine_sitemap,
+    exclude_if: -> (resource) {
+      # Exclude all paths from sitemap that are sub-date indexes
+      resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
+    }, default_change_frequency: 'weekly'
 end

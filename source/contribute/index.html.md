@@ -15,13 +15,14 @@ You can use our new
 [message](http://github.com/padrino) also directly to our
 [team](http://github.com/padrino/following). Also, be sure to join our official
 IRC channel at [#padrino](irc://chat.freenode.net/#padrino) on
-[freenode](http://freenode.net) for live help.
+[freenode](http://freenode.net) for live help. We also have a Gitter
+[room](https://gitter.im/padrino/padrino-framework).
 
 ---
 
-## Find a bug?
+## Found a bug?
 
-Log it onto github by
+Let us know by
 [creating a new issue](http://github.com/padrino/padrino-framework/issues). Be
 sure to include all relevant information, like the versions of Padrino and Ruby
 you are using. A [gist](http://gist.github.com/) of the code that caused the
@@ -31,7 +32,7 @@ issue as well as any error messages are also very helpful.
 
 ## Want to integrate a component?
 
-Have a particular javascript engine you like? Know of a popular orm or testing
+Have a particular JavaScript engine you like? Know of a popular ORM or testing
 framework that we have overlooked in Padrino generators? We encourage you to
 contribute by creating a patch to integrate your favorite components into
 Padrino! Check out the guide for

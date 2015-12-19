@@ -8,6 +8,7 @@ html
         .page__sidebar
           .sidebar
             = partial current_page.data.sidebar
+            = render_toc(current_page)
         .page__content
           .content
             = yield

@@ -89,6 +89,8 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
+    middleman-robots (1.1.0)
+      middleman (>= 3.3)
     middleman-search_engine_sitemap (1.3.0)
       builder
       middleman-core (~> 3.2)
@@ -167,6 +169,7 @@ DEPENDENCIES
   middleman-blog (~> 3.5.3)
   middleman-deploy (~> 1.0.0)
   middleman-livereload (~> 3.4.5)
+  middleman-robots (~> 1.1.0)
   middleman-search_engine_sitemap (~> 1.3.0)
   middleman-syntax (~> 2.0.0)
   slim (~> 3.0.6)

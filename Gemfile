@@ -13,6 +13,7 @@ gem 'middleman-livereload', '~> 3.4.5'
 gem 'middleman-syntax', '~> 2.0.0'
 gem 'middleman-deploy', '~> 1.0.0'
 gem 'middleman-search_engine_sitemap', '~> 1.3.0'
+gem 'middleman-robots', '~> 1.1.0'
 
 # Templating
 gem 'slim', '~> 3.0.6'

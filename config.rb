@@ -66,4 +66,7 @@ configure :build do
       # Exclude all paths from sitemap that are sub-date indexes
       resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
     }, default_change_frequency: 'weekly'
+  activate :robots, :rules => [
+    {:user_agent => '*', :allow => %w(/), :disallow => %w(CNAME /*.js /*.css)}
+  ], :sitemap => 'http://padrinorb.com/sitemap.xml'
 end

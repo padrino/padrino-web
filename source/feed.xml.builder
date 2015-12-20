@@ -1,16 +1,17 @@
-xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  site_url = "http://padrinorb.com/"
-  xml.title "Blog - Padrino Ruby Web Framework"
-  xml.subtitle "Padrino is a Ruby web framework built upon the Sinatra web library - get the latest news"
-  blog.articles.each do |article|
-    xml.entry do
-      xml.title article.title
-      xml.link "rel" => "alternate", "href" => URI.join(site_url, article.url)
-      xml.id URI.join(site_url, article.url)
-      xml.published article.date.to_time.iso8601
-      xml.updated File.mtime(article.source_file).iso8601
-      xml.author article.data.author
-      xml.content article.body, "type" => "html"
+xml.instruct! :xml, :version => '1.0'
+xml.rss :version => "2.0",  'xmlns:atom' => "http://www.w3.org/2005/Atom" do
+  xml.channel do
+    xml.title "Blog - Padrino Ruby Web Framework"
+    xml.description "Blog - Padrino Ruby Web Framework"
+    xml.link "http://padrinorb.com/"
+    site_url = "http://padrinorb.com/"
+    blog.articles[0..2].each do |article|
+      xml.item do
+        xml.title article.title
+        xml.link URI.join(site_url, article.url)
+        xml.pubDate article.date.to_date.rfc822
+        xml.guid URI.join(site_url, article.url)
+      end
     end
   end
 end

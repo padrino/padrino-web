@@ -1,7 +1,7 @@
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   site_url = "http://padrinorb.com/"
   xml.title "Blog - Padrino Ruby Web Framework"
-  xml.subtitle ""
+  xml.subtitle "Padrino is a Ruby web framework built upon the Sinatra web library - get the latest news"
   blog.articles.each do |article|
     xml.entry do
       xml.title article.title

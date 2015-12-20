@@ -45,6 +45,7 @@ set :markdown_engine, :kramdown
 
 # Set layouts
 page 'guides/*', :layout => :sidebar
+page 'feed.xml', :layout => :feed
 
 # Development-specific configuration
 configure :development do

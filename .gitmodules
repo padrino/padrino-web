@@ -1,4 +1,4 @@
 [submodule "docs"]
 	path = docs
-	url = git@github.com:padrino/padrino-docs.git
+	url = https://github.com/padrino/padrino-docs.git
 	branch = master

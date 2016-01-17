@@ -110,7 +110,7 @@ GEM
     multi_json (1.11.2)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.1)
+    net-ssh (3.0.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     padrino-helpers (0.12.5)
@@ -125,7 +125,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rb-fsevent (0.9.6)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rouge (1.10.1)

@@ -1,27 +1,14 @@
-# If you do not have OpenSSL installed, update
-# the following line to use 'http://' instead
 source 'https://rubygems.org'
 
-gem 'middleman', '~> 3.4.0'
-
-# ExecJs
-gem 'therubyracer', '~> 0.12'
-gem 'libv8', '3.16.14.7'
-
-# For faster file watcher updates on Windows:
-gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
-
-# Middleman plugins
-gem 'middleman-blog', '~> 3.5.3'
-gem 'middleman-livereload', '~> 3.4.5'
-gem 'middleman-syntax', '~> 2.0.0'
-gem 'middleman-deploy', '~> 1.0.0'
-gem 'middleman-search_engine_sitemap', '~> 1.3.0'
-gem 'middleman-robots', '~> 1.1.0'
-
-# Templating
-gem 'slim', '~> 3.0.6'
+# Middleman gems
+gem 'middleman', '>= 4.0.0'
+gem 'middleman-blog'
+gem 'middleman-livereload'
+gem 'middleman-syntax'
+# gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy'
+# gem 'middleman-search_engine_sitemap', '~> 1.3.0'
+# gem 'middleman-robots', '~> 1.1.0'
 
 # Styling
-gem 'breakpoint', '~> 2.5.0'
-gem 'susy', '~> 2.2.6'
+gem 'slim'
+gem 'builder'

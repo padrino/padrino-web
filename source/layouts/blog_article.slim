@@ -1,0 +1,4 @@
+= wrap_layout :sidebar do
+  = partial '/_partials/blog_article', object: current_article, locals: { link_title: false, show_comments: true }
+  #disqus_thread
+  script src="https://padrinorb.disqus.com/embed.js"

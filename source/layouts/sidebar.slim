@@ -1,14 +1,7 @@
-doctype html
-html
-  head= partial 'layouts/head'
-  body class=page_classes
-    .grid
-      = partial 'layouts/header'
-      .page
-        .page__sidebar
-          .sidebar
-            = partial current_page.data.sidebar
-        .page__content
-          .content
-            = yield
-      = partial 'layouts/footer'
+= wrap_layout :layout do
+  .page__sidebar
+    .sidebar
+      = partial current_page.data.sidebar
+  .page__content
+    .content
+      = yield

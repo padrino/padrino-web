@@ -1,9 +1,6 @@
 // Paragraphs
 p {
   @include margin-trailer(1);
-  // @include word-break(break-word);
-  // @include hyphens(auto);
-  @include type-ligatures;
 
   &:last-child {
     @include margin-trailer(0);

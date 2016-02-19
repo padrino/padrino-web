@@ -23,7 +23,7 @@ $fonts: (
 $susy: (
   columns: 12,
   gutters: 1,
-  container: 800px,
+  container: 920px,
   gutter-position: inside
 );
 
@@ -33,9 +33,6 @@ $breakpoints: (
   full: 768px,
   full-plus: 1024px
 );
-
-// Compass Transition
-$global-transition-duration: 0.2s;
 
 // Compass Vertical Rhythm
 $base-font-size: 16px;

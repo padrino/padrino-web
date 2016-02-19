@@ -2,7 +2,7 @@
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
-page '/guides/*', layout: :sidebar, data: { sidebar: '/_partials/guides_sidebar' }
+page '/guides/*', layout: :guide, data: { sidebar: '/_partials/guides_sidebar' }
 page '/guides.html', layout: :sidebar, data: { sidebar: '/_partials/guides_sidebar' }
 page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }

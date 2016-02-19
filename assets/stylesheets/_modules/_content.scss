@@ -1,4 +1,10 @@
 .content {
+  &__chapter-title {
+    @include margin-trailer(0);
+    @include type-weight(bold);
+    color: color(black);
+  }
+
   // Auto styling of code blocks
   pre {
     @extend .excerpt--code;

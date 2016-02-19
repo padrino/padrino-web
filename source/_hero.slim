@@ -12,10 +12,10 @@
       span.fa.fa-github.button__icon
       | View on Github
   p.hero__release
-    span.label--dark Latest stable &ndash; 0.13.0
+    span.label--dark Latest stable &ndash; #{recent_release_post.title[/Padrino ([\d\.]+)\s?\-\s/, 1]}
     br
     = link_to recent_release_post.title.gsub(/Padrino [\d\.]+\s?\-\s/, ""),
       recent_release_post.url,
       class: 'hero__release__link'
     br
-    small Released on #{recent_release_post.date.strftime("%B %-d, %Y")} 
+    small Released on #{recent_release_post.date.strftime("%B %-d, %Y")}

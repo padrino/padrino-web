@@ -1,0 +1,14 @@
+.article
+  h1.article__title
+    - if link_title
+        = link_to blog_article.title, blog_article.url
+    - else
+        = blog_article.title
+  p.article__metadata
+    = "Posted on #{blog_article.date.strftime('%B %d, %Y')}"
+    - unless blog_article.data.author.nil?
+      = " by #{blog_article.data.author}"
+
+  = blog_article.body
+
+  hr

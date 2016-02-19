@@ -1,13 +1,6 @@
 # New Padrino Website
 
-Currently under development.
-
-Uses the following gems:
-
-* [Middleman](https://github.com/middleman/middleman) - Static website builder
-* [Slim](https://github.com/slim-template/slim) - Templating engine
-* [Breakpoint](https://github.com/at-import/breakpoint) - Easy Sass media queries
-* [Susy](https://github.com/ericam/susy) - Sass layout toolkit
+Built using [Middleman](https://github.com/middleman/middleman).
 
 ## Current Screenshots
 
@@ -22,50 +15,59 @@ Uses the following gems:
 ## Local Server Instructions
 
 1. Clone to your machine.
-   ```
+
+   ```shell
    git clone https://github.com/padrino/padrino-web-new.git
    git submodule init
    git submodule update
    ```
 
 2. Install gem dependencies with Bundler.
-   ```
+
+   ```shell
    bundle install
    ```
 
-3. Start the Middleman server.
+3. Install Node.js dependencies with npm.
+
+   ```shell
+   npm install
    ```
+
+4. Start the Middleman server.
+
+   ```shell
    bundle exec middleman server
    ```
 
-4. Visit <http://localhost:4567>
+5. Visit <http://localhost:4567>
 
 ## Automated Deploy Instructions
 
 If you want to update the docs, build and deploy the update in a single command:
 
-```
+```shell
 rake publish
 ```
 
 ## Manual Build Instructions
 
-Update the docs through submodule:
+1. Update the docs through submodule.
 
-```
-rake update
-```
+   ```shell
+   rake update
+   ```
 
-Build the static site:
+2. Build the static site.
 
-```
-middleman build
-```
+   ```shell
+   middleman build
+   ```
 
-Deploy the site to gh-pages:
+3. Deploy the site to gh-pages.
 
-```
-middleman deploy
-```
+   ```shell
+   middleman deploy
+   ```
 
-3. Visit the site at <http://padrinorb.com>
+4. Visit the site at <http://padrinorb.com>.

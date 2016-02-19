@@ -1,6 +1,12 @@
+# Per-page layout changes
+page '/*.xml', layout: false
+page '/*.json', layout: false
+page '/*.txt', layout: false
+page '/guides/*', layout: :sidebar, data: { sidebar: '/_partials/guides_sidebar' }
+page '/blog/*', layout: :blog_article, data: { sidebar: '/_partials/blog_sidebar' }
+
 # Helpers
 helpers do
-  # nav_link_to("Home", "/home", :root => true, :class => "foo")
   def nav_link_to(link_text, url, options = {})
     root = options.delete(:root)
     is_active = (!root && current_page.url.start_with?(url)) ||
@@ -10,51 +16,55 @@ helpers do
     link_to(link_text, url, options)
   end
 
+  def head_title
+    page_title = current_page.data.title
+    "Padrino - #{page_title.nil? ? config.default_title : page_title}"
+  end
+
   def recent_release_post
     blog.articles.find { |a| a.tags.include?("release") }
   end
 end
 
-# Blog
-activate :blog do |blog|
-  blog.prefix = 'blog'
-  blog.permalink = '{title}.html'
-  blog.layout = 'article'
-  blog.paginate = true
-  blog.per_page = 2
-end
-
-# Syntax highlighting
-activate :syntax
-
-# Pretty URLs (Directory Indexes)
-activate :directory_indexes
-
-# Deployment
-activate :deploy do |deploy|
-  deploy.method = :git
-end
-
-# Assets configuration
+# General configuration
+set :layout, :content
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
-set :images_dir, 'assets/images'
+set :default_title, 'The Elegant Ruby Web Framework'
+set :url_root, 'http://padrinorb.com'
+set :disqus_embed_url, 'https://padrinorb.disqus.com/embed.js'
 
-# Markdown configration
-set :markdown_engine, :kramdown
-
-# Set layouts
-page 'guides/*', :layout => :sidebar
-page 'feed.xml', :layout => :feed
+activate :blog,
+  prefix: 'blog',
+  layout: :blog_article,
+  permalink: '{title}.html',
+  paginate: true,
+  per_page: 2
+activate :syntax
+activate :directory_indexes
+# activate :search_engine_sitemap,
+#   exclude_if: -> (resource) {
+#     # Exclude all paths from sitemap that are sub-date indexes
+#     resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
+#   },
+#   default_change_frequency: 'weekly'
+# activate :robots,
+#   rules: [
+#     { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }
+#   ],
+#   sitemap: 'http://padrinorb.com/sitemap.xml'
+# activate :deploy,
+#   method: :git
+activate :external_pipeline,
+  name: :webpack,
+  command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
+  source: '.tmp/dist',
+  latency: 1
 
 # Development-specific configuration
 configure :development do
   activate :livereload
 end
-
-
-set :url_root, 'http://padrinorb.com'
-
 
 # Build-specific configuration
 configure :build do
@@ -62,12 +72,4 @@ configure :build do
   activate :minify_javascript
   activate :asset_hash
   activate :relative_assets
-  activate :search_engine_sitemap,
-    exclude_if: -> (resource) {
-      # Exclude all paths from sitemap that are sub-date indexes
-      resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
-    }, default_change_frequency: 'weekly'
-  activate :robots, :rules => [
-    {:user_agent => '*', :allow => %w(/), :disallow => %w(CNAME /*.js /*.css)}
-  ], :sitemap => 'http://padrinorb.com/sitemap.xml'
 end

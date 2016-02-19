@@ -1,7 +1,7 @@
-(function() {
+export default function activateNavigationToggler() {
   var toggler = document.getElementById('navigation__toggler');
   toggler.addEventListener('click', toggleNavigation);
-})();
+}
 
 function toggleNavigation() {
   var navigation__items = document.getElementById('navigation__items');

@@ -6,7 +6,7 @@ gem 'middleman', '~> 3.4.0'
 
 # ExecJs
 gem 'therubyracer', '~> 0.12'
-gem 'libv8', '3.16.14.3'
+gem 'libv8', '3.16.14.7'
 
 # For faster file watcher updates on Windows:
 gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
@@ -25,9 +25,3 @@ gem 'slim', '~> 3.0.6'
 # Styling
 gem 'breakpoint', '~> 2.5.0'
 gem 'susy', '~> 2.2.6'
-
-group :development do
-  gem "capistrano", "~> 2.15.5"
-  gem "cap-recipes", :require => false
-  gem "capistrano-maintenance", :require => false
-end

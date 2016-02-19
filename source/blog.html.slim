@@ -1,0 +1,10 @@
+---
+pageable: true
+---
+
+= partial '/_partials/blog_article', collection: page_articles, locals: { link_title: true, show_comments: false }
+
+- unless prev_page.nil?
+  li= link_to 'Prev Page', prev_page.url
+- unless next_page.nil?
+  li= link_to 'Next Page', next_page.url

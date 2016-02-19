@@ -26,6 +26,17 @@ helpers do
   def recent_release_post
     blog.articles.find { |a| a.tags.include?("release") }
   end
+
+  def guides
+    resources = sitemap.resources.select do |r|
+      r.path.start_with?('guides/') && !r.path.match(/^guides\/\d{2}_/) &&
+      r.path != 'guides/README.html'
+    end
+  end
+
+  def guides_by_chapter
+    guides.group_by { |c| c.data.chapter }
+  end
 end
 
 # General configuration
@@ -62,6 +73,19 @@ activate :external_pipeline,
   command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
   source: '.tmp/dist',
   latency: 1
+
+ready do
+  sitemap.resources.select { |r| r.path.start_with?('guides/') }.each do |resource|
+    path = resource.path.split('/')
+
+    if path.size >= 3
+      chapter = path[1][3..-1]
+      title = path[2][3..-1]
+      locals = { sidebar: '/_partials/guides_sidebar' }
+      proxy "guides/#{chapter}/#{title}", path.join('/'), locals: locals
+    end
+  end
+end
 
 # Development-specific configuration
 configure :development do

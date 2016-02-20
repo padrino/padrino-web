@@ -28,7 +28,7 @@
   }
 
   &__item {
-    border-bottom: 1px solid color(gray--light);
+    border-bottom: 1px solid palette(gray, light);
     display: block;
     @include from(2) {
       border: 0;
@@ -50,7 +50,7 @@
   &__link {
     @include type-weight(semi-bold);
     background: none;
-    color: color(black);
+    color: palette(black);
     display: inline-block;
     padding: rhythm(0.25) 0;
     @include from(2) {
@@ -58,7 +58,7 @@
     }
 
     &:hover {
-      color: color(red--semi-dark);
+      color: palette(red, semi-dark);
     }
 
     &--is-active {

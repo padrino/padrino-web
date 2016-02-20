@@ -1,22 +1,22 @@
 table {
-  background-color: color(white);
-  border: 1px solid color(gray--light);
+  background-color: palette(white);
+  border: 1px solid palette(gray, light);
   border-bottom-width: 4px;
   border-spacing: 0;
   border-collapse: separate;
-  color: color(gray--dark);
+  color: palette(gray, dark);
   width: 100%;
 
   thead {
     th {
-      border-bottom: 4px solid color(gray--light);
+      border-bottom: 4px solid palette(gray, light);
     }
   }
 
   tbody {
     tr {
       &:nth-child(2n-1) {
-        background-color: color(gray--extra-light);
+        background-color: palette(gray, extra-light);
       }
     }
   }
@@ -31,8 +31,8 @@ table {
 
   th,
   td {
-    border-bottom: 1px solid color(gray--light);
-    border-right: 1px solid color(gray--light);
+    border-bottom: 1px solid palette(gray, light);
+    border-right: 1px solid palette(gray, light);
     padding: rhythm(0.5);
     vertical-align: top;
 

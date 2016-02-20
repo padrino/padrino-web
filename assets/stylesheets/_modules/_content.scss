@@ -2,7 +2,7 @@
   &__chapter-title {
     @include margin-trailer(0);
     @include type-weight(bold);
-    color: color(black);
+    color: palette(black);
   }
 
   // Auto styling of code blocks

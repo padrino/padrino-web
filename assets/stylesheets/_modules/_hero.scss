@@ -16,7 +16,7 @@
   h1.hero__headline {
     @include type-scale(large);
     @include type-weight(regular);
-    color: color(black);
+    color: palette(black);
     @include from(3) {
       @include type-scale(xxlarge, false);
     }
@@ -39,13 +39,13 @@
     @include type-scale(medium);
 
     &__label {
-      color: color(red);
+      color: palette(red);
     }
 
     &__link {
       @include type-scale(base);
       @include type-weight(regular);
-      color: color(gray);
+      color: palette(gray);
     }
   }
 }

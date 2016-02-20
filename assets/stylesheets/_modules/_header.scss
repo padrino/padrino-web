@@ -10,7 +10,7 @@
 
   &__name {
     @include type-scale(large);
-    color: color(black);
+    color: palette(black);
     @include from(2) {
       @include margin-trailer(0);
       position: absolute;

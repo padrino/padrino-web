@@ -1,5 +1,5 @@
 .excerpt {
-  color: color(black);
+  color: palette(black);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -41,9 +41,9 @@
     @extend .excerpt--inline;
     @include type-scale(base);
     @include adjust-leading-to(0.8);
-    background-color: color(gray--extra-light);
+    background-color: palette(gray, extra-light);
     border-radius: 5px;
-    font-family: font(monospaced);
+    font-family: font-family(monospace);
     overflow: auto;
     padding: rhythm(0.75);
     -webkit-overflow-scrolling: touch;
@@ -51,7 +51,7 @@
     &--light {
       @extend .excerpt--code;
       background: none;
-      border: 2px solid color(gray--light);
+      border: 2px solid palette(gray, light);
 
       code {
         background: none;

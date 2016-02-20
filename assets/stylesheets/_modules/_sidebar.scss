@@ -32,13 +32,13 @@
     padding: rhythm(0.125) 0;
 
     &:hover {
-      color: color(red--semi-dark);
+      color: palette(red, semi-dark);
     }
 
     &--is-active {
       @extend .sidebar__link;
       @include type-weight(semi-bold);
-      color: color(red--semi-dark);
+      color: palette(red, semi-dark);
     }
   }
 }

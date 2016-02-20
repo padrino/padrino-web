@@ -53,8 +53,8 @@ activate :blog,
   permalink: '{title}.html',
   paginate: true,
   per_page: 2
-activate :syntax
 activate :directory_indexes
+activate :syntax, css_class: 'syntax'
 # activate :search_engine_sitemap,
 #   exclude_if: -> (resource) {
 #     # Exclude all paths from sitemap that are sub-date indexes
@@ -66,13 +66,12 @@ activate :directory_indexes
 #     { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }
 #   ],
 #   sitemap: 'http://padrinorb.com/sitemap.xml'
-activate :deploy,
-  deploy_method: :git
 activate :external_pipeline,
   name: :webpack,
   command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
   source: '.tmp/dist',
   latency: 1
+activate :deploy, deploy_method: :git
 
 ready do
   sitemap.resources.select { |r| r.path.start_with?('guides/') }.each do |resource|

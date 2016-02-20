@@ -7,8 +7,8 @@ pre {
 }
 
 code {
-  background-color: color(gray--extra-light);
+  background-color: palette(gray, extra-light);
   border-radius: rhythm(0.125);
-  color: color(black);
+  color: palette(black);
   padding: rhythm(0.125) rhythm(0.25);
 }

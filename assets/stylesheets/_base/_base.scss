@@ -15,9 +15,9 @@ html {
 }
 
 body {
-  background-color: color(white);
-  color: color(gray);
-  font-family: font(base);
+  background-color: palette(white);
+  color: palette(gray);
+  font-family: font-family(primary);
 }
 
 // Blockquote
@@ -27,11 +27,11 @@ blockquote {
 
 // Anchor
 a {
-  color: color(red--semi-dark);
+  color: palette(red, semi-dark);
   text-decoration: none;
 
   &:hover {
-    color: color(red--dark);
+    color: palette(red, dark);
   }
 }
 
@@ -44,9 +44,9 @@ hr {
   @include margin-trailer(2);
   @include clearfix;
   clear: both;
-  background-color: color(gray--light);
+  background-color: palette(gray, light);
   border: 0;
-  color: color(gray);
+  color: palette(gray);
   display: block;
   height: 2px;
 }

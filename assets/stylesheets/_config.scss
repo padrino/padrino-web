@@ -27,12 +27,8 @@ $susy: (
   gutter-position: inside
 );
 
-// Breakpoint
-$breakpoints: (
-  step-1: 568px,
-  full: 768px,
-  full-plus: 1024px
-);
+// Breakpoint Slicer
+$slicer-breakpoints: 0 568px 768px 1024px;
 
 // Compass Vertical Rhythm
 $base-font-size: 16px;

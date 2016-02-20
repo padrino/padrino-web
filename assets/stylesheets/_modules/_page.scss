@@ -14,13 +14,13 @@
   }
 
   &__sidebar {
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include span(3);
     }
   }
 
   &__content {
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include span(9 last);
     }
   }

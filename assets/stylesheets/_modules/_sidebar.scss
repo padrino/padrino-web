@@ -7,7 +7,7 @@
     &--first {
       @extend .sidebar__header;
       @include margin-trailer(1);
-      @include breakpoint(bp(step-1)) {
+      @include from(2) {
         @include adjust-leading-to(2);
       }
     }

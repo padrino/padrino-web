@@ -7,7 +7,7 @@
     margin: 0 auto;
     max-width: rhythm(8);
     width: 100%;
-    @include breakpoint(bp(full)) {
+    @include from(3) {
       max-width: span(4);
     }
   }
@@ -17,14 +17,14 @@
     @include type-scale(large);
     @include type-weight(regular);
     color: color(black);
-    @include breakpoint(bp(full)) {
+    @include from(3) {
       @include type-scale(xxlarge, false);
     }
   }
 
   &__text {
     @include margin-trailer(1);
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include margin-leader(2);
       @include margin-trailer(2);
       @include type-scale(medium, false);
@@ -45,7 +45,6 @@
     &__link {
       @include type-scale(base);
       @include type-weight(regular);
-      // background-image: linear-gradient(to bottom, rgba(color(gray),0) 50%, rgba(color(gray),0.6) 50%);
       color: color(gray);
     }
   }

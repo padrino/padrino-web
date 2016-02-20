@@ -19,7 +19,7 @@
 
   &--tiny {
     @extend .excerpt--small;
-    @include breakpoint(bp(full)) {
+    @include from(3) {
       width: span(8 no-gutters);
     }
   }
@@ -27,13 +27,9 @@
   &--large {
     @extend .excerpt;
     @include type-scale(medium);
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include type-scale(large, false);
     }
-    // @include breakpoint(bp(full-plus)) {
-    //   @include pull(1);
-    //   width: span(14 no-gutters);
-    // }
   }
 
   &--inline {

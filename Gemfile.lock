@@ -94,6 +94,8 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
+    middleman-robots (1.1.0)
+      middleman (>= 3.3)
     middleman-syntax (2.1.0)
       middleman-core (>= 3.2)
       rouge (~> 1.0)
@@ -149,6 +151,7 @@ DEPENDENCIES
   middleman-blog
   middleman-deploy!
   middleman-livereload
+  middleman-robots (~> 1.1.0)
   middleman-syntax
   slim
 

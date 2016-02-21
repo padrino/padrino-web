@@ -61,11 +61,11 @@ activate :syntax, css_class: 'syntax'
 #     resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
 #   },
 #   default_change_frequency: 'weekly'
-# activate :robots,
-#   rules: [
-#     { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }
-#   ],
-#   sitemap: 'http://padrinorb.com/sitemap.xml'
+activate :robots,
+  rules: [
+    { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }
+  ],
+  sitemap: 'http://padrinorb.com/sitemap.xml'
 activate :external_pipeline,
   name: :webpack,
   command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',

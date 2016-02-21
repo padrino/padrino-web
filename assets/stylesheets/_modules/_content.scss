@@ -30,4 +30,9 @@
   h5 {
     @include type-scale(base);
   }
+
+  table {
+    @include type-scale(small);
+    @include margin-trailer(1);
+  }
 }

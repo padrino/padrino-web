@@ -43,6 +43,9 @@ end
 set :layout, :content
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
+set :markdown_engine, :redcarpet
+set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
+    :fenced_code_blocks => true
 set :default_title, 'The Elegant Ruby Web Framework'
 set :url_root, 'http://padrinorb.com'
 set :disqus_embed_url, 'https://padrinorb.disqus.com/embed.js'

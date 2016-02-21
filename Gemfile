@@ -12,3 +12,4 @@ gem 'middleman-robots', '~> 1.1.0'
 # Styling
 gem 'slim'
 gem 'builder'
+gem 'redcarpet'

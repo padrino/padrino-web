@@ -1,15 +1,26 @@
 .page {
   @include clearfix;
   @include margin-trailer(2);
-
   &--index {
     text-align: center;
+    @include from(3) {
+      @include pad(0.5);
+    }
 
     // Auto styling of code blocks
     pre {
       @extend .excerpt--tiny;
       @extend .excerpt--code--light;
       display: block;
+    }
+
+    table {
+      @extend .excerpt--small;
+      @extend .excerpt--inline;
+    }
+
+    blockquote {
+      @extend .excerpt--large;
     }
   }
 

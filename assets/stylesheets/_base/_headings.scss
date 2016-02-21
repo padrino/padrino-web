@@ -7,7 +7,7 @@ h5 {
   @include margin-leader(0);
   @include margin-trailer(1);
   @include type-ligatures;
-  color: color(black);
+  color: palette(black);
 }
 
 h1 {

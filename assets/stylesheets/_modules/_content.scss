@@ -1,4 +1,10 @@
 .content {
+  &__chapter-title {
+    @include margin-trailer(0);
+    @include type-weight(bold);
+    color: palette(black);
+  }
+
   // Auto styling of code blocks
   pre {
     @extend .excerpt--code;
@@ -23,5 +29,10 @@
 
   h5 {
     @include type-scale(base);
+  }
+
+  table {
+    @include type-scale(small);
+    @include margin-trailer(1);
   }
 }

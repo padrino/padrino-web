@@ -1,6 +1,6 @@
 .footer {
   @include margin-trailer(2);
   @include type-scale(small);
-  color: color(gray);
+  color: palette(gray);
   text-align: center;
 }

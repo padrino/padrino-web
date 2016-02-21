@@ -1,0 +1,45 @@
+$type-prefix: 't-';
+
+$type-scale: (
+  tiny: (
+    font-size: 1rem * 0.563,
+    base-lines: 0.5
+  ),
+  small: (
+    font-size: 1rem * 0.75,
+    base-lines: 0.75
+  ),
+  semismall: (
+    font-size: 1rem * 0.85,
+    base-lines: 0.85
+  ),
+  base: (
+    font-size: 1rem,
+    base-lines: 1
+  ),
+  medium: (
+    font-size: 1rem * 1.333,
+    base-lines: 1.2
+  ),
+  large: (
+    font-size: 1rem * 1.777,
+    base-lines: 1.4
+  ),
+  xlarge: (
+    font-size: 1rem * 2.369,
+    base-lines: 2
+  ),
+  xxlarge: (
+    font-size: 1rem * 3.157,
+    base-lines: 2.5
+  )
+);
+
+$type-weight: (
+  thin: 200,
+  light: 300,
+  regular: 400,
+  semi-bold: 600,
+  bold: 700,
+  extra-bold: 800
+);

@@ -1,0 +1,61 @@
+$flask-color-base-black: #000 !default;
+$flask-color-base-white: #fff !default;
+$flask-color-base-gray: #666 !default;
+$flask-color-base-red: #f00 !default;
+
+$palettes: (
+  black: (
+    base: $flask-color-base-black
+  ),
+  white: (
+    base: $flask-color-base-white
+  ),
+  gray: (
+    base: $flask-color-base-gray,
+    extra-light: lighten($flask-color-base-gray, 56),
+    light: lighten($flask-color-base-gray, 50),
+    dark: darken($flask-color-base-gray, 15)
+  ),
+  red: (
+    base: $flask-color-base-red,
+    semi-dark: darken($flask-color-base-red, 10),
+    dark: darken($flask-color-base-red, 20)
+  )
+);
+
+$palette-aliases: (
+  accent: red
+);
+
+$fonts: (
+  lato: (
+    font-type: sans-serif,
+    regular: Lato
+  ),
+  open-sans: (
+    font-type: sans-serif,
+    regular: 'Open Sans'
+  ),
+  menlo: (
+    font-type: monospace,
+    regular: Menlo
+  )
+);
+
+$font-fallbacks: (
+  sans-serif: (
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif
+  ),
+  monospace: (
+    monospace
+  )
+);
+
+$font-aliases: (
+  primary: lato,
+  logo: open-sans,
+  monospace: menlo
+);

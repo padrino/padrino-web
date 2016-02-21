@@ -1,9 +1,11 @@
 .page {
   @include clearfix;
   @include margin-trailer(2);
-
   &--index {
     text-align: center;
+    @include from(3) {
+      @include pad(0.5);
+    }
 
     // Auto styling of code blocks
     pre {
@@ -11,16 +13,25 @@
       @extend .excerpt--code--light;
       display: block;
     }
+
+    table {
+      @extend .excerpt--small;
+      @extend .excerpt--inline;
+    }
+
+    blockquote {
+      @extend .excerpt--large;
+    }
   }
 
   &__sidebar {
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include span(3);
     }
   }
 
   &__content {
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include span(9 last);
     }
   }

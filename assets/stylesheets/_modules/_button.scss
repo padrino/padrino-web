@@ -1,15 +1,15 @@
 .button {
   @include type-weight(semi-bold);
-  background-color: color(red--semi-dark);
+  background-color: palette(red, semi-dark);
   background-image: none;
   border-radius: 5px;
-  color: color(white);
+  color: palette(white);
   display: inline-block;
   padding: rhythm(0.25) rhythm(0.75);
 
   &:hover {
-    background-color: color(red--dark);
-    color: color(white);
+    background-color: palette(red, dark);
+    color: palette(white);
   }
 
   &--large {

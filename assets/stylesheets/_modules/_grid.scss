@@ -1,7 +1,7 @@
 .grid {
   @include container;
   padding: rhythm(0.8);
-  @include breakpoint(bp(full)) {
+  @include from(3) {
     padding: rhythm(0.8) rhythm(2);
   }
 }

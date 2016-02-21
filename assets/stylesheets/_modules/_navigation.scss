@@ -4,7 +4,7 @@
     position: absolute;
     top: rhythm(0.8);
     right: rhythm(0.8);
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       display: none;
     }
 
@@ -17,7 +17,7 @@
     display: none;
     margin-left: 0;
     margin-top: rhythm(1);
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       display: block;
       margin-top: 0;
     }
@@ -28,9 +28,9 @@
   }
 
   &__item {
-    border-bottom: 1px solid color(gray--light);
+    border-bottom: 1px solid palette(gray, light);
     display: block;
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       border: 0;
       display: inline-block;
       list-style: none;
@@ -50,15 +50,15 @@
   &__link {
     @include type-weight(semi-bold);
     background: none;
-    color: color(black);
+    color: palette(black);
     display: inline-block;
     padding: rhythm(0.25) 0;
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       padding: 0;
     }
 
     &:hover {
-      color: color(red--semi-dark);
+      color: palette(red, semi-dark);
     }
 
     &--is-active {
@@ -67,60 +67,3 @@
     }
   }
 }
-
-// .navigation {
-//   padding: rhythm(0.8);
-//   position: relative;
-//
-//   &__toggler {
-//     background: none;
-//     background-color: rgba(color(white), 0.9);
-//     border: 2px solid rgba(color(black), 0.15);
-//     border-radius: 100em;
-//     display: block;
-//     text-align: center;
-//     height: rhythm(2.25);
-//     position: absolute;
-//     right: rhythm(0.8);
-//     width: rhythm(2.25);
-//
-//     &__icon {
-//       @include type-scale(large);
-//       @include adjust-leading-to(2.2);
-//       color: rgba(color(black), 0.5);
-//     }
-//   }
-//
-//   &__items {
-//     @include margin-trailer(0);
-//     display: none;
-//   }
-//
-//   &__item {
-//     @include type-scale(medium);
-//     list-style: none;
-//     margin-left: 0;
-//     text-align: center;
-//
-//     &__link {
-//       @include type-weight(semi-bold);
-//       background: none;
-//       color: color(white);
-//       display: block;
-//       padding: rhythm(0.2);
-//
-//       &:hover {
-//         color: color(red--semi-dark);
-//       }
-//     }
-//   }
-//
-//   &--is-active {
-//     @extend .navigation;
-//     background-color: rgba(color(black), 0.9);
-//
-//     .navigation__items {
-//       display: block;
-//     }
-//   }
-// }

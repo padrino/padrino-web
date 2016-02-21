@@ -1,5 +1,5 @@
 .excerpt {
-  color: color(black);
+  color: palette(black);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -19,7 +19,7 @@
 
   &--tiny {
     @extend .excerpt--small;
-    @include breakpoint(bp(full)) {
+    @include from(3) {
       width: span(8 no-gutters);
     }
   }
@@ -27,13 +27,9 @@
   &--large {
     @extend .excerpt;
     @include type-scale(medium);
-    @include breakpoint(bp(step-1)) {
+    @include from(2) {
       @include type-scale(large, false);
     }
-    // @include breakpoint(bp(full-plus)) {
-    //   @include pull(1);
-    //   width: span(14 no-gutters);
-    // }
   }
 
   &--inline {
@@ -45,9 +41,9 @@
     @extend .excerpt--inline;
     @include type-scale(base);
     @include adjust-leading-to(0.8);
-    background-color: color(gray--extra-light);
+    background-color: palette(gray, extra-light);
     border-radius: 5px;
-    font-family: font(monospaced);
+    font-family: font-family(monospace);
     overflow: auto;
     padding: rhythm(0.75);
     -webkit-overflow-scrolling: touch;
@@ -55,7 +51,7 @@
     &--light {
       @extend .excerpt--code;
       background: none;
-      border: 2px solid color(gray--light);
+      border: 2px solid palette(gray, light);
 
       code {
         background: none;

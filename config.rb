@@ -5,7 +5,7 @@ page '/*.txt', layout: false
 page '/guides/*', layout: :guide, data: { sidebar: '/_partials/guides_sidebar' }
 page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }
-redirect 'guides.html', to: '/guides/introduction/overview/'
+proxy '/guides.html', '/guides/01_introduction/01_overview.html'
 
 # Helpers
 helpers do
@@ -55,12 +55,12 @@ activate :blog,
   per_page: 2
 activate :directory_indexes
 activate :syntax, css_class: 'syntax'
-# activate :search_engine_sitemap,
-#   exclude_if: -> (resource) {
-#     # Exclude all paths from sitemap that are sub-date indexes
-#     resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
-#   },
-#   default_change_frequency: 'weekly'
+activate :search_engine_sitemap,
+  exclude_if: -> (resource) {
+    # Exclude all paths from sitemap that are sub-date indexes
+    resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
+  },
+  default_change_frequency: 'weekly'
 activate :robots,
   rules: [
     { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }

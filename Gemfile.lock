@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/angeloashmore/middleman-search_engine_sitemap.git
+  revision: 72132b800d9785f476a923f6e3504b3b8efa5eec
+  specs:
+    middleman-search_engine_sitemap (1.3.0)
+      builder
+      middleman (>= 4.0.0)
+
+GIT
   remote: git://github.com/middleman-contrib/middleman-deploy.git
   revision: 243ab38b08896cd5a37d6845a01a5761b934a898
   specs:
@@ -152,6 +160,7 @@ DEPENDENCIES
   middleman-deploy!
   middleman-livereload
   middleman-robots (~> 1.1.0)
+  middleman-search_engine_sitemap!
   middleman-syntax
   slim
 

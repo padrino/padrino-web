@@ -17,7 +17,7 @@ Built using [Middleman](https://github.com/middleman/middleman).
 1. Clone to your machine.
 
    ```shell
-   git clone https://github.com/padrino/padrino-web-new.git
+   git clone https://github.com/padrino/padrino-web.git
    git submodule init
    git submodule update
    ```

@@ -4,14 +4,14 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/padrino/padrino-web-new.git"
+    "url": "git+https://github.com/padrino/padrino-web.git"
   },
   "author": "Padrino",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/padrino/padrino-web-new/issues"
+    "url": "https://github.com/padrino/padrino-web/issues"
   },
-  "homepage": "https://github.com/padrino/padrino-web-new/#readme",
+  "homepage": "https://github.com/padrino/padrino-web/#readme",
   "devDependencies": {
     "babel-core": "^6.3.26",
     "babel-loader": "^6.2.0",

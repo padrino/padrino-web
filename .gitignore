@@ -20,3 +20,6 @@
 
 # Ignore node packages
 /node_modules
+
+# bin from the bundle command
+bin/

@@ -2,8 +2,9 @@
 
 Want to show Padrino some love? Help out by contributing to our framework!
 
-[View on GitHub](https://github.com/padrino/padrino-framework){: .button }
-{: .excerpt }
+<div class="excerpt">
+  <a href="https://github.com/padrino/padrino-framework" class="button">View on GitHub</a>
+</div>
 
 ---
 

@@ -91,6 +91,9 @@ end
 # Development-specific configuration
 configure :development do
   activate :livereload
+  activate :disqus do |d|
+    d.shortname = "padrinorb"
+  end
 end
 
 # Build-specific configuration
@@ -99,4 +102,7 @@ configure :build do
   activate :minify_javascript
   activate :asset_hash
   activate :relative_assets
+  activate :disqus do |d|
+    d.shortname = "padrinorb"
+  end
 end

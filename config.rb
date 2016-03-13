@@ -92,7 +92,7 @@ end
 configure :development do
   activate :livereload
   activate :disqus do |d|
-    d.shortname = "padrinorb"
+    d.shortname = nil
   end
 end
 

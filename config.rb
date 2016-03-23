@@ -48,7 +48,6 @@ set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
     :fenced_code_blocks => true
 set :default_title, 'The Elegant Ruby Web Framework'
 set :url_root, 'http://padrinorb.com'
-set :disqus_embed_url, 'https://padrinorb.disqus.com/embed.js'
 
 activate :blog,
   prefix: 'blog',
@@ -92,6 +91,7 @@ end
 # Development-specific configuration
 configure :development do
   activate :livereload
+  activate :disqus, shortname = nil
 end
 
 # Build-specific configuration
@@ -100,4 +100,5 @@ configure :build do
   activate :minify_javascript
   activate :asset_hash
   activate :relative_assets
+  activate :disqus, shortname = "padrinorb"
 end

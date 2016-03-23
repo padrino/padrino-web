@@ -13,3 +13,5 @@ gem 'middleman-robots', '~> 1.1.0'
 gem 'slim'
 gem 'builder'
 gem 'redcarpet'
+
+gem "middleman-disqus"

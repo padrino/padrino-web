@@ -1,4 +1,6 @@
 = wrap_layout :sidebar do
   p.content__chapter-title= current_page.data.chapter
   = yield
+  - unless current_page.data.updated.nil?
+    p.updated = " last updated: #{current_page.data.updated}"
   = disqus

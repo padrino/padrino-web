@@ -1,4 +1,5 @@
 = wrap_layout :sidebar do
   p.content__chapter-title= current_page.data.chapter
   = yield
+  p.updated = " last updated: #{File.mtime(current_page.source_file).strftime("%Y-%m-%d")}"
   = disqus

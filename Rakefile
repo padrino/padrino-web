@@ -20,7 +20,6 @@ end
 
 desc "Staging"
 task :staging do
-  system "rm -rf build/"
   system "middleman b"
   system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/stagingpadrinorb"
   puts '# Please refer to http://stagingpadrinorb.wikimatze.de to visit the staging system'

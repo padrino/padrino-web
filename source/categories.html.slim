@@ -1,0 +1,5 @@
+h2 Categories
+ul
+  - all_categories.each do |category, articles|
+    li
+      = link_to "#{category} (#{articles.size})", category_path(category)

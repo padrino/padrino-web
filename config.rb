@@ -52,7 +52,7 @@ helpers do
   end
 
   def category_path(category)
-    "/category/#{category.parameterize}.html"
+    "/category/#{category.parameterize}/index.html"
   end
 
   def all_categories

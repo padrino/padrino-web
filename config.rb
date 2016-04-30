@@ -7,6 +7,14 @@ page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }
 proxy '/guides.html', '/guides/01_introduction/01_overview.html'
 
+require "middleman-core/renderers/redcarpet"
+
+class CustomRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
+  def header(text, header_level)
+    "<h%s id=\"%s\">%s</h%s>" % [header_level, text.parameterize, text, header_level]
+  end
+end
+
 # Helpers
 helpers do
   def nav_link_to(link_text, url, options = {})
@@ -74,7 +82,7 @@ set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :markdown_engine, :redcarpet
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
-    :fenced_code_blocks => true
+    :fenced_code_blocks => true, renderer: CustomRenderer
 set :default_title, 'The Elegant Ruby Web Framework'
 set :url_root, 'http://padrinorb.com'
 

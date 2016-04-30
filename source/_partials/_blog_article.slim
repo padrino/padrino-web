@@ -8,6 +8,12 @@
     = "Posted on #{blog_article.date.strftime('%B %d, %Y')}"
     - unless blog_article.data.author.nil?
       = " by #{blog_article.data.author}"
+    =< "| categories:"
+    - blog_article.data.categories.split(" ").each_with_index do |category, index|
+      - if index == blog_article.data.categories.split(" ").size - 1
+        =< link_to "#{category}", category_path(category)
+      - else
+        =< link_to "#{category},", category_path(category)
 
   = blog_article.body
 

@@ -1,0 +1,12 @@
+h1 Articles in category #{category.gsub(",", "")}
+
+ul
+  - if all_categories[category]
+    - all_categories[category].each_with_index do |article, i|
+      li
+        = link_to article.title, article
+        span<
+          | (#{article.date.strftime('%B %e, %Y')})
+
+= link_to "Overview of all categories", "/categories"
+

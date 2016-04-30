@@ -45,6 +45,35 @@ helpers do
   def guides_by_chapter
     guides.group_by { |c| c.data.chapter }
   end
+
+  # blog-categories
+  def categories(page)
+    category_array(page.data[:categories])
+  end
+
+  def category_path(category)
+    "/category/#{category.parameterize}/index.html"
+  end
+
+  def all_categories
+    @all_categories ||= Hash[all_categories_unsorted.sort]
+  end
+
+  def category_array(categories)
+    (categories || "Uncategorized").split(" ")
+  end
+
+  private
+
+  def all_categories_unsorted
+    Hash.new { [] }.tap do |all_categories|
+      blog.articles.each do |article|
+        categories(article).each do |ac|
+          all_categories[ac] <<= article
+        end
+      end
+    end
+  end
 end
 
 # General configuration
@@ -69,6 +98,7 @@ activate :search_engine_sitemap,
   exclude_if: -> (resource) {
     # Exclude all paths from sitemap that are sub-date indexes
     resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
+    resource.path.match(/category\/*/)
   },
   default_change_frequency: 'weekly'
 activate :robots,
@@ -94,6 +124,13 @@ ready do
       proxy "guides/#{chapter}/#{title}", path.join('/'), locals: locals
     end
   end
+  sitemap.resources
+    .map { |r| (r.data["categories"] || "Uncategorized").split(" ") }
+    .flatten
+    .uniq
+    .each do |category|
+    proxy "/category/#{category.parameterize}.html", "category.html", locals: { category: category }
+  end
 end
 
 # Development-specific configuration
@@ -101,6 +138,8 @@ configure :development do
   activate :livereload
   activate :disqus, :shortname => nil
 end
+
+ignore 'category.html.slim'
 
 # Build-specific configuration
 configure :build do

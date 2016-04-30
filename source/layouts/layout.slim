@@ -8,6 +8,7 @@ html
     = partial 'layouts/favicons'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
     = stylesheet_link_tag :all
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js'
     = javascript_include_tag :all
     link href="http://padrinorb.com/blog.rss" rel="alternate" type="application/rss+xml" title="Blog - Padrino Ruby Web Framework"
   body class=page_classes
@@ -20,3 +21,5 @@ html
         markdown:
           Padrino is released under the MIT LICENSE<br/>
           Hosting by [GitHub Pages](https://pages.github.com)
+        javascript:
+          anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');

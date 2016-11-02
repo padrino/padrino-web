@@ -91,7 +91,9 @@ activate :blog,
   layout: :blog_article,
   permalink: '{title}.html',
   paginate: true,
-  per_page: 2
+  per_page: 2,
+  publish_future_dated: true
+
 activate :directory_indexes
 activate :syntax, css_class: 'syntax'
 activate :search_engine_sitemap,

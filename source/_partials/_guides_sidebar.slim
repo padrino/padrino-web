@@ -1,7 +1,7 @@
 h4.sidebar__header--first Guides
 
 - guides_by_chapter.each do |name, resources|
-  h5.sidebar__header= link_to name, "/guides/#{(name.downcase).split(' ').join('-')}/"
+  h5.sidebar__header= link_to name, "/guides/#{(name.downcase).split(' ').join('-')}/overview"
 
   ul.sidebar__items
     - resources.each do |resource|

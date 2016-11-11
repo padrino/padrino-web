@@ -6,6 +6,9 @@ page '/guides/*', layout: :guide, data: { sidebar: '/_partials/guides_sidebar' }
 page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }
 proxy '/guides.html', '/guides/01_introduction/01_overview.html'
+proxy '/introduction.html', '/guides/01_introduction/01_overview.html'
+proxy '/generators.html', '/guides/04_generators/01_overview.html'
+proxy '/controllers.html', '/guides/05_controllers/01_overview.html'
 
 require "middleman-core/renderers/redcarpet"
 

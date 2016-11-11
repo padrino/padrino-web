@@ -77,7 +77,7 @@ Component  | Default | Options
 ---------- | ------- | -----------------------------------------------------------------
 ORM/ODM    | none    | activerecord, datamapper, mongomapper, mongoid, sequel, couchrest
 JavaScript | none    | prototype, rightjs, jquery, mootools, extcore
-Renderer   | Slim    | Erb, Haml, Slim
+Renderer   | none    | Erb, Haml, Slim
 Test       | none    | Bacon, Shoulda, Cucumber, Riot, RSpec
 Stylesheet | none    | Less, Sass, SCSS, Compass
 Mock       | none    | rr, Mocha

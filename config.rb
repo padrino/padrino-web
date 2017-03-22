@@ -41,6 +41,8 @@ helpers do
       r.path.start_with?('guides/') && !r.path.match(/^guides\/\d{2}_/) &&
       r.path != 'guides/README.html'
     end
+
+    resources.sort_by(&:target)
   end
 
   def guides_by_chapter

@@ -1,8 +1,8 @@
 h4.sidebar__header--first Guides
 
 - guides_by_chapter.each do |name, resources|
-  h5.sidebar__header= link_to name, "/guides/#{(name.downcase).split(' ').join('-')}/overview"
+  h5.sidebar__header= link_to name, resources.first.url
 
   ul.sidebar__items
-    - resources.each do |resource|
+    - resources.sort_by(&:target).each do |resource|
       li.sidebar__item= nav_link_to resource.data.title, resource.url, class: 'sidebar__link'

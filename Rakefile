@@ -15,7 +15,7 @@ task :update do
 end
 
 desc "Builds the static middleman site to build directory"
-task :build => :update do
+task :build => :submodule_update do
   sh "middleman build"
 end
 

@@ -1,3 +1,9 @@
+desc "Update submodule to latest version"
+task :submodule_update do
+  system "git submodule update --remote --recursive"
+end
+
+
 desc "Updates all blog posts and guides from docs source"
 task :update do
   # Update submodule

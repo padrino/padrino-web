@@ -22,3 +22,10 @@
 
 // Modules
 @import '_modules/**/*';
+
+// Custom
+a.gitter-open-chat-button,  a.gitter-open-chat-button:hover {
+  background-color: #cc0000;
+  border-color: #443d68;
+}
+

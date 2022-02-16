@@ -19,12 +19,12 @@
     "breakpoint-sass": "^2.6.1",
     "breakpoint-slicer": "^2.0.0",
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^0.9.1",
+    "extract-text-webpack-plugin": "^2.0.0",
     "flask": "^0.2.9",
     "import-glob-loader": "^1.1.0",
-    "node-sass": "^3.4.2",
-    "sass-loader": "^3.1.2",
+    "node-sass": "^4.0.0",
+    "sass-loader": "^5.0.1",
     "susy": "^2.2.9",
-    "webpack": "^1.12.9"
+    "webpack": "^2.0.0"
   }
 }

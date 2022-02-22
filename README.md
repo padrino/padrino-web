@@ -14,6 +14,7 @@ Built using [Middleman](https://github.com/middleman/middleman).
 
 ## Local Server Instructions
 
+
 1. Clone to your machine.
 
    ```shell
@@ -28,7 +29,7 @@ Built using [Middleman](https://github.com/middleman/middleman).
    bundle install
    ```
 
-3. Install Node.js dependencies with npm.
+3. Install Node.js (Version 7.0.0) dependencies with npm (I think it must be 3.10.8).
 
    ```shell
    npm install

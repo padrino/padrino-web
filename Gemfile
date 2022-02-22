@@ -14,4 +14,4 @@ gem 'slim'
 gem 'builder'
 gem 'redcarpet'
 
-gem "middleman-disqus"
+gem "middleman-disqus", github: 'padrino/middleman-disqus'

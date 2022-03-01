@@ -1,0 +1,231 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_page blog_page_11 blog_page_11_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-11-0-released-padrino-lives/">Padrino 0.11.0 Released - Padrino Lives!</a></h1><p class="article__metadata">Posted on March 10, 2013 by DAddYE | categories: <a href="/category/update/">update</a></p><p>The Padrino team is very pleased to finally be able to announce the 0.11.0 release of the Padrino Framework! We have been working on this release for almost a year now and we have had dozens of contributors helping us stabilize Padrino. We know our release cycle got out whack and this version took too long to release. We all take accountability for that and will work to pick up release momentum and release patch and minor versions more often.</p>
+
+<p>Since our 0.10.7 release, development on Padrino has been moving forward very actively and as such this is probably our biggest release in terms of code modified and issues resolved that we have had in years. We are very proud of this release which includes several major improvements:</p>
+
+<p>1) Totally Redesigned Admin
+2) New brand identity on the way
+3) Upgraded Sinatra and http_router
+4) CSRF Form Protection
+5) ActiveSupport::SafeBuffer
+6) New Rakefile format
+7) Gemified Apps
+8) Performance Tools
+9) App Namespacing
+10) Project Modules
+11) Optimized Reloader</p>
+
+<p>and a lot more changes! In the full post below, we will take you through a tour of the biggest changes in this release (for a more compact view, see our <a href="http://www.padrinorb.com/changes">changelog</a>).</p>
+<h2 id="redesigned-admin">Redesigned Admin</h2>
+<p>We have introduced a number of exciting improvements to admin in this release. First, with the help of <a href="https://github.com/WaYdotNET">@WaYdotNET</a>, we have completely rewritten the admin interface front-end. The new front-end uses bootstrap, font-awesome and jQuery. A few commits: <a href="https://github.com/padrino/padrino-framework/commit/3f62f747f03991e0bb6ad9774dd3ebacfe73a23c">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/d6afa8febdc3dcdf1bc61668084cd66290ad4390">2</a></p>
+
+<p>This snowballed into a huge team effort so thanks to everyone involved <a href="https://github.com/WaYdotNET">@WaYdotNET</a>, <a href="https://github.com/DAddYE">@DAddYE</a>, <a href="https://github.com/dariocravero">@dariocravero</a>), <a href="https://github.com/ujifgc">@ujifgc</a>, <a href="https://github.com/tyabe">@tyabe</a> and several others! Here’s a few screenshots of our brand new admin pages:</p>
+
+<p><a href="http://i.imgur.com/DUO2SfU.png"><img src="http://i.imgur.com/DUO2SfU.png" alt="" /></a> <a href="http://i.imgur.com/QDAl4nu.png"><img src="http://i.imgur.com/QDAl4nu.png" alt="" /></a>&quot;
+<a href="http://i.imgur.com/hPiOYqi.png"><img src="http://i.imgur.com/hPiOYqi.png" alt="" /></a> <a href="http://i.imgur.com/vcA6ZPV.png"><img src="http://i.imgur.com/vcA6ZPV.png" alt="" /></a>&quot;</p>
+
+<p>See more images in the <a href="http://imgur.com/a/gimrX">Padrino Admin Album</a>! Note that the new Padrino Admin has a responsive design that behaves well on tablets and mobile devices. Now you can even manage your admin data from your iPad!</p>
+
+<p>There were also several additional fixes for admin listed below:</p>
+
+<ul>
+<li>Get the first key passed to expire helper. <a href="https://github.com/padrino/padrino-framework/commit/04d26c4a696e9eb50e247e308fad1d62d7ba7198">commit</a> (Thanks <a href="https://github.com/gugat">@gugat</a>)</li>
+<li>Fixes model output in erb templates. <a href="https://github.com/padrino/padrino-framework/commit/53358f588ed49d8838dc0082e30b2dcca36310ba">commit</a> (Thanks <a href="https://github.com/sleepingstu">@sleepingstu</a>)</li>
+<li>Halting page with 404 if record is not found <a href="https://github.com/padrino/padrino-framework/commit/a7b6b69ce9f309e3e8616b3ad2c8f561590f5170">commit</a> (Thanks <a href="https://github.com/kot-begemot">@kot-begemot</a>)</li>
+<li>Cleanups to admin documentation. <a href="https://github.com/padrino/padrino-framework/commit/21146f6ffbedcce89b4ae23c48bba7c1bf8edc42">commit</a> (Thanks <a href="https://github.com/danieltahara">@danieltahara</a>)</li>
+<li>Fixes CSS Errors on admin pages. <a href="https://github.com/padrino/padrino-framework/commit/f5301722562972fd939dd2689549cbbd59c49a20">commit</a> (Thanks <a href="https://github.com/dariocravero">@dariocravero</a>)</li>
+<li>A lot more commits, this was a huge effort!</li>
+</ul>
+<h2 id="new-brand-identity-on-the-way">New brand identity on the way</h2>
+<p>We have started to rebrand ourselves, thanks to <a href="https://github.com/tomatuxtemple">@tomatuxtemple</a> we are getting there!.. Welcome the new logo:</p>
+
+<p><a href="http://i.imgur.com/X7n3Kdo.png"><img src="http://i.imgur.com/X7n3Kdo.png" alt="" /></a></p>
+
+<p>The new web experience is just around the corner too, so keep your eyes and ears wide open!</p>
+<h2 id="upgraded-sinatra-and-http_router">Upgraded Sinatra and http_router</h2>
+<p><a href="http://rkh.im/sinatra-1.4">Sinatra 1.4</a> was just released recently, and we have full support for Sinatra 1.4.X in this release. Commits: <a href="https://github.com/padrino/padrino-framework/commit/68e58b4609ec528fc0ea9f8f95ace36dec9b2920">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/ba2cfcdeb1c4428cc19013d09ba05f1383455360">2</a>, <a href="https://github.com/padrino/padrino-framework/commit/15927ecb172f99fca56d243d331729b9194daa91">3</a>, <a href="https://github.com/padrino/padrino-framework/commit/181b844ab93914c88bfd908a5eefe8b67d2aaeef">4</a>, <a href="https://github.com/padrino/padrino-framework/commit/777ee25223a1998f616d648a932d85f94cf199dc">5</a></p>
+
+<p>We have also upgraded to the latest <a href="https://github.com/joshbuddy/http_router">http_router 0.11</a> to address many thread-safety issues and overall performance improvements.</p>
+
+<p>Thanks to <a href="https://github.com/DAddYE">@DAddYE</a> for putting together the http_router upgrade to 0.11. Commits: <a href="https://github.com/padrino/padrino-framework/commit/c2b56c47b15334f3c3839e4f3614669c1fdc33e2">1</a></p>
+<h2 id="csrf-protection">CSRF Protection</h2>
+<p>Padrino now supports <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF protection</a> out of the box to enable additional security protection against unauthorized commands being sent to a Padrino application.</p>
+
+<p>Thanks to <a href="https://github.com/skade">@skade</a> and <a href="https://github.com/dariocravero">@dariocravero</a> for working together to implement this security feature. Commits: <a href="https://github.com/padrino/padrino-framework/commit/3767875ad450ea63f34f26fca0e3646c50f4e802">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/3afb1070ce83a9daccfa40fef8d8c1655c68a103">2</a>, <a href="https://github.com/padrino/padrino-framework/commit/d7f719db9f6f863811c22978ba1329645e828ccb">3</a>, <a href="https://github.com/padrino/padrino-framework/commit/b6ddd1617c9f81868c747bd28edaf35ed1951a6a">4</a>, <a href="https://github.com/padrino/padrino-framework/commit/3f52b59b3b93278346b5c8cc5c98876ec1c78a17">5</a></p>
+<h2 id="activesupport-safebuffer">ActiveSupport::SafeBuffer</h2>
+<p>In Padrino 0.11.0, we have begun work on improving the security of Padrino out of the box. We all take app security very seriously, and after much discussion decided to introduce a SafeBuffer into Padrino. This will help protect users against <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS (Cross-site Scripting) attacks</a>.</p>
+
+<p>This change switches all rendering to use SafeBuffer instead of a raw string. All strings returned from #render are considered escaped. Strings can be marked safe for concatenation using String#html_safe, which turns returns the String as a SafeBuffer.</p>
+
+<p>All helpers have been ported over to use SafeBuffers. The changes follow one general rule: all tag helpers like tag and content_tag escape everything by default while block helpers like content_for and form_for assume that the given content is already escaped.</p>
+
+<p>If you are generating HTML in your helpers, you should now make sure that you call <code>html_safe</code> on the result, so that the HTML is not automatically escaped:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>def my_helper
+  "&lt;p&gt;hello!&lt;/p&gt;".html_safe
+end
+</code></pre></div>
+<p>Thanks to <a href="https://github.com/skade">@skade</a> for proposing and putting this together! See commits here: <a href="https://github.com/padrino/padrino-framework/commit/2c89e1fc7b70c4906b291b3781908c02a0d1233e">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/3a00f4bf03f98d39a026fbfd348b82daacb26dad">2</a>, <a href="https://github.com/padrino/padrino-framework/commit/87049be0e30d101bc02a4bca4d7df50e32f32ebf">3</a>, <a href="https://github.com/padrino/padrino-framework/commit/0f179db270089c047736ccae33433f5d6d2ad304">4</a></p>
+
+<p>This is a direct port of the functionality present in Rails, so thanks to the whole Rails team as well.</p>
+<h2 id="new-rakefile-format">New Rakefile format</h2>
+<p>Another source of frustration for users was the missing <code>Rakefile</code>: now, every new project has one by default. `padrino rake` still continues to work, but bare `rake` works just as nice as well. Also, the Rakefile format has changed: instead of implicitly loading rake tasks that fit your environment, this is now explicit and looks like this:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>require 'padrino-core/cli/rake'
+PadrinoTasks.use(:sequel)
+PadrinoTasks.use(:database)
+PadrinoTasks.init
+</code></pre></div>
+<p>This makes it easier to replace tasks you don’t want to use and leads to less guessing by the framework. Don&#39;t like our <code>database</code> tasks? Just erase that line. Want to use them again? Just put it back in.</p>
+
+<p>Old Rakefiles still work, but will emit a very visible warning on how to change your Rakefile to the new format. Thanks to <a href="https://github.com/skade">@skade</a> for putting this together!</p>
+<h2 id="gemified-apps">Gemified Apps</h2>
+<p>An often requested feature for Padrino is the ability to easily package a Padrino application as a gem. We have now baked this right into the project generator. If you want to generate an application for use as a gem, we will automatically generate the gem and project structure for you! Simply add the <code>--gem</code> flag when generating a project:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>padrino g project my_gemified_app --gem
+</code></pre></div>
+<p>This will generate a Padrino project within the context of a gem structure for you automatically. Now you can publish your Padrino apps as standalone gems with ease. After generation, see the README for more information about how to mount your gemified into Padrino projects.</p>
+
+<p>A gemified project can be started and used like any other padrino project from its root path:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>padrino start
+</code></pre></div>
+<p>But also be included into another project using the <code>Gemfile</code>. For development, you can use the <code>:path</code> option and the project will also be reloaded:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>gem 'my_gemified_app' #, :path =&gt; /path/to/my_gemified_app
+</code></pre></div>
+<p>You can mount apps from other projects like so:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>Padrino.mount('MyFancyApp::App', :app_file =&gt; MyGemifiedApp.root("my_fancy_app", "app.rb")).to('/my_fancy_app')
+</code></pre></div>
+<p>This is an exciting step for Padrino and creating truly standalone and modular applications that can be easily installed, setup and mounted into an existing Project. We have more plans for this as we approach towards 1.0.</p>
+
+<p>Nothing keeps you from generating your main project as gemified project: there is nothing special about them, gemified projects behave like normal projects with some additions.</p>
+
+<p>Thanks to <a href="https://github.com/skade">@skade</a> for putting this together! See commits here: <a href="https://github.com/padrino/padrino-framework/commit/2975efa8a6f395b9075b1a7e939fff70412d8e91">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/e470a20f76ed07a218815ba2850a084eae1b8f6a">2</a>, <a href="https://github.com/padrino/padrino-framework/commit/af1efbf18861fb21660481e29821465fa54e4dd8">3</a>, <a href="https://github.com/padrino/padrino-framework/commit/88d575f5404abcfb77c32d9c3df43e46e0399a22">4</a>, <a href="https://github.com/padrino/padrino-framework/commit/74fdf09ea18bbaff25d6a4661a2cc1c6f8b1d7f5">5</a></p>
+<h2 id="performance-tools">Performance Tools</h2>
+<p>In this release, we have also introduced a <code>padrino-performance</code> gem optionally included as part of your Padrino application. Simply add <code>padrino-performance</code> to your Gemfile. You can use the performance gem to check for well-know errors like multiple loaded json libraries on the console with:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>bundle exec padrino-performance -j -- bundle exec padrino console
+</code></pre></div>
+<p>or profile the memory for your application:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>bundle exec padrino-performance -m -- bundle exec padrino start
+</code></pre></div>
+<p>This represents the first step for our built-in memory and performance profiler within Padrino. This will get more love as we approach and move into our 1.0 release. We take performance and memory usage very seriously and are always striving to keep Padrino as lightweight as possible in line with our fast Sinatra foundations.</p>
+
+<p>Thanks to <a href="https://github.com/skade">@skade</a> and <a href="https://github.com/dariocravero">@dariocravero</a> for working together to get this to a solid place. You can find more details about this on the <a href="https://github.com/padrino/padrino-framework/tree/master/padrino-performance">README</a> and <a href="ttps://github.com/padrino/padrino-framework/pull/1027">PR</a></p>
+<h2 id="app-namespacing">App Namespacing</h2>
+<p>In addition to supporting gemified Padrino application, we have also taken another step towards modular design by introducing app namespacing. In the past, if a Padrino project was generated with the name “sample_blog”, then the application name would just be <code>SampleBlog</code>.</p>
+
+<p>Starting with 0.11.0, generated project now have namespaced apps within a module. For example, if you generate a Padrino project named “sample_blog” with:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>padrino g project sample_blog --orm activerecord
+</code></pre></div>
+<p>The primary app file will still be located in “app/app.rb” but the class will be <code>SampleBlog::App</code>. Similarly, everything else has been changed to support the namespacing to allow a project to be roughly self-contained within a single namespace.</p>
+
+<p>One caveat is that to avoid any issues with various ORMs, models are <strong>not generated</strong> within the app namespace. Models will be continued to be generated outside of any namespace for simplicity.</p>
+
+<p>Thanks to <a href="https://github.com/achiu">@achiu</a> and Thanks to <a href="https://github.com/skade">@skade</a> for working together to finalize this and make this compatible with the new app gem support introduced as well.</p>
+<h2 id="project-modules">Project Modules</h2>
+<p>Along with gemified apps, a new feature entered padrino-core: Project Modules. Those allow projects to live somewhere else then the applications root path and are a simple, yet powerful way of modularization. Project modules are tracked by the reloader and thus easy to use during development. A project module for a gemified app looks like this:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>require 'padrino-core'
+module GemifiedProject
+  extend Padrino::Module
+  gem! "gemified_project"
+end
+</code></pre></div>
+<p>A project module will have its own root, so if you want to safely generate a path inside a gemified app, you should use the project module instead of <code>Padrino</code>:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>GemifiedProject.root("config", "database.rb")
+</code></pre></div>
+<p>Project Modules, like <code>Padrino</code> have <code>dependency_paths</code> to play around with that are tracked by the reloader:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>GemifiedProject.dependency_paths &lt;&lt; "#{MyModule.root}/uploaders/*.rb"
+</code></pre></div>
+<p>The nice thing is that <code>gem!</code> is only a helper that indicates that this module should be loaded from a gem, along with proper tracking of the gems root path. You can also set up your own project module by hand, if you want to use some other form of organization. Just set the <code>root</code> correctly:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>module MyProject
+  extend Padrino::Module
+  self.root = "/my/fixed/folder"
+end
+</code></pre></div>
+<p>You can use the Module for project namespacing, if you want to:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>module MyProject
+  class MyModel
+  end
+end
+</code></pre></div><h2 id="optimized-reloader">Optimized Reloader</h2>
+<p>As many of you might know, the Padrino development reloader has been a common point of frustration and trouble for us. There is still a ways to go and we have some plans on how to replace the reloader for 1.0. Still, in 0.10.7, the reloader would in certain cases for large projects become increasingly slow. In extreme cases, reloading could take as long as 10+ seconds.</p>
+
+<p>Several people helped us track this down and the reloader is substantially faster in this release. The primary fix was thanks to <a href="https://github.com/dcu">@dcu</a> who helped us clean up our traversal of object space and substantially speed of the reloader in extreme cases. <a href="https://github.com/padrino/padrino-framework/commit/d9ab01665534a66b6f891a2efbc6b377c8134b76">commit</a>. We also fixed a thread-safety issue thanks to <a href="https://github.com/udzura">@udzura</a>. Thanks guys!</p>
+<h2 id="upgraded-components">Upgraded Components</h2>
+<p>Several updated components in this release:</p>
+
+<ul>
+<li>Upgrade Mongoid to support 3.0. <a href="https://github.com/padrino/padrino-framework/commit/263b3edd913943e10640cf22ebdad3a25ce025b2">commit</a> (Thanks <a href="https://github.com/dcu">@dcu</a>)</li>
+<li>Fix mongoid rake tasks. <a href="https://github.com/padrino/padrino-framework/commit/3203a3c33fa9e62cdcf13cabf56e73d043c88c1a">commit</a> (Thanks <a href="https://github.com/dayflower">@dayflower</a>)</li>
+<li>Add Puma as a server handler. <a href="https://github.com/padrino/padrino-framework/commit/52545ab0e09c30b6ba5cee04488953ea02487d5c">commit</a> (Thanks <a href="https://github.com/dariocravero">@dariocravero</a>)</li>
+<li>Upgrade ActiveRecord support. <a href="https://github.com/padrino/padrino-framework/commit/39edad425018f023535f7cae7373d7a2319076d6">commit</a></li>
+<li>Upgrade to mysql 2.8.1. <a href="https://github.com/padrino/padrino-framework/commit/92ec3bf8ba5f48c5b60d1182c85a47b6df21608a">commit</a> (Thanks <a href="https://github.com/udzura">@udzura</a>).</li>
+</ul>
+
+<p>We are committed to keeping our support components up to date. We can always use help so pull requests welcome!</p>
+<h2 id="mailer">Mailer</h2>
+<ul>
+<li>Lazy load mail gem for 20% padrino bootup speed improvement. <a href="https://github.com/padrino/padrino-framework/commit/dae883f2a6a38a0edfe00fb47eeb61fb8ffdbbf0">commit</a> (Thanks <a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>Upgrade to mail gem 2.5.3 to fix security vulnerabilities. <a href="https://github.com/padrino/padrino-framework/commit/0261a8ad48aee354492f713758b023fe75a80836">commit</a></li>
+<li>Refactor to cleanup and DRY code. <a href="https://github.com/padrino/padrino-framework/commit/e84eb45cce7962c64c8691fca2352a3e75d6cf30">commit</a> (Thanks <a href="https://github.com/Ortuna">@Ortuna</a>)</li>
+</ul>
+<h2 id="logging">Logging</h2>
+<ul>
+<li>Fix Padrino.logger thread safety issues. commits: <a href="https://github.com/padrino/padrino-framework/commit/e42fc4009ef6c25baeb7afe37244143482ee8575">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/13f466246a7538f23468a3704652c78b4567ae69">2</a>, <a href="https://github.com/padrino/padrino-framework/commit/dde54328d037a00afa4e28f712d0ec88c5c2fbbb">3</a> (Thanks <a href="https://github.com/sgonyea">@sgonyea</a>)</li>
+<li>Add colorize_logging option. <a href="https://github.com/padrino/padrino-framework/commit/14ebe6db68b91f8830fc06d63514295ef491cf88">commit</a> (Thanks <a href="https://github.com/tyabe">@tyabe</a>).</li>
+<li>Display seconds instead of milliseconds. <a href="https://github.com/padrino/padrino-framework/commit/ca72c6ae395bbd91d28bd1bec9ecfae59b3d8171">commit</a> (Thanks <a href="https://github.com/muxcmux">@muxcmux</a>)</li>
+</ul>
+<h2 id="helpers">Helpers</h2>
+<ul>
+<li>Add support for HTML5 multiple files upload. <a href="https://github.com/padrino/padrino-framework/commit/26aeb430af8c62a0d14ccd768ae97d4269414468">commit</a> (Thanks <a href="https://github.com/hooktstudios">@hooktstudios</a>)</li>
+<li>Adds check_box_group and radio_button_group helpers <a href="https://github.com/padrino/padrino-framework/commit/89fabaa92b23ea1afbb88c89ecba0e2c2524442b">commit</a> (Thanks <a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>Adds breadcrumbs helpers. <a href="https://github.com/padrino/padrino-framework/commit/0beb004f46b84b84b43d6db5470e48dbb3ceebb9">commit</a> (Thanks <a href="https://github.com/WaYdotNET">@WaYdotNET</a>)</li>
+</ul>
+<h2 id="cache-parser">Cache Parser</h2>
+<p>We have also added a parser strategy pluggable interface for the padrino-cache. Now, you can select how the cache data is serialized into your cache store of choice. By default, we now store the data as plain text unless otherwise specified.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>Padrino.cache = Padrino::Cache::File.new(...)
+Padrino.cache.parser # =&gt; Padrino::Cache::Parser:Plain
+Padrino.cache.parser = :marshal
+</code></pre></div>
+<p>Or you can write your own:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>require 'oj'
+module PadrinoJSON
+  def self.encode(code)
+    Oj.dump(code)
+  end
+  def self.decode(code)
+    Oj.load(code)
+  end
+end
+</code></pre></div>
+<p>Finally you can load your strategy:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>Padrino.cache.parser = PadrinoJSON
+</code></pre></div>
+<p>Thanks to <a href="https://github.com/DAddYE">@DAddYE</a> for putting the parsing strategy system into place. <a href="https://github.com/padrino/padrino-framework/commit/24543be6d34899c76eb6f36f62d5bc2dc7843c35">commit</a></p>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<p>Lots of bug fixes and other changes in this release, see our <a href="http://www.padrinorb.com/changes">changelog</a> for a full rundown.</p>
+<h2 id="explicit-by-default">Explicit by default</h2>
+<p>A notable change comes in the philosophy of the framework: Instead of guessing application and task locations based on your bundle and project setup, Padrino will now use an explicit version (like setting the <code>:app_file</code> parameter for <code>Padrino.mount</code> and using <code>PadrinoTasks.use</code> in Rakefiles). This makes it far easier for users to replace them and makes it clearer what gets loaded and what doesn&#39;t. It also avoids frustrating mis-guesses by the framework. The old ways will still work for quite a while, but we believe that less magic is the way to go in the future. This is no API change, the underlying API was always there, its just used in another way.</p>
+<h2 id="summary">Summary</h2>
+<p>As we mentioned, this is probably one of the bigger releases we have had in a long time, but we will keep the momentum moving and probably be out with a 0.11.1 release in the next couple weeks. Please let us know if you run into any problems (especially when upgrading from 0.10.X).</p>
+
+<p>There are a lot of people that have made this release happen. Thanks to <a href="https://github.com/skade">@skade</a>, <a href="https://github.com/dariocravero">@dariocravero</a>, and <a href="https://github.com/ujifgc">@ujifgc</a> from our core team for doing a lot of the contributions towards 0.11.0.</p>
+
+<p>Special thanks to <a href="https://github.com/wikimatze">@wikimatze</a> for cleaning up our docs and comments all over our framework and for putting together an <a href="https://github.com/wikimatze/padrino-book">awesome Padrino book</a> that helps people learn how to use Padrino. Also special thanks to <a href="https://github.com/postmodern">@postmodern</a> for helping us out recently especially when it comes to security, <a href="https://github.com/WaYdotNET">@WaYdotNET</a> for being a long time contributor plus helping redesign admin and <a href="https://github.com/Ortuna">@Ortuna</a> for helping us to refactor and clean up our codebase. As always, Padrino 0.11.0 would not be possible without the support of <a href="https://github.com/rkh">Konstantin Haase</a> and everyone else involved in <a href="https://sinatrarb.com">Sinatra</a>. Thanks to all of our contributors.</p>
+
+<p>That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="http://twitter.com/#!/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode or <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a> on GitHub.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div class="article"><h1 class="article__title"><a href="/blog/json-gem-vulnerability/">JSON gem vulnerability</a></h1><p class="article__metadata">Posted on February 12, 2013 by Florian | categories: <a href="/category/update/">update</a></p><p>An vulnerability affecting the <code>json</code> gem has been found. A detailed explanation can be found at the <a href="https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/4_YvCpLzL58">Rails security mailing list</a>.</p>
+
+<p>This is <strong>not</strong> an isolated Rails issue, as it affects a third-party library. It affects all users of the <code>json</code> gem. This gem might be pulled in as a dependency of other libraries in use. You can check whether you application uses the <code>json</code> gem by running:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>bundle show
+</code></pre></div>
+<p>We strongly urge all users of Padrino to upgrade their applications using:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>bundle update json
+</code></pre></div>
+<p>to at least: 1.7.7, 1.6.8, 1.5.5.</p>
+
+<p>Also, never use <code>JSON.load</code>, but <code>JSON.parse</code>, except when you really know what you are doing.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><li><a href="/blog/page/10/">Prev Page</a></li><li><a href="/blog/page/12/">Next Page</a></li></div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Form Helpers</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="guides guides_application-helpers guides_application-helpers_form-helpers guides_application-helpers_form-helpers_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link--is-active">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><h5 class="sidebar__header"><a href="/guides/introduction/overview/">Introduction</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/introduction/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/introduction/why-learn-padrino/" class="sidebar__link">Why Learn Padrino?</a></li><li class="sidebar__item"><a href="/guides/introduction/examples/" class="sidebar__link">Examples</a></li><li class="sidebar__item"><a href="/guides/introduction/the-bleeding-edge/" class="sidebar__link">The Bleeding Edge</a></li><li class="sidebar__item"><a href="/guides/introduction/press/" class="sidebar__link">Press</a></li></ul><h5 class="sidebar__header"><a href="/guides/getting-started/overview/">Getting Started</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/getting-started/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/getting-started/basic-projects/" class="sidebar__link">Basic Projects</a></li><li class="sidebar__item"><a href="/guides/getting-started/installation/" class="sidebar__link">Installation</a></li><li class="sidebar__item"><a href="/guides/getting-started/blog-tutorial/" class="sidebar__link">Blog Tutorial</a></li></ul><h5 class="sidebar__header"><a href="/guides/features/overview/">Features</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/features/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/features/padrino-admin/" class="sidebar__link">Padrino Admin</a></li><li class="sidebar__item"><a href="/guides/features/padrino-mailer/" class="sidebar__link">Padrino Mailer</a></li><li class="sidebar__item"><a href="/guides/features/padrino-cache/" class="sidebar__link">Padrino Cache</a></li><li class="sidebar__item"><a href="/guides/features/mounting-applications/" class="sidebar__link">Mounting Applications</a></li><li class="sidebar__item"><a href="/guides/features/development-commands/" class="sidebar__link">Development Commands</a></li><li class="sidebar__item"><a href="/guides/features/extensions/" class="sidebar__link">Extensions</a></li><li class="sidebar__item"><a href="/guides/features/localization/" class="sidebar__link">Localization</a></li><li class="sidebar__item"><a href="/guides/features/rake-tasks/" class="sidebar__link">Rake Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/generators/overview/">Generators</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/generators/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/generators/projects/" class="sidebar__link">Projects</a></li><li class="sidebar__item"><a href="/guides/generators/plugins/" class="sidebar__link">Plugins</a></li><li class="sidebar__item"><a href="/guides/generators/controllers/" class="sidebar__link">Controllers</a></li><li class="sidebar__item"><a href="/guides/generators/models/" class="sidebar__link">Models</a></li><li class="sidebar__item"><a href="/guides/generators/migrations/" class="sidebar__link">Migrations</a></li><li class="sidebar__item"><a href="/guides/generators/mailers/" class="sidebar__link">Mailers</a></li><li class="sidebar__item"><a href="/guides/generators/sub-applications/" class="sidebar__link">Sub-Applications</a></li><li class="sidebar__item"><a href="/guides/generators/tiny-skeleton/" class="sidebar__link">Tiny Skeleton</a></li><li class="sidebar__item"><a href="/guides/generators/admin/" class="sidebar__link">Admin</a></li><li class="sidebar__item"><a href="/guides/generators/components/" class="sidebar__link">Components</a></li><li class="sidebar__item"><a href="/guides/generators/tasks/" class="sidebar__link">Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/controllers/overview/">Controllers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/controllers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/controllers/routing/" class="sidebar__link">Routing</a></li><li class="sidebar__item"><a href="/guides/controllers/layouts/" class="sidebar__link">Layouts</a></li><li class="sidebar__item"><a href="/guides/controllers/provides-formats/" class="sidebar__link">Provides Format</a></li><li class="sidebar__item"><a href="/guides/controllers/params-whitelisting/" class="sidebar__link">Params Whitelisting</a></li><li class="sidebar__item"><a href="/guides/controllers/route-filters/" class="sidebar__link">Route Filters</a></li><li class="sidebar__item"><a href="/guides/controllers/prioritized-routes/" class="sidebar__link">Prioritized Routes</a></li><li class="sidebar__item"><a href="/guides/controllers/custom-conditions/" class="sidebar__link">Custom Conditions</a></li><li class="sidebar__item"><a href="/guides/controllers/parsing-params/" class="sidebar__link">Parsing Params</a></li><li class="sidebar__item"><a href="/guides/controllers/rendering/" class="sidebar__link">Rendering</a></li><li class="sidebar__item"><a href="/guides/controllers/sessions/" class="sidebar__link">Sessions</a></li></ul><h5 class="sidebar__header"><a href="/guides/application-helpers/overview/">Application Helpers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/application-helpers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/application-helpers/output-helpers/" class="sidebar__link">Output Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/tag-helpers/" class="sidebar__link">Tag Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/asset-helpers/" class="sidebar__link">Asset Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-helpers/" class="sidebar__link--is-active">Form Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-builders/" class="sidebar__link">Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/standard-form-builder/" class="sidebar__link">Standard Form Builder</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-form-builders/" class="sidebar__link">Custom Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/nested-object-form-support/" class="sidebar__link">Nested Object Form Support</a></li><li class="sidebar__item"><a href="/guides/application-helpers/format-helpers/" class="sidebar__link">Format Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/render-helpers/" class="sidebar__link">Render Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-helpers/" class="sidebar__link">Custom Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/ujs-helpers/" class="sidebar__link">Unobtrusive JavaScript Helpers</a></li></ul><h5 class="sidebar__header"><a href="/guides/adding-components/overview/">Adding Components</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/adding-components/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/adding-components/persistence-engine/" class="sidebar__link">Persistence Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/javascript-engine/" class="sidebar__link">JavaScript Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/testing-library/" class="sidebar__link">Testing Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/rendering-engine/" class="sidebar__link">Rendering Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/mocking-library/" class="sidebar__link">Mocking Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/stylesheet-engine/" class="sidebar__link">Stylesheet Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/locale-translations/" class="sidebar__link">Locale Translations</a></li></ul><h5 class="sidebar__header"><a href="/guides/advanced-usage/overview/">Advanced Usage</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/advanced-usage/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/extending-padrino-projects/" class="sidebar__link">Extending Padrino Projects</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/3rd-party-plugins/" class="sidebar__link">3rd Party Plugins</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/asynchronous-concurrency-with-padrino/" class="sidebar__link">Asyncronous Concurrency</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/grape-with-padrino/" class="sidebar__link">Grape with Padrino</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/running-padrino-on-jruby/" class="sidebar__link">Running Padrino on JRuby</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="sidebar__link">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/padrino-and-omniauth-overview/" class="sidebar__link">Padrino and OmniAuth Overview</a></li></ul></div></div><div class="page__content"><div class="content"><p class="content__chapter-title">Application Helpers</p><h1 id="form-helpers">Form Helpers</h1>
+<p>Form helpers are the &#39;standard&#39; form tag helpers you would come to expect when
+building forms. A simple example of constructing a non-object form would be:</p>
+<div class="highlight"><pre class="syntax haml"><code># app/views/example.haml
+<span class="p">=</span> <span class="n">form_tag</span> <span class="s1">'/destroy'</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">'destroy-form'</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="s1">'delete'</span> <span class="k">do</span>
+  <span class="p">=</span> <span class="n">flash_tag</span><span class="p">(</span><span class="ss">:notice</span><span class="p">)</span>
+  <span class="p">=</span> <span class="n">field_set_tag</span> <span class="k">do</span>
+    <span class="nt">%p</span>
+      <span class="p">=</span> <span class="n">label_tag</span> <span class="ss">:username</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">'first'</span>
+      <span class="p">=</span> <span class="n">text_field_tag</span> <span class="ss">:username</span><span class="p">,</span> <span class="ss">:value</span> <span class="o">=&gt;</span> <span class="n">params</span><span class="p">[</span><span class="ss">:username</span><span class="p">]</span>
+    <span class="nt">%p</span>
+      <span class="p">=</span> <span class="n">label_tag</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">'first'</span>
+      <span class="p">=</span> <span class="n">password_field_tag</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">:value</span> <span class="o">=&gt;</span> <span class="n">params</span><span class="p">[</span><span class="ss">:password</span><span class="p">]</span>
+    <span class="nt">%p</span>
+      <span class="p">=</span> <span class="n">label_tag</span> <span class="ss">:strategy</span>
+      <span class="p">=</span> <span class="n">select_tag</span> <span class="ss">:strategy</span><span class="p">,</span> <span class="ss">:options</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'delete'</span><span class="p">,</span> <span class="s1">'destroy'</span><span class="p">],</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="s1">'delete'</span>
+    <span class="nt">%p</span>
+      <span class="p">=</span> <span class="n">check_box_tag</span> <span class="ss">:confirm_delete</span>
+  <span class="p">=</span> <span class="n">field_set_tag</span><span class="p">(</span><span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">'buttons'</span><span class="p">)</span> <span class="k">do</span>
+    <span class="p">=</span> <span class="n">submit_tag</span> <span class="s2">"Remove"</span>
+</code></pre></div>
+<p><br></p>
+<h2 id="list-of-form-helpers">List of Form Helpers</h2>
+<ul>
+<li><code>form_tag(url, options={}, &amp;block)</code>
+
+<ul>
+<li>Constructs a form without object based on options</li>
+<li>Supports form methods &#39;put&#39; and &#39;delete&#39; through hidden field</li>
+<li><code>form_tag(&#39;/register&#39;, :class =&gt; &#39;example&#39;) { ... }</code></li>
+</ul></li>
+<li><code>field_set_tag(*args, &amp;block)</code>
+
+<ul>
+<li>Constructs a field_set to group fields with given options</li>
+<li><code>field_set_tag(:class =&gt; &#39;office-set&#39;) { }</code></li>
+<li><code>field_set_tag(&quot;Office&quot;, :class =&gt; &#39;office-set&#39;) { }</code></li>
+</ul></li>
+<li><code>error_messages_for(:record, options={})</code>
+
+<ul>
+<li>Constructs list html for the errors for a given object</li>
+<li><code>error_messages_for :user</code></li>
+</ul></li>
+<li><code>label_tag(name, options={}, &amp;block)</code>
+
+<ul>
+<li>Constructs a label tag from the given options</li>
+<li><code>label_tag :username, :class =&gt; &#39;long-label&#39;</code></li>
+<li><code>label_tag(:username, :class =&gt; &#39;blocked-label&#39;) { ... }</code></li>
+</ul></li>
+<li><code>hidden_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a hidden field input from the given options</li>
+<li><code>hidden_field_tag :session_key, :value =&gt; &#39;secret&#39;</code></li>
+</ul></li>
+<li><code>text_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a text field input from the given options</li>
+<li><code>text_field_tag :username, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>text_area_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a text area input from the given options</li>
+<li><code>text_area_tag :username, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>password_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a password field input from the given options</li>
+<li><code>password_field_tag :password, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>number_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a number field input from the given options</li>
+<li><code>number_field_tag :age, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>telephone_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a phone field input from the given options</li>
+<li><code>telephone_field_tag :mobile, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>email_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a email field input from the given options</li>
+<li><code>email_field_tag :email, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>search_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a search field input from the given options</li>
+<li><code>search_field_tag :query, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>url_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a url field input from the given options</li>
+<li><code>url_field_tag :image_source_url, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>check_box_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a checkbox input from the given options</li>
+<li><code>check_box_tag :remember_me, :checked =&gt; true</code></li>
+</ul></li>
+<li><code>radio_button_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a radio button input from the given options</li>
+<li><code>radio_button_tag :gender, :value =&gt; &#39;male&#39;</code></li>
+</ul></li>
+<li><code>select_tag(name, settings={})</code>
+
+<ul>
+<li>Constructs a select tag with options from the given settings</li>
+<li><code>select_tag(:favorite_color, :options =&gt; [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], :selected =&gt; &#39;1&#39;)</code></li>
+<li><code>select_tag(:more_color, :options =&gt; [[&#39;label&#39;, &#39;1&#39;], [&#39;label2&#39;, &#39;2&#39;]])</code></li>
+<li><code>select_tag(:multiple_color, :options =&gt; [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], :multiple =&gt; true,
+:selected =&gt; [&#39;1&#39;, &#39;3&#39;])</code></li>
+</ul></li>
+<li><code>file_field_tag(name, options={})</code>
+
+<ul>
+<li>Constructs a file field input from the given options</li>
+<li><code>file_field_tag :photo, :class =&gt; &#39;long&#39;</code></li>
+</ul></li>
+<li><code>submit_tag(caption, options={})</code>
+
+<ul>
+<li>Constructs a submit button from the given options</li>
+<li><code>submit_tag &quot;Create&quot;, :class =&gt; &#39;success&#39;</code></li>
+</ul></li>
+<li><code>button_tag(caption, options={})</code>
+
+<ul>
+<li>Constructs an input (type =&gt; &#39;button&#39;) from the given options</li>
+<li><code>button_tag &quot;Cancel&quot;, :class =&gt; &#39;clear&#39;</code></li>
+</ul></li>
+<li><code>image_submit_tag(source, options={})</code>
+
+<ul>
+<li>Constructs an image submit button from the given options</li>
+<li><code>image_submit_tag &quot;submit.png&quot;, :class =&gt; &#39;success&#39;</code></li>
+</ul></li>
+</ul>
+<p class="updated"> last updated: 2022-02-22</p><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Sleep well: YAML vulnerabilites and Padrino</title><link href="../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_sleep-well-yaml-vulnerabilites-and-padrino blog_sleep-well-yaml-vulnerabilites-and-padrino_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title">Sleep well: YAML vulnerabilites and Padrino</h1><p class="article__metadata">Posted on February 03, 2013 by Florian | categories: <a href="/category/update/">update</a></p><p>Rails and the Ruby community had their fair share of security vulnerabilities in the recent days. Where does that leave Padrino users?</p>
+
+<p>In short: You are safe, unless you explicitely activated some form of parameter parsing that either parses YAML directly or uses XmlMini when accepting requests or parsing responses from backend sources.</p>
+
+<p><break></p>
+
+<p>Currently, some security issues plagued the Rails community. The most dangerous is <a href="https://groups.google.com/forum/#!topic/rubyonrails-security/61bkgvnSGTQ/discussion">CVE-156</a> , which is present in almost all Rails installations. Default Sinatra and Padrino are unaffected, see <a href="https://groups.google.com/forum/#!msg/sinatrarb/nUzRwTzkycU/ILoXoHxwn-0J">this discussion</a> on the Sinatra mailing list for details. All hints given there are true for Padrino users as well.</p>
+
+<p>If you are using any of the Rails components in question either directly or through dependencies, you should upgrade them. The most important components in question are YAML (both Psych and Syck) or XmlMini. Popular projects using them are <a href="https://github.com/achiu/rack-parser">Rack::Parser</a> (fixed) and <a href="https://github.com/niko/rack-post-body-to-params">Rack::PostBodyToParams</a>. If you use the first: run <code>bundle upgrade</code> and make sure you get version <code>0.2.0</code> and higher! Update: The same goes for rack-post-body-params (see the comments).</p>
+<h2 id="what-are-those-attacks-about-and-how-can-i-validate-my-stack">What are those attacks about and how can I validate my stack?</h2>
+<p>The <a href="https://github.com/dtao/safe_yaml">safe_yaml README</a> explains it very well. Basically, <code>YAML.load</code> allows you to instantiate arbitary objects, which is the first step to running arbitrary code. Any code path leading to a <code>YAML.load</code> of untrusted (read: external) data is a potential vulnerability. This includes consuming data accepted from web services or parsing Gemspecs.</p>
+
+<p>To validate that you are safe, take the following steps:</p>
+
+<ul>
+<li>Make a list of all libraries that you are using to accept data – Request parsers and webservice clients are the most popular ones. Padrino does not silently activate any of them, all have been added by yourself.
+– Check if any of those use YAML.load somewhere (a simple <code>grep</code> should suffice)
+
+<ul>
+<li>Check what is loaded: local configuration data is fine, external data is not</li>
+<li>If you want to be on the safe side, see if you application runs well with <a href="https://rubygems.org/gems/safe_yaml">safe_yaml</a></li>
+</ul></li>
+<li>Check if you or any of those libraries have any dependency to XmlMini
+– If yes, upgrade XmlMini to at least 0.5.2</li>
+</ul>
+<h2 id="make-your-application-ready-for-padrino-0-11">Make your application ready for Padrino 0.11</h2>
+<p>While nothing of “upgrade now!”-severity, the soon to be released Padrino 0.11 contains a few important security additions, especially XSS-safe rendering using <code>ActiveSupport::SafeBuffer</code>. Test you application against the current master so that you can upgrade when it is released.</p>
+<h2 id="a-final-word">A final word</h2>
+<p>Finally, I’d like to say thank you to all Rails contributors working on fixing the found bugs and the Rubygems team for fixing Rubygems.org as fast as they did. Also a big thank you to everyone that found those vulnerabilities.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

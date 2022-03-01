@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /CNAME
+Disallow: /*.js
+Disallow: /*.css
+Allow: /
+
+Sitemap: http://padrinorb.com/sitemap.xml

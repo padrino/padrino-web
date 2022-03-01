@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Padrino 0.9.29 - Stability, compatibility and bug fix release</title><link href="../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_padrino-0-9-29-stability-compatibility-and-bug-fix-release blog_padrino-0-9-29-stability-compatibility-and-bug-fix-release_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title">Padrino 0.9.29 - Stability, compatibility and bug fix release</h1><p class="article__metadata">Posted on May 22, 2011 by Nathan | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Today we are releasing Padrino 0.9.29, the latest in a series of stability and bug fix releases designed to bring us closer to the 0.10.0 release coinciding with the release of Sinatra 1.3! This release has several essential bug and compatibility fixes that ensure developers working with Padrino have a smooth experience. This release also might <strong>require a few changes</strong> due to a tweak in how session enabling works explained below.</p>
+
+<p>The biggest changes are significant speed enhancements with our routing system, a complete rewrite of our development reloader, general core cleanup and Rake 0.9 and JRuby compatibility fixes. Read below for more details.</p>
+<h2 id="upgrade-steps-for-0-9-29">Upgrade Steps for 0.9.29</h2>
+<p>When upgrading to this latest release, you should take advantage of project-wide configurations and apply the following snippet to <code>apps.rb</code>:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># config/apps.rb
+Padrino.configure_apps do
+  enable :sessions
+  # $ padrino rake gen
+  # $ rake secret
+  set :session_secret, "long secret key pasted here"
+end
+</code></pre></div>
+<p>Adding this to the top of your app.rb will enable sessions in all applications within the project and use a secret session key to persist the session properly across all these apps. Make sure to run the ‘rake secret’ command and put the session key into the <code>:session_secret</code> setting. Not doing this can create session related issues in your project.</p>
+<h2 id="major-improvements-to-development-reloading">Major improvements to Development Reloading</h2>
+<p>Over the last few releases, we have been experiencing a number of issues with our development reloader. Certain files weren&#39;t detected or reloaded properly, the reloader would hang up during a reload, certain files would be unloaded causing exceptions, et al.</p>
+
+<p>In this release, we have worked closely with several users experiencing issues and in many ways completely rewrote the development code reloading system. We think the reloader is much more stable now and this also means faster boot and reloading times as well because the new reloader has been greatly streamlined.</p>
+
+<p>Thanks specifically to @daddye of our core team for addressing these problems in the rewrite. Commits <a href="https://github.com/padrino/padrino-framework/commit/7c59e2ae060246a1aa3cbe0f4cb598e7ed90033c">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/42bdac70516df094fc639644dbbd9d0a1339e0e3">here</a>, and <a href="https://github.com/padrino/padrino-framework/commit/b41bf1e21cf7a8b911c691e504a4178993c9fae5">here</a>. Let&#39;s not forget even more commits <a href="https://github.com/padrino/padrino-framework/commit/0122a24347402d9fd16e9c714ba890b54b1f5548">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/47c1aba3207316fca92ecf46095f42cc5491c796">here</a> and finally <a href="https://github.com/padrino/padrino-framework/commit/e0c8b3939a7ea6724d5da1e6ec2ab180855b63c4">here</a>. Big thanks to <a href="https://github.com/bernerdschaefer">bernerdschaefer</a> for his help debugging and patching the reloader as well!</p>
+<h2 id="core-cleanup">Core Cleanup</h2>
+<p>In addition to the development reloader, we have also cleaned and refactored several other modules within padrino-core. In particular we have cleaned up and refactored our <code>SupportLite</code>, <code>Padrino::Application</code>, Gemfile generation, and the <code>Padrino::Server</code>:</p>
+
+<ul>
+<li>Refactored and cleaned up Padrino::Server: <a href="https://github.com/padrino/padrino-framework/commit/bd89dc4540a974cb26e4feeef51a08643a5bf0f8">commit</a></li>
+<li>Removed old stuff from support_lite: <a href="https://github.com/padrino/padrino-framework/commit/30e7c4a69ffc135bcc5afc9bdea21ffc2591823e">commit</a></li>
+<li>Cleanup Gemfile to simplify loading: <a href="https://github.com/padrino/padrino-framework/commit/aa3a73d3de44fda32e64a65471ba448c9b8d53ab">commit</a></li>
+<li>Cleanup support lite and improved compatiblity with jruby: <a href="https://github.com/padrino/padrino-framework/commit/1852a47d4406ed31cc2defd6b96516c5760c9b1f">commit</a></li>
+</ul>
+
+<p>This cleanup is part of a larger effort as we work towards solidifying our internals.</p>
+<h2 id="routing-speed-improvements">Routing Speed Improvements</h2>
+<p>Our routing core <a href="https://github.com/joshbuddy/http_router/commits/master">http_router</a> has been significantly optimized in the last few point versions for speed. We will be doing several benchmarks soon and will post them but for now suffice to say we have been making a lot of strides to make our routing even faster then before and this will be an ongoing effort. Thanks to Joshua Hull of our core team for creating probably the best Ruby request router available and it work <a href="https://github.com/joshbuddy/http_router_sinatra">for plain Sinatra</a> too!</p>
+<h2 id="truncate-words-helper">Truncate Words Helper</h2>
+<p>A new helper has been added called “truncate_words”. This is an alternative to the existing “truncate” method which shortens a string by characters, this helper shortens a string by words:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>truncate_words("Once upon a time in a world far far away", :length =&gt; 4) =&gt; "Once upon a time..."
+</code></pre></div>
+<p>Commit is <a href="https://github.com/padrino/padrino-framework/commit/2b6778389e6b1ff9c8139b8c459b882762e2e538">here</a> and thanks to <a href="https://github.com/cearls">cearls</a> for contributing this helper for us!</p>
+<h2 id="better-dependency-handling">Better Dependency Handling</h2>
+<p>We have simplified dependency handling and the approach for adding new dependencies and load_paths to a Padrino application.</p>
+<div class="highlight"><pre class="syntax plaintext"><code># config/boot.rb
+Padrino.before_load
+  MyApp.load_paths &lt;&lt; Padrino.root('app', 'observers')
+  MyApp.dependencies &lt;&lt; Padrino.root('other_app', 'controllers.rb')
+end
+</code></pre></div>
+<p>Commits <a href="https://github.com/padrino/padrino-framework/commit/1852a47d4406ed31cc2defd6b96516c5760c9b1f">here</a> and <a href="https://github.com/padrino/padrino-framework/commit/1852a47d4406ed31cc2defd6b96516c5760c9b1f">here</a>.</p>
+<h2 id="bug-and-compatibility-fixes">Bug and Compatibility Fixes</h2>
+<ul>
+<li>Compatibility with CouchRest::Model 1.1: <a href="https://github.com/padrino/padrino-framework/commit/826077086eddf1ec3479e7e28aa033a05cfb7ba3">commit</a></li>
+<li>Fix bug with render and local vars: <a href="https://github.com/padrino/padrino-framework/commit/5aeaa36ef7bd437ef05ba525288bab553ee24ca0">commit</a></li>
+<li>Honor <strong>/</strong> in Accept headers correctly – <a href="https://github.com/padrino/padrino-framework/commit/f1fdc23b14e2b7885235319a7df971bf4a345be3">commit</a></li>
+<li>Rake 0.9 Compatibility: <a href="https://github.com/padrino/padrino-framework/commit/117803feaf2ab1c61659b89364115e923f37ec75">commit</a></li>
+<li>Rack::Flash now sweeps on every request by default: <a href="https://github.com/padrino/padrino-framework/commit/d433e19483dcfa63b74065b7141641c0492c5241">commit</a></li>
+<li>Supports skipping Padrino::Render with constant: <a href="https://github.com/padrino/padrino-framework/commit/a9dc6f30e2e2b688a71df182c396a9fef9e71816">commit</a></li>
+</ul>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Padrino 0.9.11 Release Overview</title><link href="../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_padrino-0-9-11-release-overview blog_padrino-0-9-11-release-overview_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title">Padrino 0.9.11 Release Overview</h1><p class="article__metadata">Posted on May 28, 2010 by DAddYE | categories: <a href="/category/update/">update</a></p><p>Today the Padrino team released the new version 0.9.11. This version contains a number of new features and a lot of bug fixes. The features and fixes include a new mailer, improved routing support, core refactorings, enhanced test coverage, new language translations, and much more.</p>
+
+<p>Also worth noting is that this version contains a few backwards <strong>incompatible</strong> changes to the API from 0.9.10. These changes are to help stabilize the Padrino API towards a 1.0 release and generally improve the consistency of our framework.</p>
+
+<p>This post will guide you through the specific changes that are needed to fix compatibility for 0.9.11 and also explain in much more detail what has changed in this release.</p>
+<h2 id="what-39-s-new-in-this-version">What&#39;s new in this version?</h2><h3 id="refactored-mailer">Refactored Mailer</h3>
+<p>In this release, the biggest feature change is the updated mailer functionality. The syntax for the mailer has been modified significantly. In addition, the underlying message delivery library has been changed from tmail to the much better <a href="http://github.com/mikel/mail">mail</a> library.</p>
+
+<p>Mailer definitions now use a much more consistent ‘Sinatra’ syntax instead of the old ActionMailer syntax. We think this makes the mailer much more intuitive and adherent to the Sinatra philosophy:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/mailers/sample_mailer.rb
+MyAppName.mailer :sample do
+  email :registration_email do |name, email|
+    from 'admin@site.com'
+    to email
+    subject 'Welcome to the site!'
+    locals :name =&gt; name, :email =&gt; email
+    render 'registration_email'
+  end
+end
+</code></pre></div>
+<p>In addition, the mailer now has support for ‘quick’ email delivery within a controller. To deliver a ‘one-off’ email from the controller, simply use the <code>email</code> method:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/controllers/session.rb
+post :create do
+  # ... do stuff ...
+  email(:to =&gt; "john@smith.com", :subject =&gt; "Successfully Registered!", :body =&gt; "Test Body")
+end
+</code></pre></div>
+<p>To check out more information, be sure to read the <a href="http://www.padrinorb.com/guides/padrino-mailer">mailer</a> guide.</p>
+<h3 id="upgraded-core-router">Upgraded Core Router</h3>
+<p>In previous versions, Padrino has leveraged the <a href="http://github.com/joshbuddy/usher">Usher</a> router to provide fast and reliable routing functionality that replaces the limited Sinatra router. Usher was developed by Joshua who is now a core member of the Padrino development team. As we were developing Padrino, a number of router bugs were reported and the Usher framework was patched as problem reports were resolved. However, a few bug reports caused Joshua to consider rewriting an entirely new router library from scratch that would supersede Usher.</p>
+
+<p>Eventually, Joshua posted his new router called <a href="http://github.com/joshbuddy/http_router">http_router</a> which successfully replaces Usher. In this new version of Padrino, Usher has been replaced by http_router. For users, this shouldn&#39;t mean any major changes to their code. All of the existing router tests still pass with the new http_router implementation. The new router should perform considerably quicker and is also more memory efficient.</p>
+<h3 id="tiny-project-generation">Tiny Project Generation</h3>
+<p>In addition to standard project generation, there is now support for an alternate project generation syntax which creates a much flatter file structure. You can do a tiny project generation with:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ padrino g project tiny_app -d mongoid --tiny
+</code></pre></div>
+<p>In this version, instead of a <code>app/controller</code> folder, there is simply a <code>app/controllers.rb</code> file. Instead of an <code>app/mailers</code> folder, there is simply an <code>app/mailers.rb</code> file. This is for projects that do not require the ‘full’ padrino structure and require a more concise structure.</p>
+<h3 id="database-adapter-support">Database Adapter Support</h3>
+<p>Padrino generators have always had full support for multiple persistence engines (i.e sequel, datamapper, etc) but now we have support for specifying the database adapter to use for the RDBMS’s. Now, you can specify the adapter to use (MySQL, sqlite, postgres) as follows:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ padrino g project your_project -d datamapper   -a mysql    # Uses Datamapper and MySQL
+$ padrino g project your_project -d activerecord -a postgres # Uses ActiveRecord and Postgres
+$ padrino g project your_project -d sequel       -a sqlite   # Uses Sequel and Sqlite3
+</code></pre></div>
+<p>This will automatically configure the database in <code>config/database.rb</code> to use the specified adapter for your project.</p>
+<h3 id="improved-reloader">Improved Reloader</h3>
+<p>Padrino always had development code reloading but there were a number of flaws that created problems such as duplicate logging, filters, model definitions, and certain files failed to reload properly. In this release, we have upgraded the reloader such that it should work seamlessly in many more cases than before. It is unlikely to be completely smooth, but creating a perfect code reloader is an incremental process. We will continue to work on the reloader in future releases.</p>
+<h3 id="additional-enhancements">Additional Enhancements</h3>
+<p>There are also a number of other big and compatibility fixes, most notably:</p>
+
+<ul>
+<li>Use Bundler to declare external dependencies in padrino gem</li>
+<li>Fixed routing isses with IE accept headers</li>
+<li>Adds dojo.js as script component</li>
+<li>Fixed escaping in javascript helper</li>
+<li>Added compatibility with ActiveSupport 3.0 beta</li>
+<li>Added compatibility with DataMapper 1.0</li>
+<li>Added support for Mongoid 1.9.1</li>
+<li>Added better bundler support also for testing</li>
+<li>Removed jeweler dependency and use dynamic gemspecs</li>
+<li>Major cleanups to gem generation tasks</li>
+<li>Fixed mounter in certain scenarios (i.e. single app file)</li>
+<li>Fixed an issue with cherry-picking Padrino Rendering into a Sinatra application</li>
+<li>Fixed several issues with Usher and routing functionality</li>
+<li>Improve the router’s use of base uri’s in url_for method</li>
+<li>Added full Spanish, German, Turkish, Ukrainian translations</li>
+<li>Fixed error_messages_for to use humanized attribute</li>
+<li>Adds compass component for stylesheets in project generator</li>
+<li>Adds support for a ’—app’ option to specify app name in project generator</li>
+<li>Added support for disabling asset timestamps via setting</li>
+</ul>
+<h2 id="how-do-i-convert-older-projects">How do I convert older projects?</h2>
+<p>To make 0.9.10 applications compatible with this new version, there are a few things you must modify in your code. The first change is that the Padrino modules (Padrino::Helpers and Padrino::Mailer) are no longer invisibly registered within your app. In newly generated projects, these modules are included explicitly in the app file. To fix older apps, simply add the following to <code>app/app.rb</code> as needed:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/app.rb
+class MyAppName &lt; Padrino::Application
+  register Padrino::Helpers # add this module if needed
+  register Padrino::Mailer  # add this module if needed
+end
+</code></pre></div>
+<p>In addition, you should add the correct modules to the admin application (if generated) to <code>admin/app.rb</code> as shown:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># admin/app.rb
+class Admin &lt; Padrino::Application
+  register Padrino::Helpers
+  register Padrino::Mailer
+  register Padrino::Admin::AccessControl
+end
+</code></pre></div>
+<p>This should make the applications work as they did in 0.9.10. In addition to this the only other breaking change is the completely new mailer functionality. The old mailer syntax required your settings to be configured as shown:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># config/initializers/mailer_init.rb
+Padrino::Mailer::Base.smtp_settings = {
+ :host   =&gt; 'smtp.gmail.com',
+ :port   =&gt; '587',
+ :tls    =&gt; true,
+ :user   =&gt; 'user',
+ :pass   =&gt; 'pass',
+ :auth   =&gt; :plain
+}
+</code></pre></div>
+<p>this should be replaced with the updated syntax:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/app.rb
+set :delivery_method, :smtp =&gt; {
+  :address              =&gt; "smtp.gmail.com",
+  :port                 =&gt; 587,
+  :domain               =&gt; 'your.host.name',
+  :user_name            =&gt; '&lt;username&gt;',
+  :password             =&gt; '&lt;password&gt;',
+  :authentication       =&gt; 'plain',
+  :enable_starttls_auto =&gt; true
+}
+</code></pre></div>
+<p>You also need to modify the older mailer definitions:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/mailers/sample_mailer.rb
+class SampleMailer &lt; Padrino::Mailer::Base
+  def registration_email(name, email)
+    from 'admin@site.com'
+    to email
+    subject 'Welcome to the site!'
+    body :name =&gt; name, :email =&gt; email
+  end
+end
+</code></pre></div>
+<p>and change them to use the updated syntax:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/mailers/sample_mailer.rb
+MyAppName.mailer :sample do
+  email :registration_email do |name, email|
+    from 'admin@site.com'
+    to email
+    subject 'Welcome to the site!'
+    # now requires explicit render
+    #   template found in app/views/mailers/sample/registration.erb
+    #   with access to 'name' and 'email' local vars
+    render 'registration'
+    locals :name =&gt; name, :email =&gt; email
+  end
+end
+</code></pre></div>
+<p>Once you have switched both the smtp configuration and the mailer definitions, your old app should work properly in 0.9.11. For more information on the updated mailer, be sure to check the <a href="http://www.padrinorb.com/guides/padrino-mailer">mailer</a> guide.</p>
+
+<p>If you are using Datamapper 1.0, and you generated your application in 0.9.10, be sure to update the Gemfile accordingly:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># Gemfile
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+</code></pre></div>
+<p>and be sure to remove all other datamapper gem references.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

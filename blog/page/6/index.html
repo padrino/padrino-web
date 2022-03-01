@@ -1,0 +1,141 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_page blog_page_6 blog_page_6_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-13-3/">Padrino 0.13.3 - Generator changes, mailer rendering, proper URL escaping for link_to and form_tag helpers, new helper method, bug fixes</a></h1><p class="article__metadata">Posted on August 18, 2016 by Matthias Günther | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Padrino 0.13.3 was shipped in August 2016. This version contains generator changes, mailer rendering, proper URL escaping for <code>link_to</code> and <code>form_tag</code> helpers, new helper method, bug fixes.</p>
+<h2 id="generator-changes">Generator changes</h2>
+<p>No generator support for:</p>
+
+<ul>
+<li><a href="https://github.com/thumblemonks/riot" title="riot">riot</a> (last change is from October 2013)</li>
+<li><a href="https://github.com/cavalle/steak" title="steak">steak</a> (last change is from January 2012)</li>
+<li><a href="http://rightjs.org/" title="rightjs">rightjs</a> (last project update from March 2012)</li>
+</ul>
+
+<p>For more details see this <a href="https://github.com/padrino/padrino-framework/commit/cd1c1dc81894d96ed618c3af8adb623b04184ab6">commit</a>.</p>
+<h2 id="mailer-rendering">Mailer rendering</h2>
+<p>Implemented new way to call render in mailers. It allows to omit mailer name or mailer name and message name.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="n">mailer</span> <span class="ss">:sample</span> <span class="k">do</span>
+  <span class="n">message</span> <span class="ss">:message2</span>
+    <span class="n">render</span> <span class="s1">'congrats'</span> <span class="c1">#=&gt; renders from 'sample/congrats'</span>
+  <span class="k">end</span>
+  <span class="n">message</span> <span class="ss">:message1</span>
+    <span class="n">render</span> <span class="c1">#=&gt; renders from 'sample/message1'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>For more details check <a href="https://github.com/padrino/padrino-framework/issues/1906">#1907</a> allow clipped render calls in mailer (<a href="https://github.com/ujifgc">@ujifgc</a>).
+Thanks to <a href="https://github.com/jf" title="@jf">@jf</a> for posting this idea.</p>
+<h2 id="code-link_to-code-and-code-form_tag-code-url-escaping"><code>link_to</code> and <code>form_tag</code> URL escaping</h2>
+<p>There has been an inconsistency between <code>image_tag</code> and <code>link_to</code>/<code>form_tag</code> in escaping URIs:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="nb">puts</span><span class="p">(</span><span class="n">image_tag</span> <span class="s1">'image name.jpeg'</span><span class="p">)</span>
+<span class="c1"># =&gt; &lt;img src="/images/image%20name.jpeg?1459513767" /&gt;</span>
+
+<span class="c1"># previous behavior</span>
+<span class="n">link_to</span> <span class="s1">'image title'</span><span class="p">,</span> <span class="s1">'image name.jpeg'</span><span class="p">)</span>
+<span class="c1"># =&gt; &lt;a href="image name.jpeg"&gt;image title&lt;/a&gt;</span>
+
+<span class="c1"># actual behavior</span>
+<span class="n">link_to</span> <span class="s1">'image title'</span><span class="p">,</span> <span class="s1">'image name.jpeg'</span><span class="p">)</span>
+<span class="c1"># =&gt; &lt;img src="/images/image%20name.jpeg?1459513767" /&gt;</span>
+</code></pre></div>
+<p>For more details check <a href="https://github.com/padrino/padrino-framework/issues/2016">#2016</a> escape urls in <code>link_to</code> and <code>form_tag</code> (<a href="https://github.com/ujifgc">@ujifgc</a>).
+Thanks to <a href="https://github.com/jf" title="@jf">@jf</a> for posting this idea.</p>
+<h2 id="new-helper-method-code-escape_link-code">New helper method <code>escape_link</code></h2>
+<p>Example:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="n">escape_link</span><span class="p">(</span><span class="s1">'http://example.com/spaced link'</span><span class="p">)</span>
+<span class="c1"># =&gt; 'http://example.com/spaced%20link'</span>
+
+<span class="n">escape_link</span><span class="p">(</span><span class="s1">'already%20partially escaped'</span><span class="p">)</span>
+<span class="c1"># =&gt; 'already%20partially%20escaped'</span>
+</code></pre></div>
+<p>More details under <a href="https://github.com/padrino/padrino-framework/blob/438afb9c381265c1b4e0eb338b940a513131ea0a/padrino-helpers/lib/padrino-helpers/tag_helpers.rb#L247">tag_helpers.rb</a>.</p>
+<h2 id="bug-fixes-and-miscellaneous">Bug Fixes and Miscellaneous</h2>
+<p>There are several bug fixes and other updates:</p>
+
+<ul>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/1662">#1662</a> make Reloader remove module constants (this occurred when source code is changed under a running padrino application)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2036">#2036</a> do not mutate route name String (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/pull/2042">#2024</a> Do not override access control object when registered in multiple apps (<a href="https://github.com/nxs6" title="nxs6">nx6</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/pull/2045">#2045</a> Prevent overwriting params by given query (<a href="https://github.com/namusyaka">@namusyaka</a>)</li>
+<li>NEW <a href="https://github.com/padrino/padrino-framework/issues/1872">#1872</a> implement using partials without Sinatra, closes (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2052">#2052</a> String#humanize compatibility with AS ~3.2 (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>NEW <a href="https://github.com/padrino/padrino-framework/pull/2050">#2050</a> Update Moneta to 0.8.0 (<a href="https://github.com/basex">@basex</a>)</li>
+<li>NEW <a href="https://github.com/padrino/padrino-framework/issues/2056">#2056</a> Allow Pry as Padrino console shell (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>NEW <a href="https://github.com/padrino/padrino-framework/commit/75c9afe55511de722463addc8260881ce8df345c">github issue template</a> (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2066">#2066</a> Fix reloader with native jruby classes (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+</ul>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-13-2-project-flag-bug-fixes-and-component-upgrades/">Padrino 0.13.2 - New Project Flag, Component Upgrades and Bug Fixes</a></h1><p class="article__metadata">Posted on May 09, 2016 by Nathan Esquenazi | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Padrino 0.13.1 was shipped just over 3 months ago in January 2016 and since then we have had many issues reported and fixed. After a few months of effort, we are excited to announce the release of Padrino 0.13.2! This version is filled with a new project generator flag, minimizing dependence on AS, upgrading a few components and a number of other bug fixes.</p>
+<h2 id="new-api-project-generator-flag">New API Project Generator Flag</h2>
+<p>In this release, we&#39;ve introduced a new project generator flag of <code>--api</code>. When this flag is used during project generation, the following changes are applied to the new project:</p>
+
+<ul>
+<li>Project only has <code>padrino-core</code> and <code>padrino-gen</code> listed as dependencies in the Gemfile.</li>
+<li><code>Padrino::Mailer</code> and <code>Padrino::Helpers</code> are not registered or referenced in the project.</li>
+<li>Automatically sets <code>:renderer</code>, <code>:scripts</code>, and <code>:stylesheet</code> to <code>none</code> in <code>.components</code>.</li>
+</ul>
+
+<p>You can see more about this in <a href="https://github.com/padrino/padrino-framework/issues/1921">pull request #1921</a>. Thanks to <a href="https://github.com/ujifgc">@ujifgc</a> for implementing this.</p>
+<h2 id="simplified-initializers">Simplified Initializers</h2>
+<p>Many apps have configuration code that needs to run first as the project starts up before the application is loaded. Padrino has always supported this with initializers in <code>lib/NAME_initializer.rb</code>. However, there were no guarantees that this code would run before other project code leading to dependency issues due to loading order. In this release, we have introduced the <code>config/initializers</code> folder which get loaded once during startup before any other app code is loaded. Initializers look like this:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># config/initializers/some_useful.rb</span>
+<span class="c1"># code run once after Padrino.before_load before Padrino.after_load</span>
+<span class="c1"># good place to define some plugin-related constants</span>
+<span class="k">module</span> <span class="nn">SomeUsefulInitializer</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">registered</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="c1"># this is where we setup components or configuration for the project</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>In your app code, for example <code>app/app.rb</code>, we can register this with:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="n">register</span> <span class="no">SomeUsefulInitializer</span>
+</code></pre></div>
+<p>You can see more about this in <a href="https://github.com/padrino/padrino-framework/pull/2032">pull request #2032</a>. Thanks to <a href="https://github.com/ujifgc">@ujifgc</a> for implementing this.</p>
+<h2 id="minimize-activesupport-dependence">Minimize ActiveSupport Dependence</h2>
+<p>Over the last few releases, we have been working to minimize our dependency on <code>ActiveSupport</code>. Note that at this time the library is still a required dependency. However, we are incrementally removing all uses of this library from the internals of Padrino whenever possible.</p>
+
+<p>For those interested, we&#39;ve removed many ActiveSupport methods from internal usage including but not limited to:</p>
+
+<ul>
+<li><a href="https://github.com/padrino/padrino-framework/commit/39514ce8fbb02207e0833a69d2b89eed6457c2f4">active_support/time</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/83462d3cf6961308dbb9dbb511b64f6d6aa189d0">active<em>support/time</em>with_zone</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/c2602739630f1c4681b004d6684c6e0f083feecd">array#prepend</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/6443dd254dbca3c29f6624a710a2ca71f2551027">hash#except</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/193e7755cf988f6cbd7b5574793a72232a5c0b8b">hash#with_options</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/af177cc2aebb73961ae47c40b853b7601d4c88e3">cattr_accessor</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/a335e0d8328d841e5481a9bc567ed3ad928e8eba">hash#reverse_merge</a></li>
+<li><a href="https://github.com/padrino/padrino-framework/commit/da54bef74d48db154ca1c1a5150aac4391165217">alias<em>method</em>chain</a></li>
+</ul>
+
+<p>Thanks to <a href="https://github.com/ujifgc">@ujifgc</a> for leading these efforts.</p>
+<h2 id="component-upgrades">Component Upgrades</h2>
+<p>We&#39;ve upgraded or fixed a few components:</p>
+
+<ul>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/1789">#1789</a> Relax Tilt version to allow Tilt 2 (&gt;= 1.4.1, &lt; 3) (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2011">#2011</a> Update mongoid database configuration (<a href="https://github.com/serradura">@serradura</a>)</li>
+</ul>
+<h2 id="bug-fixes-and-miscellaneous">Bug Fixes and Miscellaneous</h2>
+<p>There are several bug fixes and other updates:</p>
+
+<ul>
+<li>WARN <a href="https://github.com/padrino/padrino-framework/issues/1989">#1989</a> Warn about coming behavior change (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>NEW <a href="https://github.com/padrino/padrino-framework/issues/1987">#1987</a> Generator now fails with invalid namespace (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2007">#2007</a> Respect Regexp#names at the time of route search (<a href="https://github.com/namusyaka">@namusyaka</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2004">#2004</a> Set default alt attribute for image_tag (<a href="https://github.com/namusyaka">@namusyaka</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2008">#2008</a> Login button on the admin app now looks as expected (<a href="https://github.com/namusyaka">@namusyaka</a>)</li>
+<li>FIX Remove empty rows and cols from textarea tag (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2015">#2015</a> Update broken links in the README and docs (<a href="https://github.com/mariozig">@mariozig</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2023">#2023</a> Preserve <code>default_builder</code> set in configure_apps (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2025">#2025</a> Match plugin names with dashes in their names (<a href="https://github.com/wikimatze">@wikimatze</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2029">#2029</a> Don&#39;t set a value attribute on label tags (<a href="https://github.com/sshaw">@sshaw</a>)</li>
+<li>WARN Notice about removing ObjectSpace.classes and ObjectSpace.new_classes in 0.14 (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2027">#2027</a> Use Module#name instead of Module#to_s (<a href="https://github.com/namusyaka">@namusyaka</a>)</li>
+<li>NEW Logger option :sanitize_encoding (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+<li>FIX <a href="https://github.com/padrino/padrino-framework/issues/2006">#2006</a> load missing AR models before calling seeds.rb (<a href="https://github.com/ujifgc">@ujifgc</a>)</li>
+</ul>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><li><a href="/blog/page/5/">Prev Page</a></li><li><a href="/blog/page/7/">Next Page</a></li></div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

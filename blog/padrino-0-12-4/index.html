@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Padrino 0.12.4</title><link href="../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_padrino-0-12-4 blog_padrino-0-12-4_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title">Padrino 0.12.4</h1><p class="article__metadata">Posted on October 16, 2014 by Nathan Esquenazi | categories: <a href="/category/press/">press,</a> <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Two months ago, we released 0.12.3 which introduced a number of improvements to the core codebase and put our 0.12.x branch into a solid place. Today, we are releasing the final iteration on the 0.12.x line which includes a ton of bug fixes and documentation cleanup. The details of this release can be found below. This release paves the road for our 0.13.0 release that will likely follow next with several substantial changes in place. The details of this 0.12.4 release can be found below.</p>
+<h2 id="mounter-supports-rack">Mounter Supports Rack</h2>
+<p>The Padrino Mounter has always been one of the cores of our framework and allowed the flexible mounting of many different padrino apps within the same project. This functionality is at the heart of the light modular app architecture that powers Padrino. However, until recently the mounter only worked for Padrino apps. With this release, @namusyaka removed that restriction and now we can map any Rack, Grape or Sinatra app into a Padrino project:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># config/apps.rb</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'SinatraApp'</span><span class="p">,</span> <span class="ss">app_file: </span><span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="s1">'sinatra_app/app.rb'</span><span class="p">))</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'Sample::API'</span><span class="p">,</span> <span class="ss">app_file: </span><span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="s1">'api/app.rb'</span><span class="p">))</span>
+</code></pre></div>
+<p>We are excited for our router to be that much more flexible going forward towards 1.0!</p>
+<h2 id="fixing-padrino-docs">Fixing Padrino Docs</h2>
+<p>A few months ago, we were honored to be brought onto the RubyRogues podcast to discuss the Padrino Framework and explain why we think Sinatra and Padrino are a great way to build modern and maintainable ruby web apps and APIs.</p>
+
+<p>However, we recognize that our framework has a challenge. Our Padrino guides are almost all woefully outdated and unmaintained and our website is old and rusty. We are fortunate to have Matthias Gunther working tirelessly on the awesome Padrino Book but we recognize we need to do better. To get things going, we have merged all of our markdown docs into the main padrino code repository.</p>
+
+<p>We realize this is only a small first step and we know that one of the biggest roadblocks to a real 1.0 release is a substantial refresh of our documentation and our website. More updates about this soon. If anyone is interested in helping with the documentation effort, please reach out to us.</p>
+<h2 id="bug-fixes-and-miscellaneous">Bug Fixes and Miscellaneous</h2>
+<p>A few deprecation notices:</p>
+
+<ul>
+<li>There were issues with the implementation of button_to which require deprecating the old behavior and instead wrapping the content of a given block with the <button></button> tags</li>
+</ul>
+
+<p>Lots of other bug fixes and code cleanup as usual:</p>
+
+<ul>
+<li>FIX #1744 Corrects color support for Windows (@tyabe)</li>
+<li>FIX #1736 Regression with textarea helper (@ujifgc)</li>
+<li>FIX #1743 Add a padrino-gen generator for creating new Helpers (@dariocravero)</li>
+<li>FIX #1746 Avoid reloading the file if its path is not started with Padrino.root (@namusyaka)</li>
+<li>DELETE deprecated build_object method (@namusyaka)</li>
+<li>FIX #1752 Don’t set the <em>use</em>format flag when provides method is called from inline (@namusyaka)</li>
+<li>FIX #48 Update mailer documentation and sample code (@postmodern)</li>
+<li>FIX #1752 Refactor routing code to avoid weird parameter (@namusyaka)</li>
+<li>FIX #1754 Adds end tags to admin erb template for index (@namusyaka)</li>
+<li>FIX #1749 Replace the AR::ConnectionManagement middleware with new middleware (@namusyaka)</li>
+<li>NEW #1756 Adds support for mysql2 gem in sql rake task helpers (@d6rkaiz)</li>
+<li>FIX #1761 Allow passing upcased string as the app name</li>
+<li>FIX #1776 improve params filtering for routes (@ujifgc)</li>
+<li>FIX #1778 Various YARD doc inconsistencies or errors (@claudiob)</li>
+<li>FIX #1765 Use controller’s base path instead of constant name at controller test (@namusyaka)</li>
+<li>FIX #1781 Removes the default_filters method setting incorrect content-type (@namusyaka)</li>
+<li>FIX Sinatra compatibility for passing options to the static! method</li>
+<li>FIX #1585 Update HAML to pass tests by upgrading versions (@ujifgc)</li>
+<li>FIX #1782 make padrino-gen detect absolute paths on Windows (@ujifgc)</li>
+<li>FIX #1779 Use expanded path to request controller’s content (@namusyaka)</li>
+<li>FIX Use yield and flatmap when possible to speed up performance (@ujifgc)</li>
+<li>FIX #1788 exception that occurs when the free regex route exists (@namusyaka)</li>
+<li>NEW Merges the padrino-docs guides and content directly into the main repository (@ujifgc)</li>
+</ul>
+
+<p>Want to give a special thanks to the key contributors for this release, working tirelessly to make this Padrino release possible: @namusyaka, @ujifgc, @dariocravero and all the other contributors to this version!</p>
+
+<p>Please do report any issues you have. We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: @padrinorb, join us on IRC at “#padrino” on freenode or open an issue on GitHub.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

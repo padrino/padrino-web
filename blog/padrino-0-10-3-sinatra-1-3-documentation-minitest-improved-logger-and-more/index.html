@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Padrino 0.10.3 - Sinatra 1.3, Documentation, Minitest, Improved Logger, and</title><link href="../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_padrino-0-10-3-sinatra-1-3-documentation-minitest-improved-logger-and-more blog_padrino-0-10-3-sinatra-1-3-documentation-minitest-improved-logger-and-more_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title">Padrino 0.10.3 - Sinatra 1.3, Documentation, Minitest, Improved Logger, and</h1><p class="article__metadata">Posted on September 27, 2011 by Arthur | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>This month and the next is a great time for the Sinatra community at large. <a href="https://github.com/sinatra/sinatra/tree/v1.3.0">Sinatra 1.3</a> has been <a href="http://www.sinatrarb.com/2011/09/30/sinatra-1.3.0">released</a> with a lot of exciting changes. Alongside the official release, the <a href="https://github.com/sinatra/sinatra-contrib">sinatra-contrib</a> project is also slowly maturing and will be semi-officially supported by the Sinatra team. The <a href="http://sinatra-book-contrib.com">sinatra-recipes</a> resource is a great reference to using components with Sinatra. In addition, Kyle Drake has come along and released <a href="http://kyledrake.net/sinatra-synchrony">sinatra-synchrony</a> which allows for evented concurrent Sinatra applications with almost no code changes and no callbacks.</p>
+
+<p>Thankfully, because Padrino is just Sinatra at its core, our framework and our users can benefit from all the great things being introduced recently for Sinatra. Today we have pushed our Padrino 0.10.3 release which contains a lot of major updates. 0.10.3 upgrades our core to Sinatra 1.3, upgrades our entire test suite to minitest, and upgrades our entire source code documentation to YARD. We have also been hard at work fixing bugs, upgrading our logger, and improving compatibility with JRuby and Rubinius wherever possible. There is also a <strong>deprecation</strong> you should be aware of in regards to rack-flash. Details for this release are below.</p>
+<h2 id="sinatra-1-3-upgrade">Sinatra 1.3 Upgrade</h2>
+<p><a href="https://github.com/sinatra/sinatra/tree/v1.3.0">Sinatra 1.3</a> has been <a href="http://www.sinatrarb.com/2011/09/30/sinatra-1.3.0">released</a> with a lot of exciting changes. Be sure to checkout the changes in 1.3.0 in the <a href="https://github.com/sinatra/sinatra/blob/v1.3.0/CHANGES">Sinatra Changelog</a>.</p>
+
+<p>In this release, we have happily upgraded our core to Sinatra 1.3.0. Don&#39;t worry as there weren&#39;t any breaking changes and upgrading your Padrino projects should be painless. Now all of Padrino is Sinatra 1.3 compatible and taking advantage of the updates including the default enabled <a href="https://github.com/rkh/rack-protection">rack-protection</a>.</p>
+
+<p>One interesting feature of Sinatra 1.3 to note is the new streaming API:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app.rb
+get '/' do
+  stream do |out|
+    out &lt;&lt; "It's gonna be legen -\n"
+    sleep 0.5
+    out &lt;&lt; " (wait for it) \n"
+    sleep 1
+    out &lt;&lt; "- dary!\n"
+  end
+end
+</code></pre></div>
+<p>As explained by RKH, the cool thing about this is that it abstracts away the differences between all the different Rack servers taking into account their capabilities. Be sure to read the <a href="http://www.sinatrarb.com/2011/09/30/sinatra-1.3.0">official announcement</a> to see other new features.</p>
+
+<p>Related 1.3 integration commits are <a href="https://github.com/padrino/padrino-framework/commit/6304d1ed4c3b5308917500c43e888433b0695e6d">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/3acbdb24b0cbbdc331b94baf01bfc3a198645feb">here</a>, and <a href="https://github.com/padrino/padrino-framework/commit/1029a40f943f82aaad4f417aa7e1e1445df930b4">here</a>.</p>
+<h2 id="rack-flash-deprecation">Rack-Flash Deprecation</h2>
+<p>The <a href="https://github.com/nakajima/rack-flash">rack-flash</a> gem has been a dependency of Padrino since early versions of our framework. The gem provides the <code>flash</code> functionality that most of us depend on in our controllers. Unfortunately, this gem is not compatible with the latest versions of Rack or Sinatra. This gem also depends on private APIs and is not actively maintained. For this reason, Sinatra and Padrino developers are <strong>advised to replace</strong> <code>rack-flash</code> in their projects before upgrading to 0.10.3.</p>
+
+<p>Fortunately, upgrading your project and replacing <code>rack-flash</code> is easy thanks to several viable alternatives that provide the same functionality. First and foremost is the new Padrino default for flash, the <a href="https://github.com/SFEley/sinatra-flash">sinatra-flash</a> gem. This gem is essentially a drop-in replacement that works in nearly the same way while maintaining a cleaner codebase and leveraging only stable Sinatra public APIs. This gem is likely to work consistently with Sinatra going forward.</p>
+
+<p>New projects in Padrino now automatically include this replacement and upgrading to <code>sinatra-flash</code> is as easy as replacing <code>rack-flash</code> in your Gemfile:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># Gemfile
+gem "sinatra-flash" # Replaces gem "rack-flash"
+</code></pre></div>
+<p>In addition, daddye has contributed a <a href="https://github.com/padrino/padrino-contrib/blob/master/lib/padrino-contrib/helpers/flash.rb">slimmer and faster flash</a> in padrino-contrib. Usage is described in the file itself but is as easy as <code>register Padrino::Contrib::Helpers::Flash</code>. Either solution should make upgrading a snap.</p>
+
+<p>For more information about the switch be sure to read the <a href="https://github.com/padrino/padrino-framework/issues/679">Github Issue</a> on the subject or see the <a href="https://github.com/padrino/padrino-framework/commit/cad9e8f62025736146f5f13d3ead2424c2b1d3aa">related commit</a>.</p>
+<h2 id="testing-and-minitest">Testing and Minitest</h2>
+<p>We have been using test-unit and <a href="https://github.com/thoughtbot/shoulda">shoulda</a> in Padrino as long as the framework has been around. I am a personal fan of test-unit + shoulda and have been using the combination successfully in many projects. However, times change and the fact that Ruby 1.9 seems to recommend <a href="http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html">minitest</a> over test-unit encouraged us to take a look at the pain of upgrading.</p>
+
+<p>We wanted a faster test suite and less external dependencies. So we decided to bite the bullet and convert our entire test suite over to the <code>minitest</code> test library. Built into 1.9 but available as a gem for 1.8.X, this library is quite stable and fast. The best part is that it has a lot of the great parts of shoulda built in. Thanks to the magic of a few <a href="https://github.com/padrino/padrino-framework/blob/master/padrino-core/test/mini_shoulda.rb">strategic aliases</a>, we can even keep the same shoulda syntax we know and love. Thanks to <a href="http://metaskills.net/2011/03/26/using-minitest-spec-with-rails">Ken Collins</a> for making our path from Test::Unit to MiniTest a painless one. We are excited to have a leaner, faster test suite going forward.</p>
+
+<p>Commits are <a href="https://github.com/padrino/padrino-framework/commit/f2a88af060f49ac6c8145cc4b2be93fbb6944e08">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/cf1496e30521f08a276e4e9e4b917e28437fdb66">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/406d08355319a464c205ae76fcd38587f54ff80d">here</a>, and <a href="https://github.com/padrino/padrino-framework/commit/08c18df8aafac3d8ee817fad90e31a5b9d1a7a8e">here</a>.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Since the creation of Padrino, we have always aspired to have good documentation, guides, and release notes that make getting started with our framework that much easier. That said, we had always used RDoc for our inline source docs and we felt the generated APIs and our documentation coverage left something to be desired.</p>
+
+<p>In this release, we are happy to announce that we have converted the entire source code documentation to YARD and in the process did a better job of documenting the public and semipublic interfaces for our framework. We are excited about this release and continuing to improve our documentation. Thanks to <a href="https://github.com/postmodern">postmodern</a> for helping us get the ball rolling.</p>
+
+<p>Converting this documentation was a team effort with lots of commits: <a href="https://github.com/padrino/padrino-framework/commit/9ae898fdbd1381839acc334ec3ed376ab72d9a66">1</a>, <a href="https://github.com/padrino/padrino-framework/commit/2fd8ca7eddec897d3c40188cc30a3658f563ec7e">2</a>, <a href="https://github.com/padrino/padrino-framework/commit/e3f5ad1bdd4f14ab1a69c2df1c215dbb1f5f4162">3</a>, <a href="https://github.com/padrino/padrino-framework/commit/1680307328e8c2f2dc8b129bca41999331107379">4</a>, <a href="https://github.com/padrino/padrino-framework/commit/a5e542d181a2ab13c81effe0e136cbcf0a5eb2ee">5</a>, <a href="https://github.com/padrino/padrino-framework/commit/6676fda49ee3133989e0f33852c375826dd68cb9">6</a>, <a href="https://github.com/padrino/padrino-framework/commit/e218f09a089efa9119efbd01aed8693d8244f135">7</a>, <a href="https://github.com/padrino/padrino-framework/commit/60e1681fa5029c5baf568cd92ebeed6c3f6ca745">8</a>, <a href="https://github.com/padrino/padrino-framework/commit/8f0f1cee12de50b9816f6f25e4feac0d3904d121">9</a>.</p>
+
+<p>You can checkout the newly generated YARD docs for Padrino at our <a href="http://www.padrinorb.com/api/index.html">API Docs</a> page. We would appreciate any patches to help us improve our docs even further! Speaking of which, a few more documentation fixes:</p>
+
+<ul>
+<li>Fix issue with generator for template runner on https paths (Thanks <a href="https://github.com/xavierRiley">xavierRiley</a>): <a href="https://github.com/padrino/padrino-framework/commit/e5fc1a60a9b60f46f5916d1ce88bbf6a98918aee">commit</a>.</li>
+<li>Removes unnecessary commas in doc example (Thanks <a href="https://github.com/ugisozols">ugisozols</a>): <a href="https://github.com/padrino/padrino-framework/commit/366fd117ac9fe44da82a11967c3edf4ad00b45bf">commit</a>.</li>
+<li>Document better example of Padrino::Admin::AccessControl (Thanks <a href="https://github.com/benjaminoakes">Benjamin Oakes</a>): <a href="https://github.com/padrino/padrino-framework/commit/4841a6cb6129ff65e5c1d301ee51bbc64b75874e">commit</a>.</li>
+<li>Fix typos and inaccuracies related to `time_ago_in_words` helpers: <a href="https://github.com/padrino/padrino-framework/commit/3984c59aea91ad10705ddc51b21b19901990a7d0">commit</a></li>
+</ul>
+
+<p>Also, be sure to check out our entirely new <a href="http://www.padrinorb.com/guides/getting-started">Getting Started</a> guide geared towards newcomers to the Sinatra / Padrino community. The guide is intended to provide you the necessary basics and resources to become familiar with the Ruby, Rinatra and Padrino ecosystem.</p>
+<h2 id="components">Components</h2>
+<p>We have also made a few improvements and updates to our components:</p>
+
+<ul>
+<li>Adds minitest test component to project generator: commits <a href="https://github.com/padrino/padrino-framework/commit/27843a1a145ed7f6229e096c11211440da406f64">here</a>, and <a href="https://github.com/padrino/padrino-framework/commit/426df4538c60a88766bceb9c34e017e9edcf270d">here</a>.</li>
+<li>Remove less dependency for less generation: <a href="https://github.com/padrino/padrino-framework/commit/8640a06e7f18131951c2f6c36e811e8dd57da204">commit</a>.</li>
+<li>Added content_for? method to test for content (Thanks <a href="https://github.com/mlightner">mlightner</a>): <a href="https://github.com/padrino/padrino-framework/commit/2d6e623c76ceb927bf48ea1b8a02c894ddd5cc7e">commit</a>.</li>
+<li>Make YAML locale files Psych compliant for JRuby 1.9 support (Thanks <a href="https://github.com/skade">skade</a>): <a href="https://github.com/padrino/padrino-framework/commit/6d81ce0e8468e0507bb2089ad39d404fbb3acc8b">commit</a>.</li>
+<li>Improved logger with much nicer colors and formatted output: [<a href="https://github.com/padrino/padrino-framework/commit/c3b05abc79457ecd6ab4302adfec35054bf974d4">commit</a> <a href="https://github.com/padrino/padrino-framework/commit/54c6de0a92eb3a051a88366f0c0acb2938d73d80">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/c0b24769487b872de34eef7aeac94aa9eab3cd29">here</a> and <a href="https://github.com/padrino/padrino-framework/commit/94405a863814768fb2be43edf45780bfbaa060f2">here</a>].</li>
+<li>Adds Latvian locale translation (Thanks <a href="https://github.com/ugisozols">ugisozols</a>): <a href="https://github.com/padrino/padrino-framework/commit/e5fc2860128ea81a7f602db0f5d03be3bae2b502">commit</a>.</li>
+</ul>
+<h2 id="asset-compression">Asset Compression</h2>
+<p>One final bonus feature to this post is a quick discussion about asset compression / pipelines. Since the release of that feature as a default in Rails 3.1, we have been fielding a lot of questions regarding an equivalent module for Sinatra and Padrino. In the spirit of addressing these concerns, a few early options for Sinatra:</p>
+
+<ul>
+<li><a href="https://github.com/railsjedi/jammit-sinatra">Jammit Sinatra</a> – Excellent sinatra wrapper for Jammit</li>
+<li><a href="https://github.com/nightsailer/padrino-sprockets">padrino-sprockets</a> – Still a young project but looks promising.</li>
+<li><a href="https://github.com/padrino/padrino-contrib/blob/master/lib/padrino-contrib/helpers/assets_compressor.rb">assets_compressor</a> – Padrino-contrib recipe for simple compression of assets.</li>
+<li><a href="https://github.com/rstacruz/sinatra-assetpack">Sinatra AssetPack</a> – Great asset compilation for Sinatra</li>
+<li><a href="https://github.com/tdreyno/middleman">Middleman</a> – Interesting Padrino-powered alternative for asset handling</li>
+</ul>
+
+<p>These options should get you started if you are interested in bringing asset pipelining to your Sinatra applications. None of these quite match the comprehensive Rails solution just yet but well on their way.</p>
+
+<p>That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="http://twitter.com/#!/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode or <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a> on GitHub.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

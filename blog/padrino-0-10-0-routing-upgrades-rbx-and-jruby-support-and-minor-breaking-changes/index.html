@@ -1,0 +1,162 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Padrino 0.10.0 - Routing Upgrades, Rbx and JRuby Support, and Minor Breaking</title><link href="../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_padrino-0-10-0-routing-upgrades-rbx-and-jruby-support-and-minor-breaking-changes blog_padrino-0-10-0-routing-upgrades-rbx-and-jruby-support-and-minor-breaking-changes_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title">Padrino 0.10.0 - Routing Upgrades, Rbx and JRuby Support, and Minor Breaking</h1><p class="article__metadata">Posted on June 08, 2011 by Arthur | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Roughly a month has went by since our last release and there have been several developments since then. Today, we are release our first minor point release in a while because we have introduced a breaking change to the way Padrino loads our rendering module.</p>
+
+<p>This 0.10.0 release brings a couple new features such as enhanced route filter support, significantly faster routing engine, full compatibility with Rubinius and JRuby, bug fixes and several other improvements. The next releases coming in the pipeline are 0.10.1 (for Sinatra 1.3), 0.10.2 (for AS 3.1) and then a release candidate for our 1.0 release barring any major complications. Details for this release are below.</p>
+<h2 id="rendering-module-changes">Rendering Module Changes</h2>
+<p>In this release, we have introduced a breaking change to the way Padrino loads the <code>Padrino::Rendering</code> module. Working with <a href="https://github.com/botanicus">botanicus</a> recently on <a href="https://github.com/padrino/padrino-framework/issues/541">an issue</a>, we uncovered a problem with the auto-loading of our enhanced rendering module.</p>
+
+<p>The issue is that any extension to Sinatra/Padrino that wishes to extend rendering was unable to load before our module. This produced situations where Padrino rendering is difficult to enhance with outside extensions. We have decided to <strong>remove the autoloading</strong> of <code>Padrino::Rendering</code>. For freshly generated applications, no action needs to be taken because Rendering will be included in the generated application.</p>
+
+<p>For an existing application, all you need to do is add an explicit include to <code>Padrino::Rendering</code>:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/app.rb
+class Demo &lt; Padrino::Application
+  register Padrino::Rendering # &lt;= Add this line
+  # ...
+  register Padrino::Helper
+end
+</code></pre></div>
+<p>on every application within a project. For those that are curious, the <code>Padrino::Rendering</code> module is the functionality that enhances “render” to auto-locate templates and adds support for I18n amongst a variety of other conveniences that makes template rendering much more powerful and convenient. If you are using <code>render &quot;index&quot;</code> in your code then you are using this module. Commit <a href="https://github.com/padrino/padrino-framework/commit/981f481eee02d16ed206eedf801f831627a2ec37">here</a>.</p>
+<h2 id="rubinius-and-jruby-compatibility">Rubinius and JRuby Compatibility</h2>
+<p>This release also marks full support for <a href="http://rubini.us">Rubinius</a> and <a href="http://www.jruby.org">JRuby</a>, two of the upcoming stable ruby implementations gaining attention. As of <a href="http://twitter.com/#!/DAddYE/status/77857253406932992">this tweet</a>, we are now 100% compatible with Rubinius and have tested full support for JRuby. Uchio Kondo, the official Japanese documentation maintainer for Padrino has also created an excellent guide for <a href="http://www.padrinorb.com/guides/running-padrino-on-jruby">Running Padrino on JRuby</a> which gets you started. Commits <a href="https://github.com/padrino/padrino-framework/commit/ecf3968f216cbfb97008b487e34742c5b6f2f4ab">here</a>, <a href="https://github.com/padrino/padrino-framework/commit/4838791fe7a685179630ad4175a099a800f8626c">here</a>, and <a href="https://github.com/padrino/padrino-framework/commit/f991ea5376c71ee00f8bdf532c126c162c15dced">here</a>.</p>
+<h2 id="routing-speed-improvements">Routing Speed Improvements</h2>
+<p>Josh has enabled serious performance gains in http_router which has once again allowed Padrino to parallel Sinatra in performance even in an <a href="https://github.com/DAddYE/web-frameworks-benchmark/tree/more_advanced">more advanced demo</a> application. In all our benchmarks, Sinatra and Padrino are generally neck-in-neck:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># Benchmarks
+========================================
+System: Linux 2.6.18-xenU-ec2-v1.0
+Processor: Intel(R) Xeon(R) CPU           E5430  @ 2.66GHz
+Memory: 1740948 kB
+Ruby: ruby 1.9.2p180 (2011-02-18 revision 30909) [i686-linux]
+========================================
+Using:
+ padrino (0.10.0)
+ rack (1.3.0)
+ sinatra (1.2.6)
+ rack (1.2.3)
+ rails (3.0.8)
+ camping (2.1)
+========================================
+Results:
+ rack =&gt; 620.95 rps
+ camping =&gt; 398.74 rps
+ sinatra =&gt; 309.78 rps
+ padrino =&gt; 302.64 rps
+ merb =&gt; 291.43 rps
+ rails =&gt; 122.37 rps
+</code></pre></div>
+<p>Commits <a href="https://github.com/padrino/padrino-framework/commit/459c57e16ff8a9d9c27b23c311c3e6bf3e1432aa">here</a> to upgrade http_router and take advantage of the optimizations. Thanks again to joshbuddy (Joshua Hull) of our core team for hacking on these upgrades!</p>
+<h2 id="route-filters">Route Filters</h2>
+<p>An oft-requested feature is for <a href="https://github.com/padrino/padrino-framework/issues/443">enhanced route filters</a>. While Sinatra does have <a href="http://sinatra-book.gittr.com/#filters">basic support</a> for filters, a heavy user will often find that it leaves things to be desired. Namely when dealing with namespaces and routes. Whereas before, a filter looks like this:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/controllers/example_controller.rb
+DemoApp.controller :example do
+  before "/example/*" do
+    # Code here to be executed
+  end
+
+  get :index do
+    # ...
+  end
+end
+</code></pre></div>
+<p>Now you can have a lot more options related to filters and they work much more intuitively thanks to Joshua (joshbuddy) and you can do:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/controllers/example_controller.rb
+DemoApp.controller :example do
+  # Based on a symbol
+  before :index do
+    # Code here to be executed
+  end
+
+  # Based on a symbol, regexp and string all in one
+  before :index, /main/, '/example' do
+    # Code here to be executed
+  end
+
+  # Also filter by excluding an action
+  before :except =&gt; :index do
+    # Code here to be executed
+  end
+
+  get :index do
+    # ...
+  end
+end
+</code></pre></div>
+<p>This gives developers a lot more flexibility when running filters and enables much more selective execution in a convenient way. Great to have this feature available as part of our routing enhancements. Commits <a href="https://github.com/padrino/padrino-framework/commit/459c57e16ff8a9d9c27b23c311c3e6bf3e1432aa">here</a> and <a href="https://github.com/padrino/padrino-framework/commit/434c4beee4f69fa478b078f704096a88c70290a1">here</a>.</p>
+<h2 id="route-ordered-priority">Route Ordered Priority</h2>
+<p>This release has also added support for respecting route order in controllers and also allows the developer to specify certain routes as less or more “important” then others in the route recognition order. Consider two controllers, the first with a “catch-all” route that matches any URL and the second below in another controller that is very specific. This wouldn&#39;t work by default because the second endpoint would be eclipsed by the catch-all route and as such would not be accessible. To solve this, you can do the following:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/controllers/pages.rb
+MyApp.controller :pages do
+  # NOTE that this route is now marked as low priority
+  get :show, :map =&gt; :map =&gt; '/*page', :priority =&gt; :low do
+    "Catchall route"
+  end
+end
+
+# app/controllers/projects.rb
+MyApp.controller :projects do
+  get :index do
+    "Important Index"
+  end
+end
+</code></pre></div>
+<p>When setting a routes priority to <code>:low</code>, this route is then recognized in order lower then all “high” and “normal” priority routes. You are encouraged in cases where there is ambiguity, to mark key routes as <code>:priority =&gt; :high</code> or catch-all routes as <code>:priority =&gt; :low</code> in order to guarantee expected behavior.</p>
+
+<p>Commit <a href="https://github.com/padrino/padrino-framework/commit/670185db74bdb10f707229740e27a606862ddb71">here</a>.</p>
+<h2 id="reloader-fixes">Reloader Fixes</h2>
+<p>The reloader has been much improved in the last release, and we are continuing in that tradition improving the reloader again to be more robust in this release:</p>
+
+<ul>
+<li>Better support for constant reloading <a href="https://github.com/padrino/padrino-framework/commit/e6ee8d34da21291b5d136de29272b10f78bc883b">commit</a></li>
+<li>Fix Padrino::Reloader reloading also \$LOADED_FEATURES deps <a href="https://github.com/padrino/padrino-framework/commit/fd1c439d99c574e788bbfcee8b5fb2b81af65928">commit</a></li>
+<li>Remove incomplete constants when require fails (Thanks bernerdschaefer) <a href="https://github.com/padrino/padrino-framework/commit/a2720b773d6c0dc957f906d4ec70e8b253c47644">commit</a></li>
+</ul>
+
+<p>There is also a new way to add files to the reloader manually using the <code>prerequisites</code> method:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/app.rb
+MyApp.prerequisites &lt;&lt; Padrino.root('my_app', 'custom_model.rb')
+</code></pre></div>
+<p>This will autoload those files and watch them for changes. Commit <a href="https://github.com/padrino/padrino-framework/commit/f41d374cdb68d62f812e4f345f37da0ec032053b">here</a>.</p>
+<h2 id="other-changes-and-fixes">Other changes and fixes</h2>
+<ul>
+<li>Adds support for the Ripple ORM (Thanks pepe) <a href="https://github.com/padrino/padrino-framework/commit/916f9502cfe0b2644fe7dac7516b2b36caf004d4">commit</a></li>
+<li>Hungarian translations added (Thanks Kormány Zsolt) <a href="https://github.com/padrino/padrino-framework/commit/e59c2e9899ec2aa55b59c4fa37d4eb20d4a3604d">commit</a></li>
+<li>Controller now supports conditions at multiple levels (Thanks <a href="https://github.com/bernerdschaefer">bernerdschaefer</a>) <a href="https://github.com/padrino/padrino-framework/commit/6e30adf7788071bb1945f91aca034a9e5b3dc950">commit</a></li>
+<li>Gemspecs and config.ru are now executable (Thanks botanicus): [<a href="https://github.com/padrino/padrino-framework/commit/ceb3d879db8819a030119f5b194056652d89b86a">commit</a>, <a href="https://github.com/padrino/padrino-framework/commit/07afbd745a8f58740b713b384fc859eed934f434">commit</a>]</li>
+<li>Add support for <code>padrino s</code> for starting the padrino server <a href="https://github.com/padrino/padrino-framework/commit/29d08e8550abffab586344e7557a4393fe4187ec">commit</a></li>
+<li>Fix field generation for DataMapper <a href="https://github.com/padrino/padrino-framework/commit/b1c949a47266a5482cf1f06a214f4b26d32c28aa">commit</a></li>
+<li>Fixes issue with DM length for strings <a href="https://github.com/padrino/padrino-framework/commit/1b79dca7ca51221c79020eff0942dc2c5a3d2077">commit</a></li>
+<li>Fixes double loading for boot.rb in rake tasks <a href="https://github.com/padrino/padrino-framework/commit/0ff251405458500820c3a3e85720a88ea140265e">commit</a></li>
+<li>Cleanup padrino-core dependencies in support_lite <a href="https://github.com/padrino/padrino-framework/commit/dda2b77ca37b34cb7c1f5cbcc80d13d03fb81b3f">commit</a></li>
+<li>Bundler is now auto-loaded in our binaries <a href="https://github.com/padrino/padrino-framework/commit/a8ef567a6d74d8df0c0e2da3fa5dccee58830e31">commit</a></li>
+<li>Adds access to “current_controller” as part of the public API <a href="https://github.com/padrino/padrino-framework/commit/8f678af970c4d1fb1520da12786a968e02680e97">commit</a></li>
+<li>Changes DM instructions to recommend <code>rake dm:auto:upgrade</code> <a href="https://github.com/padrino/padrino-framework/commit/67606df1d84c9fcb191debbf113f1931a716d9db">commit</a></li>
+</ul>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

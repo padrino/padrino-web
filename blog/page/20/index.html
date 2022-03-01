@@ -1,0 +1,193 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_page blog_page_20 blog_page_20_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title"><a href="/blog/padrino-and-omniauth-overview/">Padrino and OmniAuth Overview</a></h1><p class="article__metadata">Posted on May 10, 2011 by DAddYE | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/faqs/">faqs</a></p><p>In this post, we will show you how to mix our <a href="https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/access_control.rb">Access Control</a> described <a href="/guides/features/padrino-admin/">here</a> with the beautiful <a href="https://github.com/intridea/omniauth">omniauth</a> rack middleware.</p>
+
+<p>The Padrino admin authentication and access control system provides a simple foundation from which you can create your authentication system. Combined with <a href="https://github.com/intridea/omniauth">omniauth</a> you can then easily leverage the system to allow authentication through a variety of methods. Read below for more details on how to integrate them.</p>
+
+<p><break></p>
+
+<p>In this article we’ll cover two topics:</p>
+
+<ul>
+<li>1) Integrating Padrino Admin Authentication into all apps within your project</li>
+<li>2) Enabling custom authentication strategies within the authentication system</li>
+</ul>
+
+<p>Before we begin, it is important to note that our integrated authentication based on project-roles can interact easily with other systems. The only files that need to be changed are <code>session.rb</code> and <code>account.rb</code> in order to add your own custom code.</p>
+
+<p>So, let’s start by creating a project using activerecord:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ padrino g project foo --orm activerecord --tiny
+$ cd foo
+$ bundle install
+</code></pre></div>
+<p>Now we need to add a model called <code>Account</code> to act as our persistence model:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ padrino g model Account name:string email:string role:string uid:string provider:string
+</code></pre></div>
+<p>Now we need to create and migrate our database:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ padrino rake ar:create ar:migrate
+</code></pre></div>
+<p>NOTE: If your migration fails with something like this</p>
+
+<p><code>Directly inheriting from ActiveRecord::Migration is not supported. Please specify the Rails release the migration was written ...</code></p>
+
+<p>then you need to update the <code>db/migrate/001_create_account.rb</code> with
+   <code>class CreateAccounts &lt; ActiveRecord::Migration[4.2]</code></p>
+
+<p>Open your favorite editor and browse and edit <code>Gemfile</code> and add <code>omniauth</code> gem and the providers for twitter and facebook.
+We also add the <code>haml</code> gem as it&#39;s not included by default in the &quot;tiny&quot; padrino template:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># Gemfile
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'haml'
+</code></pre></div>
+<p>Now, run bundle install to install dependencies:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ bundle install
+</code></pre></div>
+<p>Now we need to add the <code>omniauth middleware</code>. Here you can choose two ways:</p>
+
+<ul>
+<li>1) Add the middleware project-wide (so every subapp can use it)</li>
+<li>2) Add the middleware only to the one app that requires it</li>
+</ul>
+
+<p>In our example, we need to edit simply <code>app/app.rb</code> and add:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/app.rb
+use OmniAuth::Builder do
+  provider :twitter,  'consumer_key', 'consumer_secret'
+  provider :facebook, 'app_id', 'app_secret'
+end
+</code></pre></div>
+<p>If you are in a multiapp scenario you need to edit <code>config/boot.rb</code>:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># config/boot.rb
+Padrino.use OmniAuth::Builder do
+  provider :twitter,  'consumer_key', 'consumer_secret'
+  provider :facebook, 'app_id', 'app_secret'
+end
+
+# before the line
+Padrino.load!
+</code></pre></div>
+<p>To obtain an app_id and secret for Facebook, you need to:</p>
+
+<ul>
+<li>Go to the <a href="http://www.facebook.com/developers">Facebook Developers Page</a></li>
+<li>Browse and click <a href="http://www.facebook.com/developers/createapp.php">create a new app</a></li>
+<li>Set your app name and complete the form…</li>
+<li>One you finish that you are allowed to edit your settings, go to <strong>website</strong> section</li>
+<li>Add to site url: <code>http://localhost:3000</code></li>
+<li>Add to domain: <code>localhost</code></li>
+<li>Write the <strong>Application ID</strong> and <strong>Application Secret</strong> to the <code>OmniAuth::Builder</code></li>
+</ul>
+
+<p>To obtain a consumer_key and consumer_secret for Twitter, you need to:</p>
+
+<ul>
+<li>Go to <a href="https://developer.twitter.com/apps/new">Twitter Applications Page</a></li>
+<li>Insert all details and be sure to check <strong>Application Type: Browser</strong></li>
+<li>Set a callback url with a valid domain ex: <code>www.mydomain.com/auth/twitter/callback</code></li>
+<li>Save and go to <strong>Application Settings</strong> and <strong>Manage Domains</strong></li>
+<li>Be sure that you can see your example domain: <code>www.mydomain.com/auth/twitter/callback</code></li>
+<li>Authorize domain: <code>localhost</code></li>
+<li>Now go to <strong>Application Details</strong> and save <code>Consumer key</code> and <code>Consumer Secret</code> to the <code>OmniAuth::Builder</code></li>
+</ul>
+
+<p><strong>NOTE</strong>: For domain, it is not important that this path exist because <code>omniauth</code> changes the callback url.</p>
+
+<p>Next, we can integrate our authentication system within in <code>app/app.rb</code>:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/app.rb
+# at the top after the enable :sessions
+register Padrino::Admin::AccessControl
+
+set :login_page, "/" # determines the url login occurs
+
+access_control.roles_for :any do |role|
+  role.protect "/profile"
+  role.protect "/admin" # here is a demo path
+end
+
+# now we add a role for users
+access_control.roles_for :users do |role|
+  role.allow "/profile"
+end
+</code></pre></div>
+<p>And add a couple useful routes, edit <code>app/controllers.rb</code> with:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/controllers.rb
+get :index do
+  haml &lt;&lt;-HAML.gsub(/^ {6}/, '')
+    Login with
+    =link_to('Facebook', '/auth/facebook')
+    or
+    =link_to('Twitter',  '/auth/twitter')
+  HAML
+end
+
+get :profile do
+  content_type :text
+  current_account.to_yaml
+end
+
+get :destroy do
+  set_current_account(nil)
+  redirect url(:index)
+end
+
+get :auth, :map =&gt; '/auth/:provider/callback' do
+  auth    = request.env["omniauth.auth"]
+  account = Account.find_by_provider_and_uid(auth["provider"], auth["uid"]) ||
+            Account.create_with_omniauth(auth)
+  set_current_account(account)
+  redirect "http://" + request.env["HTTP_HOST"] + url(:profile)
+end
+</code></pre></div>
+<p>We invoked a method <code>Account.create_with_omniauth</code> above, so edit <code>app/models/account.rb</code> and add:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/models/account.rb
+def self.create_with_omniauth(auth)
+  create! do |account|
+    account.provider = auth["provider"]
+    account.uid      = auth["uid"]
+    account.name    = auth["info"]["name"] if auth["info"]
+    account.email    = auth["info"]["email"] if auth["info"] # we get this only from FB
+    account.role     = "users"
+  end
+end
+</code></pre></div>
+<p>That should just about do it! Let’s start the server:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>$ padrino start
+</code></pre></div>
+<p>Browse <a href="http://localhost:3000/profile">http://localhost:3000/profile</a></p>
+
+<p>That will kickoff to the login_page, in our case <code>/</code>.</p>
+
+<p>Now you can login here <a href="http://localhost:3000">http://localhost:3000</a></p>
+
+<p>Follow your login process and then if needed <a href="http://localhost:3000/destroy">http://localhost:3000/destroy</a></p>
+
+<p>That is all you need to setup a barebones authentication system in Padrino. This post has gotten you started with a working “Account” and role based authentication solution with integrated omniauth support. From here, obviously there are a number of other features you might want to add on top to flesh out, and that is left for another post or as an exercise to the reader.</p>
+
+<p>If you are interested in more Padrino information, check out <a href="http://www.padrinorb.com/pages/why">why you should use</a> our framework and our <a href="http://www.padrinorb.com/guides/blog-tutorial">Blog Tutorial</a> along with our other <a href="http://www.padrinorb.com/guides">Padrino Guides</a>.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div class="article"><h1 class="article__title"><a href="/blog/euruko-2011-is-coming-who-s-up-for-a-meeting/">EuRuKo 2011 is coming, who's up for a meeting?</a></h1><p class="article__metadata">Posted on May 09, 2011 by Florian | categories: <a href="/category/update/">update</a></p><p>EuRuKo is great fun. It would be even more fun with more Padrino action, so let’s meet up!</p>
+
+<p>EuRuKo 2011 and (hopefully) Eurocamp are drawing close (May 28-29). Are there any Padrino users/hackers/interested third-parties present in Berlin around that date? If so, we could organize a spontaneous meeting/drink-up somewhere in town. If anyone is interested in meeting, please send me a note, I’ll try to organize something. If nothing dedicated comes together, we still have a list of people to contact and move as a group.</p>
+
+<p>Also, if you have never been to Berlin and need a few pointers on what to do, feel free to ask me for advice as well.</p>
+
+<p>If you are interested please drop me a note (either through the contact details or using this list) and maybe include:</p>
+
+<ul>
+<li>the time of your stay in Berlin (so that I know when it makes sense to contact you)</li>
+<li>your email address and twitter username (if you have one), maybe github</li>
+<li>the kind of activity you are interested in (just eating, just drinking, seeing berlin, hacking, q&amp;a or any combination of the former)</li>
+</ul>
+
+<p>My contact details:
+ name: Florian Gilcher
+ email: <a href="mailto:florian.gilcher@asquera.de">florian.gilcher@asquera.de</a>
+ twitter: @Argorak
+ github: skade
+ phone: ask and ye might receive</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><li><a href="/blog/page/19/">Prev Page</a></li><li><a href="/blog/page/21/">Next Page</a></li></div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

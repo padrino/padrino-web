@@ -1,0 +1,389 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Examples</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="guides guides_introduction guides_introduction_examples guides_introduction_examples_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link--is-active">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><h5 class="sidebar__header"><a href="/guides/introduction/overview/">Introduction</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/introduction/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/introduction/why-learn-padrino/" class="sidebar__link">Why Learn Padrino?</a></li><li class="sidebar__item"><a href="/guides/introduction/examples/" class="sidebar__link--is-active">Examples</a></li><li class="sidebar__item"><a href="/guides/introduction/the-bleeding-edge/" class="sidebar__link">The Bleeding Edge</a></li><li class="sidebar__item"><a href="/guides/introduction/press/" class="sidebar__link">Press</a></li></ul><h5 class="sidebar__header"><a href="/guides/getting-started/overview/">Getting Started</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/getting-started/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/getting-started/basic-projects/" class="sidebar__link">Basic Projects</a></li><li class="sidebar__item"><a href="/guides/getting-started/installation/" class="sidebar__link">Installation</a></li><li class="sidebar__item"><a href="/guides/getting-started/blog-tutorial/" class="sidebar__link">Blog Tutorial</a></li></ul><h5 class="sidebar__header"><a href="/guides/features/overview/">Features</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/features/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/features/padrino-admin/" class="sidebar__link">Padrino Admin</a></li><li class="sidebar__item"><a href="/guides/features/padrino-mailer/" class="sidebar__link">Padrino Mailer</a></li><li class="sidebar__item"><a href="/guides/features/padrino-cache/" class="sidebar__link">Padrino Cache</a></li><li class="sidebar__item"><a href="/guides/features/mounting-applications/" class="sidebar__link">Mounting Applications</a></li><li class="sidebar__item"><a href="/guides/features/development-commands/" class="sidebar__link">Development Commands</a></li><li class="sidebar__item"><a href="/guides/features/extensions/" class="sidebar__link">Extensions</a></li><li class="sidebar__item"><a href="/guides/features/localization/" class="sidebar__link">Localization</a></li><li class="sidebar__item"><a href="/guides/features/rake-tasks/" class="sidebar__link">Rake Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/generators/overview/">Generators</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/generators/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/generators/projects/" class="sidebar__link">Projects</a></li><li class="sidebar__item"><a href="/guides/generators/plugins/" class="sidebar__link">Plugins</a></li><li class="sidebar__item"><a href="/guides/generators/controllers/" class="sidebar__link">Controllers</a></li><li class="sidebar__item"><a href="/guides/generators/models/" class="sidebar__link">Models</a></li><li class="sidebar__item"><a href="/guides/generators/migrations/" class="sidebar__link">Migrations</a></li><li class="sidebar__item"><a href="/guides/generators/mailers/" class="sidebar__link">Mailers</a></li><li class="sidebar__item"><a href="/guides/generators/sub-applications/" class="sidebar__link">Sub-Applications</a></li><li class="sidebar__item"><a href="/guides/generators/tiny-skeleton/" class="sidebar__link">Tiny Skeleton</a></li><li class="sidebar__item"><a href="/guides/generators/admin/" class="sidebar__link">Admin</a></li><li class="sidebar__item"><a href="/guides/generators/components/" class="sidebar__link">Components</a></li><li class="sidebar__item"><a href="/guides/generators/tasks/" class="sidebar__link">Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/controllers/overview/">Controllers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/controllers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/controllers/routing/" class="sidebar__link">Routing</a></li><li class="sidebar__item"><a href="/guides/controllers/layouts/" class="sidebar__link">Layouts</a></li><li class="sidebar__item"><a href="/guides/controllers/provides-formats/" class="sidebar__link">Provides Format</a></li><li class="sidebar__item"><a href="/guides/controllers/params-whitelisting/" class="sidebar__link">Params Whitelisting</a></li><li class="sidebar__item"><a href="/guides/controllers/route-filters/" class="sidebar__link">Route Filters</a></li><li class="sidebar__item"><a href="/guides/controllers/prioritized-routes/" class="sidebar__link">Prioritized Routes</a></li><li class="sidebar__item"><a href="/guides/controllers/custom-conditions/" class="sidebar__link">Custom Conditions</a></li><li class="sidebar__item"><a href="/guides/controllers/parsing-params/" class="sidebar__link">Parsing Params</a></li><li class="sidebar__item"><a href="/guides/controllers/rendering/" class="sidebar__link">Rendering</a></li><li class="sidebar__item"><a href="/guides/controllers/sessions/" class="sidebar__link">Sessions</a></li></ul><h5 class="sidebar__header"><a href="/guides/application-helpers/overview/">Application Helpers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/application-helpers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/application-helpers/output-helpers/" class="sidebar__link">Output Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/tag-helpers/" class="sidebar__link">Tag Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/asset-helpers/" class="sidebar__link">Asset Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-helpers/" class="sidebar__link">Form Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-builders/" class="sidebar__link">Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/standard-form-builder/" class="sidebar__link">Standard Form Builder</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-form-builders/" class="sidebar__link">Custom Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/nested-object-form-support/" class="sidebar__link">Nested Object Form Support</a></li><li class="sidebar__item"><a href="/guides/application-helpers/format-helpers/" class="sidebar__link">Format Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/render-helpers/" class="sidebar__link">Render Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-helpers/" class="sidebar__link">Custom Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/ujs-helpers/" class="sidebar__link">Unobtrusive JavaScript Helpers</a></li></ul><h5 class="sidebar__header"><a href="/guides/adding-components/overview/">Adding Components</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/adding-components/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/adding-components/persistence-engine/" class="sidebar__link">Persistence Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/javascript-engine/" class="sidebar__link">JavaScript Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/testing-library/" class="sidebar__link">Testing Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/rendering-engine/" class="sidebar__link">Rendering Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/mocking-library/" class="sidebar__link">Mocking Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/stylesheet-engine/" class="sidebar__link">Stylesheet Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/locale-translations/" class="sidebar__link">Locale Translations</a></li></ul><h5 class="sidebar__header"><a href="/guides/advanced-usage/overview/">Advanced Usage</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/advanced-usage/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/extending-padrino-projects/" class="sidebar__link">Extending Padrino Projects</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/3rd-party-plugins/" class="sidebar__link">3rd Party Plugins</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/asynchronous-concurrency-with-padrino/" class="sidebar__link">Asyncronous Concurrency</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/grape-with-padrino/" class="sidebar__link">Grape with Padrino</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/running-padrino-on-jruby/" class="sidebar__link">Running Padrino on JRuby</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="sidebar__link">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/padrino-and-omniauth-overview/" class="sidebar__link">Padrino and OmniAuth Overview</a></li></ul></div></div><div class="page__content"><div class="content"><p class="content__chapter-title">Introduction</p><h1 id="examples">Examples</h1>
+<p>Padrino is a relatively new framework, but many coders agree the best way to get
+familiar with a framework is to see examples of existing applications. Soon, we
+hope to compile a list of developed apps using Padrino.</p>
+<h2 id="open-source-applications">Open-Source Applications</h2>
+<p>Below is the current list of known open-source Padrino applications.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>In Production</th>
+<th>Author</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://github.com/padrino/padrino-web">padrino-web</a></td>
+<td>Open-sourced padrinorb.com source code.</td>
+<td>Yes</td>
+<td><a href="https://github.com/orgs/padrino/teams/collaborators">Padrino Team</a></td>
+</tr>
+<tr>
+<td><a href="http://middlemanapp.com">middleman</a></td>
+<td>A Static Frontend Development Framework (use Padrino for their template helpers).</td>
+<td>Yes</td>
+<td><a href="https://github.com/middleman/middleman">middleman</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/findoutwho/hasbeen.in">hasbeen.in</a></td>
+<td>Your geek-friendly travel site.</td>
+<td>Yes</td>
+<td><a href="https://github.com/findoutwho">findoutwho</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/RmMsr/getVolunteers">getVolunteers</a></td>
+<td>Embed an image anywhere to let people know if your event needs more help.</td>
+<td>Yes</td>
+<td><a href="https://github.com/RmMsr">RmMsr</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/wordsandwriting/lumen">lumen</a></td>
+<td>Open-source group discussion platform.</td>
+<td>Yes</td>
+<td><a href="https://github.com/wordsandwriting">wordsandwriting</a></td>
+</tr>
+<tr>
+<td><a href="http://transportergui.com">iTunes Store Transporter: GUI</a></td>
+<td>GUI for the iTunes Store’s Transporter (iTMSTransporter).</td>
+<td>Yes</td>
+<td><a href="https://github.com/sshaw">sshaw</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hofstudios.com/">HOF Studios Website</a></td>
+<td>HOF Studios specializes in game development for PC and mobile platforms.</td>
+<td>Yes</td>
+<td><a href="https://github.com/hofstudios">HOF Studios</a></td>
+</tr>
+<tr>
+<td><a href="http://olympics.clearlytech.com/api-doc.html">sochi2014 api</a></td>
+<td>Unofficial olympics for sochi2014.</td>
+<td>Yes, but API is no longer active</td>
+<td><a href="https://github.com/clearlytech">clearytech</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/k2052/dbd_notebook">dbd_notebook</a></td>
+<td>Source code for notebook.designbreakdown.com (inactive since 2014).</td>
+<td>No</td>
+<td><a href="https://github.com/k2052">k2052</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jorgefuertes/manicminer-front">manicminer-front</a></td>
+<td>Manicminer Multicoin Mining Pool - Front App (inactive since 2014).</td>
+<td>No  <a href="https://github.com/jorgefuertes">jorgefuertes</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pengwynn/fumblr">fumblr</a></td>
+<td>Stop fumbling with your Tumblr theme development (inactive since 2013).</td>
+<td>No</td>
+<td><a href="https://github.com/pengwynn">pengwynn</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/gtgames/machete">machete</a></td>
+<td>Simple mongomapper+padrino driven web site engine (inactive since 2012).</td>
+<td>No</td>
+<td><a href="https://github.com/gtgames">gtgames</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/padrino/shortener-demo">shortener-demo</a></td>
+<td>Example Padrino url shortener app (inactive since 2011).</td>
+<td>No</td>
+<td><a href="https://github.com/achiu">achiu</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/udzura/haircut">haircut</a></td>
+<td>The URL shortener with Padrino and MongoId (inactive since 2011).</td>
+<td>No</td>
+<td><a href="https://github.com/udzura">udzura</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mcmire/moolah">moolah</a></td>
+<td>A tiny money management app (inactive since 2011).</td>
+<td>No</td>
+<td><a href="https://github.com/mcmire">mcmire</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/apeacox/picciotto">picciotto</a></td>
+<td>Minimalistic website framework (inactive since 2011).</td>
+<td>No</td>
+<td><a href="https://github.com/apeacox">apeacox</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/bratta/fikus">fikas</a></td>
+<td>The Simple Ruby CMS (inactive since 2010).</td>
+<td>No</td>
+<td><a href="https://github.com/bratta">bratta</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/ryanfitz/pergola">pergola</a></td>
+<td>Web frontend to mongoDB (inactive since 2011).</td>
+<td>No</td>
+<td><a href="https://github.com/ryanfitz">ryanfitz</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pengwynn/presto">presto</a></td>
+<td>Padrino + NestaCMS (inactive since 2010).</td>
+<td>No</td>
+<td><a href="http://wynnnetherland.com/">pengwynn</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/cored/shopping-cart">shopping-cart</a></td>
+<td>The Rails shopping cart demo ported to the Padrino framework (inactive since 2010).</td>
+<td>No</td>
+<td><a href="https://github.com/cored">cored</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/padrino/omerta">omerta</a></td>
+<td>Simple blog platform using Mongo Mapper, MongoDB and Padrino (inactive since 2010).</td>
+<td>No</td>
+<td><a href="https://github.com/zenom">zenom</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mwlang/mashup">mashup</a></td>
+<td>Displays various RSS feeds on one page (inactive since 2010).</td>
+<td>No</td>
+<td><a href="https://github.com/mwlang">mwlang</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pepe/padrino_questionnaire">padrino_questionnaire</a></td>
+<td>Simple questionnaire application (inactive since 2011).</td>
+<td>No</td>
+<td><a href="https://github.com/pepe">pepe</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/CaDs/tokyo-project">tokyo-project</a></td>
+<td>A photo gallery showcasing pictures of Tokyo.</td>
+<td>Yes</td>
+<td><a href="https://github.com/CaDs">CaDs</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/AustinBlues/Amethyst">Amethyst</a></td>
+<td>Amethyst2 is an RSS/ATOM feed reader Web server inspired by Amphetadisk.</td>
+<td>Yes</td>
+<td><a href="https://github.com/AustinBlues">AustinBlues</a></td>
+</tr>
+</tbody></table>
+<h2 id="web-libraries">Web Libraries</h2>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Author</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://github.com/padrino/padrino-recipes">padrino-recipes</a></td>
+<td>Recipes for auto-installing various extra components into Padrino.</td>
+<td><a href="https://github.com/padrino">Padrino</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/padrino/padrino-contrib">padrino-contrib</a></td>
+<td>Extra libraries that are useful for use in Padrino.</td>
+<td><a href="https://github.com/padrino">Padrino</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/jondot/padrino-warden">padrino-warden</a></td>
+<td>Provides authentication for your Padrino application.</td>
+<td><a href="https://github.com/jondot">jondot</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/codeplant/sinatra-simple-navigation">sinatra-simple-navigation</a></td>
+<td>Creates a simple way to do navigation for Padrino and Sinatra.</td>
+<td><a href="https://github.com/codeplant">codeplant</a></td>
+</tr>
+<tr>
+<td><a href="http://www.sinatrarb.com/extensions-wild.html">Sinatra Wild Extensions</a></td>
+<td>Bunch of Sinatra which can be used alongside with Padrino.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sumskyi/padrino-pagination">padrino-pagination</a></td>
+<td>Pagination for Padrino (inactive since 2014).</td>
+<td><a href="https://github.com/sumskyi">sumskyi</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/achiu/rack-recaptcha">rack-recaptcha</a></td>
+<td>Rack Middleware for CAPTCHA verification via Recaptcha API</td>
+<td><a href="https://github.com/achiu">achiu</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/activestylus/padrino-fields">padrino-fields</a></td>
+<td>Simple, flexible form helpers for the Padrino Framework (inactive since 2013).</td>
+<td><a href="https://github.com/activestylus">activestylus</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/bolshakov/padrino-completion">padrino-completion</a></td>
+<td>Bash completion for Padrino (inactive since 2012).</td>
+<td><a href="https://github.com/bolshakov">bolshakov</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/spllr/vim-padrino">vim-padrino</a></td>
+<td>Vim support for Padrino (inactive since 2012).</td>
+<td><a href="https://github.com/spllr">spllr</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/achiu/ripl-padrino">ripl-padrino</a></td>
+<td>ripl console for Padrino applications (inactive since 2011).</td>
+<td><a href="https://github.com/achiu">achiu</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/nu7hatch/padrino-responders">padrino-responders</a></td>
+<td>Awesome way to remove redundancy in your Padrino controllers (inactive since 2011).</td>
+<td><a href="https://github.com/nu7hatch">nu7hatch</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/floere/view_models">view_models</a></td>
+<td>A view model/representer solution for Padrino and Rails (inactive since 2012).</td>
+<td><a href="https://github.com/floere">floere</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/dariocravero/declarative_authorization_padrino">declarative_authorization_padrino</a></td>
+<td>Declarative Authorization for Padrino (inactive since 2011).</td>
+<td><a href="https://github.com/dariocravero">dariocravero</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Asquera/padrino-rpm">padrino-rpm</a></td>
+<td>New Relic RPM for Padrino (inactive since 2011).</td>
+<td><a href="https://github.com/Asquera">Asquera</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/nu7hatch/padrino-form-errors">padrino-form-errors</a></td>
+<td>Simple way to handle errors more robustly (inactive since 2010).</td>
+<td><a href="https://github.com/nu7hatch">nu7hatch</a></td>
+</tr>
+</tbody></table>
+<h2 id="closed-source-applications">Closed-source Applications</h2>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>In Production</th>
+<th>Author</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="http://maptia.com/">Maptia</a></td>
+<td>A beautiful way to tell stories about places.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="http://brainfeed.org/">Brainfeed</a></td>
+<td>Back-end for iPad app that presents educational videos for kids</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="http://www.cokecce.com">Coca Cola Enterprises</a></td>
+<td>Coca Cola&#39;s European bottling arm. Webby award.</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="http://jumpseller.com">jumpseller</a></td>
+<td>SaaS to create online stores</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="http://freshbsd.org">FreshBSD</a></td>
+<td>FreshBSD is a search engine cataloguing the development of major BSD-associated software</td>
+<td>Yes</td>
+<td><a href="http://hur.st/">Thomas Hurst</a></td>
+</tr>
+<tr>
+<td><a href="http://www.smartmedia.cz">Smartmedia</a></td>
+<td>Create advanced mobile, facebook and web applications</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="http://www.otticalisotti.com/">Otticalisotti</a></td>
+<td></td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="http://martianoids.com">martianoids.com</a></td>
+<td>System administration company at Spain. Products and blog.</td>
+<td>Yes</td>
+<td><a href="https://github.com/jorgefuertes">jorgefuertes</a></td>
+</tr>
+<tr>
+<td><a href="http://demo.biosig.xyz">demo.biosig.xyz</a></td>
+<td>Voice biometric software, where you can enroll and authenticate using voice.</td>
+<td>Yes</td>
+<td><a href="https://github.com/jorgefuertes">jorgefuertes</a></td>
+</tr>
+<tr>
+<td><a href="http://api.biosig.xyz">api.biosig.xyz</a></td>
+<td>The api for demo.biosig.xyz</td>
+<td>Yes</td>
+<td><a href="https://github.com/jorgefuertes">jorgefuertes</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hrpartner.io/">HRPartner</a></td>
+<td>The go-to cloud HR software for small &amp; medium-sized businesses.</td>
+<td>Yes</td>
+<td><a href="https://github.com/CyberFerret">Devan Sabaratnam</a></td>
+</tr>
+<tr>
+<td><a href="http://www.logbookhq.com/">Logbook HQ</a></td>
+<td>An easy and beautiful way to track your mileage, fuel and other car expenses.</td>
+<td>Yes</td>
+<td><a href="https://github.com/CyberFerret">Devan Sabaratnam</a></td>
+</tr>
+<tr>
+<td><a href="http://www.staffstatus.io/">StaffStatus</a></td>
+<td>Allows staff to maintain their in-out status.</td>
+<td>Yes</td>
+<td><a href="https://github.com/CyberFerret">Devan Sabaratnam</a></td>
+</tr>
+</tbody></table>
+
+<p>Unknown if they still use Padrino, but I asked them:</p>
+
+<ul>
+<li><a href="http://www.idyllic-software.com">http://www.idyllic-software.com</a></li>
+<li><a href="http://edenspiekermann.com">http://edenspiekermann.com</a></li>
+<li><a href="http://salin.org">http://salin.org</a></li>
+<li><a href="http://www.videofy.me">http://www.videofy.me</a> - VideofyMe helps bloggers make money with a slick video platform.</li>
+<li><a href="http://www.headlondon.com">http://www.headlondon.com</a> - London web agency using Padrino as its main dev framework</li>
+<li><a href="http://www.clearhaus.com">http://www.clearhaus.com</a> - Acquiring merchant services</li>
+<li><a href="https://nofity.com">https://nofity.com</a> - When notes meets social</li>
+<li><a href="http://landmoda.com">http://landmoda.com</a> - Networks for models in the world!</li>
+<li><a href="http://martianoids.com">http://martianoids.com</a> - System administration company at Spain. Products and blog.</li>
+<li><a href="http://middlemanapp.com">http://middlemanapp.com</a> - Middleman: A Static Frontend Development Framework</li>
+</ul>
+<p class="updated"> last updated: 2022-03-01</p><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_page blog_page_33 blog_page_33_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-9-10-released-built-for-speed/">Padrino 0.9.10 Released - Built for speed!</a></h1><p class="article__metadata">Posted on April 20, 2010 by Nathan | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Our team is pleased to announce the 0.9.10 release of the Padrino Framework!</p>
+
+<p>We have been working hard on Padrino since our first ‘public’ announcement and we have gotten a lot of amazing feedback and suggestions! This new release contains three major types of changes:</p>
+
+<p>1) Performance Optimizations
+2) Added Features
+3) Bug Fixes</p>
+
+<p>In the full post below, we will take you through a detailed tour of the biggest changes in this release (for a more compact view, see our <a href="http://www.padrinorb.com/changes">changelog</a>). Also, the full post contains benchmarks comparing Padrino to other popular ruby frameworks!</p>
+<h2 id="performance-optimizations">Performance Optimizations</h2>
+<p>Right after announcing Padrino, many developers began to request benchmarks to give them a better understanding of how our framework compared in terms of performance with the existing ruby web frameworks.</p>
+
+<p>Personally, no one on our team is a big fan of benchmarks since they can often be misleading and real world usage is generally quite different. However, we thought that providing a set of simple benchmarking results would help people get at least a basic sense of Padrino’s speed.</p>
+
+<p>According to our <a href="http://github.com/DAddYE/web-frameworks-benchmark">benchmarks</a>, <strong>Padrino</strong> is now about as fast as Sinatra (and in some cases actually a bit faster!).</p>
+
+<p>For our benchmarks, we chose to test three different sample applications. The <a href="http://github.com/DAddYE/web-frameworks-benchmark/tree/text_render">first test</a> was a bare minimum app as a baseline where a response is just rendered with a short inline string. The <a href="http://github.com/DAddYE/web-frameworks-benchmark/tree/template_render">second test</a> is a simple app where we render a small erb template. The <a href="http://github.com/DAddYE/web-frameworks-benchmark/tree/more_advanced">third test</a> was the most comprehensive with a more ‘full-stack’ application including sessions, haml, layouts, templates, flash, and helpers.</p>
+<div class="highlight"><pre class="syntax plaintext"><code>  # Rendering a string inline
+  Merb 1.1.0        =&gt; 1749.97 rps
+  Padrino 0.9.10    =&gt; 1629.15 rps
+  Sinatra 1.0.0     =&gt; 1537.78 rps
+  Rails 3.beta3     =&gt; 381.76 rps
+  Ramaze 2010.04.04 =&gt; 270.08 rps
+
+  # Rendering a basic erb template
+  Merb 1.1.0        =&gt; 1490.8 rps
+  Padrino 0.9.10    =&gt; 1416.84 rps
+  Sinatra 1.0.0     =&gt; 1157.89 rps
+  Rails 3.0.beta3   =&gt; 330.58 rps
+  Ramaze 2010.04.04 =&gt; 254.23 rps
+
+  # Rendering a simulated simple app
+  Padrino 0.9.10    =&gt; 675.79 rps
+  Sinatra 1.0.0     =&gt; 652.0 rps
+  Merb 1.1.0        =&gt; 642.29 rps
+  Rails 3.0.beta3   =&gt; 201.86 rps
+  Ramaze 2010.04.04 =&gt; 130.62 rps
+</code></pre></div>
+<p><em>rps = requests per second</em> (higher is better)</p>
+
+<p>As you can see Padrino is very competitive in terms of speed in 0.9.10! In every case, Padrino is on par speed-wise with the equivalent Sinatra application. Be sure to check out the code for our benchmarks and let us know how we can improve them!</p>
+<h2 id="new-localized-translations">New Localized Translations</h2>
+<p>We added four new languages to the admin, helpers and error message translations:</p>
+
+<ul>
+<li>Danish [Thanks to <a href="http://github.com/molte">Molte</a>]</li>
+<li>French [Thanks to <a href="http://github.com/mickey">Mickey</a>]</li>
+<li>Russian [Thanks to <a href="http://github.com/imm">Imm</a>]</li>
+<li>Brazilian [Thanks to <a href="http://github.com/deminew">Deminew</a>]</li>
+</ul>
+
+<p>If you want to contribute a translation for another language, please follow the <a href="/guides/localization">translation guide</a> and fork/send us your translations.</p>
+<h2 id="new-persistence-adapters">New Persistence Adapters</h2>
+<p>We are very very glad to announce that <strong>Padrino</strong> can now build the admin interface with these orm adapters:</p>
+
+<ul>
+<li>Couchdb [Thanks to <a href="http://github.com/ghostm">Ghostm</a>]</li>
+<li>Sequel [Thanks to <a href="http://github.com/aemadrid">Aemadrid</a>]</li>
+</ul>
+
+<p>This means <strong>Padrino</strong> now fully supports the following persistence engines: MongoMapper, MongoId, CouchDb, ActiveRecord and Sequel.</p>
+
+<p>In the future, we are also planning to integrate: <a href="http://github.com/soveran/ohm">OHM</a> (for redis) and <a href="http://github.com/jamesgolick/friendly">Friendly</a> as well among others.</p>
+
+<p>If you want to contribute a component, be sure to checkout the <a href="http://www.padrinorb.com/guides/adding-new-components">guide for adding components</a> which explains how to add a component to the generator and admin.</p>
+<h2 id="enhanced-router-capabilities">Enhanced Router Capabilities</h2>
+<p>In this version of <strong>Padrino</strong>, we have introduced the <a href="http://github.com/padrino/padrino-framework/blob/master/padrino-core/lib/padrino-core/router.rb">Padrino#router</a></p>
+
+<p>This class is an extended version of <a href="http://github.com/rack/rack/blob/master/lib/rack/urlmap.rb">Rack::URLMap</a> which is responsible for:</p>
+
+<ul>
+<li>Mapping a path to the specified App (like URLMap)</li>
+<li>Ignoring server names (this solve several issues with virtual hosts and domain aliases)</li>
+<li>Using hosts instead of server name for match mappings (this help us with our vhost and domain aliases)</li>
+</ul>
+
+<p>Padrino is principally designed to support <a href="/pages/why#mountable-applications">mountable applications</a> and now with <code>Padrino#router</code> things are much simpler because you can match for a host pattern:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>Padrino.mount_core("Blog").host("blog.example.org")
+Padrino.mount("Admin").host("admin.example.org")
+Padrino.mount("WebSite").host(/.*\.?example.org/)
+Padrino.mount("Foo").to("/foo").host("bar.example.org")
+</code></pre></div>
+<p>In addition to these changes, <strong>Padrino</strong> has also been improved to work out of the box (with no special configuration) when deploying projects on <a href="http://www.modrails.com">Passenger</a> and even when <a href="http://www.modrails.com/documentation/Users%20guide%20Nginx.html#deploying_rails_to_sub_uri">deploying to Sub-URIs</a>.</p>
+<h2 id="route-provides-and-conditions">Route Provides and Conditions</h2>
+<p>Now controllers accept Sinatra <code>conditions</code> and that means <code>respond_to</code> can work together with Sinatra <code>provides</code>.</p>
+
+<p>Our provides/respond_to auto sets the <code>content_type</code> looking for the request format (aka extension ex: .js, .json) and can set it according to the <code>request.accept</code></p>
+<div class="highlight"><pre class="syntax plaintext"><code>get :foo, :provides =&gt; [:js, :json] do ... end
+# older respond_to is still supported
+get :foo, :respond_to =&gt; [:js, :json] do ... end
+</code></pre></div>
+<p>Or you can write:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>provides :js, :json
+get :foo do ... end
+</code></pre></div>
+<p>Remember that now you also can build your custom conditions (like in Sinatra):</p>
+<div class="highlight"><pre class="syntax plaintext"><code>  def protect(*args)
+    condition {
+      unless username == "foo" &amp;&amp; password == "bar"
+        halt 403, "go away"
+      end
+    }
+  end
+
+  get "/", :protect =&gt; true do
+    "Only foo can see this"
+  end
+</code></pre></div><h2 id="scoped-filters-and-layouts">Scoped Filters and Layouts</h2>
+<p><strong>Padrino</strong> now scopes both filters and layouts for each controller. This means that layouts and/or route filters defined in a <code>controller</code> do not interfere with those defined in the main application or in other controllers.</p>
+<div class="highlight"><pre class="syntax plaintext"><code>SimpleApp.controllers :posts do
+  # Apply a layout for routes in this controller
+  # Layout file would be in 'app/views/layouts/posts.haml'
+  layout :posts
+  before { @foo = "bar" }
+  get("/posts") { render :haml, "Uses posts layout and @foo = #{@foo}" }
+end
+
+SimpleApp.controllers :accounts do
+  # Padrino allows you to apply a different layout for this controller
+  # Layout file would be in 'app/views/layouts/accounts.haml'
+  layout :accounts
+  before { @bar = "foo" }
+  get("/accounts") { render :haml, "Uses accounts layout and @bar = #{@bar}" }
+end
+</code></pre></div>
+<p>As you can see each controller is now scoped allowing for easy grouping of layouts and filters for all routes within a particular controller.</p>
+<h2 id="default-values">Default Values</h2>
+<p>In certain scenarios like <code>I18n</code> apps, we need to repeat given values for multiple routes like:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>get :show, :with =&gt; [:id, :lang] do ... end
+</code></pre></div>
+<p>and repeat this option multiple times with <code>:lang =&gt; I18n.locale</code> like:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>url(:show, :lang =&gt; I18n.locale, :id =&gt; 123)
+</code></pre></div>
+<p>Now you can easily save yourself time with:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>controller :lang =&gt; I18n.locale do
+  get :show, :with =&gt; [:id, :lang] do ... end
+end
+</code></pre></div>
+<p>and in this way you can build urls like:</p>
+<div class="highlight"><pre class="syntax plaintext"><code>url(:show, :id =&gt; 123)
+</code></pre></div>
+<p>and the default controller settings will be automatically appended to the route.</p>
+<h2 id="minor-features">Minor Features</h2>
+<p>Padrino 0.9.10 also features support for a host of minor improvements:</p>
+
+<ul>
+<li>Added support for ext-core as javascript engine [Thanks to <a href="http://github.com/imm">Imm</a>]</li>
+<li>Mailer now supports explicitly setting the template path to render for a mail method</li>
+<li>Beautiful colorized logging support</li>
+<li>Ruby 1.9.2-head compatibility</li>
+<li>Now sessions (like Sinatra) are disabled as default</li>
+<li>Updated jQuery to v1.4.2</li>
+<li>Added <code>padrino rake routes</code></li>
+</ul>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li>Removed always “index” from our routes name</li>
+<li>Fixes SASS reload plugin issue on 1.9.X</li>
+<li>Fixes an issue with generator not casing controller / model names</li>
+<li>Fixed <code>padrino g</code> and <code>padrino gen</code> aliases</li>
+<li>Fixes issue with mounter and locating the app file</li>
+<li>Removed VERSION files. This prevent problems described here: <a href="http://github.com/nex3/haml/issues/issue/24">http://github.com/nex3/haml/issues/issue/24</a></li>
+<li>Fixed a bug with layouts that prevent double rendering</li>
+<li>ActiveSupport 3.0 Compatibility fixes</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>As you can see there are some important fixes and new features but we want to point out a few things:</p>
+
+<ul>
+<li>Padrino is already quite stable (remember that since version 0.7 our team has been using it in the real world)</li>
+<li>This project is very actively contributed to and our team is committed to this framework and fix bugs quickly.</li>
+</ul>
+
+<p>And what is next for Padrino?</p>
+
+<p>We can anticipate right now that our team will soon be completing <strong>padrino templates and plugins</strong>, the <strong>tiny app generator</strong> and the <strong>padrino-cache</strong> gem.</p>
+
+<p>After we complete these items and fix any bugs that crop up, Padrino can be ready for ONE-DOT-ZERO release!</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div class="article"><h1 class="article__title"><a href="/blog/addressing-concerns-about-padrino/">Addressing Concerns about Padrino</a></h1><p class="article__metadata">Posted on April 04, 2010 by Nathan | categories: <a href="/category/ruby/">ruby</a></p><p>Over the last week, we have taken the first steps towards showing Padrino to a larger audience of Ruby and Sinatra fans. Our team and other developers have gotten around to announcing Padrino on <a href="http://www.rubyinside.com/padrino-sinatra-webapp-framework-3198.html">RubyInside</a>, <a href="http://rubyflow.com/items/3665">Rubyflow</a>, <a href="http://ruby5.envylabs.com/episodes/64-episode-62-march-26-2010">the Ruby5 Podcast</a>, <a href="http://news.ycombinator.com/item?id=1235078">Hacker News</a>, <a href="http://groups.google.com/group/sinatrarb/browse_thread/thread/ee691be6213cf0a1/3471ff1def80b062?pli=1">the Sinatra Google Group</a>, among other sources.</p>
+
+<p>The <a href="http://search.twitter.com/search?q=padrino+framework">chatter on twitter</a> and the fact that Padrino has become a <a href="http://github.com/languages/Ruby">most watched ruby repo this month</a> on Github shows this little framework is gaining an audience. Thus far, our team has been very pleased with the feedback that we have gotten even already after the various announcements. The response has been overwhelmingly positive and constructive and we wanted to thank everyone for taking the time to explore what Padrino is all about!</p>
+
+<p>At the same time, there have been a couple questions that have popped up along with some valid criticisms and/or confusion as to what the Padrino framework is all about. I would like to take this blog post as an opportunity to address many of these concerns as well as talk a little bit about the future of Padrino.</p>
+
+<p><strong>Why another web framework? Aren’t there enough out there already?</strong></p>
+
+<p>This is probably the most common criticism that I have seen so far when a developer immediately reacts to hearing about Padrino. I definitely understand this reaction and I consider this a reasonable question to ask whenever a new web development framework pops onto the stage.</p>
+
+<p>First, I would like to disagree that Padrino is a ‘new’ web development framework at all. When you take a deeper look at Padrino, it quickly becomes clear that we have not strayed far from our Sinatra roots. This is not a ‘brand new’ framework by any stretch. This is simply an enhanced super-set of Sinatra! If a developer knows Sinatra, then they already know basic Padrino. If a gem on Github works currently on rack or Sinatra, the very same gem will already work on Padrino without any modifications whatsoever! There is virtually nothing about Padrino that steps on Sinatra’s toes.</p>
+
+<p>Second, I would argue that Padrino is very different from a typical ‘new’ web framework. Padrino’s codebase is fairly small all things considered. Not ‘Sinatra small’ but certainly fairly miniscule in comparison to Rails or most full-stack frameworks. During the development of Padrino, our team was committed to absolutely <strong>never</strong> re-inventing the wheel. Whenever possible, we have taken popular, existing, and battle-tested libraries and integrated them together to make development easier. We used <a href="http://github.com/joshbuddy/usher">usher</a> to enhance routing, a modified <a href="http://github.com/adamwiggins/pony">pony</a> for developing the mailer, <a href="http://github.com/carlhuda/bundler">bundler</a> for managing dependencies, and the excellent <a href="http://github.com/wycats/thor/">thor</a> for the generators, tasks and templates. We understand that new code usually means unstable code and have tried to use existing tools whenever possible!</p>
+
+<p>Third, while we have indeed taken the time to combine excellent libraries and integrate them for the purpose of enhancing Sinatra, it is also important to point out that we have <strong>not</strong> become an ‘opinionated’ framework’. In fact, we have worked hard to make Padrino agnostic and yet still maintain a smooth and easy development flow. The <a href="http://www.padrinorb.com/guides/generators">generators</a> and the <a href="http://www.padrinorb.com/guides/padrino-admin">admin system</a> are both engineered to be able to support an arbitrary number of different tools or library choices. A Padrino application could just as easily be using Mongoid, Rspec, Less and Erb or Datamapper, Shoulda, Sass, and Haml. We don’t mind and make it easy to use any stack that you already like working with!</p>
+
+<p><strong>Hasn’t Padrino ruined the whole intention of Sinatra by making it too heavyweight?</strong></p>
+
+<p>All three current core developers of Padrino have fairly extensive experience using Rails and Sinatra. We have developed many applications for hobby, for clients and for companies we have worked for in the past. I personally cannot say I have much disdain for Rails at all. In fact, I sincerely enjoyed programming web applications with Rails for years. However, once I stumbled onto Sinatra and started experimenting with simple applications, I was very impressed with how lightweight and expressive Sinatra could be. I appreciated Sinatra and the spirit of that micro-framework so much that I started using it for more and more of my development work.</p>
+
+<p>However, anyone who has fallen in love with Sinatra knows that eventually you run into various brick walls and major nuisances that make Sinatra impractical for large applications. Yet, I felt that with a few standardized additions, Sinatra could easily be enhanced to support applications of an arbitrary size. Those tools that I built were the early stages of an older library of mine called <a href="http://github.com/nesquena/sinatra_more">sinatra_more</a>. This became modestly popular and from there (with help from DAddYE, Arthur and others), ultimately evolved into the Padrino framework that we have today.</p>
+
+<p>Padrino is about building where Sinatra leaves off and creating a cohesive set of standardized building blocks to allow developers to push Sinatra development to new heights and far more complex applications than typically feasible prior. Keep in mind that Padrino is simply a superset of Sinatra and that a developer can pick and choose which Padrino features he would like to include in his application. In fact, Padrino is modular enough that most of the <a href="http://www.padrinorb.com/guides/standalone-usage-in-sinatra">functionality can be included</a> right inside an <a href="http://www.padrinorb.com/guides/standalone-usage-in-sinatra">existing Sinatra application</a> rather easily.</p>
+
+<p><strong>How does Padrino compare to Monk, Chicago, sinatra_more, Pancake, etc?</strong></p>
+
+<p>Another common question that I have seen emerge is an explanation on how Padrino compares to existing Sinatra ‘glue’ extension such as <a href="http://monkrb.com/">Monk</a> , <a href="http://github.com/thumblemonks/chicago">Chicago</a> , <a href="http://github.com/nesquena/sinatra_more">sinatra_more</a> , <a href="http://github.com/hassox/pancake">Pancake</a>. Here I will briefly outline what each existing one is and how this differs from Padrino.</p>
+
+<p><strong>Monk</strong> is primarily a skeleton (bare application) which gives you a solid starting point for developing a Sinatra application. The default skeleton will give you a Sinatra application with a structure, which can be tested using Contest, Rack::Test and Webrat. To store things you’ll have Ohm, a persistence layer that talks to Redis. Other niceties included, like a logger, a settings hash and proper reloading for easier development. While monk is a very cool library, it is actually quite a bit different in scope from Padrino. Monk does allow for creating skeletons of different types, but no proper ‘generator’ is available and the skeletons provided do not really compare to totally agnostic <a href="http://www.padrinorb.com/guides/generators">generators</a> that are offered by Padrino. Padrino also provides all of the niceties afforded by monk (improved logger, configuration hash, proper development reloaded) along with other great features like i18n localization, admin dashboard, mail delivery, view helpers, form helpers, form builders, enhanced routing and much more.</p>
+
+<p><strong>Chicago</strong> is a library filled with “testing helpers, extensions, and macros used commonly by Thumble Monks”. Looking at Chicago, you can tell that the developers were running into some of the same annoyances that led to the development of Padrino. Chicago provides enhanced support for SASS in your application, basic helpers such as ‘anchor’, ‘stylesheet_include’, and ‘javascript_include’ along with helpers to make testing easier with a few frameworks. Chicago is undoubtedly an excellent library and in many ways a precursor to <a href="http://www.padrinorb.com/guides/application-helpers">Padrino::Helpers</a> which contains nearly all the functionality within Chicago and much, much more. If you like Chicago, you will love using Padrino for the same reasons.</p>
+
+<p><strong>sinatra_more</strong> is the direct ancestor of Padrino. The developers of both are the same and the intention of them both are almost exactly the same. Padrino simply builds off of what sinatra_more started and created a more comprehensive and integrated set of functionality. If you have enjoyed using sinatra_more, Padrino provides everything you have appreciated along with many additional features.</p>
+
+<p><strong>pancake</strong> is a very cool project that provides very useful helpers on top of Rack that assist in constructing Rack stacks as mixins. Almost all key aspects of web frameworks are covered in Pancake as mixins to help you create your own re-usable Rack Stacks without worrying about the really low level plumbing. Pancake actually overlaps very little with Padrino. I recommend experimenting with Padrino applications as part of the Pancake Rack stack!</p>
+
+<p>In addition, there are admittedly lots of libraries that provide small subsets of the functionality afforded by Padrino. Many of these libraries are great and there is nothing about Padrino that prevents them from being used! In fact, any library that you can use in Sinatra can be used the exact same way with Padrino. Padrino simply gives you a very strong starting point for building powerful Sinatra applications.</p>
+
+<p>For more information on Padrino, be sure to read our page devoted to <a href="http://www.padrinorb.com/pages/why">why to use our framework</a> which contains additional explanations and comparisons.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><li><a href="/blog/page/32/">Prev Page</a></li><li><a href="/blog/page/34/">Next Page</a></li></div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

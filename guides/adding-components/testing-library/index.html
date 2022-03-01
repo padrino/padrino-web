@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Testing Library</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="guides guides_adding-components guides_adding-components_testing-library guides_adding-components_testing-library_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link--is-active">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><h5 class="sidebar__header"><a href="/guides/introduction/overview/">Introduction</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/introduction/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/introduction/why-learn-padrino/" class="sidebar__link">Why Learn Padrino?</a></li><li class="sidebar__item"><a href="/guides/introduction/examples/" class="sidebar__link">Examples</a></li><li class="sidebar__item"><a href="/guides/introduction/the-bleeding-edge/" class="sidebar__link">The Bleeding Edge</a></li><li class="sidebar__item"><a href="/guides/introduction/press/" class="sidebar__link">Press</a></li></ul><h5 class="sidebar__header"><a href="/guides/getting-started/overview/">Getting Started</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/getting-started/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/getting-started/basic-projects/" class="sidebar__link">Basic Projects</a></li><li class="sidebar__item"><a href="/guides/getting-started/installation/" class="sidebar__link">Installation</a></li><li class="sidebar__item"><a href="/guides/getting-started/blog-tutorial/" class="sidebar__link">Blog Tutorial</a></li></ul><h5 class="sidebar__header"><a href="/guides/features/overview/">Features</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/features/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/features/padrino-admin/" class="sidebar__link">Padrino Admin</a></li><li class="sidebar__item"><a href="/guides/features/padrino-mailer/" class="sidebar__link">Padrino Mailer</a></li><li class="sidebar__item"><a href="/guides/features/padrino-cache/" class="sidebar__link">Padrino Cache</a></li><li class="sidebar__item"><a href="/guides/features/mounting-applications/" class="sidebar__link">Mounting Applications</a></li><li class="sidebar__item"><a href="/guides/features/development-commands/" class="sidebar__link">Development Commands</a></li><li class="sidebar__item"><a href="/guides/features/extensions/" class="sidebar__link">Extensions</a></li><li class="sidebar__item"><a href="/guides/features/localization/" class="sidebar__link">Localization</a></li><li class="sidebar__item"><a href="/guides/features/rake-tasks/" class="sidebar__link">Rake Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/generators/overview/">Generators</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/generators/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/generators/projects/" class="sidebar__link">Projects</a></li><li class="sidebar__item"><a href="/guides/generators/plugins/" class="sidebar__link">Plugins</a></li><li class="sidebar__item"><a href="/guides/generators/controllers/" class="sidebar__link">Controllers</a></li><li class="sidebar__item"><a href="/guides/generators/models/" class="sidebar__link">Models</a></li><li class="sidebar__item"><a href="/guides/generators/migrations/" class="sidebar__link">Migrations</a></li><li class="sidebar__item"><a href="/guides/generators/mailers/" class="sidebar__link">Mailers</a></li><li class="sidebar__item"><a href="/guides/generators/sub-applications/" class="sidebar__link">Sub-Applications</a></li><li class="sidebar__item"><a href="/guides/generators/tiny-skeleton/" class="sidebar__link">Tiny Skeleton</a></li><li class="sidebar__item"><a href="/guides/generators/admin/" class="sidebar__link">Admin</a></li><li class="sidebar__item"><a href="/guides/generators/components/" class="sidebar__link">Components</a></li><li class="sidebar__item"><a href="/guides/generators/tasks/" class="sidebar__link">Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/controllers/overview/">Controllers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/controllers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/controllers/routing/" class="sidebar__link">Routing</a></li><li class="sidebar__item"><a href="/guides/controllers/layouts/" class="sidebar__link">Layouts</a></li><li class="sidebar__item"><a href="/guides/controllers/provides-formats/" class="sidebar__link">Provides Format</a></li><li class="sidebar__item"><a href="/guides/controllers/params-whitelisting/" class="sidebar__link">Params Whitelisting</a></li><li class="sidebar__item"><a href="/guides/controllers/route-filters/" class="sidebar__link">Route Filters</a></li><li class="sidebar__item"><a href="/guides/controllers/prioritized-routes/" class="sidebar__link">Prioritized Routes</a></li><li class="sidebar__item"><a href="/guides/controllers/custom-conditions/" class="sidebar__link">Custom Conditions</a></li><li class="sidebar__item"><a href="/guides/controllers/parsing-params/" class="sidebar__link">Parsing Params</a></li><li class="sidebar__item"><a href="/guides/controllers/rendering/" class="sidebar__link">Rendering</a></li><li class="sidebar__item"><a href="/guides/controllers/sessions/" class="sidebar__link">Sessions</a></li></ul><h5 class="sidebar__header"><a href="/guides/application-helpers/overview/">Application Helpers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/application-helpers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/application-helpers/output-helpers/" class="sidebar__link">Output Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/tag-helpers/" class="sidebar__link">Tag Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/asset-helpers/" class="sidebar__link">Asset Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-helpers/" class="sidebar__link">Form Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-builders/" class="sidebar__link">Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/standard-form-builder/" class="sidebar__link">Standard Form Builder</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-form-builders/" class="sidebar__link">Custom Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/nested-object-form-support/" class="sidebar__link">Nested Object Form Support</a></li><li class="sidebar__item"><a href="/guides/application-helpers/format-helpers/" class="sidebar__link">Format Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/render-helpers/" class="sidebar__link">Render Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-helpers/" class="sidebar__link">Custom Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/ujs-helpers/" class="sidebar__link">Unobtrusive JavaScript Helpers</a></li></ul><h5 class="sidebar__header"><a href="/guides/adding-components/overview/">Adding Components</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/adding-components/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/adding-components/persistence-engine/" class="sidebar__link">Persistence Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/javascript-engine/" class="sidebar__link">JavaScript Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/testing-library/" class="sidebar__link--is-active">Testing Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/rendering-engine/" class="sidebar__link">Rendering Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/mocking-library/" class="sidebar__link">Mocking Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/stylesheet-engine/" class="sidebar__link">Stylesheet Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/locale-translations/" class="sidebar__link">Locale Translations</a></li></ul><h5 class="sidebar__header"><a href="/guides/advanced-usage/overview/">Advanced Usage</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/advanced-usage/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/extending-padrino-projects/" class="sidebar__link">Extending Padrino Projects</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/3rd-party-plugins/" class="sidebar__link">3rd Party Plugins</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/asynchronous-concurrency-with-padrino/" class="sidebar__link">Asyncronous Concurrency</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/grape-with-padrino/" class="sidebar__link">Grape with Padrino</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/running-padrino-on-jruby/" class="sidebar__link">Running Padrino on JRuby</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="sidebar__link">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/padrino-and-omniauth-overview/" class="sidebar__link">Padrino and OmniAuth Overview</a></li></ul></div></div><div class="page__content"><div class="content"><p class="content__chapter-title">Adding Components</p><h1 id="testing-library">Testing Library</h1>
+<p>Contributing an additional testing library to Padrino is actually quite
+straightforward. For this guide, let&#39;s assume we want to add <code>shoulda</code> as a
+testing component integrated into Padrino.</p>
+<h2 id="generators">Generators</h2>
+<p>First, let&#39;s define the actual integration of the testing library into the
+generator in
+<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/components/tests/shoulda.rb">padrino-gen/generators/components/tests/shoulda.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/generators/components/tests/shoulda.rb</span>
+
+<span class="no">SHOULDA_SETUP</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;&lt;-</span><span class="no">TEST</span><span class="p">).</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^ {10}/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="k">unless</span> <span class="k">defined?</span><span class="p">(</span><span class="no">SHOULDA_SETUP</span><span class="p">)</span><span class="sh">
+RACK_ENV = 'test' unless defined?(RACK_ENV)
+require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+Dir[File.expand_path(File.dirname(__FILE__) + "/../app/helpers/**/*.rb")].each(&amp;method(:require))
+
+require "test/unit"
+
+class Test::Unit::TestCase
+  include Rack::Test::Methods
+
+  # You can use this method to custom specify a Rack app
+  # you want rack-test to invoke:
+  #
+  #   app CLASS_NAME
+  #   app CLASS_NAME.tap { |a| }
+  #   app(CLASS_NAME) do
+  #     set :foo, :bar
+  #   end
+  #
+  def app(app = nil, &amp;blk)
+    @app ||= block_given? ? app.instance_eval(&amp;blk) : app
+    @app ||= Padrino.application
+  end
+end
+</span><span class="no">TEST</span>
+
+<span class="no">SHOULDA_RAKE</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;&lt;-</span><span class="no">TEST</span><span class="p">).</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^ {10}/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="k">unless</span> <span class="k">defined?</span><span class="p">(</span><span class="no">SHOULDA_RAKE</span><span class="p">)</span><span class="sh">
+require 'rake/testtask'
+
+test_tasks = Dir['test/*/'].map { |d| File.basename(d) }
+
+test_tasks.each do |folder|
+  Rake::TestTask.new("test:</span><span class="se">\#</span><span class="sh">{folder}") do |test|
+    test.pattern = "test/</span><span class="se">\#</span><span class="sh">{folder}/**/*_test.rb"
+    test.verbose = true
+  end
+end
+
+desc "Run application test suite"
+task 'test' =&gt; test_tasks.map { |f| "test:</span><span class="se">\#</span><span class="sh">{f}" }
+</span><span class="no">TEST</span>
+
+<span class="k">def</span> <span class="nf">setup_test</span>
+  <span class="n">require_dependencies</span> <span class="s1">'rack-test'</span><span class="p">,</span> <span class="ss">:require</span> <span class="o">=&gt;</span> <span class="s1">'rack/test'</span><span class="p">,</span> <span class="ss">:group</span> <span class="o">=&gt;</span> <span class="s1">'test'</span>
+  <span class="n">require_dependencies</span> <span class="s1">'shoulda'</span><span class="p">,</span> <span class="ss">:group</span> <span class="o">=&gt;</span> <span class="s1">'test'</span>
+  <span class="n">insert_test_suite_setup</span> <span class="no">SHOULDA_SETUP</span>
+  <span class="n">create_file</span> <span class="n">destination_root</span><span class="p">(</span><span class="s2">"test/test.rake"</span><span class="p">),</span> <span class="no">SHOULDA_RAKE</span>
+<span class="k">end</span>
+
+
+<span class="c1"># Generates a controller test given the controllers name</span>
+<span class="k">def</span> <span class="nf">generate_controller_test</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="c1"># ...truncated...</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">generate_model_test</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="c1"># ...truncated...</span>
+<span class="k">end</span>
+</code></pre></div><h2 id="tests">Tests</h2>
+<p>Let&#39;s also add a test to ensure the new testing component generates as expected
+in
+<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L580">padrino-gen/test/test_project_generator.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/test/test_project_generator.rb</span>
+<span class="n">it</span> <span class="s1">'should properly generate for shoulda'</span> <span class="k">do</span>
+  <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:project</span><span class="p">,</span> <span class="s1">'sample_project'</span><span class="p">,</span> <span class="s2">"--root=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s1">'--test=shoulda'</span><span class="p">,</span> <span class="s1">'--script=none'</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">assert_match</span><span class="p">(</span><span class="sr">/applying.*?shoulda.*?test/</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/gem 'rack-test'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/Gemfile"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/:require =&gt; 'rack\/test'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/Gemfile"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/:group =&gt; 'test'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/Gemfile"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/gem 'shoulda'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/Gemfile"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/RACK_ENV = 'test' unless defined\?\(RACK_ENV\)/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/test/test_config.rb"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/Test::Unit::TestCase/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/test/test_config.rb"</span><span class="p">)</span>
+  <span class="n">assert_file_exists</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/test/test.rake"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/Rake::TestTask\.new\("test:\#/</span><span class="p">,</span><span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/test/test.rake"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/task 'test' =&gt; test_tasks/</span><span class="p">,</span><span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/test/test.rake"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div><h2 id="readme">README</h2>
+<p>Finally, let&#39;s update the README for <code>padrino-gen</code> to reflect the new component
+in
+<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/README.rdoc">padrino-gen/README.rdoc</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/README.rdoc</span>
+<span class="nb">test</span><span class="o">::</span> <span class="n">none</span>  <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">bacon</span><span class="p">,</span> <span class="n">shoulda</span><span class="p">,</span> <span class="n">cucumber</span><span class="p">,</span> <span class="n">rspec</span><span class="p">,</span> <span class="n">minitest</span>
+</code></pre></div><h2 id="contribute-to-padrino">Contribute to Padrino</h2>
+<p>This completes the full integration of a testing library into Padrino. Once all
+of this has been finished in your GitHub fork, send us a pull request and
+assuming you followed these instructions properly and the library actually works
+when generated, we will include the component into the next Padrino version
+crediting you for the contribution!</p>
+<p class="updated"> last updated: 2022-02-22</p><div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'padrinorb';
+          
+    (function() {
+      if (typeof(DISQUS) === 'undefined') {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href;
+          }
+        });
+      }
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

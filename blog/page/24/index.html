@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_page blog_page_24 blog_page_24_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-9-22-quick-followup-release/">Padrino 0.9.22 - Quick Followup Release</a></h1><p class="article__metadata">Posted on March 05, 2011 by DAddYE | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Even though we just released the latest Padrino (0.9.21) and that was relatively stable (for a pre-stable), an unexpected event happened shortly thereafter. Sinatra released the final version of 1.2.0. This was an awesome release thanks in large part to <a href="https://github.com/rkh">Konstantin Haase</a>. Even though the release has many great things, it also added a new helper method to Sinatra called <a href="https://github.com/sinatra/sinatra/blob/4248e6dde2df46a5afcdb4b5252ee1066f50906e/lib/sinatra/base.rb#L114-127">uri and aliased as url</a> .</p>
+
+<p>This of course overlaps with the <a href="https://github.com/padrino/padrino-framework/blob/master/padrino-core/lib/padrino-core/application/routing.rb#L253-274">padrino url method</a> . This causes incompatibility with Padrino and Sinatra 1.2.0 so a quick fix was in order. At the same time, there were a number of other patches after our last release which we will roll in as well including http fixes and japanese translations. Details are in the full post.</p>
+<h2 id="locked-padrino-to-sinatra-1-1">Locked Padrino to Sinatra 1.1</h2>
+<p>Padrino will soon be fully compatible with Sinatra 1.2.0. Until then, we locked Padrino to Sinatra &lt; 1.2.0 in order to guarantee proper functioning in this release.</p>
+<h2 id="performance-improvements">Performance Improvements</h2>
+<p>Padrino is always striving to be faster and to give more throughput. After all a big advantage of Padrino is that it require less memory and resources than other frameworks as well as providing higher requests per second. There has been a recent push to <a href="https://github.com/DAddYE/web-frameworks-benchmark/wiki/achiu">update our benchmarks</a> to be as correct and relevant as possible. Thanks to judofyr for his help with making the benchmarks more accurate. See <a href="https://github.com/DAddYE/web-frameworks-benchmark/wiki/achiu">the results</a> or fork us and help improve them.</p>
+
+<p>In that vein we also made to small changes to improve performance:</p>
+
+<ul>
+<li>Padrino now subclasses from Sinatra::Base rather than Sinatra::Application. This is faster and doesn’t remove any functionality we require.</li>
+<li>Padrino now supports the <code>set :padrino_logging, false</code> option to stop padrino from logging and improve speed significantly in return.</li>
+</ul>
+
+<p>There will be a stronger performance push soon as we work to keep Padrino as lightweight as possible.</p>
+<h2 id="http-fixes">HTTP Fixes</h2>
+<p>Patrick Lef has been kind enough to point out multiple failing http specs in our core handling, so we <a href="https://github.com/padrino/padrino-framework/commit/8f5d1b5104427482ffd16146fb22e30f5dc6ee60">made</a>&quot; a <a href="https://github.com/padrino/padrino-framework/commit/25042a6c734bbfb97a893fa898d4c9d8924aa810">few</a> <a href="https://github.com/padrino/padrino-framework/commit/7127017840e8adaee85c345d8fa02655b0fff4f2">fixes</a>. Thanks to core Padrino member Florian for putting those all together so quickly!</p>
+
+<p>Major changes were:</p>
+
+<ul>
+<li>Set status to 406 on non-provided ACCEPTS</li>
+<li>Return first provided mime-type on ACCEPT = <strong>/</strong></li>
+<li>Assume <strong>/</strong> if no ACCEPT header is given</li>
+</ul>
+
+<p>Being a web server, Padrino desires to fully respect the standard behaviors specified and we are getting closer each release :) If you know of any outstanding bugs please <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>.</p>
+<h2 id="japanese-translations">Japanese Translations</h2>
+<p><a href="https://github.com/udzura">udzura</a> recently sent us Japanese translations to Padrino. We have really gotten quite a lot of internationalization support for admin and every new language is great to be able to include. Are we missing a localization for your language? Be sure to let us know or <a href="http://www.padrinorb.com/pages/contribute">submit a patch</a> to help us include that.</p>
+<h2 id="compatibility-fixes">Compatibility fixes</h2>
+<ul>
+<li>Fixes mongoid locking it to correct dependency</li>
+<li>Fixes password encryption in the account model</li>
+<li>Fixes mongomapper template in admin</li>
+</ul>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-9-21-nested-forms-translations-and-more/">Padrino 0.9.21 - Nested Forms, Translations and More</a></h1><p class="article__metadata">Posted on February 25, 2011 by Nathan | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Today, we have released a new version of Padrino 0.9.21 which continues the tradition of incremental improvements towards a 1.0 release. We will consider Padrino ‘1.0’ once we feel that the framework is sufficiently robust and well-documented.</p>
+
+<p>We aren&#39;t quite all the way there yet but we are rapidly improving with each release. This release contains agnostic nested object forms, chinese translations, routing enhancements, and component compatibility fixes. A more detailed list of changes is included in the full post.</p>
+
+<p>There are no breaking changes from the previous version. The major changes are below:</p>
+<h2 id="nested-object-forms">Nested Object Forms</h2>
+<p>One of the most commonly requested features is nested object form support within our view helpers. This handles the case where a form should create multiple related objects at once of different types.</p>
+
+<p>For instance if you have a user and he has an address which is stored in a separate model. Now Padrino supports agnostic form builders for nested objects. Using this is quite simple and extends the existing form syntax:</p>
+<div class="highlight"><pre class="syntax plaintext"><code># app/views/example.haml
+# app/views/person/_form.html.haml
+- form_for @person, '/person/create'  do |f|
+  = f.text_field :name
+  = f.text_field :favorite_color
+  - f.fields_for :addresses do |address_form|
+    = address_form.label :street
+    = address_form.text_field :street
+    = address_form.label :city
+    = address_form.text_field :city
+    - unless address_form.object.new_record?
+      = address_form.check_box '_destroy'
+      = address_form.label '_destroy', :caption =&gt; 'Remove'
+    = submit_tag "Save"
+</code></pre></div>
+<p>For the details be sure to checkout the <a href="http://www.padrinorb.com/guides/application-helpers">Application Helper Guide</a> to learn more.</p>
+<h2 id="routing-fixes">Routing Fixes</h2>
+<p>Joshua Hull in particular can be thanked for many of these routing fixes reported by our users. In particular:</p>
+
+<ul>
+<li>  Routing now properly supports variables within an index route</li>
+<li>  Fixes routes with conjunction of :map and :with</li>
+<li>  Fixes regular expression route captures</li>
+<li><p>Laziness of provides now conveys its format neediness [Fixes <a href="https://github.com/padrino/padrino-framework/issues/closed#issue/412">Issue 412</a>]</p>
+<h1 id="app-controllers-example-rb">app/controllers/example.rb</h1>
+<p>get :index, :map =&gt; &#39;/bugs&#39;, :with =&gt; :id do
+  # ...
+end</p>
+
+<p>get %r{/([0-9]+)/} do |num|
+  &quot;Your lucky number: #{num} #{params[:captures].first}&quot;
+end</p></li>
+</ul>
+
+<p>Regular expression routes should now work as expected in nearly all cases.</p>
+<h2 id="component-fixes">Component Fixes</h2>
+<ul>
+<li>Updated mongomapper adapter to use rails3 branch</li>
+<li>Updated datamapper gen to store correctly passwords</li>
+<li>Adds mongoid rake tasks for maintaining database</li>
+</ul>
+<h2 id="traditional-and-simplified-chinese-translations">Traditional and Simplified Chinese Translations</h2>
+<p>This release brings support for Traditional Chinese(thanks to ayamomiji) and Simplified Chinese translations. This means that the Padrino Admin application as well as all form helpers are properly localized to this language. If you speak a language that Padrino doesn’t yet support, please consider contributing! We are happy to help get you started.</p>
+<h2 id="other-fixes">Other fixes</h2>
+<ul>
+<li>Major changes to output handling for padrino helpers allowing easier template integration (<a href="https://gist.github.com/829030">gist</a>)</li>
+<li>Better project generation name validations</li>
+<li>Fixes the select_tag to have better support for multiple options</li>
+<li>Cleans up bundler integration removing legacy support for 0.9</li>
+<li>Fixed issue with error_message_on where incorrect object was being accessed</li>
+<li>Layouts are properly found now with shorthand aliases
+
+<ul>
+<li><code>render &quot;brochure/home&quot;, :layout =&gt; :narrow</code></li>
+</ul></li>
+</ul>
+
+<p>A full list of changes can be seen by looking at our <a href="https://github.com/padrino/padrino-framework/commits/master">github commit history</a> for more details. We are already working on a 0.9.22 release will should include a few exciting new features. If you run into any problems please do let us know on the <a href="https://github.com/padrino/padrino-framework/issues">Github Issues</a> page.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><li><a href="/blog/page/23/">Prev Page</a></li><li><a href="/blog/page/25/">Next Page</a></li></div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

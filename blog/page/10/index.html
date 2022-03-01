@@ -1,0 +1,188 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../../assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="../../../assets/javascripts/all-956a861e.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="blog blog_page blog_page_10 blog_page_10_index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link--is-active">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Blog</h4><h5 class="sidebar__header">Latest Posts</h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/blog/story-behind-padrino-logo/" class="sidebar__link">Story behind the Padrino logo</a></li><li class="sidebar__item"><a href="/blog/gitter/" class="sidebar__link">Gitter chat window</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-4/" class="sidebar__link">Padrino 0.14.4 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-3/" class="sidebar__link">Padrino 0.14.3 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-2/" class="sidebar__link">Padrino 0.14.2 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-1/" class="sidebar__link">Padrino 0.14.1 release</a></li><li class="sidebar__item"><a href="/blog/padrino-0-14-0-2/" class="sidebar__link">Padrino 0.14.0.2 - small bug fixes</a></li></ul></div></div><div class="page__content"><div class="content"><div class="article"><h1 class="article__title"><a href="/blog/upgrading-padrino-from-0-11-x-to-0-12-0-guide/">Upgrading Padrino from 0.11.X to 0.12.0 Guide</a></h1><p class="article__metadata">Posted on February 12, 2015 by Nathan Esquenazi | categories: <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>This is the step-by-step guide for upgrading from Padrino 0.11.X to 0.12.0! This will review all the breaking changes and modifications made within the new release.
+blog/2015-02-12-upgrading-padrino-from-0-11-x-to-0-12-0-guide.html.md</p>
+<h2 id="ruby-1-8-support-dropped">Ruby 1.8 Support Dropped</h2>
+<p>Padrino <strong>no longer supports Ruby 1.8.X</strong> so please ensure that you are running on at least Ruby 1.9.3 before beginning this upgrade! Note that we recommend using Ruby 2.0 or 2.1.0 with Padrino to ensure compatibility with future versions. Also, Ruby 2.X is faster and more memory efficient. Note that Padrino also requires <code>ActiveSupport &gt;= 3.1</code> now but currently works best with ActiveSupport 4.</p>
+<h2 id="moneta-caching">Moneta Caching</h2>
+<p>Because the caching store system has been completely replaced, we need to make the following changes <strong>if you are using the caching module</strong>.</p>
+
+<p>First, we need to delete old cache files with <code>rm -rf ./tmp/*</code>. Make sure to delete these old temp files in your project! Also, the syntax for configuring the cache store has changed substantially:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># BEFORE</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="o">::</span><span class="no">Store</span><span class="o">::</span><span class="no">File</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">app_name</span><span class="p">,</span> <span class="n">cache</span><span class="p">)</span>
+
+<span class="c1"># AFTER</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:File</span><span class="p">,</span> <span class="ss">:dir</span> <span class="o">=&gt;</span> <span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">app_name</span><span class="p">.</span><span class="nf">to_s</span><span class="p">,</span> <span class="n">cache</span><span class="p">))</span>
+</code></pre></div>
+<p>We have also deprecated <code>expires_in</code> in favor of just <code>expires</code>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="n">get</span> <span class="sr">/foo, :cache =&gt; true do expires 30  Hello world end
+</span></code></pre></div>
+<p>Also the old style of getting and setting values has been deprecated in favor of a new syntax:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># BEFORE</span>
+<span class="no">MyApp</span><span class="p">.</span><span class="nf">cache</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">test</span><span class="p">)</span>
+<span class="no">MyApp</span><span class="p">.</span><span class="nf">cache</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="c1"># AFTER</span>
+<span class="no">MyApp</span><span class="p">.</span><span class="nf">cache</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">testMyApp</span><span class="p">.</span><span class="nf">cache</span><span class="p">[</span><span class="n">val</span><span class="p">]</span>
+</code></pre></div>
+<p>More examples of configuring caching store settings are provided below:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:LRUHash</span><span class="p">)</span>
+
+<span class="c1"># Keeps cached values in memory</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Memcached</span><span class="p">)</span>
+
+<span class="c1"># Uses default server at localhost</span>
+
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Memcached</span><span class="p">,</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">11211</span><span class="p">,</span> <span class="ss">:exception_retry_limit</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Memcached</span><span class="p">,</span> <span class="ss">:backend</span> <span class="o">=&gt;</span> <span class="n">memcached_or_dalli_instance</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Redis</span><span class="p">)</span>
+
+<span class="c1"># Uses default server at localhost</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Redis</span><span class="p">,</span> <span class="ss">:host</span> <span class="o">=&gt;</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">,</span> <span class="ss">:port</span> <span class="o">=&gt;</span> <span class="mi">6379</span><span class="p">,</span> <span class="ss">:db</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Redis</span><span class="p">,</span> <span class="ss">:backend</span> <span class="o">=&gt;</span> <span class="n">redis_instance</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Mongo</span><span class="p">)</span>
+
+<span class="c1"># Uses default server at localhost</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:Mongo</span><span class="p">,</span> <span class="ss">:backend</span> <span class="o">=&gt;</span> <span class="n">mongo_client_instance</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">cache</span> <span class="o">=</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:File</span><span class="p">,</span> <span class="ss">:dir</span> <span class="o">=&gt;</span> <span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">app_name</span><span class="p">.</span><span class="nf">to_s</span><span class="p">,</span> <span class="n">cache</span><span class="p">))</span>
+</code></pre></div>
+<p>You can see full details about the new caching system by checking out the <a href="guides/features/padrino-cache/" title="padrino-cache readme">padrino-cache readme</a>!</p>
+<h2 id="rack-protection-and-csrf">Rack::Protection and CSRF</h2>
+<p>We need to rewrite the protection settings within <code>config/apps.rb</code>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># before</span>
+<span class="n">set</span> <span class="ss">:protection</span><span class="p">,</span> <span class="kp">true</span>
+
+<span class="c1"># after</span>
+<span class="n">set</span> <span class="ss">:protection</span><span class="p">,</span> <span class="ss">:except</span> <span class="o">=&gt;</span> <span class="ss">:path_traversal</span>
+</code></pre></div>
+<p>Once that change has been made, the protections should work as expected.</p>
+<h2 id="csrf-protection">CSRF Protection</h2>
+<p>In past Padrino versions, there have been <a href="https://github.com/padrino/padrino-framework/issues/1489" title="compatibility issues">compatibility issues</a> with the excellent <a href="https://web.archive.org/web/20150208055316/https://github.com/charliesome/better_errors" title="better_errors">better_errors</a> gem that provides a nifty dashboard whenever an exception occurs in development. In this release, we have added an easy way to avoid any issues with the added :except argument when configuring CSRF.</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># /app/app.rb</span>
+<span class="k">module</span> <span class="nn">Foobar</span>
+  <span class="k">class</span> <span class="nc">App</span> <span class="o">&lt;</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Application</span>
+    <span class="n">enable</span> <span class="ss">:sessions</span>
+    <span class="n">configure</span> <span class="ss">:development</span> <span class="k">do</span>
+    <span class="n">use</span> <span class="no">BetterErrors</span><span class="o">::</span><span class="no">Middleware</span>
+    <span class="no">BetterErrors</span><span class="p">.</span><span class="nf">application_root</span> <span class="o">=</span> <span class="no">PADRINO_ROOT</span>
+    <span class="n">set</span> <span class="ss">:protect_from_csrf</span><span class="p">,</span> <span class="ss">except: </span><span class="sr">%r{/__better_errors/</span><span class="se">\d</span><span class="sr">+/</span><span class="se">\w</span><span class="sr">+</span><span class="se">\z</span><span class="sr">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Once you&#39;ve properly setup the <code>:except</code> regex, there shouldn&#39;t be any issues. This is also useful for when a Padrino project wants to mount a Sinatra or Rack app.</p>
+<h2 id="slim-and-haml-content-blocks">Slim and Haml Content Blocks</h2>
+<p>The major template handling rewrite and compatibility update for 0.12.0 requires us to use = instead of - in certain cases when creating templates with tag helpers. (Reference Issues <a href="https://github.com/padrino/padrino-framework/pull/1442" title="#1442">#1442</a>, <a href="https://github.com/padrino/padrino-framework/pull/1441" title="#1441">#1441</a>. For example, before we might have written a form with dashes:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="o">-</span> <span class="n">form_tag</span> <span class="sr">/destroy, :class =&gt; destroy-form, :method =&gt; delete do
+  - field_set_tag do
+    %p
+      = label_tag :username, :class =&gt; first
+      = text_field_tag :username, :value =&gt; params[:username]
+</span></code></pre></div>
+<p>Now in 0.12.0, we want to write them with = instead:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="o">=</span> <span class="n">form_tag</span> <span class="sr">/destroy, :class =&gt; destroy-form, :method =&gt; delete do
+  = field_set_tag do
+    %p
+      = label_tag :username, :class =&gt; first
+      = text_field_tag :username, :value =&gt; params[:username]
+</span></code></pre></div>
+<p>Note that this is a breaking change and that you should upgrade all your templates to this new format as part of the upgrade process!</p>
+<h2 id="reorder-mounter-apps">Reorder Mounter Apps</h2>
+<p>The Padrino mounter parsing <code>config/apps.rb</code> was modified substantially with support added for cascading requests. These changes have made the apps list order dependent. In particular, we need to insert the sub-apps for a project before the main app in <code>config/apps.rb</code>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># config/apps.rb</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s2">"Blog"</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="s1">'/blog'</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s2">"Forum"</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="s1">'/forum'</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s2">"MainApp"</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="s1">'/'</span><span class="err">'</span><span class="p">)</span> <span class="c1"># &lt;-- main app last</span>
+</code></pre></div>
+<p>Make sure to re-order your apps to put the main app at the bottom otherwise you may run into unexpected routing issues.</p>
+<h2 id="fix-url-routes">Fix URL Routes</h2>
+<p>We have had some odd and unexpected URL routing ambiguity for quite some time. In 0.12.0 we set out to fix this weirdness. As a result, you need to be aware of places which are using incorrect url routing aliases with <code>url_for</code>. Given this route:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="no">SampleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:cap_alerts</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="ss">:index</span> <span class="k">do</span>
+    <span class="s2">"hello"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>The following strictness changes with <code>url</code> should be noted:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># BEFORE</span>
+<span class="n">url</span><span class="p">(</span><span class="ss">:cap_alerts</span><span class="p">,</span> <span class="ss">:index</span><span class="p">)</span>   <span class="c1">#=&gt; "/cap_alerts"</span>
+<span class="n">url</span><span class="p">(</span><span class="ss">:cap</span><span class="p">,</span> <span class="ss">:alerts</span><span class="p">,</span> <span class="ss">:index</span><span class="p">)</span> <span class="c1">#=&gt; "/cap_alerts"</span>
+<span class="n">url</span><span class="p">(</span><span class="ss">:cap</span><span class="p">,</span> <span class="ss">:alerts_index</span><span class="p">)</span>   <span class="c1">#=&gt; "/cap_alerts"</span>
+
+<span class="c1"># AFTER</span>
+<span class="n">url</span><span class="p">(</span><span class="ss">:cap_alerts</span><span class="p">,</span> <span class="ss">:index</span><span class="p">)</span>   <span class="c1">#=&gt; "/cap_alerts"</span>
+<span class="n">url</span><span class="p">(</span><span class="ss">:cap</span><span class="p">,</span> <span class="ss">:alerts</span><span class="p">,</span> <span class="ss">:index</span><span class="p">)</span> <span class="c1">#=&gt; UnrecognizedException</span>
+<span class="n">url</span><span class="p">(</span><span class="ss">:cap</span><span class="p">,</span> <span class="ss">:alerts_index</span><span class="p">)</span>   <span class="c1">#=&gt; UnrecognizedException</span>
+</code></pre></div>
+<p>In general as long as you are accessing the url routes properly, this shouldn&#39;t cause any issues.</p>
+<h2 id="updated-route-names">Updated Route Names</h2>
+<p>We have also adjusted the route names slightly with this release:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># BEFORE</span>
+<span class="n">route</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; :cap_alerts_index</span>
+
+<span class="c1"># AFTER</span>
+<span class="n">route</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; :"cap_alerts index"</span>
+</code></pre></div><h2 id="adjust-admin-login_page-configuration">Adjust Admin login_page Configuration</h2><div class="highlight"><pre class="syntax ruby"><code><span class="k">class</span> <span class="nc">Admin</span> <span class="o">&lt;</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Application</span>
+  <span class="c1"># before</span>
+  <span class="n">set</span> <span class="ss">:login_page</span><span class="p">,</span> <span class="s2">"/admin/sessions/new"</span>
+
+  <span class="c1"># after</span>
+  <span class="n">set</span> <span class="ss">:login_page</span><span class="p">,</span> <span class="s2">"/sessions/new"</span>
+</code></pre></div>
+<p>Once you&#39;ve followed this guide, we hope the transition from 0.11.X to 0.12.0 will be very smooth</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><div class="article"><h1 class="article__title"><a href="/blog/padrino-0-12-4/">Padrino 0.12.4</a></h1><p class="article__metadata">Posted on October 16, 2014 by Nathan Esquenazi | categories: <a href="/category/press/">press,</a> <a href="/category/ruby/">ruby,</a> <a href="/category/update/">update</a></p><p>Two months ago, we released 0.12.3 which introduced a number of improvements to the core codebase and put our 0.12.x branch into a solid place. Today, we are releasing the final iteration on the 0.12.x line which includes a ton of bug fixes and documentation cleanup. The details of this release can be found below. This release paves the road for our 0.13.0 release that will likely follow next with several substantial changes in place. The details of this 0.12.4 release can be found below.</p>
+<h2 id="mounter-supports-rack">Mounter Supports Rack</h2>
+<p>The Padrino Mounter has always been one of the cores of our framework and allowed the flexible mounting of many different padrino apps within the same project. This functionality is at the heart of the light modular app architecture that powers Padrino. However, until recently the mounter only worked for Padrino apps. With this release, @namusyaka removed that restriction and now we can map any Rack, Grape or Sinatra app into a Padrino project:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># config/apps.rb</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'SinatraApp'</span><span class="p">,</span> <span class="ss">app_file: </span><span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="s1">'sinatra_app/app.rb'</span><span class="p">))</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'Sample::API'</span><span class="p">,</span> <span class="ss">app_file: </span><span class="no">Padrino</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="s1">'api/app.rb'</span><span class="p">))</span>
+</code></pre></div>
+<p>We are excited for our router to be that much more flexible going forward towards 1.0!</p>
+<h2 id="fixing-padrino-docs">Fixing Padrino Docs</h2>
+<p>A few months ago, we were honored to be brought onto the RubyRogues podcast to discuss the Padrino Framework and explain why we think Sinatra and Padrino are a great way to build modern and maintainable ruby web apps and APIs.</p>
+
+<p>However, we recognize that our framework has a challenge. Our Padrino guides are almost all woefully outdated and unmaintained and our website is old and rusty. We are fortunate to have Matthias Gunther working tirelessly on the awesome Padrino Book but we recognize we need to do better. To get things going, we have merged all of our markdown docs into the main padrino code repository.</p>
+
+<p>We realize this is only a small first step and we know that one of the biggest roadblocks to a real 1.0 release is a substantial refresh of our documentation and our website. More updates about this soon. If anyone is interested in helping with the documentation effort, please reach out to us.</p>
+<h2 id="bug-fixes-and-miscellaneous">Bug Fixes and Miscellaneous</h2>
+<p>A few deprecation notices:</p>
+
+<ul>
+<li>There were issues with the implementation of button_to which require deprecating the old behavior and instead wrapping the content of a given block with the <button></button> tags</li>
+</ul>
+
+<p>Lots of other bug fixes and code cleanup as usual:</p>
+
+<ul>
+<li>FIX #1744 Corrects color support for Windows (@tyabe)</li>
+<li>FIX #1736 Regression with textarea helper (@ujifgc)</li>
+<li>FIX #1743 Add a padrino-gen generator for creating new Helpers (@dariocravero)</li>
+<li>FIX #1746 Avoid reloading the file if its path is not started with Padrino.root (@namusyaka)</li>
+<li>DELETE deprecated build_object method (@namusyaka)</li>
+<li>FIX #1752 Don’t set the <em>use</em>format flag when provides method is called from inline (@namusyaka)</li>
+<li>FIX #48 Update mailer documentation and sample code (@postmodern)</li>
+<li>FIX #1752 Refactor routing code to avoid weird parameter (@namusyaka)</li>
+<li>FIX #1754 Adds end tags to admin erb template for index (@namusyaka)</li>
+<li>FIX #1749 Replace the AR::ConnectionManagement middleware with new middleware (@namusyaka)</li>
+<li>NEW #1756 Adds support for mysql2 gem in sql rake task helpers (@d6rkaiz)</li>
+<li>FIX #1761 Allow passing upcased string as the app name</li>
+<li>FIX #1776 improve params filtering for routes (@ujifgc)</li>
+<li>FIX #1778 Various YARD doc inconsistencies or errors (@claudiob)</li>
+<li>FIX #1765 Use controller’s base path instead of constant name at controller test (@namusyaka)</li>
+<li>FIX #1781 Removes the default_filters method setting incorrect content-type (@namusyaka)</li>
+<li>FIX Sinatra compatibility for passing options to the static! method</li>
+<li>FIX #1585 Update HAML to pass tests by upgrading versions (@ujifgc)</li>
+<li>FIX #1782 make padrino-gen detect absolute paths on Windows (@ujifgc)</li>
+<li>FIX #1779 Use expanded path to request controller’s content (@namusyaka)</li>
+<li>FIX Use yield and flatmap when possible to speed up performance (@ujifgc)</li>
+<li>FIX #1788 exception that occurs when the free regex route exists (@namusyaka)</li>
+<li>NEW Merges the padrino-docs guides and content directly into the main repository (@ujifgc)</li>
+</ul>
+
+<p>Want to give a special thanks to the key contributors for this release, working tirelessly to make this Padrino release possible: @namusyaka, @ujifgc, @dariocravero and all the other contributors to this version!</p>
+
+<p>Please do report any issues you have. We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: @padrinorb, join us on IRC at “#padrino” on freenode or open an issue on GitHub.</p>
+<h2>Contribute</h2><p><Slimconsumes>Please report any issues you encounter with this release! We are working very actively on Padrino and want to make the framework as stable and reliable as possible. That concludes the changelog for this release. As always if you want to keep up with Padrino updates, be sure to follow us on twitter: <a href="https://twitter.com/padrinorb">@padrinorb</a>, join us on IRC at “#padrino” on freenode, <a href="https://github.com/padrino/padrino-framework/issues">open an issue</a>, or discuss on <a href="https://gitter.im/padrino/padrino-framework">gitter</a>.</Slimconsumes></p><hr /></div><li><a href="/blog/page/9/">Prev Page</a></li><li><a href="/blog/page/11/">Next Page</a></li></div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
+Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
+Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
+<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'padrino/padrino-framework'
+  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>

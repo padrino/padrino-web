@@ -116,7 +116,7 @@ activate :robots,
 activate :external_pipeline,
   name: :webpack,
   command: build? ?
-    "./node_modules/webpack/bin/webpack.js --bail -p" :
+    "./node_modules/webpack/bin/webpack.js --bail" :
     "./node_modules/webpack/bin/webpack.js --watch --progress --color",
   source: ".tmp/dist",
   latency: 1
@@ -153,8 +153,8 @@ ignore 'category.html.slim'
 
 # Build-specific configuration
 configure :build do
-  activate :minify_css
-  activate :minify_javascript
+  #activate :minify_css
+  #activate :minify_javascript
   activate :asset_hash
   activate :relative_assets
   activate :disqus, :shortname => "padrinorb"

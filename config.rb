@@ -81,7 +81,7 @@ end
 
 # General configuration
 set :layout, :content
-set :css_dir, 'assets/stylesheets'
+set :css_dir, ''
 set :js_dir, 'assets/javascripts'
 set :markdown_engine, :redcarpet
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
@@ -153,9 +153,9 @@ ignore 'category.html.slim'
 
 # Build-specific configuration
 configure :build do
-  #activate :minify_css
+  activate :minify_css
   #activate :minify_javascript
-  activate :asset_hash
+  #activate :asset_hash
   activate :relative_assets
   activate :disqus, :shortname => "padrinorb"
 end

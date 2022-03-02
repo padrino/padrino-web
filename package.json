@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/padrino/padrino-web#readme",
   "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
     "css-loader": "^6.6.0",
     "mini-css-extract-plugin": "^2.5.3",
     "node-sass": "^7.0.1",

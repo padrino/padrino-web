@@ -1,5 +1,6 @@
 // Establish a vertical rhythm
-@include establish-baseline;
+// not working because of breakpoint-slicer
+// @include establish-baseline;
 
 // Include fonts from Google Fonts
 @import url('http://fonts.googleapis.com/css?family=Lato:400,700');

@@ -1,31 +1,31 @@
 // Global imports
 @import '~breakpoint-sass';
-@import '~breakpoint-slicer';
-@import '~flask';
-@import '~susy';
-
-// Config
-@import '_config/**/*';
-
-// Functions
-@import '_functions/**/*';
-
-// Libraries
-@import '_lib/_vertical-rhythms';
-@import '_lib/**/*';
-
-// Mixins
-@import '_mixins/**/*';
-
-// Base
-@import '_base/**/*';
-
-// Modules
-@import '_modules/**/*';
+// @import '~breakpoint-slicer';
+// @import '~flask';
+// @import '~susy';
+//
+// // Config
+// @import '_config/**/*';
+//
+// // Functions
+// @import '_functions/**/*';
+//
+// // Libraries
+// @import '_lib/_vertical-rhythms';
+// @import '_lib/**/*';
+//
+// // Mixins
+// @import '_mixins/**/*';
+//
+// // Base
+// @import '_base/**/*';
+//
+// // Modules
+// @import '_modules/**/*';
 
 // Custom
 a.gitter-open-chat-button,  a.gitter-open-chat-button:hover {
-  background-color: #c00;
+  background-color: red;
   border-color: #443d68;
 }
 

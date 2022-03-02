@@ -1,0 +1,31 @@
+{
+  "name": "padrino-web",
+  "version": "1.0.0",
+  "description": "Built using [Middleman](https://github.com/middleman/middleman).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/padrino/padrino-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/padrino/padrino-web/issues"
+  },
+  "homepage": "https://github.com/padrino/padrino-web#readme",
+  "devDependencies": {
+    "css-loader": "^6.6.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "node-sass": "^7.0.1",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}

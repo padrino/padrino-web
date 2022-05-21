@@ -1,7 +1,0 @@
-.grid {
-  @include container;
-  padding: rhythm(0.8);
-  @include from(3) {
-    padding: rhythm(0.8) rhythm(2);
-  }
-}

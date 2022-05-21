@@ -8,7 +8,6 @@ module.exports = {
   entry: {
     main: [
       './assets/javascripts/all.js',
-      './assets/stylesheets/all.css.scss',
     ],
   },
 
@@ -29,10 +28,4 @@ module.exports = {
       { test: /\.scss$/, exclude: /node_modules|\.tmp|vendor/, loader: ExtractTextPlugin.extract('css!sass') },
     ],
   },
-
-  plugins: [
-    new ExtractTextPlugin('assets/stylesheets/all.css', {
-      allChunks: true,
-    }),
-  ],
 };

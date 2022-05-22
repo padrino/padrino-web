@@ -29,19 +29,13 @@ Built using [Middleman](https://github.com/middleman/middleman).
    bundle install
    ```
 
-3. Install Node.js (Version 7.0.0) dependencies with npm (I think it must be 3.10.8).
-
-   ```shell
-   npm install
-   ```
-
-4. Start the Middleman server.
+3. Start the Middleman server.
 
    ```shell
    bundle exec middleman server
    ```
 
-5. Visit <http://localhost:4567>
+4. Visit <http://localhost:4567>
 
 ## Automated Deploy Instructions
 

@@ -1,9 +1,0 @@
-.article {
-  &__title {
-    @include margin-trailer(0.25);
-  }
-
-  &__metadata {
-    @include type-scale(semismall);
-  }
-}

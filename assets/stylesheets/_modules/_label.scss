@@ -1,9 +1,0 @@
-.label {
-  @include type-weight(semi-bold);
-  color: palette(red);
-
-  &--dark {
-    @extend .label;
-    color: palette(gray, dark);
-  }
-}

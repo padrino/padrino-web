@@ -128,6 +128,7 @@ GEM
     rack (2.2.3)
     rack-livereload (0.3.17)
       rack
+    rake (13.3.1)
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -165,6 +166,7 @@ DEPENDENCIES
   middleman-robots (~> 1.1.0)
   middleman-search_engine_sitemap!
   middleman-syntax (~> 3.0)
+  rake (~> 13.3)
   redcarpet
   slim
 

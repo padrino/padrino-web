@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog - Padrino Ruby Web Framework</title>
+    <description>Blog - Padrino Ruby Web Framework</description>
+    <link>http://padrinorb.com/</link>
+    <item>
+      <title>Padrino 0.16.0 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-16-0/</link>
+      <description>&lt;p&gt;We are pleased to announce the official release of Padrino 0.16.0, the first major release in several years. This release was made possible by the contributions of &lt;code&gt;@achiurizo&lt;/code&gt;, &lt;code&gt;@olleolleolle&lt;/code&gt;, &lt;code&gt;@crashtech&lt;/code&gt;, and many others.&lt;/p&gt;
+
+&lt;p&gt;Padrino 0.16.0 primarily modernizes the framework to ensure compatibility with the latest versions of Ruby, Sinatra, and Rack. We&amp;#39;ve shared more details about this release below.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2308" title="#2308"&gt;#2308&lt;/a&gt;, &lt;a href="https://github.com/padrino/padrino-framework/pull/2310" title="#2310"&gt;#2310&lt;/a&gt; Code modernization. Codebase is now passing Rubocop (11 offenses only) and generator&amp;#39;s templates are using modern syntax (@crashtech)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Specs are now passing for Ruby 3.4 (@crashtech)&lt;/li&gt;
+&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Added what HTTP Server to use as an option when generating a new project (@crashtech)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Added the HTTP Server to Gemfile as Ruby 3.0 removed WEBrick from the standard library (@crashtech)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Patch &lt;code&gt;Padrino.core&lt;/code&gt; by filtering any &amp;#39;core&lt;em&gt;ext/kernel&lt;/em&gt;require&amp;#39; (common pattern for gems that override Kernel#require) from caller entries (@crashtech)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2294" title="#2294"&gt;#2294&lt;/a&gt; Make &lt;code&gt;detect_rack_handler&lt;/code&gt; compatible with Rack 3 (@osbre)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2292" title="#2292"&gt;#2292&lt;/a&gt; Fixes to README and cleanup (@olleolleolle)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2290" title="#2290"&gt;#2290&lt;/a&gt; Fixes nil error with latest Rack (@nesquena)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2287" title="#2287"&gt;#2287&lt;/a&gt; Bump to rack ~&amp;gt;3 and add rack to gemspec (@achirizo)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2286" title="#2286"&gt;#2286&lt;/a&gt; Bump moneta to 1.6 (@achirizo)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2282" title="#2282"&gt;#2282&lt;/a&gt; Remove FakeWeb, use Webmock (@achiurizo)&lt;/li&gt;
+&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2279" title="#2279"&gt;#2279&lt;/a&gt; Initial Rubocop setup (@achiurizo)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2277" title="#2277"&gt;#2277&lt;/a&gt; Upgrade deprecations and support Ruby 3.2 (@achiurizo)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2276" title="#2276"&gt;#2276&lt;/a&gt; Rename MiniTest to Minitest (@kevin-j-m)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="new-dependencies-versions"&gt;New dependencies versions&lt;/h2&gt;
+&lt;p&gt;Padrino v0.16 now requires Ruby &amp;gt;= 2.7.8. This change aligns us with Sinatra ~&amp;gt; 4.0, which we have also changed in this release. Consequently, this upgrade also requires an upgrade to Rack &amp;gt;= 3.0. These updates ensure that Padrino applications are running on secure, modern foundations and can leverage the latest performance improvements and features available from its dependencies.&lt;/p&gt;
+&lt;h2 id="http-server-configuration"&gt;HTTP Server Configuration&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is the only breaking change in this release.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;WEBrick&lt;/code&gt; has been removed from the Ruby Standard Library as of Ruby 3.0. This means that applications relying on the default HTTP server will encounter issues when running on Ruby versions 3.0 and above. To upgrade properly, Padrino now requires developers to explicitly specify their preferred HTTP server in the Gemfile. If your application does not have a manual HTTP server defined, add &lt;code&gt;gem &amp;#39;webrick&amp;#39;&lt;/code&gt; to your Gemfile.&lt;/p&gt;
+
+&lt;p&gt;When creating a new Padrino application, you can choose a HTTP server with the &lt;code&gt;--server&lt;/code&gt; (&lt;code&gt;-s&lt;/code&gt;) option. The full set of options are: &lt;code&gt;thin&lt;/code&gt;, &lt;code&gt;puma&lt;/code&gt;, &lt;code&gt;spider-gazelle&lt;/code&gt;, &lt;code&gt;mongrel&lt;/code&gt;, &lt;code&gt;trinidad&lt;/code&gt; (JRuby), and &lt;code&gt;webrick&lt;/code&gt; (default).&lt;/p&gt;
+&lt;h2 id="codebase-updates-for-ruby-3-4"&gt;Codebase Updates for Ruby 3.4&lt;/h2&gt;
+&lt;p&gt;We have performed a comprehensive refactoring of the codebase. Both the internal Padrino code and the code generated by our scaffolding tools have been updated to align with the syntax and best practices of Ruby 3.4. This ensures a cleaner, more efficient codebase and provides a better developer experience when working with generated files.&lt;/p&gt;
+</description>
+      <pubDate>Tue, 2 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-16-0/</guid>
+    </item>
+    <item>
+      <title>Story behind the Padrino logo</title>
+      <link>http://padrinorb.com/blog/story-behind-padrino-logo/</link>
+      <description>&lt;p&gt;Padrino is a free and open-source web framework, and they were looking for a new logo and image that would match the outstanding quality of this exciting and versatile framework.&lt;/p&gt;
+&lt;h2 id="the-work"&gt;The work&lt;/h2&gt;
+&lt;p&gt;My work for Padrino was the creation of the new logo, from the idea and conceptualization to the execution.&lt;/p&gt;
+&lt;h2 id="the-outcome"&gt;The outcome&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520245387319-TMGY3QRQFX3MEH6L3RZD/ke17ZwdGBToddI8pDm48kNnIS51AHbN0JwnabaYcXaUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcaCDji613HZ8NcWdmjUpVWFoQGRzu2GF5oWyvdRwzroe9rcWrA2O4cyDGLRprRfsx/ins.jpg?format=1000w" title="The outcome" alt="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520245387319-TMGY3QRQFX3MEH6L3RZD/ke17ZwdGBToddI8pDm48kNnIS51AHbN0JwnabaYcXaUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcaCDji613HZ8NcWdmjUpVWFoQGRzu2GF5oWyvdRwzroe9rcWrA2O4cyDGLRprRfsx/ins.jpg?format=1000w" /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the conceptualization and execution of the Padrino logo the driving force was primarily &amp;quot;elegance”.  Allusion to this concept is made in the
+definition found in the same Padrino website.  Likewise, such reference to the Godfather (Padrino in Italian and Spanish), should also be clear,
+evoking and with a focus on the positive values (not the negatives :) that have cemented him as one of the most iconic fictional characters of the
+20th century.&lt;/p&gt;
+
+&lt;p&gt;From that origin point, there were two other main factors that shaped the style and form of this logo. Firstly, you will appreciate the styling
+features of &lt;a href="https://en.wikipedia.org/wiki/Art_Deco" title="Art Déco"&gt;Art Déco&lt;/a&gt;, in allusion to the younger years of Vito Corleone (1920-1940). And second,
+the relation of Padrino platform with the Ruby language had to be shown in one or other way; the solution was the use of a triangular shape, evoking
+the shape of a ruby (see below)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520265582003-O5TUZJH3CU49P7URK7WY/ke17ZwdGBToddI8pDm48kMU8x58QH-w1wlQtg3LEEOAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcIh2wdTRzsZ9HjFBUyscftisjNtTm-iOPObf_crBC7oohG3Dxr0L9abktsWZjgbB6/content6.jpg?format=1000w" title="Ruby language logo (shape)" alt="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520265582003-O5TUZJH3CU49P7URK7WY/ke17ZwdGBToddI8pDm48kMU8x58QH-w1wlQtg3LEEOAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcIh2wdTRzsZ9HjFBUyscftisjNtTm-iOPObf_crBC7oohG3Dxr0L9abktsWZjgbB6/content6.jpg?format=1000w" /&gt;&lt;/p&gt;
+
+&lt;p&gt;So the outcome is a logo that collects the essence and the spirit of the topic, and represents perfectly the slogan of Padrino:
+&amp;quot;The Elegant Ruby Web Framework&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520253917865-POIF6GK211RMBTYFXL9B/ke17ZwdGBToddI8pDm48kK-NtjRiFFfzoSwd2tQzO_8UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcUz6e6JLP7i1zOKybPyjBmSvQ7Fd0zDFBvL3qIOEuis2uTsfwykxXIY5jpL0Pi7JC/logo_pad.png?format=500w" title="Padrino logo" alt="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520253917865-POIF6GK211RMBTYFXL9B/ke17ZwdGBToddI8pDm48kK-NtjRiFFfzoSwd2tQzO_8UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcUz6e6JLP7i1zOKybPyjBmSvQ7Fd0zDFBvL3qIOEuis2uTsfwykxXIY5jpL0Pi7JC/logo_pad.png?format=500w" /&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520254534721-ZQGSMOZ9GHUBFB5RR0AK/ke17ZwdGBToddI8pDm48kJ7gvoev_U44BP9zVMwI-tAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcqBjMm-0uPCGcfGODSqFfcIGDnDdj9AKhJNZyTLAHy3TNRVKLk4y79dgSzJR9aJHS/content_pad2.jpg?format=1000w" title="Padrino logo devices" alt="https://images.squarespace-cdn.com/content/v1/5a7838e4be42d6cd6a7d7366/1520254534721-ZQGSMOZ9GHUBFB5RR0AK/ke17ZwdGBToddI8pDm48kJ7gvoev_U44BP9zVMwI-tAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcqBjMm-0uPCGcfGODSqFfcIGDnDdj9AKhJNZyTLAHy3TNRVKLk4y79dgSzJR9aJHS/content_pad2.jpg?format=1000w" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;All credits for this post goes to &lt;a href="https://www.unpolo.com/padrino-case-study" title="Daniel Polo"&gt;Daniel Polo&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/story-behind-padrino-logo/</guid>
+    </item>
+    <item>
+      <title>Gitter chat window</title>
+      <link>http://padrinorb.com/blog/gitter/</link>
+      <description>&lt;p&gt;Gitter is now available at the right bottom on every page. This makes it easier for people to ask questions and better
+in touch with the community.&lt;/p&gt;
+
+&lt;p&gt;Here is a picture of the window:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://user-images.githubusercontent.com/264708/52076878-f6a3ed00-258f-11e9-8a04-a92263ccc11d.png" title="Gitter window on the homepage"&gt;&lt;/p&gt;
+
+&lt;p&gt;And another pictures when the window is opened:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://user-images.githubusercontent.com/264708/52076890-fefc2800-258f-11e9-8142-8569ba3e2b2b.png" title="Gitte window opened"&gt;&lt;/p&gt;
+
+&lt;p&gt;Hope you enjoy this small improvement on the website.&lt;/p&gt;
+</description>
+      <pubDate>Mon, 4 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/gitter/</guid>
+    </item>
+    <item>
+      <title>Padrino 0.14.4 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-14-4/</link>
+      <description>&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2177" title="#2177"&gt;#2177&lt;/a&gt; regexp routes and trailing slashes (&lt;a href="https://github.com/pdlug" title="pdlug"&gt;pdlug&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2182" title="#2182"&gt;#2182&lt;/a&gt; NoMethodError on &lt;code&gt;ar&lt;/code&gt; tasks with activerecord v5.2.0 (&lt;a href="https://github.com/sue445" title="sue445"&gt;sue445&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2185" title="#2185"&gt;#2185&lt;/a&gt; self.authenticate method in mongoid.rb.tt (&lt;a href="https://github.com/LarryFransson" title="LarryFransson"&gt;LarryFransson&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2179" title="#2179"&gt;#2179&lt;/a&gt; Deprecate safe_level of &lt;code&gt;ERB.new&lt;/code&gt; in Ruby 2.6 (&lt;a href="https://github.com/koic" title="koic"&gt;koic&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2193" title="#2193"&gt;#2193&lt;/a&gt; nested require_dependencies (&lt;a href="https://github.com/genkami" title="genkami"&gt;genkami&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-14-4/</guid>
+    </item>
+    <item>
+      <title>Padrino 0.14.3 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-14-3/</link>
+      <description>&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;locks onto Sinatra 2&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2169" title="#2169"&gt;#2169&lt;/a&gt; drop support of ruby &amp;lt; 2.2.2 (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-14-3/</guid>
+    </item>
+    <item>
+      <title>Padrino 0.14.2 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-14-2/</link>
+      <description>&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;FIX router in non-Padrino applications (&lt;a href="https://github.com/adam12"&gt;@adam12&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/commit/04f64706613f08f4f5eaddd18afec8ce4d1855d9" title="#2154"&gt;#2154&lt;/a&gt; padrino-admin haml layout (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX Datamapper tasks (&lt;a href="https://github.com/adam12"&gt;@adam12&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/1979" title="#1979"&gt;#1979&lt;/a&gt; Add a Default Rake Task If Test Framework is Included (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/2150" title="#2150"&gt;#2150&lt;/a&gt; Project generator silently ignores invalid -a option (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/2152" title="#2152"&gt;#2152&lt;/a&gt; using open without requiring &lt;code&gt;open-uri&lt;/code&gt; (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/2163" title="#2163"&gt;#2163&lt;/a&gt; preserve spaces in args of padrino gen (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2161" title="#2161"&gt;#2161&lt;/a&gt; allow array as tag attribute (&lt;a href="https://github.com/aeris" title="aeris"&gt;aeris&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Update Sequel usage&lt;/li&gt;
+&lt;li&gt;Update &lt;a href="https://github.com/padrino/padrino-framework/commit/f45566335f0b676d9dc2a8e7de68babc2274ff44" title="ActiveRecord::Migration usage"&gt;ActiveRecord::Migration usage&lt;/a&gt; (&lt;a href="https://github.com/adam12"&gt;@adam12&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <pubDate>Tue, 8 May 2018 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-14-2/</guid>
+    </item>
+  </channel>
+</rss>

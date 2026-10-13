@@ -1296,6 +1296,133 @@ body.index .page {
   }
 }
 
+/* Blog */
+
+.blog-intro {
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.post-card {
+  border-top: 1px solid var(--color-border);
+  padding-block: 2rem;
+}
+
+.post-card__date,
+.article__metadata {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.post-card__date {
+  margin-bottom: 0.4rem;
+}
+
+.content .post-card__title {
+  font-size: 1.375rem;
+  margin: 0 0 0.6rem;
+}
+
+.post-card__title a {
+  color: var(--color-heading);
+}
+
+.post-card__title a:hover {
+  color: var(--color-brand);
+}
+
+.post-card__excerpt {
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.article__metadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -0.75rem;
+  margin-bottom: 2rem;
+}
+
+.article__category {
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  font-size: 0.75rem;
+  padding: 0.05rem 0.6rem;
+}
+
+.article__category:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+ul.category-list,
+ul.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.content .category-list li + li {
+  margin-top: 0;
+}
+
+.category-list .article__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.8rem;
+}
+
+.category-list__count {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.post-list {
+  margin-bottom: 2rem;
+}
+
+.content .post-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+  padding-block: 0.75rem;
+}
+
+.post-list__item time {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.article__footer {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.content .article__footer h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
+}
+
+.article__footer p {
+  margin: 0;
+}
+
 /* ==========================================================================
    Home
    ========================================================================== */

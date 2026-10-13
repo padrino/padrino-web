@@ -98,7 +98,7 @@ activate :blog,
   layout: :blog_article,
   permalink: '{title}.html',
   paginate: true,
-  per_page: 2,
+  per_page: 10,
   publish_future_dated: true
 
 activate :directory_indexes

@@ -1,10 +1,27 @@
 ---
 pageable: true
+title: Blog
 ---
 
-= partial '/_partials/blog_article', collection: page_articles, locals: { link_title: true, show_comments: false }
+h1 Blog
+p.blog-intro
+  | Release notes and news from the Padrino team. Follow along with the
+  =< link_to 'RSS feed', '/blog.rss'
+  | .
 
-- unless prev_page.nil?
-  li= link_to 'Prev Page', prev_page.url
-- unless next_page.nil?
-  li= link_to 'Next Page', next_page.url
+= partial '/_partials/blog_card', collection: page_articles
+
+- if prev_page || next_page
+  nav.pager aria-label="Blog pages"
+    - if prev_page
+      = link_to prev_page.url, class: 'pager__link pager__link--prev', rel: 'prev' do
+        span.pager__label
+          = icon(:chevron_left)
+          | Newer
+        span.pager__title Newer posts
+    - if next_page
+      = link_to next_page.url, class: 'pager__link pager__link--next', rel: 'next' do
+        span.pager__label
+          | Older
+          = icon(:chevron_right)
+        span.pager__title Older posts

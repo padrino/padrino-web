@@ -149,6 +149,8 @@ GEM
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
     temple (0.8.2)
+    terser (1.2.8)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     tilt (2.0.10)
     time (0.4.2)
@@ -181,6 +183,7 @@ DEPENDENCIES
   rake (~> 13.3)
   redcarpet
   slim
+  terser
 
 BUNDLED WITH
    2.2.26

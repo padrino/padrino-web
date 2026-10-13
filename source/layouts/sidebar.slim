@@ -1,7 +1,11 @@
 = wrap_layout :layout do
-  .page__sidebar
-    .sidebar
-      = partial current_page.data.sidebar
-  .page__content
-    .content
-      = yield
+  .docs-layout.container
+    aside#docs-sidebar.docs-sidebar
+      button#docs-sidebar-toggle.docs-sidebar__toggle type="button" aria-controls="docs-sidebar-nav" aria-expanded="false"
+        = icon(:menu)
+        span Menu
+      nav#docs-sidebar-nav.sidebar aria-label="Section"
+        = partial current_page.data.sidebar
+    .docs-main
+      article.content
+        = yield

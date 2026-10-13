@@ -6,6 +6,7 @@ files.watch :source, path: File.join(__dir__, 'docs'),
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
+page '/index.html', layout: :layout
 page '/guides/*', layout: :guide, data: { sidebar: '/_partials/guides_sidebar' }
 page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }
@@ -23,11 +24,10 @@ end
 # Helpers
 helpers do
   def nav_link_to(link_text, url, options = {})
-    root = options.delete(:root)
-    is_active = (!root && current_page.url.start_with?(url)) ||
-      current_page.url == url
-    options[:class] ||= ''
-    options[:class] << '--is-active' if is_active
+    if current_page.url.start_with?(url)
+      options[:class] = [options[:class], 'is-active'].compact.join(' ')
+      options['aria-current'] = 'page' if current_page.url == url
+    end
     link_to(link_text, url, options)
   end
 
@@ -91,7 +91,7 @@ set :markdown_engine, :redcarpet
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
     :fenced_code_blocks => true, renderer: CustomRenderer
 set :default_title, 'The Elegant Ruby Web Framework'
-set :url_root, 'http://padrinorb.com'
+set :url_root, 'https://padrinorb.com'
 
 activate :blog,
   prefix: 'blog',
@@ -114,7 +114,7 @@ activate :robots,
   rules: [
     { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }
   ],
-  sitemap: 'http://padrinorb.com/sitemap.xml'
+  sitemap: 'https://padrinorb.com/sitemap.xml'
 activate :deploy, deploy_method: :git
 
 ready do
@@ -148,7 +148,7 @@ ignore 'category.html.slim'
 # Build-specific configuration
 configure :build do
   activate :minify_css
-  activate :minify_javascript
+  activate :minify_javascript, compressor: -> { Terser.new }
   activate :asset_hash
   activate :relative_assets
   activate :disqus, :shortname => "padrinorb"

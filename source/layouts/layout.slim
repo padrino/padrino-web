@@ -21,6 +21,8 @@ html lang="en"
     = stylesheet_link_tag :all
     = javascript_include_tag :all, defer: true
     = yield_content :head
+    script type="speculationrules"
+      | {"prerender": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/*.(md|txt|rss)"}}]}, "eagerness": "moderate"}]}
     link href="https://padrinorb.com/blog.rss" rel="alternate" type="application/rss+xml" title="Blog - Padrino Ruby Web Framework"
   body class=page_classes
     = partial 'layouts/header'

@@ -4,8 +4,21 @@
       button#docs-sidebar-toggle.docs-sidebar__toggle type="button" aria-controls="docs-sidebar-nav" aria-expanded="false"
         = icon(:menu)
         span Menu
-      nav#docs-sidebar-nav.sidebar aria-label="Section"
+      nav#docs-sidebar-nav.sidebar aria-label="Section" data-scroll-key=current_page.data.sidebar
         = partial current_page.data.sidebar
+      javascript:
+        {
+          const nav = document.getElementById('docs-sidebar-nav');
+          const key = `sidebar-scroll:${nav.dataset.scrollKey}`;
+          const restore = () => {
+            try { nav.scrollTop = Number(sessionStorage.getItem(key)) || 0; } catch {}
+          };
+          restore();
+          addEventListener('pagereveal', restore);
+          addEventListener('pagehide', () => {
+            try { sessionStorage.setItem(key, nav.scrollTop); } catch {}
+          });
+        }
     .docs-main
       article.content
         = yield

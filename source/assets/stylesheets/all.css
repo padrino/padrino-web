@@ -129,6 +129,22 @@
    Base
    ========================================================================== */
 
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -815,6 +831,7 @@ body.index .page {
 }
 
 .docs-sidebar .sidebar {
+  view-transition-name: sidebar;
   position: sticky;
   top: 1.5rem;
   max-height: calc(100vh - 3rem);

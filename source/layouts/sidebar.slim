@@ -1,5 +1,5 @@
 = wrap_layout :layout do
-  .docs-layout.container
+  .docs-layout.container class=('docs-layout--toc' if content_for?(:toc))
     aside#docs-sidebar.docs-sidebar
       button#docs-sidebar-toggle.docs-sidebar__toggle type="button" aria-controls="docs-sidebar-nav" aria-expanded="false"
         = icon(:menu)
@@ -9,3 +9,7 @@
     .docs-main
       article.content
         = yield
+    - if content_for?(:toc)
+      aside.docs-toc
+        nav.toc aria-label="On this page"
+          = yield_content :toc

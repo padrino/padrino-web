@@ -1,5 +1,60 @@
+- body = yield
+- toc = guide_toc(body)
+- previous_guide, next_guide = guide_neighbours
+
+- if toc.any?
+  - content_for :toc do
+    p.toc__title On this page
+    ul.toc__items
+      - toc.each do |heading|
+        li class="toc__item toc__item--h#{heading[:level]}"
+          a.toc__link href="##{heading[:id]}"= heading[:text]
+
+- content_for :head do
+  link rel="alternate" type="text/markdown" href=guide_markdown_url(current_page)
+
 = wrap_layout :sidebar do
-  p.content__chapter-title= current_page.data.chapter
-  = yield
-  p.updated = " last updated: #{File.mtime(current_page.source_file).strftime("%Y-%m-%d")}"
-  = disqus
+  .content__header
+    p.content__chapter-title= current_page.data.chapter
+    .page-actions
+      button.page-actions__copy type="button" data-copy-url=guide_markdown_url(current_page)
+        = icon(:copy, css_class: 'icon--copy')
+        = icon(:check, css_class: 'icon--check')
+        span Copy page
+      details.page-actions__menu
+        summary aria-label="More page actions"
+          = icon(:chevron_down)
+        ul.page-actions__list
+          li
+            = link_to guide_markdown_url(current_page) do
+              = icon(:file)
+              | View as Markdown
+          li
+            = link_to ask_ai_url(:chatgpt, current_page), target: '_blank', rel: 'noopener' do
+              = icon(:external)
+              | Open in ChatGPT
+          li
+            = link_to ask_ai_url(:claude, current_page), target: '_blank', rel: 'noopener' do
+              = icon(:external)
+              | Open in Claude
+  == body
+  footer.doc-footer
+    .doc-footer__meta
+      = link_to docs_edit_url(current_page), class: 'doc-footer__edit' do
+        = icon(:pencil)
+        | Edit this page on GitHub
+      span Last updated #{docs_last_updated(current_page)}
+    - if previous_guide || next_guide
+      nav.pager aria-label="Guides"
+        - if previous_guide
+          = link_to previous_guide.url, class: 'pager__link pager__link--prev', rel: 'prev' do
+            span.pager__label
+              = icon(:chevron_left)
+              | Previous
+            span.pager__title= previous_guide.data.title
+        - if next_guide
+          = link_to next_guide.url, class: 'pager__link pager__link--next', rel: 'next' do
+            span.pager__label
+              | Next
+              = icon(:chevron_right)
+            span.pager__title= next_guide.data.title

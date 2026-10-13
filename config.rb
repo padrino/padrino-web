@@ -42,8 +42,8 @@ helpers do
 
   def guides
     resources = sitemap.resources.select do |r|
-      r.path.start_with?('guides/') && !r.path.match(/^guides\/\d{2}_/) &&
-      r.path != 'guides/README.html'
+      r.path.start_with?('guides/') && r.path.end_with?('.html') &&
+      !r.path.match(/^guides\/\d{2}_/) && r.path != 'guides/README.html'
     end
 
     resources.sort_by(&:target)
@@ -126,6 +126,8 @@ ready do
       title = path[2][3..-1]
       locals = { sidebar: '/_partials/guides_sidebar' }
       proxy "guides/#{chapter}/#{title}", path.join('/'), locals: locals
+      proxy "guides/#{chapter}/#{title.sub(/\.html\z/, '.md')}", 'guide-source.txt',
+        locals: { source_file: resource.source_file }, ignore: true
     end
   end
   sitemap.resources

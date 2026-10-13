@@ -8,6 +8,36 @@ function activateToggle(buttonId, target, openClass) {
   });
 }
 
+function activateDocsSidebar() {
+  const sidebar = document.getElementById('docs-sidebar');
+  const button = document.getElementById('docs-sidebar-toggle');
+  if (!sidebar || !button) return;
+
+  const setOpen = (isOpen) => {
+    sidebar.classList.toggle('is-open', isOpen);
+    button.setAttribute('aria-expanded', isOpen);
+    if (!isOpen) return;
+
+    const nav = document.getElementById('docs-sidebar-nav');
+    const active = nav.querySelector('.sidebar__link.is-active');
+    if (active) {
+      const offset = active.getBoundingClientRect().top - nav.getBoundingClientRect().top;
+      nav.scrollTop += offset - nav.clientHeight / 2;
+    }
+  };
+
+  button.addEventListener('click', () => {
+    setOpen(!sidebar.classList.contains('is-open'));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && sidebar.classList.contains('is-open')) {
+      setOpen(false);
+      button.focus();
+    }
+  });
+}
+
 function activateThemeToggle() {
   const button = document.getElementById('theme-toggle');
   if (!button) return;
@@ -297,7 +327,7 @@ function activateGenerator() {
 
 document.addEventListener('DOMContentLoaded', () => {
   activateToggle('site-nav-toggle', document.body, 'nav-is-open');
-  activateToggle('docs-sidebar-toggle', document.getElementById('docs-sidebar'), 'is-open');
+  activateDocsSidebar();
   activateThemeToggle();
   activateHeadingAnchors();
   addCodeCopyButtons();

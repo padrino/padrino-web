@@ -2,8 +2,9 @@
   .docs-layout.container class=('docs-layout--toc' if content_for?(:toc))
     aside#docs-sidebar.docs-sidebar
       button#docs-sidebar-toggle.docs-sidebar__toggle type="button" aria-controls="docs-sidebar-nav" aria-expanded="false"
-        = icon(:menu)
-        span Menu
+        span= current_page.data.sidebar.include?('blog') ? 'Latest posts' : 'All guides'
+        = icon(:chevron_down, css_class: 'icon--open')
+        = icon(:close, css_class: 'icon--close')
       nav#docs-sidebar-nav.sidebar aria-label="Section" data-scroll-key=current_page.data.sidebar
         = partial current_page.data.sidebar
       javascript:

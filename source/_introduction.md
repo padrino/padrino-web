@@ -22,9 +22,9 @@ Padrino ships with an Admin Interface that includes the following features:
 
 Feature            | Description
 ------------------ | --------------------------------------------------------------------
-**ORM/ODM**        | Adapters for datamapper, activerecord, sequel, mongomapper, mongoid
+**ORM/ODM**        | Adapters for activerecord, minirecord, sequel, mongoid, ohm, dynamoid
 **Authentication** | Account authentication support and permission management
-**Template**       | View support for Erb and Haml rendering engines
+**Template**       | View support for Erb, Haml and Slim rendering engines
 **Scaffold**       | Create a model “admin interface” by invoking a command
 **i18n**           | Translated into 10 languages including English, Spanish, and Italian
 

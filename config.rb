@@ -36,6 +36,21 @@ helpers do
     "Padrino - #{page_title.nil? ? config.default_title : page_title}"
   end
 
+  def page_description
+    description =
+      if content_for?(:description) then yield_content(:description)
+      elsif current_page.data.description then current_page.data.description
+      elsif is_blog_article? then strip_tags(current_article.body)
+      else config.default_description
+      end
+
+    description.gsub(/\s+/, ' ').strip.truncate(160, separator: ' ')
+  end
+
+  def canonical_url
+    config.url_root + current_page.url
+  end
+
   def recent_release_post
     blog.articles.find { |a| a.tags.include?("release") }
   end
@@ -91,6 +106,8 @@ set :markdown_engine, :redcarpet
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
     :fenced_code_blocks => true, renderer: CustomRenderer
 set :default_title, 'The Elegant Ruby Web Framework'
+set :default_description, 'Padrino is a Ruby web framework built on Sinatra, with generators, ' \
+  'helpers, an admin, mailers and caching, while staying small, fast and modular.'
 set :url_root, 'https://padrinorb.com'
 
 activate :blog,
@@ -151,7 +168,7 @@ ignore 'category.html.slim'
 configure :build do
   activate :minify_css
   activate :minify_javascript, compressor: -> { Terser.new }
-  activate :asset_hash
+  activate :asset_hash, ignore: [%r{images/og-image}]
   activate :relative_assets
   activate :disqus, :shortname => "padrinorb"
 end

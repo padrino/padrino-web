@@ -4,6 +4,15 @@ html lang="en"
     meta charset='utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1'
     title= head_title
+    meta name="description" content=page_description
+    link rel="canonical" href=canonical_url
+    meta property="og:type" content=(is_blog_article? ? 'article' : 'website')
+    meta property="og:site_name" content="Padrino"
+    meta property="og:title" content=head_title
+    meta property="og:description" content=page_description
+    meta property="og:url" content=canonical_url
+    meta property="og:image" content="#{config.url_root}/images/og-image.png"
+    meta name="twitter:card" content="summary_large_image"
     javascript:
       try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.dataset.theme = theme; } catch {}
     meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"

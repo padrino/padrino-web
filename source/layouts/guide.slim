@@ -10,6 +10,8 @@
         li class="toc__item toc__item--h#{heading[:level]}"
           a.toc__link href="##{heading[:id]}"= heading[:text]
 
+- content_for :description, strip_tags(body[%r{<p>(.*?)</p>}m, 1].to_s)
+
 - content_for :head do
   link rel="alternate" type="text/markdown" href=guide_markdown_url(current_page)
 

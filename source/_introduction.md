@@ -75,18 +75,18 @@ The available components and their defaults are listed below:
 
 Component  | Default | Options
 ---------- | ------- | -----------------------------------------------------------------
-ORM/ODM    | none    | activerecord, datamapper, mongomapper, mongoid, sequel, couchrest
-JavaScript | none    | prototype, rightjs, jquery, mootools, extcore
-Renderer   | none    | Erb, Haml, Slim
-Test       | none    | Bacon, Shoulda, Cucumber, Riot, RSpec
-Stylesheet | none    | Less, Sass, SCSS, Compass
+ORM/ODM    | none    | activerecord, minirecord, mongoid, sequel, ohm, dynamoid
+JavaScript | none    | prototype, jquery, mootools, dojo
+Renderer   | none    | Erb, Haml, Slim, Liquid
+Test       | none    | Bacon, Shoulda, Cucumber, RSpec, Minitest, Test::Unit
+Stylesheet | none    | Less, Sass, SCSS
 Mock       | none    | rr, Mocha
 
 Just create the project with the usual generator command and pass in your
 preferred components!
 
 ```shell
-$ padrino g project cool --orm datamapper
+$ padrino g project cool --orm sequel
 $ padrino g project cool --renderer haml --stylesheet sass
 $ padrino g project cool --script mootools
 $ padrino g project cool --orm mongoid --script mootools

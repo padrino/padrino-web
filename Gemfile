@@ -17,3 +17,4 @@ gem 'redcarpet'
 gem "middleman-disqus", github: 'padrino/middleman-disqus'
 gem "rake", "~> 13.3"
 gem "net-ftp", "~> 0.3.9"
+gem 'psych', '< 4'

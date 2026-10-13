@@ -143,6 +143,7 @@ ignore 'category.html.slim'
 
 # Build-specific configuration
 configure :build do
+  set :watcher_disable, true
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash

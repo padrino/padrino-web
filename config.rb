@@ -1,3 +1,7 @@
+# Guides, blog posts and llms.txt live in the docs submodule
+files.watch :source, path: File.join(__dir__, 'docs'),
+  only: [%r{\A(blog|guides)/}, /\Allms(-full)?\.txt\z/]
+
 # Per-page layout changes
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -143,7 +147,6 @@ ignore 'category.html.slim'
 
 # Build-specific configuration
 configure :build do
-  set :watcher_disable, true
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash

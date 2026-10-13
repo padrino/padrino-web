@@ -36,9 +36,62 @@ function activateHeadingAnchors() {
   }
 }
 
+function flashCopied(button) {
+  button.classList.add('is-copied');
+  setTimeout(() => button.classList.remove('is-copied'), 2000);
+}
+
+function activateCopyButtons() {
+  for (const button of document.querySelectorAll('.copy-button')) {
+    button.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(button.dataset.copy);
+      flashCopied(button);
+    });
+  }
+}
+
+function activateGenerator() {
+  const form = document.querySelector('[data-generator]');
+  if (!form) return;
+
+  const output = form.querySelector('.generator__command');
+  const copyButton = form.querySelector('.copy-button');
+  const orm = form.elements.orm;
+
+  const update = () => {
+    const parts = ['padrino g project blog'];
+
+    for (const field of form.querySelectorAll('[data-requires]')) {
+      field.hidden = !field.dataset.requires.split(' ').includes(orm.value);
+    }
+
+    for (const select of form.querySelectorAll('select')) {
+      if (select.value && !select.closest('label').hidden) {
+        parts.push(`--${select.name} ${select.value}`);
+      }
+    }
+
+    output.replaceChildren();
+    parts.forEach((part, index) => {
+      const span = document.createElement('span');
+      span.textContent = part;
+      if (index > 0) output.append(' ');
+      output.append(span);
+    });
+    copyButton.dataset.copy = parts.join(' ');
+  };
+
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+  form.addEventListener('submit', (event) => event.preventDefault());
+  update();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   activateToggle('site-nav-toggle', document.body, 'nav-is-open');
   activateToggle('docs-sidebar-toggle', document.getElementById('docs-sidebar'), 'is-open');
   activateThemeToggle();
   activateHeadingAnchors();
+  activateGenerator();
+  activateCopyButtons();
 });

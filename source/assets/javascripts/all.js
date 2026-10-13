@@ -95,6 +95,152 @@ function activateCopyButtons() {
   }
 }
 
+const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+
+function escapeHtml(text) {
+  return text.replace(/[&<>"']/g, (char) => HTML_ESCAPES[char]);
+}
+
+function highlightTerms(text, terms) {
+  let html = escapeHtml(text);
+  for (const term of terms) {
+    const pattern = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    html = html.replace(pattern, '<mark>$1</mark>');
+  }
+  return html;
+}
+
+function searchGuides(index, query) {
+  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+  if (!terms.length) return { terms, results: [] };
+
+  const results = [];
+
+  for (const guide of index) {
+    const title = guide.title.toLowerCase();
+    const text = guide.text.toLowerCase();
+    let score = 0;
+
+    const matchesAll = terms.every((term) => {
+      const inTitle = title.includes(term);
+      const occurrences = text.split(term).length - 1;
+      if (inTitle) score += 20;
+      score += Math.min(occurrences, 20);
+      return inTitle || occurrences > 0;
+    });
+    if (!matchesAll) continue;
+
+    const phrase = terms.join(' ');
+    if (terms.length > 1) score += 3 * Math.min(text.split(phrase).length - 1, 5);
+
+    const titleMatches = terms.every((term) => title.includes(term));
+    const heading = !titleMatches && guide.headings.find((h) => {
+      const headingText = h.text.toLowerCase();
+      return terms.every((term) => headingText.includes(term));
+    });
+    if (heading) score += 10;
+
+    let position = text.indexOf(phrase);
+    if (position === -1) position = text.indexOf(terms[0]);
+    const start = Math.max(0, position - 60);
+    const snippet = `${start > 0 ? '…' : ''}${guide.text.slice(start, start + 160)}…`;
+
+    results.push({
+      score,
+      url: heading ? `${guide.url}#${heading.id}` : guide.url,
+      title: guide.title,
+      context: heading ? `${guide.chapter} › ${guide.title}` : guide.chapter,
+      heading: heading && heading.text,
+      snippet
+    });
+  }
+
+  results.sort((a, b) => b.score - a.score);
+  return { terms, results: results.slice(0, 12) };
+}
+
+function activateSearch() {
+  const dialog = document.getElementById('search');
+  const openButton = document.getElementById('search-open');
+  if (!dialog || !openButton) return;
+
+  const input = document.getElementById('search-input');
+  const list = document.getElementById('search-results');
+  const status = document.getElementById('search-status');
+  let index = null;
+  let selected = 0;
+
+  const loadIndex = async () => {
+    index ??= await (await fetch('/search.json')).json();
+    return index;
+  };
+
+  const select = (position) => {
+    const items = list.querySelectorAll('.search-results__link');
+    if (!items.length) return;
+    selected = (position + items.length) % items.length;
+    items.forEach((item, i) => item.setAttribute('aria-selected', i === selected));
+    items[selected].scrollIntoView({ block: 'nearest' });
+  };
+
+  const render = async () => {
+    const query = input.value.trim();
+    if (!query) {
+      list.innerHTML = '';
+      status.textContent = 'Type to search the guides.';
+      status.hidden = false;
+      return;
+    }
+
+    const found = searchGuides(await loadIndex(), query);
+    list.innerHTML = found.results.map((result) => `
+      <li><a class="search-results__link" role="option" href="${result.url}">
+        <span class="search-results__context">${escapeHtml(result.context)}</span>
+        <span class="search-results__title">${highlightTerms(result.heading || result.title, found.terms)}</span>
+        <span class="search-results__snippet">${highlightTerms(result.snippet, found.terms)}</span>
+      </a></li>
+    `).join('');
+    status.textContent = `No results for "${query}".`;
+    status.hidden = found.results.length > 0;
+    select(0);
+  };
+
+  const open = () => {
+    if (dialog.open) return;
+    dialog.showModal();
+    input.select();
+    loadIndex();
+  };
+
+  if (!/Mac|iPhone|iPad/.test(navigator.platform)) {
+    openButton.querySelector('.search-trigger__mod').textContent = 'Ctrl';
+  }
+
+  openButton.addEventListener('click', open);
+  document.getElementById('search-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  input.addEventListener('input', render);
+
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') { event.preventDefault(); select(selected + 1); }
+    if (event.key === 'ArrowUp') { event.preventDefault(); select(selected - 1); }
+    if (event.key === 'Enter') {
+      const current = list.querySelectorAll('.search-results__link')[selected];
+      if (current) { event.preventDefault(); window.location.href = current.href; dialog.close(); }
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+    if ((event.key === 'k' && (event.metaKey || event.ctrlKey)) || (event.key === '/' && !typing)) {
+      event.preventDefault();
+      open();
+    }
+  });
+}
+
 function activatePageActions() {
   const copyButton = document.querySelector('.page-actions__copy');
   const menu = document.querySelector('.page-actions__menu');
@@ -159,4 +305,5 @@ document.addEventListener('DOMContentLoaded', () => {
   activateGenerator();
   activateCopyButtons();
   activateTocHighlighting();
+  activateSearch();
 });

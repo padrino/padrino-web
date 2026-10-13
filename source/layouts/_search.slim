@@ -1,0 +1,7 @@
+dialog#search.search-dialog aria-label="Search documentation"
+  .search-dialog__field
+    = icon(:search)
+    input#search-input type="search" placeholder="Search the guides" autocomplete="off" spellcheck="false" aria-controls="search-results"
+    button#search-close.search-dialog__close type="button" Esc
+  ul#search-results.search-results role="listbox" aria-label="Results"
+  p#search-status.search-dialog__status Type to search the guides.

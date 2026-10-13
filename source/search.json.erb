@@ -1,0 +1,12 @@
+<%=
+  guides.map do |resource|
+    html = resource.render(layout: false)
+    {
+      title: resource.data.title,
+      chapter: resource.data.chapter,
+      url: resource.url,
+      headings: guide_toc(html).map { |heading| { id: heading[:id], text: heading[:text] } },
+      text: CGI.unescapeHTML(strip_tags(html)).gsub(/\s+/, ' ').strip
+    }
+  end.to_json
+%>

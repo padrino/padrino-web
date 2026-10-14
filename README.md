@@ -39,9 +39,23 @@ submodule:
 cd docs && git pull ../../padrino-docs master
 ```
 
-## Automated Deploy Instructions
+## Deployment
 
-If you want to update the docs, build and deploy the update in a single command:
+The [Build and deploy](.github/workflows/deploy.yml) workflow builds the site
+against the latest padrino-docs `master` and pushes it to the `gh-pages`
+branch, which GitHub Pages serves at <https://padrinorb.com>. It runs on every
+push to `master`, daily to pick up docs changes, and on demand from the
+Actions tab. Pull requests are built but never deployed.
+
+To deploy right after a docs change, run the workflow manually. It also
+accepts a `docs-updated`
+[repository dispatch](https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event)
+event, which padrino-docs could send with a token that can write to this repo
+(not set up).
+
+To deploy from your machine instead, update the docs, build and deploy in a
+single command. It force-pushes `gh-pages`, so don't run it while the workflow
+is deploying:
 
 ```shell
 rake publish

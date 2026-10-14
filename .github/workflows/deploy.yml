@@ -1,0 +1,96 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+  # Guides and blog posts live in padrino/padrino-docs, so rebuild daily to pick up their changes
+  schedule:
+    - cron: "17 6 * * *"
+  # Lets padrino-docs trigger an immediate rebuild after a push
+  repository_dispatch:
+    types: [docs-updated]
+
+# Read-only by default; only the deploy job, which never runs for pull requests, can push
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: build-${{ github.ref }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true
+          persist-credentials: false
+          # Full history: guide pages show each file's last commit date
+          fetch-depth: 0
+
+      # Same as `rake update`: build against the latest docs, not the pinned submodule commit
+      - name: Update docs to latest master
+        run: git submodule update --remote docs
+
+      # The sitemap's lastmod uses file mtimes; without this every build differs and the daily run always deploys
+      - name: Set file times from git history
+        run: |
+          for repo in . docs; do
+            git -C "$repo" ls-files -z | while IFS= read -r -d '' f; do
+              if [ -f "$repo/$f" ] && [ ! -L "$repo/$f" ]; then
+                touch -d "$(git -C "$repo" log -1 --format=%cI -- ":(literal)$f")" "$repo/$f"
+              fi
+            done
+          done
+
+      - uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a # v1.329.0
+        with:
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec middleman build
+
+      - name: Check build output
+        run: |
+          test -f build/index.html
+          test -f build/guides/introduction/overview/index.html
+          test -s build/llms-full.txt
+          test "$(cat build/CNAME)" = "padrinorb.com"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: site
+          path: build
+          include-hidden-files: true
+          retention-days: 7
+
+  # Runs no repository or docs code, so the write token is only exposed to the two pinned actions below
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    if: github.repository == 'padrino/padrino-web' && github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # push the built site to the gh-pages branch
+    concurrency:
+      group: deploy-gh-pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: site
+          path: build
+
+      - uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          full_commit_message: Deploy ${{ github.sha }} (${{ github.event_name }})

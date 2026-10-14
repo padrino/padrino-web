@@ -972,6 +972,7 @@ body.index .page {
 
 .content {
   font-size: 1.0625rem;
+  overflow-wrap: break-word;
 }
 
 .content h1 {

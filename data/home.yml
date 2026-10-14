@@ -177,7 +177,6 @@ components:
   - name: JavaScript
     flag: script
     options:
-      - [vite, Vite]
       - [jquery, jQuery]
       - [prototype, Prototype]
       - [mootools, MooTools]

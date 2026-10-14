@@ -15,7 +15,8 @@ module GuideHelpers
   end
 
   def guide_markdown_url(resource)
-    resource.url.sub(%r{/\z}, '.md')
+    chapter, title = resource.source_file.split('/').last(2)
+    "/guides/#{chapter[3..-1]}/#{title[3..-1].sub(/\.html\.md\z/, '.md')}"
   end
 
   def ask_ai_url(service, resource)

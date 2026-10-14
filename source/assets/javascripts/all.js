@@ -131,13 +131,18 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, (char) => HTML_ESCAPES[char]);
 }
 
+// Split the raw text once on all terms, then escape each piece, so a later term can never match
+// inside an earlier <mark> or an escaped entity such as &amp;.
 function highlightTerms(text, terms) {
-  let html = escapeHtml(text);
-  for (const term of terms) {
-    const pattern = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    html = html.replace(pattern, '<mark>$1</mark>');
-  }
-  return html;
+  if (!terms.length) return escapeHtml(text);
+  const alternation = [...terms]
+    .sort((a, b) => b.length - a.length)
+    .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|');
+  return text
+    .split(new RegExp(`(${alternation})`, 'gi'))
+    .map((part, i) => (i % 2 ? `<mark>${escapeHtml(part)}</mark>` : escapeHtml(part)))
+    .join('');
 }
 
 function searchGuides(index, query) {
@@ -277,6 +282,7 @@ function activatePageActions() {
 
   copyButton?.addEventListener('click', async () => {
     const response = await fetch(copyButton.dataset.copyUrl);
+    if (!response.ok) throw new Error(`Could not load ${copyButton.dataset.copyUrl} (${response.status})`);
     await navigator.clipboard.writeText(await response.text());
     flashCopied(copyButton);
   });

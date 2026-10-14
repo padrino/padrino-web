@@ -4,4 +4,4 @@ Disallow: /*.js
 Disallow: /*.css
 Allow: /
 
-Sitemap: http://padrinorb.com/sitemap.xml
+Sitemap: https://padrinorb.com/sitemap.xml

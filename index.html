@@ -1,203 +1,53 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><link href="images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><meta content="#ffffff" name="theme-color" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="assets/stylesheets/all-2fbb5fe1.css" rel="stylesheet" /><script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js"></script><script src="assets/javascripts/all-5efb1c90.js"></script><link href="http://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="index"><div class="grid"><header class="header"><h1 class="header__name"><a href="/" class="padrino-name">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a href="/" class="navigation__link">Overview</a></li><li class="navigation__item"><a href="/guides/" class="navigation__link">Guides</a></li><li class="navigation__item"><a href="/blog/" class="navigation__link">Blog</a></li><li class="navigation__item"><a href="http://www.rubydoc.info/github/padrino/padrino-framework" class="navigation__link">API</a></li><li class="navigation__item"><a href="/contribute/" class="navigation__link">Contribute</a></li><li class="navigation__item"><a href="https://github.com/padrino/padrino-framework" class="navigation__link"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="content"><div class="page--index"><div class="hero"><p class="clearfix"><img src="images/logo-6475397a.svg" class="hero__logo" alt="" /></p><h1 class="hero__headline"><span class="padrino-name">Padrino</span> is a Ruby web framework built upon the Sinatra web library.</h1><div class="hero__text"><p>Padrino was created to make it fun and easy to code more advanced web applications while still adhering to the spirit that makes <a href="http://sinatrarb.com">Sinatra</a> great!</p>
-</div><p class="hero__button"><a href="https://github.com/padrino/padrino-framework" class="button--large"><span class="fa fa-github button__icon"></span>View on GitHub</a></p><p class="hero__release"><span class="label--dark">Latest stable &ndash; </span><br /><a href="/blog/padrino-0-16-0/" class="hero__release__link">Padrino 0.16.0 release</a><br /><small>Released on December 2, 2025</small></p></div><hr /><h2 id="lightweight">Lightweight</h2>
-<p>The Padrino code base has been kept simple and easy to understand, maintain and
-enhance. The generator for each new project creates a clean and compact
-directory structure keeping <strong>your</strong> code simple and well organized.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><title>Padrino - The Elegant Ruby Web Framework</title><meta content="Padrino is a Ruby web framework built on Sinatra, with generators, helpers, an admin, mailers and caching, while staying small, fast and modular." name="description" /><link href="https://padrinorb.com/" rel="canonical" /><meta content="website" property="og:type" /><meta content="Padrino" property="og:site_name" /><meta content="Padrino - The Elegant Ruby Web Framework" property="og:title" /><meta content="Padrino is a Ruby web framework built on Sinatra, with generators, helpers, an admin, mailers and caching, while staying small, fast and modular." property="og:description" /><meta content="https://padrinorb.com/" property="og:url" /><meta content="https://padrinorb.com/images/og-image.png" property="og:image" /><meta content="summary_large_image" name="twitter:card" /><script>try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.dataset.theme = theme; } catch {}</script><meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color" /><meta content="#0c0c0e" media="(prefers-color-scheme: dark)" name="theme-color" /><link href="images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><link href="assets/stylesheets/all-cab25388.css" rel="stylesheet" /><script src="assets/javascripts/all-0f349fa2.js" defer="defer"></script><script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/*.(md|txt|rss)"}}]}, "eagerness": "moderate"}]}</script><link href="https://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="index"><header class="site-header"><div class="site-header__inner container"><a href="/" class="brand"><img src="images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><button aria-keyshortcuts="/ Meta+K Control+K" aria-label="Search docs" class="search-trigger" id="search-open" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="search-trigger__label">Search docs</span><span class="search-trigger__kbd"><kbd class="search-trigger__mod">⌘</kbd><kbd>K</kbd></span></button><nav aria-label="Main" class="site-nav" id="site-nav"><a href="/guides/" class="site-nav__link">Guides</a><a href="/blog/" class="site-nav__link">Blog</a><a href="https://www.rubydoc.info/github/padrino/padrino-framework" class="site-nav__link">API</a><a href="/contribute/" class="site-nav__link">Contribute</a></nav><div class="site-header__actions"><button aria-label="Toggle dark mode" class="icon-button theme-toggle" id="theme-toggle" type="button"><svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></button><a aria-label="Padrino on GitHub" class="icon-button" href="https://github.com/padrino/padrino-framework"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.04c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg></a><button aria-controls="site-nav" aria-expanded="false" aria-label="Menu" class="icon-button site-header__menu" id="site-nav-toggle" type="button"><svg class="icon icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><svg class="icon icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div></header><main class="page"><section class="hero"><div class="container"><img src="images/logo-6475397a.svg" alt="Padrino" class="hero__logo" /><h1 class="hero__headline"><strong class="hero__headline-name">Padrino</strong> is a Ruby web framework built upon the Sinatra web library.</h1><p class="hero__lead">We created Padrino to make it fun and easy to build more advanced web
+applications, while staying true to the spirit that makes Sinatra great.</p><div class="hero__actions"><a href="/guides/getting-started/installation/" class="button--large">Get started<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a href="https://github.com/padrino/padrino-framework" class="button--large button--secondary"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.04c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>View on GitHub</a></div><a href="/blog/padrino-0-16-0/" class="hero__release">Padrino 0.16.0 &middot; December 2025<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><p class="hero__meta">Ruby 2.7.8+ &middot; Sinatra 4 &middot; MIT licensed</p></div><div class="container hero__preview"><div class="code-window"><div class="code-window__file">app/controllers/posts.rb</div><div class="highlight"><pre class="syntax ruby"><code><span class="no">Blog</span><span class="o">::</span><span class="no">App</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
+  <span class="n">get</span> <span class="ss">:index</span> <span class="k">do</span>
+    <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="ss">created_at: :desc</span><span class="p">)</span>
+    <span class="n">render</span> <span class="s1">'posts/index'</span>
+  <span class="k">end</span>
 
-<p>Padrino strives to adhere to the following basic principles:</p>
+  <span class="n">get</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">with: :id</span><span class="p">,</span> <span class="ss">provides: </span><span class="p">[</span><span class="ss">:html</span><span class="p">,</span> <span class="ss">:json</span><span class="p">]</span> <span class="k">do</span>
+    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="k">case</span> <span class="n">content_type</span>
+    <span class="k">when</span> <span class="ss">:json</span> <span class="k">then</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">to_json</span>
+    <span class="k">else</span> <span class="n">render</span> <span class="s1">'posts/show'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div></div></section><section class="section prologue"><div class="container"><p class="eyebrow">Why Padrino</p><h2 class="prologue__lead">Many people love the simplicity and expressiveness of Sinatra, <span class="prologue__lead-muted">but quickly find themselves missing much of what frameworks such as
+Rails provide once their applications grow.</span></h2><p class="section__lead prologue__text">Sinatra is a thin layer on top of Rack that adds complexity only when
+an application needs it. We expand on it with the helpers, generators
+and other standard libraries a framework needs for apps of any size,
+from a lightweight JSON service to a large full-stack site.</p><blockquote class="prologue__quote"><p>Our goal with Padrino is to stay true to the core principles of
+Sinatra, including a focus on simplicity and modularity.</p></blockquote><p class="prologue__motto"><span>Tiny and fast.</span> <span>Clean and compact.</span> <span>Creative and concise.</span> </p></div></section><section class="section section--soft"><div class="container"><div class="features"><article class="feature"><div class="feature__text"><p class="eyebrow">Agnostic</p><h3 class="feature__title">Use the libraries you already know</h3><p>Padrino is ORM, JavaScript, testing, rendering and mocking agnostic. Pick the libraries you already know, or none at all, and the generator creates a clean and compact directory structure that keeps your code simple and well organized. Try it here and copy the command.</p><a href="/guides/generators/projects/" class="arrow-link">See all components<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><form class="generator" data-generator=""><div class="generator__fields"><label class="generator__field"><span class="generator__label">Database</span><select class="generator__select" name="orm"><option value="">None</option><option value="activerecord">ActiveRecord</option><option value="minirecord">MiniRecord</option><option selected="" value="sequel">Sequel</option><option value="mongoid">Mongoid</option><option value="ohm">Ohm</option><option value="dynamoid">Dynamoid</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label><label class="generator__field" data-requires="activerecord minirecord sequel"><span class="generator__label">SQL adapter</span><select class="generator__select" name="adapter"><option selected="" value="sqlite">SQLite</option><option value="postgres">PostgreSQL</option><option value="mysql2">MySQL</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label><label class="generator__field"><span class="generator__label">Templates</span><select class="generator__select" name="renderer"><option value="">None</option><option value="erb">ERB</option><option value="haml">Haml</option><option selected="" value="slim">Slim</option><option value="liquid">Liquid</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label><label class="generator__field"><span class="generator__label">Tests</span><select class="generator__select" name="test"><option value="">None</option><option selected="" value="rspec">RSpec</option><option value="minitest">Minitest</option><option value="cucumber">Cucumber</option><option value="shoulda">Shoulda</option><option value="bacon">Bacon</option><option value="testunit">Test::Unit</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label><label class="generator__field"><span class="generator__label">Mocking</span><select class="generator__select" name="mock"><option value="">None</option><option value="rr">RR</option><option value="mocha">Mocha</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label><label class="generator__field"><span class="generator__label">Stylesheets</span><select class="generator__select" name="stylesheet"><option value="">None</option><option value="sass">Sass</option><option value="scss">SCSS</option><option value="less">Less</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label><label class="generator__field"><span class="generator__label">JavaScript</span><select class="generator__select" name="script"><option value="">None</option><option value="jquery">jQuery</option><option value="prototype">Prototype</option><option value="mootools">MooTools</option><option value="dojo">Dojo</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label></div><div class="generator__output"><code class="generator__command"><span>padrino g project blog</span> <span>--orm sequel</span> <span>--adapter sqlite</span> <span>--renderer slim</span> <span>--test rspec</span> </code><button aria-label="Copy command to clipboard" class="copy-button" data-copy="padrino g project blog --orm sequel --adapter sqlite --renderer slim --test rspec" type="button"><svg class="icon icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button></div></form></article><article class="feature"><div class="feature__text"><p class="eyebrow">Routing</p><h3 class="feature__title">Give every URL a name</h3><p>Define your URLs in one place and refer to them by name everywhere else. Padrino adds named routes and params, format negotiation and before and after filters to Sinatra's routing.</p><a href="/guides/controllers/routing/" class="arrow-link">Read about routing<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="code-window"><div class="code-window__file">app/controllers/admin.rb</div><div class="highlight"><pre class="syntax ruby"><code><span class="no">Blog</span><span class="o">::</span><span class="no">App</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:admin</span> <span class="k">do</span>
+  <span class="n">before</span> <span class="p">{</span> <span class="n">halt</span> <span class="mi">403</span> <span class="k">unless</span> <span class="n">session</span><span class="p">[</span><span class="ss">:account_id</span><span class="p">]</span> <span class="p">}</span>
 
-<blockquote>
-<p>Tiny and fast. Clean and compact. Creative and concise.</p>
-</blockquote>
+  <span class="n">get</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">with: :id</span> <span class="k">do</span>
+    <span class="c1"># "/admin/show/42"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<p>This framework can be used with ease for web development for a project of any
-size from your lightweight json web service to a large full-stack web
-application!</p>
+<span class="n">url_for</span><span class="p">(</span><span class="ss">:admin</span><span class="p">,</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">id: </span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># =&gt; "/admin/show/42"</span>
+</code></pre></div></div></article><article class="feature"><div class="feature__text"><p class="eyebrow">Drop-in admin</p><h3 class="feature__title">An admin interface, built in</h3><p>Padrino ships with an admin interface, akin to Django's, that includes account authentication and permission management. Create an admin page for any model with one command. It works with ActiveRecord, Sequel, Mongoid and more, and is translated into ten languages.</p><a href="/guides/features/padrino-admin/" class="arrow-link">Explore the admin<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="code-window"><div class="code-window__file">Terminal</div><div class="highlight"><pre class="syntax shell"><code><span class="nv">$ </span>padrino g admin
+<span class="nv">$ </span>padrino rake db:migrate
+<span class="nv">$ </span>padrino rake db:seed
+<span class="nv">$ </span>padrino g admin_page post
+<span class="nv">$ </span>padrino start
+<span class="c"># =&gt; http://localhost:3000/admin</span>
+</code></pre></div></div></article><article class="feature"><div class="feature__text"><p class="eyebrow">Mountable</p><h3 class="feature__title">Designed for mounting multiple apps</h3><p>Unlike other Ruby frameworks, Padrino is designed from the start for mounting multiple apps. When your site gets big, split it into small apps and route them by path, host or subdomain.</p><a href="/guides/features/mounting-applications/" class="arrow-link">Mount applications<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="code-window"><div class="code-window__file">config/apps.rb</div><div class="highlight"><pre class="syntax ruby"><code><span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'Blog::App'</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="s1">'/blog'</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'Shop::App'</span><span class="p">).</span><span class="nf">host</span><span class="p">(</span><span class="s1">'shop.example.org'</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'Admin'</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="s1">'/admin'</span><span class="p">)</span>
+<span class="no">Padrino</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span><span class="s1">'Web::App'</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+</code></pre></div></div></article></div></div></section><section class="section section--soft"><div class="container"><div class="section__header"><p class="eyebrow">Comprehensive</p><h2 class="section__title">Everything else, out of the box</h2><p class="section__lead">Building on our experience with web applications, we designed
+Padrino to include what a top-notch app needs, in a clean, concise
+and simple environment.</p></div><ul class="toolkit"><li><a href="/guides/application-helpers/overview/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span><span><span class="toolkit__title">Helpers</span><span class="toolkit__text">Tag, form, asset, format and render helpers for your views.</span></span></a></li><li><a href="/guides/features/padrino-mailer/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span><span class="toolkit__title">Mailer</span><span class="toolkit__text">Send email from any route, with templates and delivery options.</span></span></a></li><li><a href="/guides/features/padrino-cache/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span><span><span class="toolkit__title">Caching</span><span class="toolkit__text">Cache whole routes or fragments, stored in files, memory, Memcached or Redis.</span></span></a></li><li><a href="/guides/features/localization/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span><span><span class="toolkit__title">Localization</span><span class="toolkit__text">Full I18n support, with translations for core helpers and admin.</span></span></a></li><li><a href="/guides/features/development-commands/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span><span class="toolkit__title">Reloading</span><span class="toolkit__text">Code changes reload automatically during development.</span></span></a></li><li><a href="/guides/features/development-commands/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span><span><span class="toolkit__title">Logging</span><span class="toolkit__text">One logger shared by your app, your ORM and other libraries.</span></span></a></li><li><a href="/guides/features/rake-tasks/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg></span><span><span class="toolkit__title">Rake & console</span><span class="toolkit__text">Run tasks and open a console with your app loaded.</span></span></a></li><li><a href="/guides/generators/plugins/" class="toolkit__item"><span class="toolkit__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></svg></span><span><span class="toolkit__title">Plugins</span><span class="toolkit__text">Start from project templates and add plugins, even from a URL.</span></span></a></li></ul></div></section><section class="section section--soft"><div class="container"><div class="split"><div class="split__text"><p class="eyebrow">Sinatra core</p><h2 class="section__title">Or bring just the parts you need</h2><p>Already have a Sinatra app? We built every Padrino component to
+work on its own, so you can add the helpers, mailer or caching to
+it without changing anything else.</p><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="arrow-link">Standalone usage<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="split__aside"><div class="code-window"><div class="code-window__file">app.rb</div><div class="highlight"><pre class="syntax ruby"><code><span class="nb">require</span> <span class="s1">'sinatra/base'</span>
+<span class="nb">require</span> <span class="s1">'padrino-helpers'</span>
+<span class="nb">require</span> <span class="s1">'padrino-mailer'</span>
 
-<p><a href="/guides/getting-started/basic-projects/" class="button">Learn more</a></p>
-
-<hr>
-<h2 id="drop-in-admin">Drop-In Admin</h2>
-<p>Padrino ships with an Admin Interface that includes the following features:</p>
-
-<table><thead>
-<tr>
-<th>Feature</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>ORM/ODM</strong></td>
-<td>Adapters for datamapper, activerecord, sequel, mongomapper, mongoid</td>
-</tr>
-<tr>
-<td><strong>Authentication</strong></td>
-<td>Account authentication support and permission management</td>
-</tr>
-<tr>
-<td><strong>Template</strong></td>
-<td>View support for Erb and Haml rendering engines</td>
-</tr>
-<tr>
-<td><strong>Scaffold</strong></td>
-<td>Create a model “admin interface” by invoking a command</td>
-</tr>
-<tr>
-<td><strong>i18n</strong></td>
-<td>Translated into 10 languages including English, Spanish, and Italian</td>
-</tr>
-</tbody></table>
-<div class="highlight"><pre class="syntax shell"><code><span class="nv">$ </span>padrino-gen project cool <span class="nt">--orm</span> activerecord
-<span class="nv">$ </span><span class="nb">cd </span>cool
-<span class="nv">$ </span>padrino-gen admin
-<span class="nv">$ </span>padrino-gen admin page post
-</code></pre></div>
-<p><a href="/guides/features/padrino-admin/" class="button">Learn more</a></p>
-
-<hr>
-<h2 id="comprehensive">Comprehensive</h2>
-<p>Building on our experience in developing web applications, we designed a
-framework that meets all the requirements for creating a top notch web
-application in a clean, concise and simple environment, with minimal deadline
-delays.</p>
-
-<p>We provide you with the following out of the box:</p>
-
-<table><thead>
-<tr>
-<th>Feature</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Agnostic</strong></td>
-<td>Full support for many popular testing, templating, mocking, and database libraries.</td>
-</tr>
-<tr>
-<td><strong>Generators</strong></td>
-<td>Create Padrino applications, models, controllers, admin.</td>
-</tr>
-<tr>
-<td><strong>Mountable</strong></td>
-<td>Unlike other ruby frameworks, principally designed for mounting multiple apps.</td>
-</tr>
-<tr>
-<td><strong>Routing</strong></td>
-<td>Full url named routes, named params, respond_to support, before/after filter support.</td>
-</tr>
-<tr>
-<td><strong>Helpers</strong></td>
-<td>Different helpers for generating tags, forms, links, images, and more.</td>
-</tr>
-<tr>
-<td><strong>Mailer</strong></td>
-<td>Fast and simple support for delivering emails.</td>
-</tr>
-<tr>
-<td><strong>Caching</strong></td>
-<td>Simple route and fragment caching to easily speed up your web requests.</td>
-</tr>
-<tr>
-<td><strong>Admin</strong></td>
-<td>Built-in admin interface (akin to Django) with authentication.</td>
-</tr>
-<tr>
-<td><strong>Logging</strong></td>
-<td>Provides a unified logger that can interact with your ORM or any library of your choice.</td>
-</tr>
-<tr>
-<td><strong>Reloading</strong></td>
-<td>Automatically reloads server code during development.</td>
-</tr>
-<tr>
-<td><strong>Localization</strong></td>
-<td>Full support for I18n localization.</td>
-</tr>
-</tbody></table>
-
-<p><a href="/guides/" class="button">Learn more</a></p>
-
-<hr>
-<h2 id="agnostic">Agnostic</h2>
-<p>Padrino is ORM/ODM, JavaScript, testing, rendering, and mocking agnostic
-supporting the use of any number of available libraries.</p>
-
-<p>The available components and their defaults are listed below:</p>
-
-<table><thead>
-<tr>
-<th>Component</th>
-<th>Default</th>
-<th>Options</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ORM/ODM</td>
-<td>none</td>
-<td>activerecord, datamapper, mongomapper, mongoid, sequel, couchrest</td>
-</tr>
-<tr>
-<td>JavaScript</td>
-<td>none</td>
-<td>prototype, rightjs, jquery, mootools, extcore</td>
-</tr>
-<tr>
-<td>Renderer</td>
-<td>none</td>
-<td>Erb, Haml, Slim</td>
-</tr>
-<tr>
-<td>Test</td>
-<td>none</td>
-<td>Bacon, Shoulda, Cucumber, Riot, RSpec</td>
-</tr>
-<tr>
-<td>Stylesheet</td>
-<td>none</td>
-<td>Less, Sass, SCSS, Compass</td>
-</tr>
-<tr>
-<td>Mock</td>
-<td>none</td>
-<td>rr, Mocha</td>
-</tr>
-</tbody></table>
-
-<p>Just create the project with the usual generator command and pass in your
-preferred components!</p>
-<div class="highlight"><pre class="syntax shell"><code><span class="nv">$ </span>padrino g project cool <span class="nt">--orm</span> datamapper
-<span class="nv">$ </span>padrino g project cool <span class="nt">--renderer</span> haml <span class="nt">--stylesheet</span> sass
-<span class="nv">$ </span>padrino g project cool <span class="nt">--script</span> mootools
-<span class="nv">$ </span>padrino g project cool <span class="nt">--orm</span> mongoid <span class="nt">--script</span> mootools
-<span class="nv">$ </span>padrino g project <span class="nt">-h</span> <span class="c">## shows available options</span>
-</code></pre></div>
-<p><a href="/guides/generators/overview/" class="button">Learn more</a></p>
-
-<hr>
-<h2 id="sinatra-core">Sinatra Core</h2>
-<p>Many people love the simplicity and expressiveness of Sinatra but quickly find
-themselves missing a great deal of functionality provided by other web
-frameworks such as Rails when building non-trivial applications.</p>
-
-<p>Sinatra acts as a thin layer on top of Rack itself and the &quot;micro&quot;-framework is
-kept light introducing complexities only when required by the particular
-application.</p>
-
-<blockquote>
-<p>Our goal with Padrino is to stay true to the core principles of Sinatra
-including a focus on simplicity and modularity.</p>
-</blockquote>
-
-<p>Starting from this assumption, we have developed a different approach to a web
-development framework. We expand on Sinatra through the addition of standard
-libraries including helpers, components, and other functionality that are needed
-in a framework suitable for arbitrarily complex web applications.</p>
-
-<p><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="button">Learn more</a></p>
-</div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br/>
-Hosting by <a href="https://pages.github.com" title="GitHub Pages">GitHub Pages</a><br/>
-Logo design by <a href="https://www.unpolo.com/" title="unpolo">unpolo</a></p>
-<script>anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
-  ((window.gitter = {}).chat = {}).options = {
-    room: 'padrino/padrino-framework'
-  };</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></footer></div></body></html>
+<span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">register</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Helpers</span>
+  <span class="n">register</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Mailer</span>
+<span class="k">end</span>
+</code></pre></div></div></div></div></div></section><section class="section cta"><div class="container"><h2 class="cta__title">Start building with Padrino</h2><p class="section__lead">Follow the guides from your first project to a full application.</p><div class="hero__actions"><a href="/guides/getting-started/basic-projects/" class="button--large">Read the guides<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a href="/blog/" class="button--large button--secondary">Latest news</a></div></div></section></main><footer class="site-footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand"><a href="/" class="brand"><img src="images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><p>The elegant Ruby web framework, built upon Sinatra.</p></div><div class="site-footer__column"><h2 class="site-footer__heading">Docs</h2><ul><li><a href="/guides/">Guides</a></li><li><a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a></li><li><a href="/blog/">Blog</a></li><li><a href="/llms.txt">llms.txt</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Community</h2><ul><li><a href="https://github.com/padrino/padrino-framework">GitHub</a></li><li><a href="https://github.com/padrino/padrino-framework/issues">Issues</a></li><li><a href="/contribute/">Contribute</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Project</h2><ul><li><a href="https://github.com/padrino/padrino-framework/blob/master/LICENSE">MIT License</a></li><li><a href="/blog.rss">RSS feed</a></li><li><a href="https://www.unpolo.com/">Logo by unpolo</a></li></ul></div></div><p class="site-footer__legal">Padrino is released under the MIT License. Hosted on GitHub Pages.</p></div></footer><dialog aria-label="Search documentation" class="search-dialog" id="search"><div class="search-dialog__field"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input aria-controls="search-results" autocomplete="off" id="search-input" placeholder="Search the guides" spellcheck="false" type="search" /><button class="search-dialog__close" id="search-close" type="button">Esc</button></div><ul aria-label="Results" class="search-results" id="search-results" role="listbox"></ul><p class="search-dialog__status" id="search-status">Type to search the guides.</p></dialog></body></html>

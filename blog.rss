@@ -79,7 +79,9 @@ the shape of a ruby (see below)&lt;/p&gt;
     <item>
       <title>Gitter chat window</title>
       <link>http://padrinorb.com/blog/gitter/</link>
-      <description>&lt;p&gt;Gitter is now available at the right bottom on every page. This makes it easier for people to ask questions and better
+      <description>&lt;p&gt;&lt;em&gt;Update: the Gitter window has since been removed from the website. Questions are welcome as &lt;a href="https://github.com/padrino/padrino-framework/issues"&gt;GitHub issues&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Gitter is now available at the right bottom on every page. This makes it easier for people to ask questions and better
 in touch with the community.&lt;/p&gt;
 
 &lt;p&gt;Here is a picture of the window:&lt;/p&gt;

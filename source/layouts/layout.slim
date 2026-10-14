@@ -1,31 +1,32 @@
 doctype html
-html
+html lang="en"
   head
     meta charset='utf-8'
-    meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'
-    meta name='viewport' content='initial-scale=1'
+    meta name='viewport' content='width=device-width, initial-scale=1'
     title= head_title
+    meta name="description" content=page_description
+    link rel="canonical" href=canonical_url
+    meta property="og:type" content=(is_blog_article? ? 'article' : 'website')
+    meta property="og:site_name" content="Padrino"
+    meta property="og:title" content=head_title
+    meta property="og:description" content=page_description
+    meta property="og:url" content=canonical_url
+    meta property="og:image" content="#{config.url_root}/images/og-image.png"
+    meta name="twitter:card" content="summary_large_image"
+    javascript:
+      try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.dataset.theme = theme; } catch {}
+    meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"
+    meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)"
     = partial 'layouts/favicons'
-    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
     = stylesheet_link_tag :all
-    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.0/anchor.min.js'
-    = javascript_include_tag :all
-    link href="http://padrinorb.com/blog.rss" rel="alternate" type="application/rss+xml" title="Blog - Padrino Ruby Web Framework"
+    = javascript_include_tag :all, defer: true
+    = yield_content :head
+    script type="speculationrules"
+      | {"prerender": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/*.(md|txt|rss)"}}]}, "eagerness": "moderate"}]}
+    link href="https://padrinorb.com/blog.rss" rel="alternate" type="application/rss+xml" title="Blog - Padrino Ruby Web Framework"
   body class=page_classes
-    .grid
-      = partial 'layouts/header'
-      .page
-        = yield
-      hr
-      footer.footer
-        markdown:
-          Padrino is released under the MIT LICENSE<br/>
-          Hosting by [GitHub Pages](https://pages.github.com "GitHub Pages")<br/>
-          Logo design by [unpolo](https://www.unpolo.com/ "unpolo")
-
-        javascript:
-          anchors.add('').remove('.sidebar h4, .sidebar h5, .header h1');
-            ((window.gitter = {}).chat = {}).options = {
-              room: 'padrino/padrino-framework'
-            };
-        = javascript_include_tag 'https://sidecar.gitter.im/dist/sidecar.v1.js'
+    = partial 'layouts/header'
+    main.page
+      = yield
+    = partial 'layouts/footer'
+    = partial 'layouts/search'

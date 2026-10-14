@@ -1,7 +1,29 @@
 = wrap_layout :layout do
-  .page__sidebar
-    .sidebar
-      = partial current_page.data.sidebar
-  .page__content
-    .content
-      = yield
+  .docs-layout.container class=('docs-layout--toc' if content_for?(:toc))
+    aside#docs-sidebar.docs-sidebar
+      button#docs-sidebar-toggle.docs-sidebar__toggle type="button" aria-controls="docs-sidebar-nav" aria-expanded="false"
+        span= current_page.data.sidebar.include?('blog') ? 'Latest posts' : 'All guides'
+        = icon(:chevron_down, css_class: 'icon--open')
+        = icon(:close, css_class: 'icon--close')
+      nav#docs-sidebar-nav.sidebar aria-label="Section" data-scroll-key=current_page.data.sidebar
+        = partial current_page.data.sidebar
+      javascript:
+        {
+          const nav = document.getElementById('docs-sidebar-nav');
+          const key = `sidebar-scroll:${nav.dataset.scrollKey}`;
+          const restore = () => {
+            try { nav.scrollTop = Number(sessionStorage.getItem(key)) || 0; } catch {}
+          };
+          restore();
+          addEventListener('pagereveal', restore);
+          addEventListener('pagehide', () => {
+            try { sessionStorage.setItem(key, nav.scrollTop); } catch {}
+          });
+        }
+    .docs-main
+      article.content
+        = yield
+    - if content_for?(:toc)
+      aside.docs-toc
+        nav.toc aria-label="On this page"
+          = yield_content :toc

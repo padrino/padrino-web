@@ -129,6 +129,7 @@ GEM
     padrino-support (0.15.1)
     parallel (1.21.0)
     parslet (2.0.0)
+    psych (3.3.4)
     ptools (1.4.2)
     public_suffix (4.0.6)
     rack (2.2.3)
@@ -148,6 +149,8 @@ GEM
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
     temple (0.8.2)
+    terser (1.2.8)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     tilt (2.0.10)
     time (0.4.2)
@@ -176,9 +179,11 @@ DEPENDENCIES
   middleman-search_engine_sitemap!
   middleman-syntax (~> 3.0)
   net-ftp (~> 0.3.9)
+  psych (< 4)
   rake (~> 13.3)
   redcarpet
   slim
+  terser
 
 BUNDLED WITH
    2.2.26

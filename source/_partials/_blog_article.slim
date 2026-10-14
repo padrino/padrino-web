@@ -1,21 +1,11 @@
-.article
-  h1.article__title
-    - if link_title
-        = link_to blog_article.title, blog_article.url
-    - else
-        = blog_article.title
+article.article
+  h1.article__title= blog_article.title
   p.article__metadata
-    = "Posted on #{blog_article.date.strftime('%B %d, %Y')}"
+    time datetime=blog_article.date.strftime('%Y-%m-%d') = blog_article.date.strftime('%B %-d, %Y')
     - unless blog_article.data.author.nil?
-      = " by #{blog_article.data.author}"
-    =< "| categories:"
-    - blog_article.data.categories.split(" ").each_with_index do |category, index|
-      - if index == blog_article.data.categories.split(" ").size - 1
-        =< link_to "#{category}", category_path(category)
-      - else
-        =< link_to "#{category},", category_path(category)
+      span &middot; #{blog_article.data.author}
+    - categories(blog_article).each do |category|
+      =< link_to category, category_path(category), class: 'article__category'
 
   = blog_article.body
   = partial '/_partials/issue_report'
-
-  hr

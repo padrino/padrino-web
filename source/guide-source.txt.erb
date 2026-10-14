@@ -1,0 +1,4 @@
+---
+layout: false
+---
+<%= File.read(source_file).sub(/\A---\s*\n.*?\n---\s*\n/m, '') %>

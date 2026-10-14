@@ -8,6 +8,7 @@ gem 'middleman-syntax', '~> 3.0'
 gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy'
 gem 'middleman-search_engine_sitemap', github: 'angeloashmore/middleman-search_engine_sitemap'
 gem 'middleman-robots', '~> 1.1.0'
+gem 'terser'
 
 # Styling
 gem 'slim'
@@ -17,3 +18,4 @@ gem 'redcarpet'
 gem "middleman-disqus", github: 'padrino/middleman-disqus'
 gem "rake", "~> 13.3"
 gem "net-ftp", "~> 0.3.9"
+gem 'psych', '< 4'

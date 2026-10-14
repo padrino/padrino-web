@@ -1,0 +1,8 @@
+article.post-card
+  p.post-card__date
+    time datetime=blog_card.date.strftime('%Y-%m-%d') = blog_card.date.strftime('%B %-d, %Y')
+  h2.post-card__title= link_to blog_card.title, blog_card.url
+  p.post-card__excerpt= strip_tags(blog_card.body).gsub(/\s+/, ' ').strip.truncate(220, separator: ' ')
+  = link_to blog_card.url, class: 'arrow-link' do
+    | Read more
+    = icon(:arrow_right)

@@ -1,12 +1,12 @@
-h1 Articles in category #{category.gsub(",", "")}
+h1 Posts in “#{category.gsub(",", "")}”
 
-ul
-  - if all_categories[category]
-    - all_categories[category].each_with_index do |article, i|
-      li
+- if all_categories[category]
+  ul.post-list
+    - all_categories[category].each do |article|
+      li.post-list__item
         = link_to article.title, article
-        span<
-          | (#{article.date.strftime('%B %e, %Y')})
+        time datetime=article.date.strftime('%Y-%m-%d') = article.date.strftime('%B %-d, %Y')
 
-= link_to "Overview of all categories", "/categories"
-
+= link_to '/categories/', class: 'arrow-link' do
+  | All categories
+  = icon(:arrow_right)

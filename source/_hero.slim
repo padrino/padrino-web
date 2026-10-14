@@ -1,21 +1,22 @@
-.hero
-  p.clearfix
-    = image_tag 'logo.svg', class: 'hero__logo'
-  h1.hero__headline
-    span.padrino-name> Padrino
-    | is a Ruby web framework built upon the Sinatra web library.
-  .hero__text
-    markdown:
-      Padrino was created to make it fun and easy to code more advanced web applications while still adhering to the spirit that makes [Sinatra](http://sinatrarb.com) great!
-  p.hero__button
-    = link_to 'https://github.com/padrino/padrino-framework', class: 'button--large' do
-      span.fa.fa-github.button__icon
-      | View on GitHub
-  p.hero__release
-    span.label--dark Latest stable &ndash; #{recent_release_post.title[/Padrino ([\d\.]+)\s?\-\s/, 1]}
-    br
-    = link_to recent_release_post.title.gsub(/Padrino [\d\.]+\s?\-\s/, ""),
-      recent_release_post.url,
-      class: 'hero__release__link'
-    br
-    small Released on #{recent_release_post.date.strftime("%B %-d, %Y")}
+section.hero
+  .container
+    = image_tag 'logo.svg', alt: 'Padrino', class: 'hero__logo'
+    h1.hero__headline
+      strong.hero__headline-name Padrino
+      |  is a Ruby web framework built upon the Sinatra web library.
+    p.hero__lead
+      | We created Padrino to make it fun and easy to build more advanced web
+        applications, while staying true to the spirit that makes Sinatra great.
+    .hero__actions
+      = link_to '/guides/getting-started/installation/', class: 'button--large' do
+        | Get started
+        = icon(:arrow_right)
+      = link_to 'https://github.com/padrino/padrino-framework', class: 'button--large button--secondary' do
+        = icon(:github)
+        | View on GitHub
+    = link_to recent_release_post.url, class: 'hero__release' do
+      | Padrino #{latest_version} &middot; #{recent_release_post.date.strftime("%B %Y")}
+      = icon(:arrow_right)
+    p.hero__meta Ruby 2.7.8+ &middot; Sinatra 4 &middot; MIT licensed
+  .container.hero__preview
+    = partial '/_partials/code_window', locals: { window: data.home.hero_code }

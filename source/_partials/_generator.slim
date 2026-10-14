@@ -1,0 +1,23 @@
+- components = data.home.components
+- default_parts = ['padrino g project blog'] + components.select(&:preset).map { |c| "--#{c.flag} #{c.preset}" }
+- default_command = default_parts.join(' ')
+
+form.generator data-generator=""
+  .generator__fields
+    - components.each do |component|
+      label.generator__field data-requires=(component.requires && component.requires.join(' '))
+        span.generator__label= component.name
+        select.generator__select name=component.flag
+          - unless component.required
+            option value="" None
+          - component.options.each do |value, label|
+            option value=value selected=(value == component.preset) = label
+        = icon(:chevron_down)
+  .generator__output
+    code.generator__command
+      - default_parts.each do |part|
+        span= part
+        '
+    button.copy-button type="button" data-copy=default_command aria-label="Copy command to clipboard"
+      = icon(:copy, css_class: 'icon--copy')
+      = icon(:check, css_class: 'icon--check')

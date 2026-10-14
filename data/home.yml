@@ -1,0 +1,196 @@
+hero_code:
+  file: app/controllers/posts.rb
+  lang: ruby
+  code: |
+    Blog::App.controllers :posts do
+      get :index do
+        @posts = Post.order(created_at: :desc)
+        render 'posts/index'
+      end
+
+      get :show, with: :id, provides: [:html, :json] do
+        @post = Post.find(params[:id])
+        case content_type
+        when :json then @post.to_json
+        else render 'posts/show'
+        end
+      end
+    end
+
+principles:
+  - Tiny and fast.
+  - Clean and compact.
+  - Creative and concise.
+
+features:
+  - eyebrow: Agnostic
+    title: Use the libraries you already know
+    text: >-
+      Padrino is ORM, JavaScript, testing, rendering and mocking agnostic.
+      Pick the libraries you already know, or none at all, and the generator
+      creates a clean and compact directory structure that keeps your code
+      simple and well organized. Try it here and copy the command.
+    link: /guides/generators/projects/
+    link_text: See all components
+    aside: generator
+
+  - eyebrow: Routing
+    title: Give every URL a name
+    text: >-
+      Define your URLs in one place and refer to them by name everywhere
+      else. Padrino adds named routes and params, format negotiation and
+      before and after filters to Sinatra's routing.
+    link: /guides/controllers/routing/
+    link_text: Read about routing
+    file: app/controllers/admin.rb
+    lang: ruby
+    code: |
+      Blog::App.controllers :admin do
+        before { halt 403 unless session[:account_id] }
+
+        get :show, with: :id do
+          # "/admin/show/42"
+        end
+      end
+
+      url_for(:admin, :show, id: 42)
+      # => "/admin/show/42"
+
+  - eyebrow: Drop-in admin
+    title: An admin interface, built in
+    text: >-
+      Padrino ships with an admin interface, akin to Django's, that includes account
+      authentication and permission management. Create an admin page for any
+      model with one command. It works with ActiveRecord, Sequel, Mongoid and
+      more, and is translated into ten languages.
+    link: /guides/features/padrino-admin/
+    link_text: Explore the admin
+    file: Terminal
+    lang: shell
+    code: |
+      $ padrino g admin
+      $ padrino rake db:migrate
+      $ padrino rake db:seed
+      $ padrino g admin_page post
+      $ padrino start
+      # => http://localhost:3000/admin
+
+  - eyebrow: Mountable
+    title: Designed for mounting multiple apps
+    text: >-
+      Unlike other Ruby frameworks, Padrino is designed from the start for
+      mounting multiple apps. When your site gets big, split it into small
+      apps and route them by path, host or subdomain.
+    link: /guides/features/mounting-applications/
+    link_text: Mount applications
+    file: config/apps.rb
+    lang: ruby
+    code: |
+      Padrino.mount('Blog::App').to('/blog')
+      Padrino.mount('Shop::App').host('shop.example.org')
+      Padrino.mount('Admin').to('/admin')
+      Padrino.mount('Web::App').to('/')
+
+toolkit:
+  - icon: code
+    title: Helpers
+    text: Tag, form, asset, format and render helpers for your views.
+    link: /guides/application-helpers/overview/
+  - icon: mail
+    title: Mailer
+    text: Send email from any route, with templates and delivery options.
+    link: /guides/features/padrino-mailer/
+  - icon: zap
+    title: Caching
+    text: Cache whole routes or fragments, stored in files, memory, Memcached or Redis.
+    link: /guides/features/padrino-cache/
+  - icon: languages
+    title: Localization
+    text: Full I18n support, with translations for core helpers and admin.
+    link: /guides/features/localization/
+  - icon: refresh
+    title: Reloading
+    text: Code changes reload automatically during development.
+    link: /guides/features/development-commands/
+  - icon: file_text
+    title: Logging
+    text: One logger shared by your app, your ORM and other libraries.
+    link: /guides/features/development-commands/
+  - icon: terminal
+    title: Rake & console
+    text: Run tasks and open a console with your app loaded.
+    link: /guides/features/rake-tasks/
+  - icon: blocks
+    title: Plugins
+    text: Start from project templates and add plugins, even from a URL.
+    link: /guides/generators/plugins/
+
+components:
+  - name: Database
+    flag: orm
+    preset: sequel
+    options:
+      - [activerecord, ActiveRecord]
+      - [minirecord, MiniRecord]
+      - [sequel, Sequel]
+      - [mongoid, Mongoid]
+      - [ohm, Ohm]
+      - [dynamoid, Dynamoid]
+  - name: SQL adapter
+    flag: adapter
+    preset: sqlite
+    required: true
+    requires: [activerecord, minirecord, sequel]
+    options:
+      - [sqlite, SQLite]
+      - [postgres, PostgreSQL]
+      - [mysql2, MySQL]
+  - name: Templates
+    flag: renderer
+    preset: slim
+    options:
+      - [erb, ERB]
+      - [haml, Haml]
+      - [slim, Slim]
+      - [liquid, Liquid]
+  - name: Tests
+    flag: test
+    preset: rspec
+    options:
+      - [rspec, RSpec]
+      - [minitest, Minitest]
+      - [cucumber, Cucumber]
+      - [shoulda, Shoulda]
+      - [bacon, Bacon]
+      - [testunit, Test::Unit]
+  - name: Mocking
+    flag: mock
+    options:
+      - [rr, RR]
+      - [mocha, Mocha]
+  - name: Stylesheets
+    flag: stylesheet
+    options:
+      - [sass, Sass]
+      - [scss, SCSS]
+      - [less, Less]
+  - name: JavaScript
+    flag: script
+    options:
+      - [jquery, jQuery]
+      - [prototype, Prototype]
+      - [mootools, MooTools]
+      - [dojo, Dojo]
+sinatra_code:
+  file: app.rb
+  lang: ruby
+  code: |
+    require 'sinatra/base'
+    require 'padrino-helpers'
+    require 'padrino-mailer'
+
+    class Application < Sinatra::Base
+      register Padrino::Helpers
+      register Padrino::Mailer
+    end
+

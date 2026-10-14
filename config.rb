@@ -1,7 +1,12 @@
+# Guides, blog posts and llms.txt live in the docs submodule
+files.watch :source, path: File.join(__dir__, 'docs'),
+  only: [%r{\A(blog|guides)/}, /\Allms(-full)?\.txt\z/]
+
 # Per-page layout changes
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
+page '/index.html', layout: :layout
 page '/guides/*', layout: :guide, data: { sidebar: '/_partials/guides_sidebar' }
 page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }
@@ -19,11 +24,10 @@ end
 # Helpers
 helpers do
   def nav_link_to(link_text, url, options = {})
-    root = options.delete(:root)
-    is_active = (!root && current_page.url.start_with?(url)) ||
-      current_page.url == url
-    options[:class] ||= ''
-    options[:class] << '--is-active' if is_active
+    if current_page.url.start_with?(url)
+      options[:class] = [options[:class], 'is-active'].compact.join(' ')
+      options['aria-current'] = 'page' if current_page.url == url
+    end
     link_to(link_text, url, options)
   end
 
@@ -32,14 +36,29 @@ helpers do
     "Padrino - #{page_title.nil? ? config.default_title : page_title}"
   end
 
+  def page_description
+    description =
+      if content_for?(:description) then yield_content(:description)
+      elsif current_page.data.description then current_page.data.description
+      elsif is_blog_article? then strip_tags(current_article.body)
+      else config.default_description
+      end
+
+    description.gsub(/\s+/, ' ').strip.truncate(160, separator: ' ')
+  end
+
+  def canonical_url
+    config.url_root + current_page.url
+  end
+
   def recent_release_post
     blog.articles.find { |a| a.tags.include?("release") }
   end
 
   def guides
     resources = sitemap.resources.select do |r|
-      r.path.start_with?('guides/') && !r.path.match(/^guides\/\d{2}_/) &&
-      r.path != 'guides/README.html'
+      r.path.start_with?('guides/') && r.path.end_with?('.html') &&
+      !r.path.match(/^guides\/\d{2}_/) && r.path != 'guides/README.html'
     end
 
     resources.sort_by(&:target)
@@ -87,14 +106,16 @@ set :markdown_engine, :redcarpet
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true,
     :fenced_code_blocks => true, renderer: CustomRenderer
 set :default_title, 'The Elegant Ruby Web Framework'
-set :url_root, 'http://padrinorb.com'
+set :default_description, 'Padrino is a Ruby web framework built on Sinatra, with generators, ' \
+  'helpers, an admin, mailers and caching, while staying small, fast and modular.'
+set :url_root, 'https://padrinorb.com'
 
 activate :blog,
   prefix: 'blog',
   layout: :blog_article,
   permalink: '{title}.html',
   paginate: true,
-  per_page: 2,
+  per_page: 10,
   publish_future_dated: true
 
 activate :directory_indexes
@@ -110,7 +131,7 @@ activate :robots,
   rules: [
     { user_agent: '*', allow: %w(/), disallow: %w(CNAME /*.js /*.css) }
   ],
-  sitemap: 'http://padrinorb.com/sitemap.xml'
+  sitemap: 'https://padrinorb.com/sitemap.xml'
 activate :deploy, deploy_method: :git
 
 ready do
@@ -122,6 +143,8 @@ ready do
       title = path[2][3..-1]
       locals = { sidebar: '/_partials/guides_sidebar' }
       proxy "guides/#{chapter}/#{title}", path.join('/'), locals: locals
+      proxy "guides/#{chapter}/#{title.sub(/\.html\z/, '.md')}", 'guide-source.txt',
+        locals: { source_file: resource.source_file }, ignore: true
     end
   end
   sitemap.resources
@@ -144,8 +167,8 @@ ignore 'category.html.slim'
 # Build-specific configuration
 configure :build do
   activate :minify_css
-  activate :minify_javascript
-  activate :asset_hash
+  activate :minify_javascript, compressor: -> { Terser.new }
+  activate :asset_hash, ignore: [%r{images/og-image}]
   activate :relative_assets
   activate :disqus, :shortname => "padrinorb"
 end

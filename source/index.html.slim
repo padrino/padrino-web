@@ -1,4 +1,85 @@
-.page--index
-  = partial 'hero'
-  hr
-  = partial 'introduction'
+= partial 'hero'
+
+section.section.prologue
+  .container
+    p.eyebrow Why Padrino
+    h2.prologue__lead
+      | Many people love the simplicity and expressiveness of Sinatra,
+      span.prologue__lead-muted<
+        | but quickly find themselves missing much of what frameworks such as
+          Rails provide once their applications grow.
+    p.section__lead.prologue__text
+      | Sinatra is a thin layer on top of Rack that adds complexity only when
+        an application needs it. We expand on it with the helpers, generators
+        and other standard libraries a framework needs for apps of any size,
+        from a lightweight JSON service to a large full-stack site.
+    blockquote.prologue__quote
+      p
+        | Our goal with Padrino is to stay true to the core principles of
+          Sinatra, including a focus on simplicity and modularity.
+    p.prologue__motto
+      - data.home.principles.each do |principle|
+        span= principle
+        '
+
+section.section.section--soft
+  .container
+    .features
+      - data.home.features.each do |feature|
+        article.feature
+          .feature__text
+            p.eyebrow= feature.eyebrow
+            h3.feature__title= feature.title
+            p= feature.text
+            = link_to feature.link, class: 'arrow-link' do
+              = feature.link_text
+              = icon(:arrow_right)
+          - if feature.aside == 'generator'
+            = partial '/_partials/generator'
+          - else
+            = partial '/_partials/code_window', locals: { window: feature }
+
+section.section.section--soft
+  .container
+    .section__header
+      p.eyebrow Comprehensive
+      h2.section__title Everything else, out of the box
+      p.section__lead
+        | Building on our experience with web applications, we designed
+          Padrino to include what a top-notch app needs, in a clean, concise
+          and simple environment.
+    ul.toolkit
+      - data.home.toolkit.each do |item|
+        li
+          = link_to item.link, class: 'toolkit__item' do
+            span.toolkit__icon= icon(item.icon.to_sym)
+            span
+              span.toolkit__title= item.title
+              span.toolkit__text= item.text
+
+section.section.section--soft
+  .container
+    .split
+      .split__text
+        p.eyebrow Sinatra core
+        h2.section__title Or bring just the parts you need
+        p
+          | Already have a Sinatra app? We built every Padrino component to
+            work on its own, so you can add the helpers, mailer or caching to
+            it without changing anything else.
+        = link_to '/guides/advanced-usage/standalone-usage-in-sinatra/', class: 'arrow-link' do
+          | Standalone usage
+          = icon(:arrow_right)
+      .split__aside
+        = partial '/_partials/code_window', locals: { window: data.home.sinatra_code }
+
+section.section.cta
+  .container
+    h2.cta__title Start building with Padrino
+    p.section__lead Follow the guides from your first project to a full application.
+    .hero__actions
+      = link_to '/guides/getting-started/basic-projects/', class: 'button--large' do
+        | Read the guides
+        = icon(:arrow_right)
+      = link_to '/blog/', class: 'button--large button--secondary' do
+        | Latest news

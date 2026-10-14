@@ -1,14 +1,25 @@
-header.header
-  h1.header__name
-    = link_to 'Padrino', '/', class: 'padrino-name'
-  .header__navigation
-    nav.navigation
-      a#navigation__toggler.navigation__toggler href='#'
-        span.navigation__toggler__icon.fa.fa-navicon
-      ul#navigation__items.navigation__items
-        li.navigation__item= link_to 'Overview', '/', class: 'navigation__link'
-        li.navigation__item= nav_link_to 'Guides', '/guides/', class: 'navigation__link'
-        li.navigation__item= nav_link_to 'Blog', '/blog/', class: 'navigation__link'
-        li.navigation__item= nav_link_to 'API', 'http://www.rubydoc.info/github/padrino/padrino-framework', class: 'navigation__link'
-        li.navigation__item= nav_link_to 'Contribute', '/contribute/', class: 'navigation__link'
-        li.navigation__item= nav_link_to '<span class="button--slim">GitHub</span>', 'https://github.com/padrino/padrino-framework', class: 'navigation__link'
+header.site-header
+  .site-header__inner.container
+    = link_to '/', class: 'brand' do
+      = image_tag 'logo.svg', alt: '', class: 'brand__logo'
+      span.padrino-name Padrino
+    button#search-open.search-trigger type="button" aria-label="Search docs" aria-keyshortcuts="/ Meta+K Control+K"
+      = icon(:search)
+      span.search-trigger__label Search docs
+      span.search-trigger__kbd
+        kbd.search-trigger__mod ⌘
+        kbd K
+    nav#site-nav.site-nav aria-label="Main"
+      = nav_link_to 'Guides', '/guides/', class: 'site-nav__link'
+      = nav_link_to 'Blog', '/blog/', class: 'site-nav__link'
+      = link_to 'API', 'https://www.rubydoc.info/github/padrino/padrino-framework', class: 'site-nav__link'
+      = nav_link_to 'Contribute', '/contribute/', class: 'site-nav__link'
+    .site-header__actions
+      button#theme-toggle.icon-button.theme-toggle type="button" aria-label="Toggle dark mode"
+        = icon(:moon, css_class: 'icon--moon')
+        = icon(:sun, css_class: 'icon--sun')
+      a.icon-button href="https://github.com/padrino/padrino-framework" aria-label="Padrino on GitHub"
+        = icon(:github)
+      button#site-nav-toggle.icon-button.site-header__menu type="button" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"
+        = icon(:menu, css_class: 'icon--open')
+        = icon(:close, css_class: 'icon--close')

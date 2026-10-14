@@ -1,0 +1,29 @@
+footer.site-footer
+  .container
+    .site-footer__grid
+      .site-footer__brand
+        = link_to '/', class: 'brand' do
+          = image_tag 'logo.svg', alt: '', class: 'brand__logo'
+          span.padrino-name Padrino
+        p The elegant Ruby web framework, built upon Sinatra.
+      .site-footer__column
+        h2.site-footer__heading Docs
+        ul
+          li= link_to 'Guides', '/guides/'
+          li= link_to 'API reference', 'https://www.rubydoc.info/github/padrino/padrino-framework'
+          li= link_to 'Blog', '/blog/'
+          li= link_to 'llms.txt', '/llms.txt'
+      .site-footer__column
+        h2.site-footer__heading Community
+        ul
+          li= link_to 'GitHub', 'https://github.com/padrino/padrino-framework'
+          li= link_to 'Issues', 'https://github.com/padrino/padrino-framework/issues'
+          li= link_to 'Contribute', '/contribute/'
+      .site-footer__column
+        h2.site-footer__heading Project
+        ul
+          li= link_to 'MIT License', 'https://github.com/padrino/padrino-framework/blob/master/LICENSE'
+          li= link_to 'RSS feed', '/blog.rss'
+          li= link_to 'Logo by unpolo', 'https://www.unpolo.com/'
+    p.site-footer__legal
+      | Padrino is released under the MIT License. Hosted on GitHub Pages.

@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    # Give compromised releases time to be caught and pulled before we adopt them
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]

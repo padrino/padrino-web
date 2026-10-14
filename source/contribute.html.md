@@ -15,7 +15,7 @@ stuck, ask your question on
 [GitHub Issues](https://github.com/padrino/padrino-framework/issues). Search the
 existing issues first, since your question may already have an answer. If
 something in the guides is wrong or missing, open an issue on the
-[docs repository](https://github.com/padrino/padrino-docs/issues) instead.
+[docs issue tracker](https://github.com/padrino/padrino-docs/issues) instead.
 
 ---
 
@@ -26,6 +26,14 @@ Let us know by
 sure to include all relevant information, like the versions of Padrino and Ruby
 you are using. A [gist](https://gist.github.com/) of the code that caused the
 issue as well as any error messages are also very helpful.
+
+---
+
+## Found a security issue?
+
+Please don't open a public issue. Report it privately through
+[GitHub's private vulnerability reporting](https://github.com/padrino/padrino-framework/security/advisories/new)
+instead.
 
 ---
 
@@ -92,8 +100,9 @@ applied as quickly as possible:
 
 1. Use [Git](https://git-scm.com/) and [GitHub](https://github.com/): The easiest
    way to get setup is to fork the
-   [padrino repo](https://github.com/padrino/padrino-framework). Or, post a
-   comment, if the patch is doc related.
+   [padrino repo](https://github.com/padrino/padrino-framework). For guide
+   changes, fork the [docs repository](https://github.com/padrino/padrino-docs)
+   instead.
 2. Write unit tests: If you add or modify functionality, it must include unit
    tests. If you don’t write tests, we have to, and this can hold up acceptance
    of the patch.
@@ -115,6 +124,6 @@ applied as quickly as possible:
 
 If you’d like to help out but aren’t sure how, take a look at the
 [GitHub Issues](https://github.com/padrino/padrino-framework/issues) page. If you
-find something that looks interesting, leave a comment on the ticket noting that
+find something that looks interesting, leave a comment on the issue noting that
 you’re investigating (a simple “Taking…” is fine). Once you’ve worked on a few
 issues, someone will add you as an assignee.

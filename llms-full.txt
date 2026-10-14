@@ -66,11 +66,12 @@ relatively unique to Sinatra and Padrino in the Ruby web world.
 ### Fast
 
 Sinatra and Padrino are **very fast** relative to other full stack frameworks.
-The Padrino stack is lightweight and slim which can be demonstrated in our
-[performance benchmarks](https://github.com/DAddYE/web-frameworks-benchmark/wiki
-"performance benchmarks"). While all benchmarks should be taken with a grain of
-salt, over the course of developing hundreds of applications, we have found that
-the memory usage, stability and requests per second speak for themselves.
+The Padrino stack is lightweight and slim, as a
+[2011 benchmark](https://github.com/DAddYE/web-frameworks-benchmark/wiki
+"2011 benchmark") (Ruby 1.8.7, Padrino 0.10.2) showed. While all benchmarks
+should be taken with a grain of salt, over the course of developing hundreds of
+applications, we have found that the memory usage, stability and requests per
+second speak for themselves.
 
 ### Extensible
 
@@ -1382,7 +1383,7 @@ inside the generated Padrino Admin and make some changes to include the account
 with the post.
 
 Head on over to `admin/controllers/posts.rb`. We're going to include the
-[current_account](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/helpers/authentication_helpers.rb#L18 "current_account")
+[`current_account`](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/helpers/authentication_helpers.rb#L18 "current_account")
 to the creation of a new Post.
 
 ```ruby
@@ -1882,7 +1883,7 @@ in the terminal:
 $ padrino g mailer Sample registration_email
 ```
 
-This mailer defines a mail route called `registration_mail` within the `sample`
+This mailer defines a mail route called `registration_email` within the `sample`
 mailer. The `registration_email` route accepts the name and email arguments.
 Arguments are passed to the email body template via the `locals` method. The
 render command renders the email body template with the local variables, which
@@ -1900,6 +1901,12 @@ Note that the mailer has full support for content type resolution and the email
 could also be in the path `./views/mailers/sample/registration_email.html.erb`
 or `./views/mailers/sample/registration_email.plain.erb` specifying the mime
 type in the file name as well.
+
+Inside a message, `render` looks for templates in the mailer's own folder. With
+no argument it renders the template named after the message, so a plain
+`render` in the example above is the same as `render 'sample/registration_email'`.
+A name without a slash, such as `render 'congrats'`, renders
+`[views_path]/mailers/sample/congrats.erb`.
 
 Once the mailer has been defined and the template written, the email route can
 be invoked by the `deliver` method:
@@ -2110,7 +2117,7 @@ end
 ```
 
 In this way you can manually expire cache with
-CachedApp.cache.delete(:my_name) for example from the Post model after an
+`CachedApp.cache.delete(:my_name)` for example from the Post model after an
 update.
 
 If you specify `:cache => true` but do not invoke `expires`, the response will
@@ -2303,7 +2310,7 @@ may not be the case in your application, but the principle applies: fragments
 are shared between all code which accesses the cache using the same key.
 
 ### Caching URLs with query strings
-Another use of cache_key is when you’d like to include query string parameters
+Another use of `cache_key` is when you’d like to include query string parameters
 as part of the key; for example when using `will_paginate`, you might want to
 cache `url?page=1` separately from  `url?page=2`:
 
@@ -2745,7 +2752,8 @@ Download and translate these files:
 - [padrino-admin-orm.yml](http://raw.github.com/padrino/padrino-framework/master/padrino-admin/lib/padrino-admin/locale/orm/en.yml)
 - [padrino-helper.yml](http://raw.github.com/padrino/padrino-framework/master/padrino-helpers/lib/padrino-helpers/locale/en.yml)
 
-zip your files and send it to [padrinorb@gmail.com](mailto:padrinorb@gmail.org)
+Then add each translated file next to the original, in the same `locale` folder of
+[padrino-framework](https://github.com/padrino/padrino-framework), and open a pull request.
 
 --------------------------------------------------------------------------------
 
@@ -2862,7 +2870,7 @@ it:
 ```
 
 padrino-admin will now use your newly created yml file for translating the
-column names of grids, forms, error_messages etc ...
+column names of grids, forms, `error_messages` etc ...
 
 --------------------------------------------------------------------------------
 
@@ -3046,7 +3054,7 @@ rake ar:version                        # Retrieves the current schema version nu
 
 This is some sort of super cool and useful task for people like me who don't
 love migrations (especially for small apps). It's a forked version of
-[auto_migrations](http://github.com/pjhyett/auto_migrations).
+[`auto_migrations`](http://github.com/pjhyett/auto_migrations).
 
 Basically, instead of writing migrations you can directly edit your
 **schema.rb** and perform _a non destructive_ migration with `padrino rake
@@ -3220,7 +3228,7 @@ api              | false   | none    | generate a minimal project for APIs
 template         | nil     | -p      | generate the project from a template
 gem              | false   | -g      | generate the project as a gem
 adapter          | sqlite  | -a      | specify orm db adapter (sqlite, mysql, mysql2, mysql-gem, postgres)
-migration_format | number  | none    | format for migrations (number, timestamp)
+migration\_format | number  | none    | format for migrations (number, timestamp)
 
 The available components and their default options are listed below:
 
@@ -3314,14 +3322,6 @@ generate a project based on a remote url such as a
 $ padrino g project my_project --template https://gist.github.com/356156
 ```
 
-You can also execute template files directly from
-[the official templates repo](http://github.com/padrino/padrino-recipes/tree/master/templates
-"the official templates repo"):
-
-```shell
-$ padrino g project my_project --template sampleblog
-```
-
 You can also apply templates as plugins to existing Padrino applications:
 
 ```shell
@@ -3361,12 +3361,12 @@ git :init
 git :add, "."
 git :commit, "-m 'initial commit'"
 
-inject_into_file 'app/models/post.rb','#Hello', :after => "end\n"
+inject_into_file 'models/post.rb','#Hello', :after => "end\n"
 rake 'ar:create ar:migrate'
 initializer :test, '# Example'
 
 git :add, '.'
-git :commit, "- m 'second commit'"
+git :commit, "-m 'second commit'"
 ```
 
 Keep in mind that the template file is pure Ruby and has full access to
@@ -3394,9 +3394,10 @@ parent    |         | -p      | specify the parent
 provides  |         | -f      | specify the formats for this controller
 destroy   | false   | -d      | removes all generated files
 
-Very important to note that controller generators are intended primarily to work
-within applications created through the Padrino application generator and that
-follow Padrino conventions.
+Run controller generators from the root of a Padrino project, the folder that
+contains `config/boot.rb`. They read project settings, such as the project
+namespace and test framework, from the `.components` file that the project
+generator creates, so they will not work in a project without it.
 
 Using the controller generator is as simple as:
 
@@ -3463,10 +3464,10 @@ app             | .       | -a      | specify the application destination path
 skip\_migration | false   | -s      | skip migration generation
 destroy         | false   | -d      | removes all generated files
 
-Very important to note that model generators are intended primarily to work
-within applications created through the Padrino application generator and that
-follow Padrino conventions. Using model generators within an existing
-application not generated by Padrino will likely not work as expected.
+Run model generators from the root of a Padrino project, the folder that
+contains `config/boot.rb`. They read project settings, such as the ORM and test
+framework, from the `.components` file that the project generator creates, so
+they will not work in a project without it.
 
 Using the model generator is as simple as:
 
@@ -3515,10 +3516,10 @@ Options | Default | Aliases | Description
 root    | .       | -r      | specify the root destination path
 destroy | false   | -d      | removes all generated files
 
-Very important to note that migration generators are intended primarily to work
-within applications created through the Padrino application generator and that
-follow Padrino conventions. Using migration generators within an existing
-application not generated by Padrino will likely not work as expected.
+Run migration generators from the root of a Padrino project, the folder that
+contains `config/boot.rb`. They read project settings, such as the ORM, from the
+`.components` file that the project generator creates, so they will not work in
+a project without it.
 
 Using the migration generator is as simple as:
 
@@ -3561,9 +3562,9 @@ root      | .       | -r      | specify the root destination path
 namespace |         | -n      | specify the name space of your padrino project
 destroy   | false   | -d      | removes all generated files
 
-Very important to note that mailer generators are intended primarily to work
-within applications created through the Padrino application generator and that
-follow Padrino conventions.
+Run mailer generators from the root of a Padrino project, the folder that
+contains `config/boot.rb`. Unless you pass `-n`, they read the project namespace
+from the `.components` file that the project generator creates.
 
 Using the mailer generator is as simple as:
 
@@ -3681,8 +3682,8 @@ application in your project:
 
 Options         | Default   | Aliases | Description
 --------------- | --------- | ------- | ----------------------------------------------------
-admin_name      | admin     | -a      | allows you to specify the admin app’s name
-admin_model     | "Account" | -m      | specify the name of model for access controlling
+admin\_name     | admin     | -a      | allows you to specify the admin app’s name
+admin\_model    | "Account" | -m      | specify the name of model for access controlling
 root            | .         | -r      | specify the root destination path
 skip\_migration | false     | -s      | skip migration generation
 renderer        |           | -e      | the default value is a renderer used in the main app
@@ -4308,7 +4309,7 @@ rendering of your choice (erb, haml, slim).
 render :haml, 'account/index'
 ```
 
-Padrino also automatically considers your current locale and/or content_type.
+Padrino also automatically considers your current locale and/or `content_type`.
 
 ```ruby
 Demo::App.controllers :admin do
@@ -4592,7 +4593,7 @@ application configuration within `app/app.rb`.
   - `link_to 'click me', '/dashboard', class: 'linky', unless: :current`
   - `link_to('/dashboard', class: 'blocky') { ...content... }`
 - `mail_to(email, caption = nil, mail_options = {})`
-  - Creates a mailto link tag to the specified email_address
+  - Creates a mailto link tag to the given email address
   - `mail_to 'me@demo.com'`
   - `mail_to 'me@demo.com', 'My Email', subject: 'Feedback', cc:
     'test@demo.com'`
@@ -4649,7 +4650,7 @@ building forms. A simple example of constructing a non-object form would be:
   - Supports form methods 'put' and 'delete' through hidden field
   - `form_tag('/register', class: 'example') { ... }`
 - `field_set_tag(*args, &block)`
-  - Constructs a field_set to group fields with given options
+  - Constructs a `fieldset` to group fields with given options
   - `field_set_tag(class: 'office-set') { }`
   - `field_set_tag('Office', class: 'office-set') { }`
 - `error_messages_for(:record, options = {})`
@@ -4762,6 +4763,19 @@ A `form_for` using these basic fields might look like:
   - Defaults to StandardFormBuilder but you can easily create your own!
   - `fields_for @user.assignment do |assignment| ... end`
   - `fields_for :assignment do |assignment| ... end`
+
+When `form_for` or `fields_for` is given a symbol such as `:user`, it uses the
+`@user` instance variable if it is set, and `User.new` otherwise.
+
+Field names come from the object's class: a `User` gives `user[name]` and an
+`Admin::Account` gives `admin_account[name]`. Use the `as:` option to choose
+another name:
+
+```ruby
+form_for @user, '/register', as: :customer do |f|
+  f.text_field :name # => <input name="customer[name]" id="customer_name" ... />
+end
+```
 
 Some of the methods provided by `AbstractFormBuilder` that can be used
 within `form_for` or `fields_for` are:
@@ -5001,7 +5015,7 @@ These helpers can be invoked from any route or view within your application.
   - Attempts to pluralize the singular word unless count is 1.
   - `pluralize(2, 'person')` => '2 people'
 - `word_wrap(text, *args)`
-  - Wraps the text into lines no longer than line_width width.
+  - Wraps the text into lines no longer than `line_width` characters.
   - `word_wrap('Once upon a time', line_width: 8)` => "Once upon\na time"
 - `truncate(text, *args)`
   - Truncates a given text after a given `:length` if text is longer than `:length`
@@ -5297,291 +5311,361 @@ quickly and efficiently as possible.
 # Persistence Engine
 
 Contributing an object persistence library is probably the most involved
-component to integrate with Padrino. For this guide, let us pretend that we
-would like to integrate [Datamapper](https://web.archive.org/web/20200113190336/http://datamapper.org/) into Padrino.
+component to integrate with Padrino. It touches the generators, the rake tasks
+and the admin dashboard. For this guide, let's pretend we want to add a new ORM
+called `myorm`, and use the existing
+[Sequel](https://sequel.jeremyevans.net/) component as the working reference at
+each step.
+
+You don't need a generator component to use an ORM with Padrino. Any library
+without one (ROM, for example) can be added to your `Gemfile` and set up by hand
+in `config/database.rb`, like any other gem.
 
 ## Generators
 
-First, let's add Datamapper to the project generator's available components in
-[padrino-gen/generators/project.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb):
+The available ORM choices are not listed anywhere by hand. Padrino builds them
+from the files in `padrino-gen/lib/padrino-gen/generators/components/orms/`, in
+[padrino-gen/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/actions.rb#L573-L585):
 
 ```ruby
-# padrino-gen/lib/padrino-gen/generators/project.rb
-component_option :orm, "database engine", choices: [:activerecord, :datamapper]
-```
+# padrino-gen/lib/padrino-gen/generators/actions.rb
 
-Here, we needed to append `:datamapper` as an option for the `:orm`
-`component_option` in the project generator. Once we have defined Datamapper as
-an option for the ORM component, let's actually define the specific integration
-tasks for the generator in
-[padrino-gen/generators/components/orms/datamapper.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/orms/datamapper.rb):
-
-```ruby
-# padrino-gen/lib/padrino-gen/generators/components/orms/datamapper.rb
-
-# These are the steps to setup the persistence layer in the initial project such
-# as requiring certain gems, constructing the database.rb configuration file and
-# creating the models folder for the application
-def setup_orm
-  require_dependencies 'data_objects', 'do_sqlite3', 'datamapper'
-  create_file('config/database.rb', DM)
-  empty_directory('app/models')
-end
-
-# These are the steps to generate the actual model file
-# when the model generator is executed.
-#
-# e.g. create_model_file("account", ["username:string", "password:string"])
-def create_model_file(name, fields)
-  # ...truncated...
-  create_file(model_path, model_contents)
-end
-
-# These are the steps to generate the model migration file
-# when the model generator is executed.
-#
-# e.g. create_model_migration("create_accounts", "account", ["username:string"])
-def create_model_migration(migration_name, name, columns)
-  # ...truncated...
-end
-
-# These are the steps to generate the db migration file
-# when the migration generator is executed.
-#
-# e.g. create_migration_file("AddEmailToAccount", "AddEmailToAccount", ["email:string"])
-def create_migration_file(migration_name, name, columns)
-  # ...truncated...
-end
-```
-
-## Rake Tasks
-
-Next, if the persistence engine needs to include useful rake tasks (to migrate
-or modify the database for instance), you can add these to the `padrino-tasks`
-folder in the `padrino-gen` gem. For Datamapper, there are a number of tasks
-that should be available in
-[padrino-tasks/datamapper.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/padrino-tasks/datamapper.rb):
-
-```ruby
-# padrino-gen/lib/padrino-gen/padrino-tasks/datamapper.rb
-
-if defined?(DataMapper)
-  namespace :dm do
-    namespace :migrate do
-      task load: :environment do
-        # ...truncated...
-      end
-
-      desc 'Migrate up using migrations'
-      task :up, :version, needs: :load do |t, args|
-        # ...truncated...
-      end
-    end
+def defines_component_options(options = {})
+  [
+    [:orm,        'database engine',    { aliases: '-d', default: :none }],
+    # ...truncated...
+  ].each do |name, caption, opts|
+    opts[:default] = '' if options[:default] == false
+    component_option name, caption, opts.merge(choices: Dir["#{__dir__}/components/#{name.to_s.pluralize}/*.rb"].map { |lib| File.basename(lib, '.rb').to_sym })
   end
 end
 ```
 
+So adding a file named `components/orms/myorm.rb` is enough to make
+`padrino g project demo --orm=myorm` (or `-d myorm`) a valid choice. The file
+name is the component name everywhere else too: in the project's `.components`
+file, in the generated `Rakefile` and in the admin generator.
+
+The component file is not a class. The generator reads it and runs it with
+`instance_eval`, so the methods it defines become methods of the running
+generator.
+
+An ORM component defines four methods:
+
+- `setup_orm` runs when a project is generated with `--orm=myorm`, or when the
+  ORM is added later with `padrino g component --orm=myorm`.
+- `create_model_file(name, options)` runs from `padrino g model`.
+- `create_model_migration(migration_name, name, columns)` also runs from
+  `padrino g model`, unless `--skip-migration` is given.
+- `create_migration_file(migration_name, name, columns)` runs from
+  `padrino g migration`.
+
+The model and migration generators call all of these, so define each one. An
+ORM without migrations leaves the last two empty, as the Mongoid and Ohm
+components do.
+
+Here is the Sequel component,
+[padrino-gen/generators/components/orms/sequel.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb):
+
+```ruby
+# padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb
+
+SEQUEL = <<~SEQUEL unless defined?(SEQUEL)
+  Sequel::Model.raise_on_save_failure = false # Do not throw exceptions on failure
+  Sequel::Model.db = case Padrino.env
+    when :development then Sequel.connect(!DB_DEVELOPMENT!, loggers: [logger])
+    when :production  then Sequel.connect(!DB_PRODUCTION!,  loggers: [logger])
+    when :test        then Sequel.connect(!DB_TEST!,        loggers: [logger])
+  end
+SEQUEL
+
+def setup_orm
+  sequel = SEQUEL.dup # a copy: frozen-string-literal mode rejects gsub! on the constant
+  db = @project_name.underscore
+  require_dependencies 'sequel'
+
+  begin
+    case adapter ||= options[:adapter]
+    # ...truncated: mysql-gem, mysql/mysql2 and postgres...
+    when 'sqlite'
+      sequel.gsub!(/!DB_DEVELOPMENT!/, "\"sqlite://db/#{db}_development.db\"")
+      sequel.gsub!(/!DB_PRODUCTION!/, "\"sqlite://db/#{db}_production.db\"")
+      sequel.gsub!(/!DB_TEST!/,       "\"sqlite://db/#{db}_test.db\"")
+      require_dependencies 'sqlite3'
+    else
+      say "Failed to generate `config/database.rb` for ORM adapter `#{options[:adapter]}`", :red
+      raise ArgumentError
+    end
+  rescue ArgumentError
+    adapter = ask('Please, choose a proper adapter:', limited_to: %w[mysql mysql2 mysql-gem postgres sqlite])
+    retry
+  end
+
+  create_file('config/database.rb', sequel)
+  empty_directory('db/migrate')
+end
+
+SQ_MODEL = <<~MODEL unless defined?(SQ_MODEL)
+  class !NAME! < Sequel::Model
+
+  end
+MODEL
+
+# options => { fields: ['title:string', 'body:string'], app: 'app' }
+def create_model_file(name, options = {})
+  model_path = destination_root(options[:app], 'models', "#{name.to_s.underscore}.rb")
+  model_contents = SQ_MODEL.gsub(/!NAME!/, name.to_s.underscore.camelize)
+  create_file(model_path, model_contents)
+end
+
+# ...truncated: SQ_MIGRATION, SQ_MODEL_UP_MG, SQ_MODEL_DOWN_MG...
+
+def create_model_migration(migration_name, name, columns)
+  output_model_migration(
+    migration_name, name, columns,
+    column_format: proc { |field, kind| "#{kind.underscore.camelize} :#{field}" },
+    base: SQ_MIGRATION,
+    up: SQ_MODEL_UP_MG,
+    down: SQ_MODEL_DOWN_MG
+  )
+end
+
+# ...truncated: SQ_CHANGE_MG...
+
+def create_migration_file(migration_name, name, columns)
+  output_migration_file(
+    migration_name, name, columns,
+    base: SQ_MIGRATION, change_format: SQ_CHANGE_MG,
+    add: proc { |field, kind| "add_column :#{field}, #{kind.underscore.camelize}" },
+    remove: proc { |field, _kind| "drop_column :#{field}" }
+  )
+end
+```
+
+A few things to note:
+
+- `require_dependencies` adds gems to the project's `Gemfile`.
+- `options[:adapter]` is the project generator's `--adapter` option (`sqlite`
+  by default). Only SQL ORMs need it.
+- The model generator passes `fields: [...]` and `app: ...` to
+  `create_model_file`. Write the model into `destination_root(options[:app],
+  'models', ...)` so that `padrino g model` with `-a` puts it in the right app.
+- The `SQ_*` constants are text templates with `!PLACEHOLDER!` markers. The shared
+  helpers `output_model_migration` and `output_migration_file`, in
+  [padrino-gen/generators/components/actions.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/actions.rb#L24-L86),
+  fill in `!UP!`, `!DOWN!`, `!TABLE!`, `!FIELDS!` and `!COLUMNS!`, number the
+  file and write it to `db/migrate`. If `myorm` has migrations, reuse these
+  helpers rather than writing your own.
+
+## Rake Tasks
+
+If the ORM needs rake tasks (to create or migrate the database, for instance),
+add them in `padrino-gen/lib/padrino-gen/padrino-tasks/myorm.rb`. Every file in
+that folder is registered automatically. For Sequel, see
+[padrino-tasks/sequel.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb):
+
+```ruby
+# padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb
+
+if PadrinoTasks.load?(:sequel, defined?(Sequel))
+  namespace :sq do
+    namespace :migrate do
+      # ...truncated: auto, to, up and down...
+    end
+
+    desc 'Perform migration up to latest migration available'
+    task migrate: 'sq:migrate:up'
+
+    desc 'Create the database'
+    task create: :skeleton do
+      # ...truncated...
+    end
+
+    # ...truncated: drop, reset and seed...
+  end
+
+  task 'db:create' => 'sq:create'
+  task 'db:migrate' => 'sq:migrate'
+  task 'db:reset' => 'sq:reset'
+end
+```
+
+The generated project's `Rakefile` calls `PadrinoTasks.use(:myorm)`, using the
+component's file name, so pass the same symbol to `PadrinoTasks.load?`. Keep the
+tasks in their own namespace and alias the common `db:*` names to them, so
+`rake db:migrate` works whatever the ORM. `rake db:seed` is shared and already
+provided by `padrino-tasks/database.rb`.
+
 ## Unit Tests
 
-Next, let's add the appropriate unit tests to ensure our new component works as
-intended in
-[padrino-gen/test/test_project_generator.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L359):
+Next, add tests for the new component in `padrino-gen/test`, next to the
+existing Sequel ones. The project generator tests check the `Gemfile` and
+`config/database.rb`, in
+[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_project_generator.rb#L285-L331):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
-...
-it 'should properly generate default' do
-  out, err = capture_io { generate(:project, 'project.com', "--root=#{@apptmp}", '--orm=datamapper', '--script=none') }
-  assert_match(/applying.*?datamapper.*?orm/, out)
-  assert_match_in_file(/gem 'dm-core'/, "#{@apptmp}/project.com/Gemfile")
-  assert_match_in_file(/gem 'dm-sqlite-adapter'/, "#{@apptmp}/project.com/Gemfile")
-  assert_match_in_file(/DataMapper.setup/, "#{@apptmp}/project.com/config/database.rb")
-  assert_match_in_file(/project_com/, "#{@apptmp}/project.com/config/database.rb")
+
+it 'should properly generate postgres' do
+  capture_io { generate(:project, 'sample_project', "--root=#{@apptmp}", '--orm=sequel', '--adapter=postgres') }
+  assert_match_in_file(/gem 'pg'/, "#{@apptmp}/sample_project/Gemfile")
+  assert_match_in_file(%r{"postgres://}, "#{@apptmp}/sample_project/config/database.rb")
+  assert_match_in_file(/sample_project_development/, "#{@apptmp}/sample_project/config/database.rb")
 end
-...
 ```
+
+The model generator tests generate a project and then a model inside it, in
+[padrino-gen/test/test\_model\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_model_generator.rb#L268-L295):
+
+```ruby
+# padrino-gen/test/test_model_generator.rb
+
+it 'should generate migration file with given properties' do
+  stop_time_for_test
+  capture_io { generate(:project, 'sample_project', "--root=#{@apptmp}", '--script=none', '-d=sequel') }
+  capture_io { generate(:model, 'friend', 'name:string', 'age:integer', 'created:datetime', "-r=#{@apptmp}/sample_project") }
+  migration_file_path = "#{@apptmp}/sample_project/db/migrate/001_create_friends.rb"
+  assert_match_in_file(/class Friend < Sequel::Model/m, "#{@apptmp}/sample_project/models/friend.rb")
+  assert_match_in_file(/Sequel\.migration do/m,  migration_file_path)
+  assert_match_in_file(/create_table :friends/m, migration_file_path)
+  assert_match_in_file(/String :name/m,          migration_file_path)
+  assert_match_in_file(/Integer :age/m,          migration_file_path)
+  assert_match_in_file(/DateTime :created/m,     migration_file_path)
+  assert_match_in_file(/drop_table :friends/m,   migration_file_path)
+end
+```
+
+If `myorm` has migrations, also cover `padrino g migration` the same way, like
+the `the migration generator for sequel` block in
+[padrino-gen/test/test\_migration\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_migration_generator.rb#L173-L207).
 
 ## README
 
-Finally for the generator integration, we should add the available option to the
-[generator README file](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/README.rdoc):
+Add the new choice to the `orm::` line of the
+[padrino-gen README](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/README.rdoc).
 
-```ruby
-# padrino-gen/README.rdoc
-
-orm:: none  (default), mongomapper, mongoid, activerecord, sequel, couchrest, datamapper
-```
-
-With that update to the README, persistence support for the generator is
-complete. However, to be fully compliant, support for Padrino Admin should also
-be added. This will allow the admin dashboard to work properly with your
-persistence engine of choice and is **highly** recommended.
+With that, the generator side is done. To be fully supported, the ORM should
+also work with Padrino Admin, so that `padrino g admin` and
+`padrino g admin_page` generate a working dashboard. This is **highly** recommended.
 
 ## Padrino Admin Support
 
-Adding `padrino-admin` support for your persistence engine is actually fairly
-straightforward. First, let's add Datamapper to the set of supported admin ORM
-engines in
-[padrino-admin/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/generators/actions.rb#L29):
+First, add `:myorm` to the list returned by `supported_orm` in
+[padrino-admin/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/actions.rb#L29-L31).
+`padrino g admin` refuses to run for an ORM that isn't in this list.
 
-```ruby
-# padrino-admin/lib/padrino-admin/generators/actions.rb
-
-def supported_orm
-  [:activerecord, :mongomapper, :mongoid, :couchrest, :datamapper]
-end
-```
-
-Next, we need to define the interaction methods available by our persistence
-engine on our models in
-[padrino-admin/generators/orm.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/generators/orm.rb):
+Next, teach the `Orm` class in
+[padrino-admin/generators/orm.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/orm.rb)
+how to talk to your models. The admin controller and view templates call its
+methods to get the Ruby code they write out. Most of them branch on the ORM
+name. These are the Sequel branches:
 
 ```ruby
 # padrino-admin/lib/padrino-admin/generators/orm.rb
 
-module Padrino
-  module Admin
-    module Generators
-      class OrmError < StandardError; end
-      class Orm
-        attr_reader :klass_name, :klass, :name_plural, :name_singular, :orm
-
-        def initialize(name, orm, columns = nil, column_fields = nil)
-          # ...truncated...
-        end
-
-        # Defines access to a model's columns
-        def columns
-          @columns ||= case orm
-            when :activerecord then @klass.columns
-            when :datamapper   then @klass.properties
-            else raise OrmError, "Adapter #{orm} is not yet supported!"
-          end
-        end
-
-        # Defines access to retrieving all existing records for a model.
-        def all
-          "#{klass_name}.all"
-        end
-
-        # Defines access for querying records for a model.
-        def find(params = nil)
-          case orm
-            when :activerecord then "#{klass_name}.find(#{params})"
-            when :datamapper   then "#{klass_name}.get(#{params})"
-            else raise OrmError, "Adapter #{orm} is not yet supported!"
-          end
-        end
-
-        # Defines how to build a new record for a model.
-        def build(params = nil)
-          if params
-            "#{klass_name}.new(#{params})"
-          else
-            "#{klass_name}.new"
-          end
-        end
-
-        # Defines how to save a new record for a model.
-        def save
-          "#{name_singular}.save"
-        end
-
-        # Defines how to update attributes of a record for a model.
-        def update_attributes(params = nil)
-          case orm
-            when :activerecord then "#{name_singular}.update_attributes(#{params})"
-            when :datamapper then "#{name_singular}.update(#{params})"
-            else raise OrmError, "Adapter #{orm} is not yet supported!"
-          end
-        end
-
-        # Defines how to destroy a record for a model.
-        def destroy
-          "#{name_singular}.destroy"
-        end
-      end # Orm
-    end # Generators
-  end # Admin
-end # Padrino
-```
-
-Next, we need to describe how the `Account` model should be defined for our
-persistence engine within
-[padrino-admin/generators/templates/account/datamapper.rb.tt](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/templates/account/datamapper.rb.tt):
-
-```ruby
-# padrino-admin/lib/padrino-admin/generators/templates/account/datamapper.rb.tt
-
-class Account
-  include DataMapper::Resource
-  include DataMapper::Validate
-  attr_accessor :password, :password_confirmation
-
-  # Define Properties
-  property :id,               Serial
-  property :name,             String
-  # ...truncated...
-
-  # Define Validations
-  validates_present      :email, :role
-  # ...truncated...
-
-  # Callbacks
-  before :save, :generate_password
-
-  #
-  # This method is for authentication purpose
-  #
-  def self.authenticate(email, password)
-    account = first(conditions: { email: email }) if email.present?
-    account && account.password_clean == password ? account : nil
-  end
-
-  #
-  # This method is used from AuthenticationHelper
-  #
-  def self.find_by_id(id)
-    get(id) rescue nil
-  end
-
-  #
-  # This method is used for retrieve the original password.
-  #
-  def password_clean
-    crypted_password.decrypt(salt)
-  end
-
-  private
-    def generate_password
-      return if password.blank?
-      self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--") if new?
-      self.crypted_password = password.encrypt(self.salt)
+def columns
+  @columns ||=
+    case orm
+    # ...truncated...
+    when :sequel       then @klass.db_schema.map { |k, v| v[:type] = :text if v[:db_type] =~ /^text/i; Column.new(k, v[:type]) }
+    # ...truncated...
+    else raise OrmError, "Adapter #{orm} is not yet supported!"
     end
+end
 
-    def password_required
-      crypted_password.blank? || !password.blank?
-    end
+def find(params = nil)
+  case orm
+  # ...truncated...
+  when :sequel, :ohm then "#{klass_name}[#{params}]"
+  else raise OrmError, "Adapter #{orm} is not yet supported!"
+  end
+end
+
+def save
+  orm == :sequel ? "(@#{name_singular}.save rescue false)" : "@#{name_singular}.save"
+end
+
+def update_attributes(params = nil)
+  case orm
+  # ...truncated...
+  when :sequel then "@#{name_singular}.modified! && @#{name_singular}.update(#{params})"
+  else raise OrmError, "Adapter #{orm} is not yet supported!"
+  end
 end
 ```
 
-Finally, let's update the `padrino-admin` README file at
-[padrino-admin/README.rdoc](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/README.rdoc)
-to reflect our newly support component:
+`columns`, `find` and `update_attributes` raise an error for an unknown ORM, so
+`myorm` needs a branch in each. `columns` must return objects that respond to
+`name` and `type`; the `Column` struct defined in the same file works. The
+other methods have a default branch that suits ActiveRecord-like libraries.
+Check each one and add a branch where the default is wrong for `myorm`:
+
+- `save`, `destroy`;
+- `find_by_ids`, `multiple_destroy` (bulk delete on the index page);
+- `has_error` (form field errors).
+
+`all` and `build` are the same for every ORM.
+
+Next, add the `Account` model template that `padrino g admin` writes to
+`models/account.rb`:
+`padrino-admin/lib/padrino-admin/generators/templates/account/myorm.rb.tt`.
+Use
+[account/sequel.rb.tt](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/templates/account/sequel.rb.tt)
+as the model to follow. The rest of the admin expects the template to provide:
+
+- the `name`, `surname`, `email`, `crypted_password` and `role` fields (the
+  admin generator also runs `padrino g model` with these, which creates the
+  migration);
+- `password` and `password_confirmation` accessors, with validations, and a
+  callback that stores a hash of the password in `crypted_password` (the
+  existing templates use BCrypt, which the admin generator adds to the
+  `Gemfile`);
+- `self.authenticate(email, password)`, used by the admin sessions controller;
+- `self.find_by_id(id)`, used to load the logged-in account;
+- `new`, `valid?`, `save` and `errors.full_messages`, used by the generated
+  `db/seeds.rb`.
+
+`padrino-admin/lib/padrino-admin/generators/admin_app.rb` also has a few
+optional per-ORM touches: extra middleware (ActiveRecord adds
+`ConnectionPoolManagement`) and the "next steps" message, which adds
+`rake db:create` and `rake db:migrate` for the SQL ORMs it lists.
+
+Add a test to
+[padrino-admin/test/generators/test\_account\_model\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/test/generators/test_account_model_generator.rb#L85-L95):
 
 ```ruby
-# padrino-admin/README.rdoc
+# padrino-admin/test/generators/test_account_model_generator.rb
 
-Orm Agnostic:: Data Adapters for Datamapper, Activerecord, Mongomapper, Mongoid, Couchrest, Dynamoid
+describe 'sequel' do
+  before do
+    capture_io { generate(:project, 'sample_project', '-e=slim', "--root=#{@apptmp}", '-d=sequel') }
+    capture_io { generate(:admin_app, "--root=#{@apptmp}/sample_project") }
+    @model = "#{@apptmp}/sample_project/models/account.rb"
+  end
+
+  it 'should be a sequel model instance' do
+    assert_match_in_file(/class Account < Sequel::Model/m, @model)
+  end
+end
 ```
+
+Finally, add the ORM to the `Orm Agnostic` line of the
+[padrino-admin README](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/README.rdoc),
+and to the adapter list in the dashboard's `base/index` templates (one per
+renderer, under `padrino-admin/lib/padrino-admin/generators/templates`).
+
+On master, `orm.rb` also has a `MODEL_BASES` table, which maps each ORM to its
+model base class (`sequel: 'Sequel::Model'`). `padrino g admin_page` uses it to
+check that a model belongs to the project's ORM. Add an entry for `myorm` there
+too.
 
 ## Contribute to Padrino
 
-This completes the full integration of a persistence engine into Padrino. Once
-all of this has been finished in your GitHub fork, send us a pull request and
-assuming you followed these instructions properly and the engine actually works
-when generated, we will include the component into the next Padrino version
-crediting you for the contribution!
+Before sending the pull request, generate a real project with
+`--orm=myorm`, add a model and run `padrino g admin`, then boot it and log in
+to the dashboard. Once that works and the tests pass, send us a pull request
+from your GitHub fork. If everything works when generated, we will include the
+component in the next Padrino version and credit you for the contribution!
 
 ---
 
@@ -6172,7 +6256,7 @@ The best extensions to look for are those that have already been included as
 "padrino-recipes") repository. Any recipe included there represents a single
 command installation of the specified functionality. For instance, suppose you
 want to setup pagination in your application for a resource. Installing the
-[will_paginate](https://github.com/mislav/will_paginate "will paginate") gem is
+[`will_paginate`](https://github.com/mislav/will_paginate "will paginate") gem is
 as simple as applying the recipe:
 
 ```shell

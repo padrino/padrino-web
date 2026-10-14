@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><title>Padrino - Persistence Engine</title><meta content="Contributing an object persistence library is probably the most involved component to integrate with Padrino. For this guide, let us pretend that we would..." name="description" /><link href="https://padrinorb.com/guides/07_adding-components/02_persistence-engine/" rel="canonical" /><meta content="website" property="og:type" /><meta content="Padrino" property="og:site_name" /><meta content="Padrino - Persistence Engine" property="og:title" /><meta content="Contributing an object persistence library is probably the most involved component to integrate with Padrino. For this guide, let us pretend that we would..." property="og:description" /><meta content="https://padrinorb.com/guides/07_adding-components/02_persistence-engine/" property="og:url" /><meta content="https://padrinorb.com/images/og-image.png" property="og:image" /><meta content="summary_large_image" name="twitter:card" /><script>try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.dataset.theme = theme; } catch {}</script><meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color" /><meta content="#0c0c0e" media="(prefers-color-scheme: dark)" name="theme-color" /><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><link href="../../../assets/stylesheets/all-cab25388.css" rel="stylesheet" /><script src="../../../assets/javascripts/all-0f349fa2.js" defer="defer"></script><link href="/guides/adding-components/persistence-engine.md" rel="alternate" type="text/markdown" /><script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/*.(md|txt|rss)"}}]}, "eagerness": "moderate"}]}</script><link href="https://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="guides guides_07_adding-components guides_07_adding-components_02_persistence-engine guides_07_adding-components_02_persistence-engine_index"><header class="site-header"><div class="site-header__inner container"><a href="/" class="brand"><img src="../../../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><button aria-keyshortcuts="/ Meta+K Control+K" aria-label="Search docs" class="search-trigger" id="search-open" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="search-trigger__label">Search docs</span><span class="search-trigger__kbd"><kbd class="search-trigger__mod">⌘</kbd><kbd>K</kbd></span></button><nav aria-label="Main" class="site-nav" id="site-nav"><a href="/guides/" class="site-nav__link is-active">Guides</a><a href="/blog/" class="site-nav__link">Blog</a><a href="https://www.rubydoc.info/github/padrino/padrino-framework" class="site-nav__link">API</a><a href="/contribute/" class="site-nav__link">Contribute</a></nav><div class="site-header__actions"><button aria-label="Toggle dark mode" class="icon-button theme-toggle" id="theme-toggle" type="button"><svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></button><a aria-label="Padrino on GitHub" class="icon-button" href="https://github.com/padrino/padrino-framework"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.04c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg></a><button aria-controls="site-nav" aria-expanded="false" aria-label="Menu" class="icon-button site-header__menu" id="site-nav-toggle" type="button"><svg class="icon icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><svg class="icon icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div></header><main class="page"><div class="docs-layout container docs-layout--toc"><aside class="docs-sidebar" id="docs-sidebar"><button aria-controls="docs-sidebar-nav" aria-expanded="false" class="docs-sidebar__toggle" id="docs-sidebar-toggle" type="button"><span>All guides</span><svg class="icon icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><svg class="icon icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button><nav aria-label="Section" class="sidebar" data-scroll-key="/_partials/guides_sidebar" id="docs-sidebar-nav"><h4 class="sidebar__header--first">Guides</h4><h5 class="sidebar__header"><a href="/guides/introduction/overview/">Introduction</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/introduction/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/introduction/why-learn-padrino/" class="sidebar__link">Why Learn Padrino?</a></li><li class="sidebar__item"><a href="/guides/introduction/examples/" class="sidebar__link">Examples</a></li><li class="sidebar__item"><a href="/guides/introduction/the-bleeding-edge/" class="sidebar__link">The Bleeding Edge</a></li><li class="sidebar__item"><a href="/guides/introduction/press/" class="sidebar__link">Press</a></li></ul><h5 class="sidebar__header"><a href="/guides/getting-started/overview/">Getting Started</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/getting-started/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/getting-started/basic-projects/" class="sidebar__link">Basic Projects</a></li><li class="sidebar__item"><a href="/guides/getting-started/installation/" class="sidebar__link">Installation</a></li><li class="sidebar__item"><a href="/guides/getting-started/blog-tutorial/" class="sidebar__link">Blog Tutorial</a></li></ul><h5 class="sidebar__header"><a href="/guides/features/overview/">Features</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/features/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/features/padrino-admin/" class="sidebar__link">Padrino Admin</a></li><li class="sidebar__item"><a href="/guides/features/padrino-mailer/" class="sidebar__link">Padrino Mailer</a></li><li class="sidebar__item"><a href="/guides/features/padrino-cache/" class="sidebar__link">Padrino Cache</a></li><li class="sidebar__item"><a href="/guides/features/mounting-applications/" class="sidebar__link">Mounting Applications</a></li><li class="sidebar__item"><a href="/guides/features/development-commands/" class="sidebar__link">Development Commands</a></li><li class="sidebar__item"><a href="/guides/features/extensions/" class="sidebar__link">Extensions</a></li><li class="sidebar__item"><a href="/guides/features/localization/" class="sidebar__link">Localization</a></li><li class="sidebar__item"><a href="/guides/features/rake-tasks/" class="sidebar__link">Rake Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/generators/overview/">Generators</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/generators/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/generators/projects/" class="sidebar__link">Projects</a></li><li class="sidebar__item"><a href="/guides/generators/plugins/" class="sidebar__link">Plugins</a></li><li class="sidebar__item"><a href="/guides/generators/controllers/" class="sidebar__link">Controllers</a></li><li class="sidebar__item"><a href="/guides/generators/models/" class="sidebar__link">Models</a></li><li class="sidebar__item"><a href="/guides/generators/migrations/" class="sidebar__link">Migrations</a></li><li class="sidebar__item"><a href="/guides/generators/mailers/" class="sidebar__link">Mailers</a></li><li class="sidebar__item"><a href="/guides/generators/sub-applications/" class="sidebar__link">Sub-Applications</a></li><li class="sidebar__item"><a href="/guides/generators/tiny-skeleton/" class="sidebar__link">Tiny Skeleton</a></li><li class="sidebar__item"><a href="/guides/generators/admin/" class="sidebar__link">Admin</a></li><li class="sidebar__item"><a href="/guides/generators/components/" class="sidebar__link">Components</a></li><li class="sidebar__item"><a href="/guides/generators/tasks/" class="sidebar__link">Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/controllers/overview/">Controllers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/controllers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/controllers/routing/" class="sidebar__link">Routing</a></li><li class="sidebar__item"><a href="/guides/controllers/layouts/" class="sidebar__link">Layouts</a></li><li class="sidebar__item"><a href="/guides/controllers/provides-formats/" class="sidebar__link">Provides Format</a></li><li class="sidebar__item"><a href="/guides/controllers/params-whitelisting/" class="sidebar__link">Params Whitelisting</a></li><li class="sidebar__item"><a href="/guides/controllers/route-filters/" class="sidebar__link">Route Filters</a></li><li class="sidebar__item"><a href="/guides/controllers/prioritized-routes/" class="sidebar__link">Prioritized Routes</a></li><li class="sidebar__item"><a href="/guides/controllers/custom-conditions/" class="sidebar__link">Custom Conditions</a></li><li class="sidebar__item"><a href="/guides/controllers/parsing-params/" class="sidebar__link">Parsing Params</a></li><li class="sidebar__item"><a href="/guides/controllers/rendering/" class="sidebar__link">Rendering</a></li><li class="sidebar__item"><a href="/guides/controllers/sessions/" class="sidebar__link">Sessions</a></li></ul><h5 class="sidebar__header"><a href="/guides/application-helpers/overview/">Application Helpers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/application-helpers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/application-helpers/output-helpers/" class="sidebar__link">Output Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/tag-helpers/" class="sidebar__link">Tag Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/asset-helpers/" class="sidebar__link">Asset Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-helpers/" class="sidebar__link">Form Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-builders/" class="sidebar__link">Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/standard-form-builder/" class="sidebar__link">Standard Form Builder</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-form-builders/" class="sidebar__link">Custom Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/nested-object-form-support/" class="sidebar__link">Nested Object Form Support</a></li><li class="sidebar__item"><a href="/guides/application-helpers/format-helpers/" class="sidebar__link">Format Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/render-helpers/" class="sidebar__link">Render Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-helpers/" class="sidebar__link">Custom Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/ujs-helpers/" class="sidebar__link">Unobtrusive JavaScript Helpers</a></li></ul><h5 class="sidebar__header"><a href="/guides/adding-components/overview/">Adding Components</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/adding-components/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/adding-components/persistence-engine/" class="sidebar__link">Persistence Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/javascript-engine/" class="sidebar__link">JavaScript Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/testing-library/" class="sidebar__link">Testing Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/rendering-engine/" class="sidebar__link">Rendering Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/mocking-library/" class="sidebar__link">Mocking Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/stylesheet-engine/" class="sidebar__link">Stylesheet Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/locale-translations/" class="sidebar__link">Locale Translations</a></li></ul><h5 class="sidebar__header"><a href="/guides/advanced-usage/overview/">Advanced Usage</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/advanced-usage/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/extending-padrino-projects/" class="sidebar__link">Extending Padrino Projects</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/3rd-party-plugins/" class="sidebar__link">3rd Party Plugins</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/asynchronous-concurrency-with-padrino/" class="sidebar__link">Asyncronous Concurrency</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/grape-with-padrino/" class="sidebar__link">Grape with Padrino</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/running-padrino-on-jruby/" class="sidebar__link">Running Padrino on JRuby</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="sidebar__link">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/padrino-and-omniauth-overview/" class="sidebar__link">Padrino and OmniAuth Overview</a></li></ul></nav><script>{
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><title>Padrino - Persistence Engine</title><meta content="Contributing an object persistence library is probably the most involved component to integrate with Padrino. It touches the generators, the rake tasks and..." name="description" /><link href="https://padrinorb.com/guides/07_adding-components/02_persistence-engine/" rel="canonical" /><meta content="website" property="og:type" /><meta content="Padrino" property="og:site_name" /><meta content="Padrino - Persistence Engine" property="og:title" /><meta content="Contributing an object persistence library is probably the most involved component to integrate with Padrino. It touches the generators, the rake tasks and..." property="og:description" /><meta content="https://padrinorb.com/guides/07_adding-components/02_persistence-engine/" property="og:url" /><meta content="https://padrinorb.com/images/og-image.png" property="og:image" /><meta content="summary_large_image" name="twitter:card" /><script>try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.dataset.theme = theme; } catch {}</script><meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color" /><meta content="#0c0c0e" media="(prefers-color-scheme: dark)" name="theme-color" /><link href="../../../images/favicons/apple-touch-icon-57x57-75d6516e.png" rel="apple-touch-icon" sizes="57x57" /><link href="../../../images/favicons/apple-touch-icon-60x60-76221479.png" rel="apple-touch-icon" sizes="60x60" /><link href="../../../images/favicons/apple-touch-icon-72x72-7bd96522.png" rel="apple-touch-icon" sizes="72x72" /><link href="../../../images/favicons/apple-touch-icon-76x76-30739e4d.png" rel="apple-touch-icon" sizes="76x76" /><link href="../../../images/favicons/apple-touch-icon-114x114-1b1963ee.png" rel="apple-touch-icon" sizes="114x114" /><link href="../../../images/favicons/apple-touch-icon-144x144-b3992622.png" rel="apple-touch-icon" sizes="144x144" /><link href="../../../images/favicons/apple-touch-icon-152x152-48259d13.png" rel="apple-touch-icon" sizes="152x152" /><link href="../../../images/favicons/apple-touch-icon-180x180-b8e9ebf6.png" rel="apple-touch-icon" sizes="180x180" /><link href="../../../images/favicons/favicon-32x32-c7d41b6f.png" rel="icon" sizes="32x32" type="image/png" /><link href="../../../images/favicons/favicon-194x194-a2b53f7f.png" rel="icon" sizes="194x194" type="image/png" /><link href="../../../images/favicons/favicon-96x96-1f5cec29.png" rel="icon" sizes="96x96" type="image/png" /><link href="../../../images/favicons/android-chrome-192x192-a15741d5.png" rel="icon" sizes="192x192" type="image/png" /><link href="../../../images/favicons/favicon-16x16-609a9b93.png" rel="icon" sizes="16x16" type="image/png" /><link href="/images/favicons/manifest.json" rel="manifest" /><link color="#5bbad5" href="../../../images/favicons/safari-pinned-tab-a188e924.svg" rel="mask-icon" /><link href="../../../images/favicons/favicon.ico" rel="shortcut icon" /><meta content="#da532c" name="msapplication-TileColor" /><meta content="../../../images/favicons/mstile-144x144-c2018144.png" name="msapplication-TileImage" /><meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /><link href="../../../assets/stylesheets/all-cab25388.css" rel="stylesheet" /><script src="../../../assets/javascripts/all-0f349fa2.js" defer="defer"></script><link href="/guides/adding-components/persistence-engine.md" rel="alternate" type="text/markdown" /><script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/*.(md|txt|rss)"}}]}, "eagerness": "moderate"}]}</script><link href="https://padrinorb.com/blog.rss" rel="alternate" title="Blog - Padrino Ruby Web Framework" type="application/rss+xml" /></head><body class="guides guides_07_adding-components guides_07_adding-components_02_persistence-engine guides_07_adding-components_02_persistence-engine_index"><header class="site-header"><div class="site-header__inner container"><a href="/" class="brand"><img src="../../../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><button aria-keyshortcuts="/ Meta+K Control+K" aria-label="Search docs" class="search-trigger" id="search-open" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="search-trigger__label">Search docs</span><span class="search-trigger__kbd"><kbd class="search-trigger__mod">⌘</kbd><kbd>K</kbd></span></button><nav aria-label="Main" class="site-nav" id="site-nav"><a href="/guides/" class="site-nav__link is-active">Guides</a><a href="/blog/" class="site-nav__link">Blog</a><a href="https://www.rubydoc.info/github/padrino/padrino-framework" class="site-nav__link">API</a><a href="/contribute/" class="site-nav__link">Contribute</a></nav><div class="site-header__actions"><button aria-label="Toggle dark mode" class="icon-button theme-toggle" id="theme-toggle" type="button"><svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></button><a aria-label="Padrino on GitHub" class="icon-button" href="https://github.com/padrino/padrino-framework"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.04c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg></a><button aria-controls="site-nav" aria-expanded="false" aria-label="Menu" class="icon-button site-header__menu" id="site-nav-toggle" type="button"><svg class="icon icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><svg class="icon icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div></header><main class="page"><div class="docs-layout container docs-layout--toc"><aside class="docs-sidebar" id="docs-sidebar"><button aria-controls="docs-sidebar-nav" aria-expanded="false" class="docs-sidebar__toggle" id="docs-sidebar-toggle" type="button"><span>All guides</span><svg class="icon icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><svg class="icon icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button><nav aria-label="Section" class="sidebar" data-scroll-key="/_partials/guides_sidebar" id="docs-sidebar-nav"><h4 class="sidebar__header--first">Guides</h4><h5 class="sidebar__header"><a href="/guides/introduction/overview/">Introduction</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/introduction/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/introduction/why-learn-padrino/" class="sidebar__link">Why Learn Padrino?</a></li><li class="sidebar__item"><a href="/guides/introduction/examples/" class="sidebar__link">Examples</a></li><li class="sidebar__item"><a href="/guides/introduction/the-bleeding-edge/" class="sidebar__link">The Bleeding Edge</a></li><li class="sidebar__item"><a href="/guides/introduction/press/" class="sidebar__link">Press</a></li></ul><h5 class="sidebar__header"><a href="/guides/getting-started/overview/">Getting Started</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/getting-started/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/getting-started/basic-projects/" class="sidebar__link">Basic Projects</a></li><li class="sidebar__item"><a href="/guides/getting-started/installation/" class="sidebar__link">Installation</a></li><li class="sidebar__item"><a href="/guides/getting-started/blog-tutorial/" class="sidebar__link">Blog Tutorial</a></li></ul><h5 class="sidebar__header"><a href="/guides/features/overview/">Features</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/features/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/features/padrino-admin/" class="sidebar__link">Padrino Admin</a></li><li class="sidebar__item"><a href="/guides/features/padrino-mailer/" class="sidebar__link">Padrino Mailer</a></li><li class="sidebar__item"><a href="/guides/features/padrino-cache/" class="sidebar__link">Padrino Cache</a></li><li class="sidebar__item"><a href="/guides/features/mounting-applications/" class="sidebar__link">Mounting Applications</a></li><li class="sidebar__item"><a href="/guides/features/development-commands/" class="sidebar__link">Development Commands</a></li><li class="sidebar__item"><a href="/guides/features/extensions/" class="sidebar__link">Extensions</a></li><li class="sidebar__item"><a href="/guides/features/localization/" class="sidebar__link">Localization</a></li><li class="sidebar__item"><a href="/guides/features/rake-tasks/" class="sidebar__link">Rake Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/generators/overview/">Generators</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/generators/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/generators/projects/" class="sidebar__link">Projects</a></li><li class="sidebar__item"><a href="/guides/generators/plugins/" class="sidebar__link">Plugins</a></li><li class="sidebar__item"><a href="/guides/generators/controllers/" class="sidebar__link">Controllers</a></li><li class="sidebar__item"><a href="/guides/generators/models/" class="sidebar__link">Models</a></li><li class="sidebar__item"><a href="/guides/generators/migrations/" class="sidebar__link">Migrations</a></li><li class="sidebar__item"><a href="/guides/generators/mailers/" class="sidebar__link">Mailers</a></li><li class="sidebar__item"><a href="/guides/generators/sub-applications/" class="sidebar__link">Sub-Applications</a></li><li class="sidebar__item"><a href="/guides/generators/tiny-skeleton/" class="sidebar__link">Tiny Skeleton</a></li><li class="sidebar__item"><a href="/guides/generators/admin/" class="sidebar__link">Admin</a></li><li class="sidebar__item"><a href="/guides/generators/components/" class="sidebar__link">Components</a></li><li class="sidebar__item"><a href="/guides/generators/tasks/" class="sidebar__link">Tasks</a></li></ul><h5 class="sidebar__header"><a href="/guides/controllers/overview/">Controllers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/controllers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/controllers/routing/" class="sidebar__link">Routing</a></li><li class="sidebar__item"><a href="/guides/controllers/layouts/" class="sidebar__link">Layouts</a></li><li class="sidebar__item"><a href="/guides/controllers/provides-formats/" class="sidebar__link">Provides Format</a></li><li class="sidebar__item"><a href="/guides/controllers/params-whitelisting/" class="sidebar__link">Params Whitelisting</a></li><li class="sidebar__item"><a href="/guides/controllers/route-filters/" class="sidebar__link">Route Filters</a></li><li class="sidebar__item"><a href="/guides/controllers/prioritized-routes/" class="sidebar__link">Prioritized Routes</a></li><li class="sidebar__item"><a href="/guides/controllers/custom-conditions/" class="sidebar__link">Custom Conditions</a></li><li class="sidebar__item"><a href="/guides/controllers/parsing-params/" class="sidebar__link">Parsing Params</a></li><li class="sidebar__item"><a href="/guides/controllers/rendering/" class="sidebar__link">Rendering</a></li><li class="sidebar__item"><a href="/guides/controllers/sessions/" class="sidebar__link">Sessions</a></li></ul><h5 class="sidebar__header"><a href="/guides/application-helpers/overview/">Application Helpers</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/application-helpers/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/application-helpers/output-helpers/" class="sidebar__link">Output Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/tag-helpers/" class="sidebar__link">Tag Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/asset-helpers/" class="sidebar__link">Asset Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-helpers/" class="sidebar__link">Form Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/form-builders/" class="sidebar__link">Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/standard-form-builder/" class="sidebar__link">Standard Form Builder</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-form-builders/" class="sidebar__link">Custom Form Builders</a></li><li class="sidebar__item"><a href="/guides/application-helpers/nested-object-form-support/" class="sidebar__link">Nested Object Form Support</a></li><li class="sidebar__item"><a href="/guides/application-helpers/format-helpers/" class="sidebar__link">Format Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/render-helpers/" class="sidebar__link">Render Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/custom-helpers/" class="sidebar__link">Custom Helpers</a></li><li class="sidebar__item"><a href="/guides/application-helpers/ujs-helpers/" class="sidebar__link">Unobtrusive JavaScript Helpers</a></li></ul><h5 class="sidebar__header"><a href="/guides/adding-components/overview/">Adding Components</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/adding-components/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/adding-components/persistence-engine/" class="sidebar__link">Persistence Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/javascript-engine/" class="sidebar__link">JavaScript Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/testing-library/" class="sidebar__link">Testing Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/rendering-engine/" class="sidebar__link">Rendering Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/mocking-library/" class="sidebar__link">Mocking Library</a></li><li class="sidebar__item"><a href="/guides/adding-components/stylesheet-engine/" class="sidebar__link">Stylesheet Engine</a></li><li class="sidebar__item"><a href="/guides/adding-components/locale-translations/" class="sidebar__link">Locale Translations</a></li></ul><h5 class="sidebar__header"><a href="/guides/advanced-usage/overview/">Advanced Usage</a></h5><ul class="sidebar__items"><li class="sidebar__item"><a href="/guides/advanced-usage/overview/" class="sidebar__link">Overview</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/extending-padrino-projects/" class="sidebar__link">Extending Padrino Projects</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/3rd-party-plugins/" class="sidebar__link">3rd Party Plugins</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/asynchronous-concurrency-with-padrino/" class="sidebar__link">Asyncronous Concurrency</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/grape-with-padrino/" class="sidebar__link">Grape with Padrino</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/running-padrino-on-jruby/" class="sidebar__link">Running Padrino on JRuby</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/standalone-usage-in-sinatra/" class="sidebar__link">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a href="/guides/advanced-usage/padrino-and-omniauth-overview/" class="sidebar__link">Padrino and OmniAuth Overview</a></li></ul></nav><script>{
   const nav = document.getElementById('docs-sidebar-nav');
   const key = `sidebar-scroll:${nav.dataset.scrollKey}`;
   const restore = () => {
@@ -11,250 +11,334 @@
   });
 }</script></aside><div class="docs-main"><article class="content"><div class="content__header"><p class="content__chapter-title">Adding Components</p><div class="page-actions"><button class="page-actions__copy" data-copy-url="/guides/adding-components/persistence-engine.md" type="button"><svg class="icon icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Copy page</span></button><details class="page-actions__menu"><summary aria-label="More page actions"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="page-actions__list"><li><a href="/guides/adding-components/persistence-engine.md"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>View as Markdown</a></li><li><a href="https://chatgpt.com/?q=Read%20https%3A%2F%2Fpadrinorb.com%2Fguides%2Fadding-components%2Fpersistence-engine.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>Open in ChatGPT</a></li><li><a href="https://claude.ai/new?q=Read%20https%3A%2F%2Fpadrinorb.com%2Fguides%2Fadding-components%2Fpersistence-engine.md%20so%20I%20can%20ask%20questions%20about%20it." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>Open in Claude</a></li></ul></details></div></div><h1 id="persistence-engine">Persistence Engine</h1>
 <p>Contributing an object persistence library is probably the most involved
-component to integrate with Padrino. For this guide, let us pretend that we
-would like to integrate <a href="https://web.archive.org/web/20200113190336/http://datamapper.org/">Datamapper</a> into Padrino.</p>
-<h2 id="generators">Generators</h2>
-<p>First, let&#39;s add Datamapper to the project generator&#39;s available components in
-<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/project.rb">padrino-gen/generators/project.rb</a>:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/generators/project.rb</span>
-<span class="n">component_option</span> <span class="ss">:orm</span><span class="p">,</span> <span class="s2">"database engine"</span><span class="p">,</span> <span class="ss">choices: </span><span class="p">[</span><span class="ss">:activerecord</span><span class="p">,</span> <span class="ss">:datamapper</span><span class="p">]</span>
-</code></pre></div>
-<p>Here, we needed to append <code>:datamapper</code> as an option for the <code>:orm</code>
-<code>component_option</code> in the project generator. Once we have defined Datamapper as
-an option for the ORM component, let&#39;s actually define the specific integration
-tasks for the generator in
-<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/orms/datamapper.rb">padrino-gen/generators/components/orms/datamapper.rb</a>:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/generators/components/orms/datamapper.rb</span>
+component to integrate with Padrino. It touches the generators, the rake tasks
+and the admin dashboard. For this guide, let&#39;s pretend we want to add a new ORM
+called <code>myorm</code>, and use the existing
+<a href="https://sequel.jeremyevans.net/">Sequel</a> component as the working reference at
+each step.</p>
 
-<span class="c1"># These are the steps to setup the persistence layer in the initial project such</span>
-<span class="c1"># as requiring certain gems, constructing the database.rb configuration file and</span>
-<span class="c1"># creating the models folder for the application</span>
+<p>You don&#39;t need a generator component to use an ORM with Padrino. Any library
+without one (ROM, for example) can be added to your <code>Gemfile</code> and set up by hand
+in <code>config/database.rb</code>, like any other gem.</p>
+<h2 id="generators">Generators</h2>
+<p>The available ORM choices are not listed anywhere by hand. Padrino builds them
+from the files in <code>padrino-gen/lib/padrino-gen/generators/components/orms/</code>, in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/actions.rb#L573-L585">padrino-gen/generators/actions.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/generators/actions.rb</span>
+
+<span class="k">def</span> <span class="nf">defines_component_options</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+  <span class="p">[</span>
+    <span class="p">[</span><span class="ss">:orm</span><span class="p">,</span>        <span class="s1">'database engine'</span><span class="p">,</span>    <span class="p">{</span> <span class="ss">aliases: </span><span class="s1">'-d'</span><span class="p">,</span> <span class="ss">default: :none</span> <span class="p">}],</span>
+    <span class="c1"># ...truncated...</span>
+  <span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">caption</span><span class="p">,</span> <span class="n">opts</span><span class="o">|</span>
+    <span class="n">opts</span><span class="p">[</span><span class="ss">:default</span><span class="p">]</span> <span class="o">=</span> <span class="s1">''</span> <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="ss">:default</span><span class="p">]</span> <span class="o">==</span> <span class="kp">false</span>
+    <span class="n">component_option</span> <span class="nb">name</span><span class="p">,</span> <span class="n">caption</span><span class="p">,</span> <span class="n">opts</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">choices: </span><span class="no">Dir</span><span class="p">[</span><span class="s2">"</span><span class="si">#{</span><span class="n">__dir__</span><span class="si">}</span><span class="s2">/components/</span><span class="si">#{</span><span class="nb">name</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">pluralize</span><span class="si">}</span><span class="s2">/*.rb"</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">lib</span><span class="o">|</span> <span class="no">File</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="s1">'.rb'</span><span class="p">).</span><span class="nf">to_sym</span> <span class="p">})</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>So adding a file named <code>components/orms/myorm.rb</code> is enough to make
+<code>padrino g project demo --orm=myorm</code> (or <code>-d myorm</code>) a valid choice. The file
+name is the component name everywhere else too: in the project&#39;s <code>.components</code>
+file, in the generated <code>Rakefile</code> and in the admin generator.</p>
+
+<p>The component file is not a class. The generator reads it and runs it with
+<code>instance_eval</code>, so the methods it defines become methods of the running
+generator.</p>
+
+<p>An ORM component defines four methods:</p>
+
+<ul>
+<li><code>setup_orm</code> runs when a project is generated with <code>--orm=myorm</code>, or when the
+ORM is added later with <code>padrino g component --orm=myorm</code>.</li>
+<li><code>create_model_file(name, options)</code> runs from <code>padrino g model</code>.</li>
+<li><code>create_model_migration(migration_name, name, columns)</code> also runs from
+<code>padrino g model</code>, unless <code>--skip-migration</code> is given.</li>
+<li><code>create_migration_file(migration_name, name, columns)</code> runs from
+<code>padrino g migration</code>.</li>
+</ul>
+
+<p>The model and migration generators call all of these, so define each one. An
+ORM without migrations leaves the last two empty, as the Mongoid and Ohm
+components do.</p>
+
+<p>Here is the Sequel component,
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb">padrino-gen/generators/components/orms/sequel.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb</span>
+
+<span class="no">SEQUEL</span> <span class="o">=</span> <span class="o">&lt;&lt;~</span><span class="no">SEQUEL</span> <span class="k">unless</span> <span class="k">defined?</span><span class="p">(</span><span class="no">SEQUEL</span><span class="p">)</span><span class="sh">
+  Sequel::Model.raise_on_save_failure = false # Do not throw exceptions on failure
+  Sequel::Model.db = case Padrino.env
+    when :development then Sequel.connect(!DB_DEVELOPMENT!, loggers: [logger])
+    when :production  then Sequel.connect(!DB_PRODUCTION!,  loggers: [logger])
+    when :test        then Sequel.connect(!DB_TEST!,        loggers: [logger])
+  end
+</span><span class="no">SEQUEL</span>
+
 <span class="k">def</span> <span class="nf">setup_orm</span>
-  <span class="n">require_dependencies</span> <span class="s1">'data_objects'</span><span class="p">,</span> <span class="s1">'do_sqlite3'</span><span class="p">,</span> <span class="s1">'datamapper'</span>
-  <span class="n">create_file</span><span class="p">(</span><span class="s1">'config/database.rb'</span><span class="p">,</span> <span class="no">DM</span><span class="p">)</span>
-  <span class="n">empty_directory</span><span class="p">(</span><span class="s1">'app/models'</span><span class="p">)</span>
+  <span class="n">sequel</span> <span class="o">=</span> <span class="no">SEQUEL</span><span class="p">.</span><span class="nf">dup</span> <span class="c1"># a copy: frozen-string-literal mode rejects gsub! on the constant</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="vi">@project_name</span><span class="p">.</span><span class="nf">underscore</span>
+  <span class="n">require_dependencies</span> <span class="s1">'sequel'</span>
+
+  <span class="k">begin</span>
+    <span class="k">case</span> <span class="n">adapter</span> <span class="o">||=</span> <span class="n">options</span><span class="p">[</span><span class="ss">:adapter</span><span class="p">]</span>
+    <span class="c1"># ...truncated: mysql-gem, mysql/mysql2 and postgres...</span>
+    <span class="k">when</span> <span class="s1">'sqlite'</span>
+      <span class="n">sequel</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="sr">/!DB_DEVELOPMENT!/</span><span class="p">,</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">sqlite://db/</span><span class="si">#{</span><span class="n">db</span><span class="si">}</span><span class="s2">_development.db</span><span class="se">\"</span><span class="s2">"</span><span class="p">)</span>
+      <span class="n">sequel</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="sr">/!DB_PRODUCTION!/</span><span class="p">,</span> <span class="s2">"</span><span class="se">\"</span><span class="s2">sqlite://db/</span><span class="si">#{</span><span class="n">db</span><span class="si">}</span><span class="s2">_production.db</span><span class="se">\"</span><span class="s2">"</span><span class="p">)</span>
+      <span class="n">sequel</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="sr">/!DB_TEST!/</span><span class="p">,</span>       <span class="s2">"</span><span class="se">\"</span><span class="s2">sqlite://db/</span><span class="si">#{</span><span class="n">db</span><span class="si">}</span><span class="s2">_test.db</span><span class="se">\"</span><span class="s2">"</span><span class="p">)</span>
+      <span class="n">require_dependencies</span> <span class="s1">'sqlite3'</span>
+    <span class="k">else</span>
+      <span class="n">say</span> <span class="s2">"Failed to generate `config/database.rb` for ORM adapter `</span><span class="si">#{</span><span class="n">options</span><span class="p">[</span><span class="ss">:adapter</span><span class="p">]</span><span class="si">}</span><span class="s2">`"</span><span class="p">,</span> <span class="ss">:red</span>
+      <span class="k">raise</span> <span class="no">ArgumentError</span>
+    <span class="k">end</span>
+  <span class="k">rescue</span> <span class="no">ArgumentError</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span><span class="s1">'Please, choose a proper adapter:'</span><span class="p">,</span> <span class="ss">limited_to: </span><span class="sx">%w[mysql mysql2 mysql-gem postgres sqlite]</span><span class="p">)</span>
+    <span class="k">retry</span>
+  <span class="k">end</span>
+
+  <span class="n">create_file</span><span class="p">(</span><span class="s1">'config/database.rb'</span><span class="p">,</span> <span class="n">sequel</span><span class="p">)</span>
+  <span class="n">empty_directory</span><span class="p">(</span><span class="s1">'db/migrate'</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="c1"># These are the steps to generate the actual model file</span>
-<span class="c1"># when the model generator is executed.</span>
-<span class="c1">#</span>
-<span class="c1"># e.g. create_model_file("account", ["username:string", "password:string"])</span>
-<span class="k">def</span> <span class="nf">create_model_file</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
-  <span class="c1"># ...truncated...</span>
+<span class="no">SQ_MODEL</span> <span class="o">=</span> <span class="o">&lt;&lt;~</span><span class="no">MODEL</span> <span class="k">unless</span> <span class="k">defined?</span><span class="p">(</span><span class="no">SQ_MODEL</span><span class="p">)</span><span class="sh">
+  class !NAME! &lt; Sequel::Model
+
+  end
+</span><span class="no">MODEL</span>
+
+<span class="c1"># options =&gt; { fields: ['title:string', 'body:string'], app: 'app' }</span>
+<span class="k">def</span> <span class="nf">create_model_file</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+  <span class="n">model_path</span> <span class="o">=</span> <span class="n">destination_root</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="ss">:app</span><span class="p">],</span> <span class="s1">'models'</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="nb">name</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">underscore</span><span class="si">}</span><span class="s2">.rb"</span><span class="p">)</span>
+  <span class="n">model_contents</span> <span class="o">=</span> <span class="no">SQ_MODEL</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/!NAME!/</span><span class="p">,</span> <span class="nb">name</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">underscore</span><span class="p">.</span><span class="nf">camelize</span><span class="p">)</span>
   <span class="n">create_file</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_contents</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="c1"># These are the steps to generate the model migration file</span>
-<span class="c1"># when the model generator is executed.</span>
-<span class="c1">#</span>
-<span class="c1"># e.g. create_model_migration("create_accounts", "account", ["username:string"])</span>
+<span class="c1"># ...truncated: SQ_MIGRATION, SQ_MODEL_UP_MG, SQ_MODEL_DOWN_MG...</span>
+
 <span class="k">def</span> <span class="nf">create_model_migration</span><span class="p">(</span><span class="n">migration_name</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
-  <span class="c1"># ...truncated...</span>
+  <span class="n">output_model_migration</span><span class="p">(</span>
+    <span class="n">migration_name</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span>
+    <span class="ss">column_format: </span><span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">field</span><span class="p">,</span> <span class="n">kind</span><span class="o">|</span> <span class="s2">"</span><span class="si">#{</span><span class="n">kind</span><span class="p">.</span><span class="nf">underscore</span><span class="p">.</span><span class="nf">camelize</span><span class="si">}</span><span class="s2"> :</span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2">"</span> <span class="p">},</span>
+    <span class="ss">base: </span><span class="no">SQ_MIGRATION</span><span class="p">,</span>
+    <span class="ss">up: </span><span class="no">SQ_MODEL_UP_MG</span><span class="p">,</span>
+    <span class="ss">down: </span><span class="no">SQ_MODEL_DOWN_MG</span>
+  <span class="p">)</span>
 <span class="k">end</span>
 
-<span class="c1"># These are the steps to generate the db migration file</span>
-<span class="c1"># when the migration generator is executed.</span>
-<span class="c1">#</span>
-<span class="c1"># e.g. create_migration_file("AddEmailToAccount", "AddEmailToAccount", ["email:string"])</span>
+<span class="c1"># ...truncated: SQ_CHANGE_MG...</span>
+
 <span class="k">def</span> <span class="nf">create_migration_file</span><span class="p">(</span><span class="n">migration_name</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
-  <span class="c1"># ...truncated...</span>
+  <span class="n">output_migration_file</span><span class="p">(</span>
+    <span class="n">migration_name</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span>
+    <span class="ss">base: </span><span class="no">SQ_MIGRATION</span><span class="p">,</span> <span class="ss">change_format: </span><span class="no">SQ_CHANGE_MG</span><span class="p">,</span>
+    <span class="ss">add: </span><span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">field</span><span class="p">,</span> <span class="n">kind</span><span class="o">|</span> <span class="s2">"add_column :</span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">kind</span><span class="p">.</span><span class="nf">underscore</span><span class="p">.</span><span class="nf">camelize</span><span class="si">}</span><span class="s2">"</span> <span class="p">},</span>
+    <span class="ss">remove: </span><span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">field</span><span class="p">,</span> <span class="n">_kind</span><span class="o">|</span> <span class="s2">"drop_column :</span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="p">)</span>
 <span class="k">end</span>
-</code></pre></div><h2 id="rake-tasks">Rake Tasks</h2>
-<p>Next, if the persistence engine needs to include useful rake tasks (to migrate
-or modify the database for instance), you can add these to the <code>padrino-tasks</code>
-folder in the <code>padrino-gen</code> gem. For Datamapper, there are a number of tasks
-that should be available in
-<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/padrino-tasks/datamapper.rb">padrino-tasks/datamapper.rb</a>:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/padrino-tasks/datamapper.rb</span>
+</code></pre></div>
+<p>A few things to note:</p>
 
-<span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="no">DataMapper</span><span class="p">)</span>
-  <span class="n">namespace</span> <span class="ss">:dm</span> <span class="k">do</span>
+<ul>
+<li><code>require_dependencies</code> adds gems to the project&#39;s <code>Gemfile</code>.</li>
+<li><code>options[:adapter]</code> is the project generator&#39;s <code>--adapter</code> option (<code>sqlite</code>
+by default). Only SQL ORMs need it.</li>
+<li>The model generator passes <code>fields: [...]</code> and <code>app: ...</code> to
+<code>create_model_file</code>. Write the model into <code>destination_root(options[:app],
+&#39;models&#39;, ...)</code> so that <code>padrino g model</code> with <code>-a</code> puts it in the right app.</li>
+<li>The <code>SQ_*</code> constants are text templates with <code>!PLACEHOLDER!</code> markers. The shared
+helpers <code>output_model_migration</code> and <code>output_migration_file</code>, in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/actions.rb#L24-L86">padrino-gen/generators/components/actions.rb</a>,
+fill in <code>!UP!</code>, <code>!DOWN!</code>, <code>!TABLE!</code>, <code>!FIELDS!</code> and <code>!COLUMNS!</code>, number the
+file and write it to <code>db/migrate</code>. If <code>myorm</code> has migrations, reuse these
+helpers rather than writing your own.</li>
+</ul>
+<h2 id="rake-tasks">Rake Tasks</h2>
+<p>If the ORM needs rake tasks (to create or migrate the database, for instance),
+add them in <code>padrino-gen/lib/padrino-gen/padrino-tasks/myorm.rb</code>. Every file in
+that folder is registered automatically. For Sequel, see
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb">padrino-tasks/sequel.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb</span>
+
+<span class="k">if</span> <span class="no">PadrinoTasks</span><span class="p">.</span><span class="nf">load?</span><span class="p">(</span><span class="ss">:sequel</span><span class="p">,</span> <span class="k">defined?</span><span class="p">(</span><span class="no">Sequel</span><span class="p">))</span>
+  <span class="n">namespace</span> <span class="ss">:sq</span> <span class="k">do</span>
     <span class="n">namespace</span> <span class="ss">:migrate</span> <span class="k">do</span>
-      <span class="n">task</span> <span class="ss">load: :environment</span> <span class="k">do</span>
-        <span class="c1"># ...truncated...</span>
-      <span class="k">end</span>
-
-      <span class="n">desc</span> <span class="s1">'Migrate up using migrations'</span>
-      <span class="n">task</span> <span class="ss">:up</span><span class="p">,</span> <span class="ss">:version</span><span class="p">,</span> <span class="ss">needs: :load</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
-        <span class="c1"># ...truncated...</span>
-      <span class="k">end</span>
+      <span class="c1"># ...truncated: auto, to, up and down...</span>
     <span class="k">end</span>
+
+    <span class="n">desc</span> <span class="s1">'Perform migration up to latest migration available'</span>
+    <span class="n">task</span> <span class="ss">migrate: </span><span class="s1">'sq:migrate:up'</span>
+
+    <span class="n">desc</span> <span class="s1">'Create the database'</span>
+    <span class="n">task</span> <span class="ss">create: :skeleton</span> <span class="k">do</span>
+      <span class="c1"># ...truncated...</span>
+    <span class="k">end</span>
+
+    <span class="c1"># ...truncated: drop, reset and seed...</span>
   <span class="k">end</span>
+
+  <span class="n">task</span> <span class="s1">'db:create'</span> <span class="o">=&gt;</span> <span class="s1">'sq:create'</span>
+  <span class="n">task</span> <span class="s1">'db:migrate'</span> <span class="o">=&gt;</span> <span class="s1">'sq:migrate'</span>
+  <span class="n">task</span> <span class="s1">'db:reset'</span> <span class="o">=&gt;</span> <span class="s1">'sq:reset'</span>
 <span class="k">end</span>
-</code></pre></div><h2 id="unit-tests">Unit Tests</h2>
-<p>Next, let&#39;s add the appropriate unit tests to ensure our new component works as
-intended in
-<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L359">padrino-gen/test/test<em>project</em>generator.rb</a>:</p>
+</code></pre></div>
+<p>The generated project&#39;s <code>Rakefile</code> calls <code>PadrinoTasks.use(:myorm)</code>, using the
+component&#39;s file name, so pass the same symbol to <code>PadrinoTasks.load?</code>. Keep the
+tasks in their own namespace and alias the common <code>db:*</code> names to them, so
+<code>rake db:migrate</code> works whatever the ORM. <code>rake db:seed</code> is shared and already
+provided by <code>padrino-tasks/database.rb</code>.</p>
+<h2 id="unit-tests">Unit Tests</h2>
+<p>Next, add tests for the new component in <code>padrino-gen/test</code>, next to the
+existing Sequel ones. The project generator tests check the <code>Gemfile</code> and
+<code>config/database.rb</code>, in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_project_generator.rb#L285-L331">padrino-gen/test/test_project_generator.rb</a>:</p>
 <div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/test/test_project_generator.rb</span>
-<span class="o">...</span>
-<span class="n">it</span> <span class="s1">'should properly generate default'</span> <span class="k">do</span>
-  <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:project</span><span class="p">,</span> <span class="s1">'project.com'</span><span class="p">,</span> <span class="s2">"--root=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s1">'--orm=datamapper'</span><span class="p">,</span> <span class="s1">'--script=none'</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">assert_match</span><span class="p">(</span><span class="sr">/applying.*?datamapper.*?orm/</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
-  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/gem 'dm-core'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/project.com/Gemfile"</span><span class="p">)</span>
-  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/gem 'dm-sqlite-adapter'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/project.com/Gemfile"</span><span class="p">)</span>
-  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/DataMapper.setup/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/project.com/config/database.rb"</span><span class="p">)</span>
-  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/project_com/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/project.com/config/database.rb"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="o">...</span>
-</code></pre></div><h2 id="readme">README</h2>
-<p>Finally for the generator integration, we should add the available option to the
-<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/README.rdoc">generator README file</a>:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/README.rdoc</span>
 
-<span class="n">orm</span><span class="o">::</span> <span class="n">none</span>  <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="n">mongomapper</span><span class="p">,</span> <span class="n">mongoid</span><span class="p">,</span> <span class="n">activerecord</span><span class="p">,</span> <span class="n">sequel</span><span class="p">,</span> <span class="n">couchrest</span><span class="p">,</span> <span class="n">datamapper</span>
+<span class="n">it</span> <span class="s1">'should properly generate postgres'</span> <span class="k">do</span>
+  <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:project</span><span class="p">,</span> <span class="s1">'sample_project'</span><span class="p">,</span> <span class="s2">"--root=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s1">'--orm=sequel'</span><span class="p">,</span> <span class="s1">'--adapter=postgres'</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/gem 'pg'/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/Gemfile"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">%r{"postgres://}</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/config/database.rb"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/sample_project_development/</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/config/database.rb"</span><span class="p">)</span>
+<span class="k">end</span>
 </code></pre></div>
-<p>With that update to the README, persistence support for the generator is
-complete. However, to be fully compliant, support for Padrino Admin should also
-be added. This will allow the admin dashboard to work properly with your
-persistence engine of choice and is <strong>highly</strong> recommended.</p>
+<p>The model generator tests generate a project and then a model inside it, in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_model_generator.rb#L268-L295">padrino-gen/test/test_model_generator.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-gen/test/test_model_generator.rb</span>
+
+<span class="n">it</span> <span class="s1">'should generate migration file with given properties'</span> <span class="k">do</span>
+  <span class="n">stop_time_for_test</span>
+  <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:project</span><span class="p">,</span> <span class="s1">'sample_project'</span><span class="p">,</span> <span class="s2">"--root=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s1">'--script=none'</span><span class="p">,</span> <span class="s1">'-d=sequel'</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:model</span><span class="p">,</span> <span class="s1">'friend'</span><span class="p">,</span> <span class="s1">'name:string'</span><span class="p">,</span> <span class="s1">'age:integer'</span><span class="p">,</span> <span class="s1">'created:datetime'</span><span class="p">,</span> <span class="s2">"-r=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project"</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">migration_file_path</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/db/migrate/001_create_friends.rb"</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/class Friend &lt; Sequel::Model/m</span><span class="p">,</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/models/friend.rb"</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/Sequel\.migration do/m</span><span class="p">,</span>  <span class="n">migration_file_path</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/create_table :friends/m</span><span class="p">,</span> <span class="n">migration_file_path</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/String :name/m</span><span class="p">,</span>          <span class="n">migration_file_path</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/Integer :age/m</span><span class="p">,</span>          <span class="n">migration_file_path</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/DateTime :created/m</span><span class="p">,</span>     <span class="n">migration_file_path</span><span class="p">)</span>
+  <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/drop_table :friends/m</span><span class="p">,</span>   <span class="n">migration_file_path</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>If <code>myorm</code> has migrations, also cover <code>padrino g migration</code> the same way, like
+the <code>the migration generator for sequel</code> block in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_migration_generator.rb#L173-L207">padrino-gen/test/test_migration_generator.rb</a>.</p>
+<h2 id="readme">README</h2>
+<p>Add the new choice to the <code>orm::</code> line of the
+<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-gen/README.rdoc">padrino-gen README</a>.</p>
+
+<p>With that, the generator side is done. To be fully supported, the ORM should
+also work with Padrino Admin, so that <code>padrino g admin</code> and
+<code>padrino g admin_page</code> generate a working dashboard. This is <strong>highly</strong> recommended.</p>
 <h2 id="padrino-admin-support">Padrino Admin Support</h2>
-<p>Adding <code>padrino-admin</code> support for your persistence engine is actually fairly
-straightforward. First, let&#39;s add Datamapper to the set of supported admin ORM
-engines in
-<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/generators/actions.rb#L29">padrino-admin/generators/actions.rb</a>:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-admin/lib/padrino-admin/generators/actions.rb</span>
+<p>First, add <code>:myorm</code> to the list returned by <code>supported_orm</code> in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/actions.rb#L29-L31">padrino-admin/generators/actions.rb</a>.
+<code>padrino g admin</code> refuses to run for an ORM that isn&#39;t in this list.</p>
 
-<span class="k">def</span> <span class="nf">supported_orm</span>
-  <span class="p">[</span><span class="ss">:activerecord</span><span class="p">,</span> <span class="ss">:mongomapper</span><span class="p">,</span> <span class="ss">:mongoid</span><span class="p">,</span> <span class="ss">:couchrest</span><span class="p">,</span> <span class="ss">:datamapper</span><span class="p">]</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>Next, we need to define the interaction methods available by our persistence
-engine on our models in
-<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/generators/orm.rb">padrino-admin/generators/orm.rb</a>:</p>
+<p>Next, teach the <code>Orm</code> class in
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/orm.rb">padrino-admin/generators/orm.rb</a>
+how to talk to your models. The admin controller and view templates call its
+methods to get the Ruby code they write out. Most of them branch on the ORM
+name. These are the Sequel branches:</p>
 <div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-admin/lib/padrino-admin/generators/orm.rb</span>
 
-<span class="k">module</span> <span class="nn">Padrino</span>
-  <span class="k">module</span> <span class="nn">Admin</span>
-    <span class="k">module</span> <span class="nn">Generators</span>
-      <span class="k">class</span> <span class="nc">OrmError</span> <span class="o">&lt;</span> <span class="no">StandardError</span><span class="p">;</span> <span class="k">end</span>
-      <span class="k">class</span> <span class="nc">Orm</span>
-        <span class="nb">attr_reader</span> <span class="ss">:klass_name</span><span class="p">,</span> <span class="ss">:klass</span><span class="p">,</span> <span class="ss">:name_plural</span><span class="p">,</span> <span class="ss">:name_singular</span><span class="p">,</span> <span class="ss">:orm</span>
-
-        <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">orm</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">column_fields</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-          <span class="c1"># ...truncated...</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines access to a model's columns</span>
-        <span class="k">def</span> <span class="nf">columns</span>
-          <span class="vi">@columns</span> <span class="o">||=</span> <span class="k">case</span> <span class="n">orm</span>
-            <span class="k">when</span> <span class="ss">:activerecord</span> <span class="k">then</span> <span class="vi">@klass</span><span class="p">.</span><span class="nf">columns</span>
-            <span class="k">when</span> <span class="ss">:datamapper</span>   <span class="k">then</span> <span class="vi">@klass</span><span class="p">.</span><span class="nf">properties</span>
-            <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
-          <span class="k">end</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines access to retrieving all existing records for a model.</span>
-        <span class="k">def</span> <span class="nf">all</span>
-          <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">.all"</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines access for querying records for a model.</span>
-        <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-          <span class="k">case</span> <span class="n">orm</span>
-            <span class="k">when</span> <span class="ss">:activerecord</span> <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">.find(</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">)"</span>
-            <span class="k">when</span> <span class="ss">:datamapper</span>   <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">.get(</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">)"</span>
-            <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
-          <span class="k">end</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines how to build a new record for a model.</span>
-        <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-          <span class="k">if</span> <span class="n">params</span>
-            <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">.new(</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">)"</span>
-          <span class="k">else</span>
-            <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">.new"</span>
-          <span class="k">end</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines how to save a new record for a model.</span>
-        <span class="k">def</span> <span class="nf">save</span>
-          <span class="s2">"</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.save"</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines how to update attributes of a record for a model.</span>
-        <span class="k">def</span> <span class="nf">update_attributes</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-          <span class="k">case</span> <span class="n">orm</span>
-            <span class="k">when</span> <span class="ss">:activerecord</span> <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.update_attributes(</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">)"</span>
-            <span class="k">when</span> <span class="ss">:datamapper</span> <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.update(</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">)"</span>
-            <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
-          <span class="k">end</span>
-        <span class="k">end</span>
-
-        <span class="c1"># Defines how to destroy a record for a model.</span>
-        <span class="k">def</span> <span class="nf">destroy</span>
-          <span class="s2">"</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.destroy"</span>
-        <span class="k">end</span>
-      <span class="k">end</span> <span class="c1"># Orm</span>
-    <span class="k">end</span> <span class="c1"># Generators</span>
-  <span class="k">end</span> <span class="c1"># Admin</span>
-<span class="k">end</span> <span class="c1"># Padrino</span>
-</code></pre></div>
-<p>Next, we need to describe how the <code>Account</code> model should be defined for our
-persistence engine within
-<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/templates/account/datamapper.rb.tt">padrino-admin/generators/templates/account/datamapper.rb.tt</a>:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-admin/lib/padrino-admin/generators/templates/account/datamapper.rb.tt</span>
-
-<span class="k">class</span> <span class="nc">Account</span>
-  <span class="kp">include</span> <span class="no">DataMapper</span><span class="o">::</span><span class="no">Resource</span>
-  <span class="kp">include</span> <span class="no">DataMapper</span><span class="o">::</span><span class="no">Validate</span>
-  <span class="nb">attr_accessor</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">:password_confirmation</span>
-
-  <span class="c1"># Define Properties</span>
-  <span class="n">property</span> <span class="ss">:id</span><span class="p">,</span>               <span class="no">Serial</span>
-  <span class="n">property</span> <span class="ss">:name</span><span class="p">,</span>             <span class="no">String</span>
-  <span class="c1"># ...truncated...</span>
-
-  <span class="c1"># Define Validations</span>
-  <span class="n">validates_present</span>      <span class="ss">:email</span><span class="p">,</span> <span class="ss">:role</span>
-  <span class="c1"># ...truncated...</span>
-
-  <span class="c1"># Callbacks</span>
-  <span class="n">before</span> <span class="ss">:save</span><span class="p">,</span> <span class="ss">:generate_password</span>
-
-  <span class="c1">#</span>
-  <span class="c1"># This method is for authentication purpose</span>
-  <span class="c1">#</span>
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-    <span class="n">account</span> <span class="o">=</span> <span class="n">first</span><span class="p">(</span><span class="ss">conditions: </span><span class="p">{</span> <span class="ss">email: </span><span class="n">email</span> <span class="p">})</span> <span class="k">if</span> <span class="n">email</span><span class="p">.</span><span class="nf">present?</span>
-    <span class="n">account</span> <span class="o">&amp;&amp;</span> <span class="n">account</span><span class="p">.</span><span class="nf">password_clean</span> <span class="o">==</span> <span class="n">password</span> <span class="p">?</span> <span class="n">account</span> <span class="p">:</span> <span class="kp">nil</span>
-  <span class="k">end</span>
-
-  <span class="c1">#</span>
-  <span class="c1"># This method is used from AuthenticationHelper</span>
-  <span class="c1">#</span>
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-    <span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="k">rescue</span> <span class="kp">nil</span>
-  <span class="k">end</span>
-
-  <span class="c1">#</span>
-  <span class="c1"># This method is used for retrieve the original password.</span>
-  <span class="c1">#</span>
-  <span class="k">def</span> <span class="nf">password_clean</span>
-    <span class="n">crypted_password</span><span class="p">.</span><span class="nf">decrypt</span><span class="p">(</span><span class="n">salt</span><span class="p">)</span>
-  <span class="k">end</span>
-
-  <span class="kp">private</span>
-    <span class="k">def</span> <span class="nf">generate_password</span>
-      <span class="k">return</span> <span class="k">if</span> <span class="n">password</span><span class="p">.</span><span class="nf">blank?</span>
-      <span class="nb">self</span><span class="p">.</span><span class="nf">salt</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">SHA1</span><span class="p">.</span><span class="nf">hexdigest</span><span class="p">(</span><span class="s2">"--</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_s</span><span class="si">}</span><span class="s2">--</span><span class="si">#{</span><span class="n">email</span><span class="si">}</span><span class="s2">--"</span><span class="p">)</span> <span class="k">if</span> <span class="n">new?</span>
-      <span class="nb">self</span><span class="p">.</span><span class="nf">crypted_password</span> <span class="o">=</span> <span class="n">password</span><span class="p">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="nf">salt</span><span class="p">)</span>
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">password_required</span>
-      <span class="n">crypted_password</span><span class="p">.</span><span class="nf">blank?</span> <span class="o">||</span> <span class="o">!</span><span class="n">password</span><span class="p">.</span><span class="nf">blank?</span>
+<span class="k">def</span> <span class="nf">columns</span>
+  <span class="vi">@columns</span> <span class="o">||=</span>
+    <span class="k">case</span> <span class="n">orm</span>
+    <span class="c1"># ...truncated...</span>
+    <span class="k">when</span> <span class="ss">:sequel</span>       <span class="k">then</span> <span class="vi">@klass</span><span class="p">.</span><span class="nf">db_schema</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="n">v</span><span class="p">[</span><span class="ss">:type</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:text</span> <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="ss">:db_type</span><span class="p">]</span> <span class="o">=~</span> <span class="sr">/^text/i</span><span class="p">;</span> <span class="no">Column</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="ss">:type</span><span class="p">])</span> <span class="p">}</span>
+    <span class="c1"># ...truncated...</span>
+    <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
     <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>Finally, let&#39;s update the <code>padrino-admin</code> README file at
-<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-admin/README.rdoc">padrino-admin/README.rdoc</a>
-to reflect our newly support component:</p>
-<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-admin/README.rdoc</span>
 
-<span class="no">Orm</span> <span class="no">Agnostic</span><span class="o">::</span> <span class="no">Data</span> <span class="no">Adapters</span> <span class="k">for</span> <span class="no">Datamapper</span><span class="p">,</span> <span class="no">Activerecord</span><span class="p">,</span> <span class="no">Mongomapper</span><span class="p">,</span> <span class="no">Mongoid</span><span class="p">,</span> <span class="no">Couchrest</span><span class="p">,</span> <span class="no">Dynamoid</span>
-</code></pre></div><h2 id="contribute-to-padrino">Contribute to Padrino</h2>
-<p>This completes the full integration of a persistence engine into Padrino. Once
-all of this has been finished in your GitHub fork, send us a pull request and
-assuming you followed these instructions properly and the engine actually works
-when generated, we will include the component into the next Padrino version
-crediting you for the contribution!</p>
-<footer class="doc-footer"><div class="doc-footer__meta"><a href="https://github.com/padrino/padrino-docs/edit/master/guides/07_adding-components/02_persistence-engine.html.md" class="doc-footer__edit"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.17 6.81a1 1 0 0 0-3.99-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/><path d="m15 5 4 4"/></svg>Edit this page on GitHub</a><span>Last updated 2026-10-13</span></div></footer></article></div><aside class="docs-toc"><nav aria-label="On this page" class="toc"><p class="toc__title">On this page</p><ul class="toc__items"><li class="toc__item toc__item--h2"><a class="toc__link" href="#generators">Generators</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#rake-tasks">Rake Tasks</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#unit-tests">Unit Tests</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#readme">README</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#padrino-admin-support">Padrino Admin Support</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#contribute-to-padrino">Contribute to Padrino</a></li></ul></nav></aside></div></main><footer class="site-footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand"><a href="/" class="brand"><img src="../../../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><p>The elegant Ruby web framework, built upon Sinatra.</p></div><div class="site-footer__column"><h2 class="site-footer__heading">Docs</h2><ul><li><a href="/guides/">Guides</a></li><li><a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a></li><li><a href="/blog/">Blog</a></li><li><a href="/llms.txt">llms.txt</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Community</h2><ul><li><a href="https://github.com/padrino/padrino-framework">GitHub</a></li><li><a href="https://github.com/padrino/padrino-framework/issues">Issues</a></li><li><a href="/contribute/">Contribute</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Project</h2><ul><li><a href="https://github.com/padrino/padrino-framework/blob/master/LICENSE">MIT License</a></li><li><a href="/blog.rss">RSS feed</a></li><li><a href="https://www.unpolo.com/">Logo by unpolo</a></li></ul></div></div><p class="site-footer__legal">Padrino is released under the MIT License. Hosted on GitHub Pages.</p></div></footer><dialog aria-label="Search documentation" class="search-dialog" id="search"><div class="search-dialog__field"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input aria-controls="search-results" autocomplete="off" id="search-input" placeholder="Search the guides" spellcheck="false" type="search" /><button class="search-dialog__close" id="search-close" type="button">Esc</button></div><ul aria-label="Results" class="search-results" id="search-results" role="listbox"></ul><p class="search-dialog__status" id="search-status">Type to search the guides.</p></dialog></body></html>
+<span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+  <span class="k">case</span> <span class="n">orm</span>
+  <span class="c1"># ...truncated...</span>
+  <span class="k">when</span> <span class="ss">:sequel</span><span class="p">,</span> <span class="ss">:ohm</span> <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">[</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">]"</span>
+  <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">save</span>
+  <span class="n">orm</span> <span class="o">==</span> <span class="ss">:sequel</span> <span class="p">?</span> <span class="s2">"(@</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.save rescue false)"</span> <span class="p">:</span> <span class="s2">"@</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.save"</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">update_attributes</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+  <span class="k">case</span> <span class="n">orm</span>
+  <span class="c1"># ...truncated...</span>
+  <span class="k">when</span> <span class="ss">:sequel</span> <span class="k">then</span> <span class="s2">"@</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.modified! &amp;&amp; @</span><span class="si">#{</span><span class="n">name_singular</span><span class="si">}</span><span class="s2">.update(</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">)"</span>
+  <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>columns</code>, <code>find</code> and <code>update_attributes</code> raise an error for an unknown ORM, so
+<code>myorm</code> needs a branch in each. <code>columns</code> must return objects that respond to
+<code>name</code> and <code>type</code>; the <code>Column</code> struct defined in the same file works. The
+other methods have a default branch that suits ActiveRecord-like libraries.
+Check each one and add a branch where the default is wrong for <code>myorm</code>:</p>
+
+<ul>
+<li><code>save</code>, <code>destroy</code>;</li>
+<li><code>find_by_ids</code>, <code>multiple_destroy</code> (bulk delete on the index page);</li>
+<li><code>has_error</code> (form field errors).</li>
+</ul>
+
+<p><code>all</code> and <code>build</code> are the same for every ORM.</p>
+
+<p>Next, add the <code>Account</code> model template that <code>padrino g admin</code> writes to
+<code>models/account.rb</code>:
+<code>padrino-admin/lib/padrino-admin/generators/templates/account/myorm.rb.tt</code>.
+Use
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/templates/account/sequel.rb.tt">account/sequel.rb.tt</a>
+as the model to follow. The rest of the admin expects the template to provide:</p>
+
+<ul>
+<li>the <code>name</code>, <code>surname</code>, <code>email</code>, <code>crypted_password</code> and <code>role</code> fields (the
+admin generator also runs <code>padrino g model</code> with these, which creates the
+migration);</li>
+<li><code>password</code> and <code>password_confirmation</code> accessors, with validations, and a
+callback that stores a hash of the password in <code>crypted_password</code> (the
+existing templates use BCrypt, which the admin generator adds to the
+<code>Gemfile</code>);</li>
+<li><code>self.authenticate(email, password)</code>, used by the admin sessions controller;</li>
+<li><code>self.find_by_id(id)</code>, used to load the logged-in account;</li>
+<li><code>new</code>, <code>valid?</code>, <code>save</code> and <code>errors.full_messages</code>, used by the generated
+<code>db/seeds.rb</code>.</li>
+</ul>
+
+<p><code>padrino-admin/lib/padrino-admin/generators/admin_app.rb</code> also has a few
+optional per-ORM touches: extra middleware (ActiveRecord adds
+<code>ConnectionPoolManagement</code>) and the &quot;next steps&quot; message, which adds
+<code>rake db:create</code> and <code>rake db:migrate</code> for the SQL ORMs it lists.</p>
+
+<p>Add a test to
+<a href="https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/test/generators/test_account_model_generator.rb#L85-L95">padrino-admin/test/generators/test_account_model_generator.rb</a>:</p>
+<div class="highlight"><pre class="syntax ruby"><code><span class="c1"># padrino-admin/test/generators/test_account_model_generator.rb</span>
+
+<span class="n">describe</span> <span class="s1">'sequel'</span> <span class="k">do</span>
+  <span class="n">before</span> <span class="k">do</span>
+    <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:project</span><span class="p">,</span> <span class="s1">'sample_project'</span><span class="p">,</span> <span class="s1">'-e=slim'</span><span class="p">,</span> <span class="s2">"--root=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s1">'-d=sequel'</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">capture_io</span> <span class="p">{</span> <span class="n">generate</span><span class="p">(</span><span class="ss">:admin_app</span><span class="p">,</span> <span class="s2">"--root=</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project"</span><span class="p">)</span> <span class="p">}</span>
+    <span class="vi">@model</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@apptmp</span><span class="si">}</span><span class="s2">/sample_project/models/account.rb"</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s1">'should be a sequel model instance'</span> <span class="k">do</span>
+    <span class="n">assert_match_in_file</span><span class="p">(</span><span class="sr">/class Account &lt; Sequel::Model/m</span><span class="p">,</span> <span class="vi">@model</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Finally, add the ORM to the <code>Orm Agnostic</code> line of the
+<a href="https://github.com/padrino/padrino-framework/blob/master/padrino-admin/README.rdoc">padrino-admin README</a>,
+and to the adapter list in the dashboard&#39;s <code>base/index</code> templates (one per
+renderer, under <code>padrino-admin/lib/padrino-admin/generators/templates</code>).</p>
+
+<p>On master, <code>orm.rb</code> also has a <code>MODEL_BASES</code> table, which maps each ORM to its
+model base class (<code>sequel: &#39;Sequel::Model&#39;</code>). <code>padrino g admin_page</code> uses it to
+check that a model belongs to the project&#39;s ORM. Add an entry for <code>myorm</code> there
+too.</p>
+<h2 id="contribute-to-padrino">Contribute to Padrino</h2>
+<p>Before sending the pull request, generate a real project with
+<code>--orm=myorm</code>, add a model and run <code>padrino g admin</code>, then boot it and log in
+to the dashboard. Once that works and the tests pass, send us a pull request
+from your GitHub fork. If everything works when generated, we will include the
+component in the next Padrino version and credit you for the contribution!</p>
+<footer class="doc-footer"><div class="doc-footer__meta"><a href="https://github.com/padrino/padrino-docs/edit/master/guides/07_adding-components/02_persistence-engine.html.md" class="doc-footer__edit"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.17 6.81a1 1 0 0 0-3.99-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/><path d="m15 5 4 4"/></svg>Edit this page on GitHub</a><span>Last updated 2026-10-14</span></div></footer></article></div><aside class="docs-toc"><nav aria-label="On this page" class="toc"><p class="toc__title">On this page</p><ul class="toc__items"><li class="toc__item toc__item--h2"><a class="toc__link" href="#generators">Generators</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#rake-tasks">Rake Tasks</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#unit-tests">Unit Tests</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#readme">README</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#padrino-admin-support">Padrino Admin Support</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#contribute-to-padrino">Contribute to Padrino</a></li></ul></nav></aside></div></main><footer class="site-footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand"><a href="/" class="brand"><img src="../../../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><p>The elegant Ruby web framework, built upon Sinatra.</p></div><div class="site-footer__column"><h2 class="site-footer__heading">Docs</h2><ul><li><a href="/guides/">Guides</a></li><li><a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a></li><li><a href="/blog/">Blog</a></li><li><a href="/llms.txt">llms.txt</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Community</h2><ul><li><a href="https://github.com/padrino/padrino-framework">GitHub</a></li><li><a href="https://github.com/padrino/padrino-framework/issues">Issues</a></li><li><a href="/contribute/">Contribute</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Project</h2><ul><li><a href="https://github.com/padrino/padrino-framework/blob/master/LICENSE">MIT License</a></li><li><a href="/blog.rss">RSS feed</a></li><li><a href="https://www.unpolo.com/">Logo by unpolo</a></li></ul></div></div><p class="site-footer__legal">Padrino is released under the MIT License. Hosted on GitHub Pages.</p></div></footer><dialog aria-label="Search documentation" class="search-dialog" id="search"><div class="search-dialog__field"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input aria-controls="search-results" autocomplete="off" id="search-input" placeholder="Search the guides" spellcheck="false" type="search" /><button class="search-dialog__close" id="search-close" type="button">Esc</button></div><ul aria-label="Results" class="search-results" id="search-results" role="listbox"></ul><p class="search-dialog__status" id="search-status">Type to search the guides.</p></dialog></body></html>

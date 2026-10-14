@@ -41,7 +41,9 @@ jobs:
         run: |
           for repo in . docs; do
             git -C "$repo" ls-files -z | while IFS= read -r -d '' f; do
-              [ -f "$repo/$f" ] && touch -d "$(git -C "$repo" log -1 --format=%cI -- "$f")" "$repo/$f"
+              if [ -f "$repo/$f" ] && [ ! -L "$repo/$f" ]; then
+                touch -d "$(git -C "$repo" log -1 --format=%cI -- ":(literal)$f")" "$repo/$f"
+              fi
             done
           done
 

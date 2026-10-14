@@ -47,13 +47,15 @@ branch, which GitHub Pages serves at <https://padrinorb.com>. It runs on every
 push to `master`, daily to pick up docs changes, and on demand from the
 Actions tab. Pull requests are built but never deployed.
 
-To deploy right after a docs change, run the workflow manually or have
-padrino-docs send a `docs-updated`
+To deploy right after a docs change, run the workflow manually. It also
+accepts a `docs-updated`
 [repository dispatch](https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event)
-event.
+event, which padrino-docs could send with a token that can write to this repo
+(not set up).
 
 To deploy from your machine instead, update the docs, build and deploy in a
-single command:
+single command. It force-pushes `gh-pages`, so don't run it while the workflow
+is deploying:
 
 ```shell
 rake publish

@@ -29,10 +29,21 @@ jobs:
         with:
           submodules: true
           persist-credentials: false
+          # Full history: guide pages show each file's last commit date
+          fetch-depth: 0
 
       # Same as `rake update`: build against the latest docs, not the pinned submodule commit
       - name: Update docs to latest master
         run: git submodule update --remote docs
+
+      # The sitemap's lastmod uses file mtimes; without this every build differs and the daily run always deploys
+      - name: Set file times from git history
+        run: |
+          for repo in . docs; do
+            git -C "$repo" ls-files -z | while IFS= read -r -d '' f; do
+              [ -f "$repo/$f" ] && touch -d "$(git -C "$repo" log -1 --format=%cI -- "$f")" "$repo/$f"
+            done
+          done
 
       - uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a # v1.329.0
         with:
@@ -44,6 +55,8 @@ jobs:
       - name: Check build output
         run: |
           test -f build/index.html
+          test -f build/guides/introduction/overview/index.html
+          test -s build/llms-full.txt
           test "$(cat build/CNAME)" = "padrinorb.com"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

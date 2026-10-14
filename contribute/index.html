@@ -7,22 +7,26 @@
 
 <hr>
 <h2 id="need-help">Need help?</h2>
-<p>You can use our new
-<a href="http://groups.google.com/group/padrino">Padrino Google Group</a> or send us an
-<a href="mailto:padrinorb@gmail.com">email</a> or write a
-<a href="http://github.com/padrino">message</a> also directly to our
-<a href="http://github.com/padrino/following">team</a>. Also, be sure to join our official
-IRC channel at <a href="irc://chat.freenode.net/#padrino">#padrino</a> on
-<a href="http://freenode.net">freenode</a> for live help. We also have a Gitter
-<a href="https://gitter.im/padrino/padrino-framework">room</a>.</p>
+<p>Start with the <a href="/guides/">guides</a>, which cover most topics. If you are still
+stuck, ask your question on
+<a href="https://github.com/padrino/padrino-framework/issues">GitHub Issues</a>. Search the
+existing issues first, since your question may already have an answer. If
+something in the guides is wrong or missing, open an issue on the
+<a href="https://github.com/padrino/padrino-docs/issues">docs issue tracker</a> instead.</p>
 
 <hr>
 <h2 id="found-a-bug">Found a bug?</h2>
 <p>Let us know by
-<a href="http://github.com/padrino/padrino-framework/issues">creating a new issue</a>. Be
+<a href="https://github.com/padrino/padrino-framework/issues">creating a new issue</a>. Be
 sure to include all relevant information, like the versions of Padrino and Ruby
-you are using. A <a href="http://gist.github.com/">gist</a> of the code that caused the
+you are using. A <a href="https://gist.github.com/">gist</a> of the code that caused the
 issue as well as any error messages are also very helpful.</p>
+
+<hr>
+<h2 id="found-a-security-issue">Found a security issue?</h2>
+<p>Please don&#39;t open a public issue. Report it privately through
+<a href="https://github.com/padrino/padrino-framework/security/advisories/new">GitHub&#39;s private vulnerability reporting</a>
+instead.</p>
 
 <hr>
 <h2 id="want-to-integrate-a-component">Want to integrate a component?</h2>
@@ -30,19 +34,20 @@ issue as well as any error messages are also very helpful.</p>
 framework that we have overlooked in Padrino generators? We encourage you to
 contribute by creating a patch to integrate your favorite components into
 Padrino! Check out the guide for
-<a href="http://www.padrinorb.com/guides/adding-new-components">adding new components</a>
+<a href="/guides/adding-components/overview/">adding new components</a>
 to read a detailed walkthrough of how to do this!</p>
 
 <hr>
 <h2 id="want-to-help-with-documentation">Want to help with documentation?</h2>
-<p>The process for contributing to Padrino’s website or documentation is as simple 
+<p>The process for contributing to Padrino’s documentation is as simple 
 as forking the <a href="https://github.com/padrino/padrino-docs">docs repository</a> and 
 sending in any changes as a pull request. Once a change has been accepted, the 
 documentation will be updated on our website. The website guides and docs are 
-currently in the <a href="https://help.github.com/articles/github-flavored-markdown">GitHub Flavored Markdown</a> 
+currently in the <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> 
 format as can be seen for the 
-<a href="https://github.com/padrino/padrino-docs/blob/master/guides/getting-started.md">Getting Started</a> 
-guide on Github.</p>
+<a href="https://github.com/padrino/padrino-docs/blob/master/guides/02_getting-started/01_overview.html.md">Getting Started</a> 
+guide on GitHub. Changes to the website itself go to the
+<a href="https://github.com/padrino/padrino-web">website repository</a> the same way.</p>
 <h3 id="yard">YARD</h3>
 <p>There is also important YARD documentation within the framework code itself
 which could always use improvements. An example is the
@@ -51,29 +56,23 @@ helpers file which is marked up with YARD annotations for every object and
 method.</p>
 
 <p>Be sure to read over the
-<a href="http://rubydoc.info/docs/yard/file/docs/GettingStarted.md">YARD Getting Started</a>
-and <a href="http://rubydoc.info/docs/yard/file/docs/Tags.md">Tag Overview</a> guides for
+<a href="https://rubydoc.info/gems/yard/file/docs/GettingStarted.md">YARD Getting Started</a>
+and <a href="https://rubydoc.info/gems/yard/file/docs/Tags.md">Tag Overview</a> guides for
 more details on this syntax. Every component of Padrino should be documented
-with YARD annotations which will be generated periodically to our
-<a href="http://www.padrinorb.com/api/Padrino/Helpers/AssetTagHelpers.html">official api</a>
-documentation page.</p>
-
-<p>You can also contact us for access to modifying the pages and guides within our
-site directly once you have had a patch accepted. Simply email
-<a href="mailto:padrinorb@gmail.com">padrinorb@gmail.com</a> and request access.</p>
+with YARD annotations, which are published in our
+<a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a>.</p>
 
 <hr>
 <h2 id="code-guidelines">Code Guidelines</h2>
 <p>Padrino core contributors also have several code guidelines and conventions that
-we try and keep consistent within our codebase. We try to follow the common
-<a href="http://pathfindersoftware.com/2008/10/elements-of-ruby-style">Ruby code guidelines</a>
-such as two space soft tab indentations, and we also like to keep a newline at
-the end of every ruby file.</p>
+we try and keep consistent within our codebase, such as two space soft tab
+indentations and a newline at the end of every ruby file. The framework
+repository ships a
+<a href="https://github.com/padrino/padrino-framework/blob/master/.rubocop.yml">RuboCop configuration</a>
+that encodes them; run <code>bundle exec rubocop</code> on the files you change.</p>
 
 <p>Another convention to keep in mind is to minimize all trailing and unnecessary
-whitespace. If you are using TextMate, be sure to check out the
-<a href="https://github.com/glennr/uber-glory-tmbundle">uberglory</a> which will
-automatically keep your code and spacing clean.</p>
+whitespace. Match the style of the code around your change.</p>
 
 <hr>
 <h2 id="have-a-patch">Have a patch?</h2>
@@ -82,31 +81,32 @@ attention. Here are some guidelines that will help ensure your patch can be
 applied as quickly as possible:</p>
 
 <ol>
-<li>Use <a href="http://git-scm.com/">Git</a> and <a href="http://github.com/">GitHub</a>: The easiest
+<li>Use <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>: The easiest
 way to get setup is to fork the
-<a href="http://github.com/padrino/padrino-framework">padrino repo</a>. Or, post a
-comment, if the patch is doc related.</li>
+<a href="https://github.com/padrino/padrino-framework">padrino repo</a>. For guide
+changes, fork the <a href="https://github.com/padrino/padrino-docs">docs repository</a>
+instead.</li>
 <li>Write unit tests: If you add or modify functionality, it must include unit
 tests. If you don’t write tests, we have to, and this can hold up acceptance
 of the patch.</li>
 <li>Mind the README: If the patch adds or modifies a major feature, modify the
 README.rdoc file to reflect that. Again, if you don’t update the README, we
 have to, and this holds up acceptance.</li>
-<li>Push it: Once you’re ready, push your changes to a topic branch and add a
-note to the ticket with the URL to your branch. Or, say something like, “you
-can find the patch on johndoe/foobranch”.</li>
+<li>Push it: Once you’re ready, push your changes to a topic branch on your
+fork and open a pull request. If it fixes an issue, mention the issue
+number in the description.</li>
 </ol>
 
-<p><strong>NOTE:</strong> we will take whatever we can get. If you prefer to attach diffs in
-  emails to the mailing list, that’s fine; but do know that someone will need to
+<p><strong>NOTE:</strong> we will take whatever we can get. If you prefer to attach a diff to
+  an issue, that’s fine; but do know that someone will need to
   take the diff through the process described above and this can hold things up
   considerably.</p>
 
 <hr>
 <h2 id="looking-for-something-to-do">Looking for something to do?</h2>
 <p>If you’d like to help out but aren’t sure how, take a look at the
-<a href="http://github.com/padrino/padrino-framework/issues">GitHub Issues</a> page. If you
-find something that looks interesting, leave a comment on the ticket noting that
+<a href="https://github.com/padrino/padrino-framework/issues">GitHub Issues</a> page. If you
+find something that looks interesting, leave a comment on the issue noting that
 you’re investigating (a simple “Taking…” is fine). Once you’ve worked on a few
 issues, someone will add you as an assignee.</p>
 </article></div></main><footer class="site-footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand"><a href="/" class="brand"><img src="../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><p>The elegant Ruby web framework, built upon Sinatra.</p></div><div class="site-footer__column"><h2 class="site-footer__heading">Docs</h2><ul><li><a href="/guides/">Guides</a></li><li><a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a></li><li><a href="/blog/">Blog</a></li><li><a href="/llms.txt">llms.txt</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Community</h2><ul><li><a href="https://github.com/padrino/padrino-framework">GitHub</a></li><li><a href="https://github.com/padrino/padrino-framework/issues">Issues</a></li><li><a href="/contribute/">Contribute</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Project</h2><ul><li><a href="https://github.com/padrino/padrino-framework/blob/master/LICENSE">MIT License</a></li><li><a href="/blog.rss">RSS feed</a></li><li><a href="https://www.unpolo.com/">Logo by unpolo</a></li></ul></div></div><p class="site-footer__legal">Padrino is released under the MIT License. Hosted on GitHub Pages.</p></div></footer><dialog aria-label="Search documentation" class="search-dialog" id="search"><div class="search-dialog__field"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input aria-controls="search-results" autocomplete="off" id="search-input" placeholder="Search the guides" spellcheck="false" type="search" /><button class="search-dialog__close" id="search-close" type="button">Esc</button></div><ul aria-label="Results" class="search-results" id="search-results" role="listbox"></ul><p class="search-dialog__status" id="search-status">Type to search the guides.</p></dialog></body></html>

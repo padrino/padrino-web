@@ -739,6 +739,12 @@ body.index .page {
   font-size: 0.75rem;
 }
 
+/* The muted grey is too faint on the highlighted background */
+.search-results__link[aria-selected="true"] :is(.search-results__context, .search-results__snippet),
+.search-results__link:hover :is(.search-results__context, .search-results__snippet) {
+  color: var(--color-text);
+}
+
 .search-results__title {
   color: var(--color-heading);
   font-weight: 600;

@@ -122,9 +122,11 @@ activate :directory_indexes
 activate :syntax, css_class: 'syntax'
 activate :search_engine_sitemap,
   exclude_if: -> (resource) {
-    # Exclude all paths from sitemap that are sub-date indexes
-    resource.path.match(/[0-9]{4}(\/[0-9]{2})*.html/)
-    resource.path.match(/category\/*/)
+    # Leave out date indexes, category pages and the numbered guide paths
+    # (guides/01_introduction/...), which duplicate the clean guide URLs
+    resource.path.match?(%r{\Ablog/\d{4}(/\d{2}){0,2}\.html\z}) ||
+      resource.path.start_with?('category/') ||
+      resource.path.match?(%r{\Aguides/\d{2}_})
   },
   default_change_frequency: 'weekly'
 activate :robots,

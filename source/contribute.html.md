@@ -1,3 +1,7 @@
+---
+title: Contribute
+---
+
 # Contribute
 
 Want to show Padrino some love? Help out by contributing to our framework!

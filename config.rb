@@ -154,7 +154,8 @@ ready do
     .flatten
     .uniq
     .each do |category|
-    proxy "/category/#{category.parameterize}.html", "category.html", locals: { category: category }
+    proxy "/category/#{category.parameterize}.html", "category.html", locals: { category: category },
+      data: { title: "Posts in “#{category.gsub(",", "")}”" }
   end
 end
 

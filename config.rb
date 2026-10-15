@@ -49,8 +49,14 @@ helpers do
     description.gsub(/\s+/, ' ').strip.truncate(160, separator: ' ')
   end
 
+  # Numbered guide paths (guides/01_introduction/01_overview.html) still build for old
+  # links, but point search engines to the clean URL the ready block proxies them to
   def canonical_url
-    config.url_root + current_page.url
+    if (match = current_page.path.match(%r{\Aguides/\d{2}_([^/]+)/\d{2}_([^/]+)\.html\z}))
+      "#{config.url_root}/guides/#{match[1]}/#{match[2]}/"
+    else
+      config.url_root + current_page.url
+    end
   end
 
   def recent_release_post

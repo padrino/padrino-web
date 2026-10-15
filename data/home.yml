@@ -131,16 +131,13 @@ components:
     preset: sequel
     options:
       - [activerecord, ActiveRecord]
-      - [minirecord, MiniRecord]
       - [sequel, Sequel]
       - [mongoid, Mongoid]
-      - [ohm, Ohm]
-      - [dynamoid, Dynamoid]
   - name: SQL adapter
     flag: adapter
     preset: sqlite
     required: true
-    requires: [activerecord, minirecord, sequel]
+    requires: [activerecord, sequel]
     options:
       - [sqlite, SQLite]
       - [postgres, PostgreSQL]
@@ -173,7 +170,6 @@ components:
     options:
       - [sass, Sass]
       - [scss, SCSS]
-      - [less, Less]
       - [tailwind, Tailwind CSS]
   - name: JavaScript
     flag: script

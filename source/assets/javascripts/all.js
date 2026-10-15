@@ -79,7 +79,7 @@ function makeScrollAreasFocusable() {
       if (area.scrollWidth > area.clientWidth) {
         area.tabIndex = 0;
         if (area.tagName === 'PRE') {
-          area.setAttribute('role', 'region');
+          area.setAttribute('role', 'group');
           area.setAttribute('aria-label', 'Code example');
         }
       } else {

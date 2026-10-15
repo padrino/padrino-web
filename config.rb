@@ -12,6 +12,8 @@ page '/blog/*', data: { sidebar: '/_partials/blog_sidebar' }
 page '/blog.html', layout: :sidebar, data: { sidebar: '/_partials/blog_sidebar' }
 proxy '/guides.html', '/guides/01_introduction/01_overview.html'
 proxy '/introduction.html', '/guides/01_introduction/01_overview.html'
+# GitHub Pages serves /404.html for every missing path
+page '/404.html', directory_index: false
 
 require "middleman-core/renderers/redcarpet"
 
@@ -169,6 +171,7 @@ configure :build do
   activate :minify_css
   activate :minify_javascript, compressor: -> { Terser.new }
   activate :asset_hash, ignore: [%r{images/og-image}]
-  activate :relative_assets
+  # 404.html is served at any depth, so it keeps root-relative asset paths
+  activate :relative_assets, rewrite_ignore: ['/404.html']
   activate :disqus, :shortname => "padrinorb"
 end

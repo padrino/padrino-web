@@ -1062,6 +1062,13 @@ body.index .page {
   margin-block: 2rem;
 }
 
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
 /* Page actions */
 
 .content__header {

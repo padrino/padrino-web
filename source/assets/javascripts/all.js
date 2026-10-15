@@ -71,6 +71,30 @@ const COPY_ICONS = `
   <svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
 `;
 
+// Code blocks and tables that scroll sideways need to be focusable, so keyboard users can scroll them
+function makeScrollAreasFocusable() {
+  const areas = document.querySelectorAll('.content pre, .content table, .code-window pre');
+  const update = () => {
+    for (const area of areas) {
+      if (area.scrollWidth > area.clientWidth) {
+        area.tabIndex = 0;
+        if (area.tagName === 'PRE') {
+          area.setAttribute('role', 'group');
+          area.setAttribute('aria-label', 'Code example');
+        }
+      } else {
+        area.removeAttribute('tabindex');
+        if (area.getAttribute('aria-label') === 'Code example') {
+          area.removeAttribute('role');
+          area.removeAttribute('aria-label');
+        }
+      }
+    }
+  };
+  update();
+  window.addEventListener('resize', update);
+}
+
 function addCodeCopyButtons() {
   for (const pre of document.querySelectorAll('.content pre')) {
     let text = pre.textContent.replace(/\n$/, '');
@@ -337,6 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
   activateDocsSidebar();
   activateThemeToggle();
   activateHeadingAnchors();
+  makeScrollAreasFocusable();
   addCodeCopyButtons();
   activatePageActions();
   activateGenerator();

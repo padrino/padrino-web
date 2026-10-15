@@ -5,27 +5,6 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
-      <title>Padrino 0.16.2 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-16-2/</link>
-      <description>&lt;p&gt;Padrino 0.16.2 is a maintenance release for apps that stay on 0.16 for now, such as Middleman sites, which require padrino-helpers below 0.17. It comes out alongside &lt;a href="/blog/padrino-0-17-0/"&gt;Padrino 0.17.0&lt;/a&gt; and has nothing else from 0.17.&lt;/p&gt;
-&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;HAML 6 and 7.&lt;/strong&gt; Block helpers such as &lt;code&gt;link_to ... do&lt;/code&gt;, &lt;code&gt;content_for&lt;/code&gt;, &lt;code&gt;form_tag&lt;/code&gt; and nested layouts no longer fail with &lt;code&gt;undefined method &amp;#39;block_is_haml?&amp;#39;&lt;/code&gt; in HAML 6 and 7 templates (&lt;a href="https://github.com/padrino/padrino-framework/pull/2317"&gt;#2317&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;; reported in &lt;a href="https://github.com/padrino/padrino-framework/issues/2322"&gt;#2322&lt;/a&gt; by &lt;code&gt;@kenchan&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Ruby 4.0.&lt;/strong&gt; padrino-core now depends on the &lt;code&gt;ostruct&lt;/code&gt; gem, which Ruby 4.0 no longer installs as a default gem; without it, a 0.16.1 app doesn&amp;#39;t boot under Bundler on Ruby 4.0. On Ruby 4.0, &lt;code&gt;padrino console&lt;/code&gt; also tells you to add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile instead of failing with a LoadError.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="upgrading-from-0-16-1"&gt;Upgrading from 0.16.1&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Run &lt;code&gt;bundle update padrino&lt;/code&gt; (in a Middleman site, &lt;code&gt;bundle update padrino-helpers&lt;/code&gt;). If your Gemfile pins &lt;code&gt;0.16.1&lt;/code&gt;, change it to &lt;code&gt;~&amp;gt; 0.16.2&lt;/code&gt; first.&lt;/li&gt;
-&lt;li&gt;On Ruby 4.0, add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile if you use &lt;code&gt;padrino console&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Ruby 4.0 comes with Bundler 4, which removed &lt;code&gt;bundle --binstubs&lt;/code&gt;. If Padrino 0.16 asks you to run it, use &lt;code&gt;bundle binstubs --all&lt;/code&gt; instead, or run commands with &lt;code&gt;bundle exec padrino&lt;/code&gt;. Padrino 0.17 gives the new instruction itself.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
-</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-16-2/</guid>
-    </item>
-    <item>
       <title>Padrino 0.17.0 release</title>
       <link>http://padrinorb.com/blog/padrino-0-17-0/</link>
       <description>&lt;p&gt;Padrino 0.17.0 is out. It runs on Ruby 4.0 and HAML 6 and 7, adds Falcon, Vite and Tailwind CSS to the generators, and fixes a long list of bugs in the generators, the mailer, the reloader and the ActiveRecord rake tasks. It also removes generators for ORMs that are no longer maintained, so read the breaking changes below before you upgrade.&lt;/p&gt;
@@ -71,6 +50,27 @@
 </description>
       <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/padrino-0-17-0/</guid>
+    </item>
+    <item>
+      <title>Padrino 0.16.2 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-16-2/</link>
+      <description>&lt;p&gt;Padrino 0.16.2 is a maintenance release for apps that stay on 0.16 for now, such as Middleman sites, which require padrino-helpers below 0.17. It comes out alongside &lt;a href="/blog/padrino-0-17-0/"&gt;Padrino 0.17.0&lt;/a&gt; and has nothing else from 0.17.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;HAML 6 and 7.&lt;/strong&gt; Block helpers such as &lt;code&gt;link_to ... do&lt;/code&gt;, &lt;code&gt;content_for&lt;/code&gt;, &lt;code&gt;form_tag&lt;/code&gt; and nested layouts no longer fail with &lt;code&gt;undefined method &amp;#39;block_is_haml?&amp;#39;&lt;/code&gt; in HAML 6 and 7 templates (&lt;a href="https://github.com/padrino/padrino-framework/pull/2317"&gt;#2317&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;; reported in &lt;a href="https://github.com/padrino/padrino-framework/issues/2322"&gt;#2322&lt;/a&gt; by &lt;code&gt;@kenchan&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ruby 4.0.&lt;/strong&gt; padrino-core now depends on the &lt;code&gt;ostruct&lt;/code&gt; gem, which Ruby 4.0 no longer installs as a default gem; without it, a 0.16.1 app doesn&amp;#39;t boot under Bundler on Ruby 4.0. On Ruby 4.0, &lt;code&gt;padrino console&lt;/code&gt; also tells you to add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile instead of failing with a LoadError.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-16-1"&gt;Upgrading from 0.16.1&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;bundle update padrino&lt;/code&gt; (in a Middleman site, &lt;code&gt;bundle update padrino-helpers&lt;/code&gt;). If your Gemfile pins &lt;code&gt;0.16.1&lt;/code&gt;, change it to &lt;code&gt;~&amp;gt; 0.16.2&lt;/code&gt; first.&lt;/li&gt;
+&lt;li&gt;On Ruby 4.0, add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile if you use &lt;code&gt;padrino console&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ruby 4.0 comes with Bundler 4, which removed &lt;code&gt;bundle --binstubs&lt;/code&gt;. If Padrino 0.16 asks you to run it, use &lt;code&gt;bundle binstubs --all&lt;/code&gt; instead, or run commands with &lt;code&gt;bundle exec padrino&lt;/code&gt;. Padrino 0.17 gives the new instruction itself.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
+</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-16-2/</guid>
     </item>
     <item>
       <title>Padrino 0.16.0 release</title>

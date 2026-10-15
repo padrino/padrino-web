@@ -1,6 +1,6 @@
 # Running Padrino on JRuby
 
-You can run Padrino (0.9.29 ... 0.16.1 is tested) on JRuby
+You can run Padrino (0.9.29 ... 0.17.0 is tested) on JRuby
 
 --------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ You can easily install Padrino on jruby when you use
 $ rvm install jruby-latest
 $ rvm use --create jruby-latest@padrino
 $ gem install bundler
-$ gem install padrino -v=0.16.1
+$ gem install padrino -v=0.17.0
 ```
 
 Create Padrino project just as you do when using MRI or REE:
@@ -35,7 +35,7 @@ gem 'warbler'
 Now you can go:
 
 ```shell
-$ bundle
+$ bundle install && bundle binstubs --all
 ```
 
 Then, create the test controller:

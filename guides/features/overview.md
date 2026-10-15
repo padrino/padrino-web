@@ -10,5 +10,6 @@ This is a guide intended to show you more features of Padrino.
 - [Localization](/guides/features/localization/ "Localization")
 - [Extensions](/guides/features/extensions/ "Extensions")
 - [Rake Tasks](/guides/features/rake-tasks/ "Rake Tasks")
+- [Testing](/guides/features/testing/ "Testing")
 
 

@@ -1,7 +1,7 @@
 # Padrino Framework - Complete Documentation
 
 Generated from https://github.com/padrino/padrino-docs
-Version: 0.16.1
+Version: 0.17.0
 
 ---
 
@@ -408,7 +408,8 @@ call directly:
 $ padrino g admin
 ```
 
-you will use system wide gems. So for do that remember to run commands with
+it stops and asks you to generate the project's binstubs, because it won't use the
+system-wide gems. Run `bundle binstubs --all` once, or run commands with
 `bundle exec` as a prefix like:
 
 ```shell
@@ -430,7 +431,7 @@ follow the following steps. First, clone the padrino repository:
 
 ```shell
 $ cd /tmp
-$ git clone git://github.com/padrino/padrino-framework.git
+$ git clone https://github.com/padrino/padrino-framework.git
 ```
 
 Next, we should mark the version as dev(elopment) to get a fresh set of gems:
@@ -438,7 +439,7 @@ Next, we should mark the version as dev(elopment) to get a fresh set of gems:
 ```ruby
 # /tmp/padrino-framework/padrino-core/lib/padrino-core/version.rb
 module Padrino
-  VERSION = '0.16.1' unless defined?(Padrino::VERSION) # Change to bump version
+  VERSION = '0.17.0' unless defined?(Padrino::VERSION) # Change to bump version
   #...
 end
 ```
@@ -448,11 +449,11 @@ Finally, run the `fresh` rake command to install the latest version:
 ```shell
 padrino-framework$ rake fresh
   ~/.rvm/rubies/ruby-3.4.7/bin/ruby -S rake install
-  padrino-support 0.16.1 built to pkg/padrino-support-0.16.1.gem.
-  padrino-support (0.16.1) installed.
+  padrino-support 0.17.0 built to pkg/padrino-support-0.17.0.gem.
+  padrino-support (0.17.0) installed.
   ~/.rvm/rubies/ruby-3.4.7/bin/ruby -S rake install
-  padrino-core 0.16.1 built to pkg/padrino-core-0.16.1.gem.
-  padrino-core (0.16.1) installed.
+  padrino-core 0.17.0 built to pkg/padrino-core-0.17.0.gem.
+  padrino-core (0.17.0) installed.
   ...
 ```
 
@@ -462,7 +463,7 @@ project's Gemfile depends on the edge version you installed:
 ```ruby
 Gemfile
 # Padrino
-gem 'padrino', '~> 0.16.1'
+gem 'padrino', '~> 0.17.0'
 ```
 
 or you can generate a new project easily and you can use padrino commands
@@ -481,7 +482,7 @@ This should allow you to use the latest padrino code from your system.
 ```shell
 $ mkdir /src
 # Remember to use your fork
-$ git clone git://github.com/padrino/padrino-framework.git
+$ git clone https://github.com/padrino/padrino-framework.git
 # Edit your ~/.profile or ~/.bash_profile or some and add
 alias padrino-dev="/src/padrino-framework/padrino-core/bin/padrino"
 alias padrino-dev-gen="/src/padrino-framework/padrino-gen/bin/padrino-gen" # you can omit this
@@ -502,12 +503,18 @@ or if you don't have `padrino-dev-gen`
 padrino-dev g project test-project --dev
 ```
 
-This will append the following lines to your test-app/Gemfile:
+This will point the Padrino gems in your test-project/Gemfile at your checkout:
 
 ```ruby
-# Vendored Padrino
-%w(core gen helpers mailer admin).each do |gem|
-  gem 'padrino-' + gem, path: '/src/padrino-framework/padrino-' + gem
+# Padrino Stable Gem
+# gem 'padrino', '0.17.0'
+
+# Or Padrino Edge
+# gem 'padrino', github: 'padrino/padrino-framework'
+
+# Or Individual Gems
+%w(core support gen helpers cache mailer admin).each do |g|
+  gem 'padrino-' + g, path: '/src/padrino-framework/padrino-' + g
 end
 ```
 
@@ -583,8 +590,8 @@ understanding of Sinatra and Padrino if you are new to the stack.
 
 ## Generating a Project
 
-To generate a new Padrino project using its defaults (RSpec for testing and Haml
-for rendering) and no database adapter, simply invoke the following command:
+To generate a new Padrino project using its defaults (no testing framework, no
+template engine and no database adapter), simply invoke the following command:
 
 ```shell
 $ padrino g project my_project
@@ -644,6 +651,7 @@ You can then add, if needed, sub-applications to your existing Padrino
 
 ```shell
 $ cd my_project
+$ bundle install && bundle binstubs --all
 $ padrino g app gallery
 ```
 
@@ -675,7 +683,7 @@ Install all project dependencies:
 
 ```shell
 $ cd blog
-$ bundle # if you haven't that command, run 'gem install bundler'
+$ bundle install && bundle binstubs --all
 ```
 
 Padrino ships with a beautiful Admin interface.
@@ -805,6 +813,10 @@ Ruby or Sinatra, be sure to check out the
 [Why Learn Padrino?](/guides/introduction/why-learn-padrino "Why Learn Padrino?") guide for more
 information.
 
+Inside a generated project, install its gems and its binstubs with
+`bundle install && bundle binstubs --all` (or run each command with `bundle exec`), so that
+`padrino` commands use the project's bundle.
+
 ---
 
 # Getting Started: Blog Tutorial
@@ -841,7 +853,7 @@ repository") using git:
 
 
 ```shell
-$ git clone git@github.com:padrino/blog-tutorial.git
+$ git clone https://github.com/padrino/blog-tutorial.git
 ```
 
 
@@ -985,7 +997,7 @@ module BlogTutorial
     register Padrino::Mailer
     register Padrino::Helpers
 
-    enable :sessions
+    set :sessions, same_site: :lax
 
     # Here are the defined routes
     get "/" do
@@ -1061,10 +1073,10 @@ You should see no errors, and the terminal should output:
 
 
 ```shell
-=> Padrino/0.16.1 has taken the stage development at http://127.0.0.1:3000
-[2025-11-21 01:02:13] INFO  WEBrick 1.9.1
-[2025-11-21 01:02:13] INFO  ruby 3.4.6 (2025-09-16) [x86_64-linux]
-[2025-11-21 01:02:13] INFO  WEBrick::HTTPServer#start: pid=3489 port=3000
+=> Padrino/0.17.0 has taken the stage development at http://127.0.0.1:3000
+[2026-10-15 06:27:18] INFO  WEBrick 1.9.2
+[2026-10-15 06:27:18] INFO  ruby 3.3.6 (2024-11-05) [x86_64-linux]
+[2026-10-15 06:27:18] INFO  Rackup::Handler::WEBrick::Server#start: pid=15883 port=3000
 ```
 
 
@@ -1131,6 +1143,19 @@ $ padrino rake sq:migrate
    INFO -  (0.014224s) UPDATE `schema_info` SET `version` = 2
    INFO -  Finished applying migration version 2, direction: up, took 0.025778 seconds
 <= sq:migrate:up executed
+```
+
+
+Sequel fills in `created_at` only with its `timestamps` plugin, so turn it on in the
+post model now:
+
+
+```ruby
+# models/post.rb
+
+class Post < Sequel::Model
+  plugin :timestamps
+end
 ```
 
 
@@ -1301,7 +1326,7 @@ start by adding a new migration to attach an Account to a Post.
 
 ```shell
 $ padrino g migration AddAccountToPost account_id:integer
-       apply  orms/activerecord
+       apply  orms/sequel
       create  db/migrate/003_add_account_to_post.rb
 ```
 
@@ -1310,8 +1335,8 @@ This creates a new migration with the desired field attaching the `account_id` t
 the post.
 
 
-Now, we'll return to the post model to setup the `account` association and add a
-few validations.
+Now, we'll return to the post model to setup the `account` association, add a
+few validations, keeping the `timestamps` plugin.
 
 
 ```ruby
@@ -1321,6 +1346,7 @@ class Post < Sequel::Model
   many_to_one :account
 
   plugin :validation_helpers
+  plugin :timestamps
 
   def validate
     super
@@ -1349,7 +1375,7 @@ Let's create another migration to assign the first user to all existing posts:
 
 ```shell
 $ padrino g migration MigrateExistingPostsToFirstAccount
-       apply  orms/activerecord
+       apply  orms/sequel
       create  db/migrate/004_migrate_existing_posts_to_first_account.rb
 ```
 
@@ -1383,12 +1409,12 @@ inside the generated Padrino Admin and make some changes to include the account
 with the post.
 
 Head on over to `admin/controllers/posts.rb`. We're going to include the
-[`current_account`](https://github.com/padrino/padrino-framework/blob/master/padrino-admin/lib/padrino-admin/helpers/authentication_helpers.rb#L18 "current_account")
+[`current_account`](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/lib/padrino-admin/helpers/authentication_helpers.rb#L18-L20 "current_account")
 to the creation of a new Post.
 
 ```ruby
 # admin/controllers/posts.rb
-Admin.controllers :posts do
+BlogTutorial::Admin.controllers :posts do
   ...
 
   post :create do
@@ -1465,19 +1491,19 @@ directory:
 
 ```haml
 -# app/views/layouts/application.haml
-!!! Strict
+!!! 5
 %html
   %head
     %title= 'Padrino Sample Blog'
-    = stylesheet_link_tag 'bulma', 'application'
+    = stylesheet_link_tag 'bulma.min', 'application'
     = javascript_include_tag 'jquery', 'application'
   %body
     %nav.navbar
       %div.container
         .navbar-brand
           %a.navbar-item{href: '/'}
-            %img{alt: 'Logo of Padrino blog', src: 'http://padrinorb.com/images/logo-6475397a.svg'}/
-          %span.navbar-burger.burger{'data-targe' => 'navbarMenu'}
+            %img{alt: 'Logo of Padrino blog', src: 'https://padrinorb.com/images/logo-6475397a.svg'}/
+          %span.navbar-burger.burger{'data-target' => 'navbarMenu'}
             %span
             %span
             %span
@@ -1584,6 +1610,7 @@ This is a guide intended to show you more features of Padrino.
 - [Localization](/guides/features/localization/ "Localization")
 - [Extensions](/guides/features/extensions/ "Extensions")
 - [Rake Tasks](/guides/features/rake-tasks/ "Rake Tasks")
+- [Testing](/guides/features/testing/ "Testing")
 
 ---
 
@@ -1598,9 +1625,9 @@ Feature               | Description
 --------------------- | ------------------------------------------------------------------------------
 **Orm Agnostic**      | Adapters for activerecord, minirecord, sequel, mongoid, ohm, dynamoid
 **Authentication**    | User Authentication Support, User Authorization Management
-**Template Agnostic** | Erb and Haml Rendering Support
+**Template Agnostic** | ERB, Haml and Slim Rendering Support
 **Scaffold**          | You can create a new "admin interface" by providing a single Model
-**MultiLanguage**     | English, German, Russian, Danish, French, Brazilian and Italian localizations
+**MultiLanguage**     | 21 localizations: Brazilian Portuguese, Chinese (Simplified and Traditional), Czech, Danish, Dutch, English, French, German, Hungarian, Italian, Japanese, Latvian, Norwegian, Polish, Romanian, Russian, Spanish, Swedish, Turkish and Ukrainian
 
 --------------------------------------------------------------------------------
 
@@ -1610,7 +1637,7 @@ Create a new project:
 
 ```shell
 $ padrino g project admin-test-sample -d activerecord
-$ cd admin-test-sample && bundle
+$ cd admin-test-sample && bundle install && bundle binstubs --all
 ```
 
 Create the admin application:
@@ -1632,7 +1659,7 @@ point your web browser to <http://localhost:3000/admin> and log in with your
 admin account credentials.
 
 
-<img src="https://farm2.staticflickr.com/1720/26277208545_496eb24ac8_z_d.jpg">
+<img src="https://farm2.staticflickr.com/1720/26277208545_496eb24ac8_z_d.jpg" alt="Screenshot of the Padrino Admin interface">
 
 
 If you need to create a "scaffold", (basic CRUD actions) create a
@@ -1690,7 +1717,7 @@ login credentials (default authentication behavior will use email and password).
 
 When successfully logged in, they will be granted access to the two protected pages.
 
-<img src="https://farm2.staticflickr.com/1714/25674474983_26e311f126_z_d.jpg">
+<img src="https://farm2.staticflickr.com/1714/25674474983_26e311f126_z_d.jpg" alt="Screenshot for the e-commerce authentication example">
 
 --------------------------------------------------------------------------------
 
@@ -2597,7 +2624,7 @@ our application.
 # Gemfile
 source 'https://rubygems.org'
 gem 'rake'
-gem 'padrino', '0.16.1'
+gem 'padrino', '0.17.0'
 ```
 
 This manifest file uses the standard `bundler` gem syntax of which details can
@@ -2932,9 +2959,8 @@ the name of the model passed to `form_for` and `ATTRIBUTE` is the given attribut
 
 # Rake Tasks
 
-After generating a new padrino project, you will not find any Rakefile in your
-generated project folder structure; in fact it's not strictly needed to build a
-new one because we can already use padrino rake:
+A generated Padrino project has a `Rakefile` that loads Padrino's tasks, so you
+can run them with `padrino rake` or `bundle exec rake`:
 
 ```shell
 # for a list of tasks
@@ -2948,7 +2974,8 @@ If you need custom tasks you can add those to:
 - `your_project_/**test**`
 - `your_project_/**spec**`
 
-Padrino will look recursively for any `*.rake` file in any of these directories.
+Padrino loads every `*.rake` file in `lib/tasks` and `tasks` (including their
+subdirectories) and in `test` and `spec`.
 
 Padrino by default has some useful tasks.
 
@@ -2961,7 +2988,7 @@ Like other frameworks we have an `:environment` task that loads our
 
 ```ruby
 # This is a custom task
-# task/version.rake
+# tasks/version.rake
 task version: :environment do
   puts Padrino.version
 end
@@ -3028,10 +3055,10 @@ you can customize `test/test.rake` or `spec/spec.rake`
 ## I18n
 
 You can auto generate a _yml_ file for localizing your models using this
-command:
+command (`mi:translate` with Mongoid):
 
 ```shell
-$ padrino rake locale:models
+$ padrino rake ar:translate
 ```
 
 See [Localization](/guides/features/localization "Localization") for detailed instructions.
@@ -3055,51 +3082,42 @@ Padrino has rake tasks for _ActiveRecord_, _Sequel_, and _Mongoid_ with some
 ## ActiveRecord Tasks
 
 ```shell
-rake ar:abort_if_pending_migrations    # Raises an error if there are pending migrations.
-rake ar:auto:upgrade                   # Uses schema.rb to auto-upgrade.
-rake ar:charset                        # Retrieves database charset.
-rake ar:collation                      # Retrieves database collation.
-rake ar:create                         # Creates the database as defined in config/database.yml
-rake ar:create:all                     # Creates local databases as defined in config/database.yml
-rake ar:drop                           # Drops the database for the current Padrino.env
-rake ar:drop:all                       # Drops local databases defined in config/database.yml
-rake ar:forward                        # Pushes the schema to the next version.
-rake ar:migrate                        # Migrates the database through scripts in db/migrate.
-rake ar:migrate:down                   # Runs the "down" for a given migration VERSION.
-rake ar:migrate:redo                   # Rollbacks current migration and migrates up to version
-rake ar:migrate:reset                  # Resets your database using your migrations.
-rake ar:migrate:up                     # Runs the "up" for a given migration VERSION NUMBER
-rake ar:reset                          # Drops and recreates the database using db/schema.rb.
-rake ar:rollback                       # Rolls back the schema to previous schema version.
-rake ar:schema:dump                    # Creates a portable db/schema.rb file.
-rake ar:schema:load                    # Loads a schema.rb file into the database.
-rake ar:schema:to_migration            # Creates a migration from schema.rb
-rake ar:schema:to_migration_with_reset # Creates a migration and resets the migrations log.
-rake ar:setup                          # Creates the database, loads the schema, and seeds data.
-rake ar:structure:dump                 # Dumps the database structure to a SQL file.
-rake ar:version                        # Retrieves the current schema version number.
+rake ar:abort_if_pending_migrations # Raises an error if there are pending migrations
+rake ar:charset                     # Retrieves the charset for the current environment's database
+rake ar:collation                   # Retrieves the collation for the current environment's database
+rake ar:create                      # Creates the database defined in config/database.yml for the current Padrino.env
+rake ar:create:all                  # Create all the local databases defined in config/database.yml
+rake ar:drop                        # Drops the database for the current Padrino.env
+rake ar:drop:all                    # Drops all the local databases defined in config/database.yml
+rake ar:forward                     # Pushes the schema to the next version
+rake ar:migrate                     # Migrate the database through scripts in db/migrate and update db/schema.rb by invoking ar:schema:dump
+rake ar:migrate:down                # Runs the 'down' for a given MIGRATION_VERSION
+rake ar:migrate:redo                # Rollbacks the database one migration and re migrate up
+rake ar:migrate:reset               # Resets your database using your migrations for the current environment
+rake ar:migrate:up                  # Runs the 'up' for a given MIGRATION_VERSION
+rake ar:reset                       # Drops and recreates the database from db/schema.rb for the current environment and loads the seeds
+rake ar:rollback                    # Rolls the schema back to the previous version
+rake ar:schema:dump                 # Create a db/schema.rb file that can be portably used against any DB supported by AR
+rake ar:schema:load                 # Load a schema.rb file into the database
+rake ar:setup                       # Create the database, load the schema, and initialize with the seed data
+rake ar:structure:dump              # Dump the database structure to a SQL file
+rake ar:translate                   # Generates .yml files for I18n translations
+rake ar:version                     # Retrieves the current schema version number
 ```
-
-**rake ar:auto:upgrade**
-
-This is some sort of super cool and useful task for people like me who don't
-love migrations (especially for small apps). It's a forked version of
-[`auto_migrations`](http://github.com/pjhyett/auto_migrations).
-
-Basically, instead of writing migrations you can directly edit your
-**schema.rb** and perform _a non destructive_ migration with `padrino rake
-ar:auto:upgrade`.
 
 --------------------------------------------------------------------------------
 
 ## Sequel Tasks
 
 ```shell
+rake sq:create              # Create the database
+rake sq:drop                # Drop the database (postgres and mysql only)
+rake sq:migrate             # Perform migration up to latest migration available
 rake sq:migrate:auto        # Perform automigration (reset your db data)
-rake sq:migrate:to[version] # Perform migration up/down to VERSION
-rake sq:migrate:up          # Perform migration up to latest migration available
 rake sq:migrate:down        # Perform migration down (erase all data)
-rake sq:reset               # Drops the database, and migrates from scratch
+rake sq:migrate:to[version] # Perform migration up/down to MIGRATION_VERSION
+rake sq:migrate:up          # Perform migration up to latest migration available
+rake sq:reset               # Drop the database, migrate from scratch and initialize with the seed data
 ```
 
 --------------------------------------------------------------------------------
@@ -3107,10 +3125,11 @@ rake sq:reset               # Drops the database, and migrates from scratch
 ## Mongoid Tasks
 
 ```shell
-rake mi:drop                    # Drops all the collections for the database for the current environment
-rake mi:create_indexes          # Create the indexes defined on your mongoid models
-rake mi:objectid_convert        # Convert string objectids in mongo database to ObjectID type
 rake mi:cleanup_old_collections # Clean up old collections backed up by objectid_convert
+rake mi:create_indexes          # Create the indexes defined on your mongoid models
+rake mi:drop                    # Drops all the collections for the database for the current Padrino.env
+rake mi:objectid_convert        # Convert string objectids in mongo database to ObjectID type
+rake mi:translate               # Generates .yml files for I18n translations
 ```
 
 --------------------------------------------------------------------------------
@@ -3118,7 +3137,7 @@ rake mi:cleanup_old_collections # Clean up old collections backed up by objectid
 ## Seed
 
 Like in Rails we can populate our db using `db/seeds.rb` here's an example (from
-our [padrino-admin](/guides/padrino-admin/ "padrino-admin)):
+our [padrino-admin](/guides/features/padrino-admin "Padrino Admin")):
 
 ```ruby
 email     = shell.ask 'Which email do you want use for logging into admin?'
@@ -3143,6 +3162,161 @@ else
   account.errors.full_messages.each { |m| shell.say "   - #{m}" }
 end
 ```
+
+---
+
+# Features: Testing
+
+# Testing
+
+Padrino apps are Rack apps, so you test them with
+[rack-test](https://github.com/rack/rack-test): send a request, then check the
+response. Choose a test framework, and optionally a mocking library, when you
+generate the project:
+
+```shell
+$ padrino g project demo -t rspec
+$ padrino g project demo -t minitest -m mocha
+```
+
+The [project generator](/guides/generators/projects/) lists every test and mock
+component. The generated project has a test helper and a rake task: RSpec uses
+`spec/spec_helper.rb`; minitest, test-unit, shoulda and bacon use
+`test/test_config.rb`; cucumber uses `features/support/env.rb`. The controller,
+model and helper generators add a test file for what they create.
+
+Run the suite, or a single file:
+
+```shell
+$ bundle exec rake spec    # RSpec
+$ bundle exec rake test    # minitest, test-unit, shoulda and bacon
+$ bundle exec rspec spec/app/controllers/posts_controller_spec.rb
+$ bundle exec ruby -Itest test/app/controllers/posts_controller_test.rb
+```
+
+## Requests
+
+The test helper includes `Rack::Test::Methods`, so a test can call `get`,
+`post`, `put`, `delete` and the other verbs, then read `last_response`:
+
+```ruby
+# spec/app/controllers/posts_controller_spec.rb
+require 'spec_helper'
+
+RSpec.describe '/posts' do
+  it 'lists the posts' do
+    get '/posts'
+    expect(last_response).to be_ok
+    expect(last_response.body).to eq 'Hello World'
+  end
+
+  it 'creates a post' do
+    post '/posts/create', title: 'Hi'
+    expect(last_response.body).to eq 'created Hi'
+  end
+end
+```
+
+The same test with minitest:
+
+```ruby
+# test/app/controllers/posts_controller_test.rb
+require File.expand_path("#{__dir__}/../../test_config.rb")
+
+describe '/posts' do
+  it 'lists the posts' do
+    get '/posts'
+    assert last_response.ok?
+    assert_equal 'Hello World', last_response.body
+  end
+end
+```
+
+Requests go to the `app` method defined in the test helper. By default it
+returns `Padrino.application`, which serves every mounted app at its mount
+point, so a request to an app mounted at `/blog` starts with `/blog`. To test
+one app on its own, return that app class instead (shown here with minitest).
+Request paths then don't include the mount point:
+
+```ruby
+describe 'the blog' do
+  def app
+    Demo::Blog
+  end
+
+  it 'lists the posts' do
+    get '/posts'
+    assert last_response.ok?
+  end
+end
+```
+
+URLs the app generates (`url`, `redirect`, form actions) still include the mount
+point, so a test that follows a redirect needs `Padrino.application`.
+
+## The test environment
+
+The test helper defines `RACK_ENV = 'test'` before it loads `config/boot.rb`. The
+generated `config/apps.rb` turns CSRF protection off in that environment:
+
+```ruby
+set :protect_from_csrf, Padrino.env != :test
+```
+
+So a test can `post` without an `authenticity_token`. To test the protection
+itself, see [CSRF Protection](/guides/controllers/csrf-protection/#testing).
+
+## Sessions
+
+rack-test keeps cookies between the requests of one test, so a session started
+by one request (a login, for example) is there for the next. To start a test
+with values already in the session, pass them in the `rack.session` entry of
+the request's Rack env, the third argument:
+
+```ruby
+it 'shows the posts of the signed-in user' do
+  get '/posts/mine', {}, 'rack.session' => { user_id: 1 }
+  expect(last_response.body).to eq 'posts of user 1'
+end
+```
+
+To check what a request stored in the session, read it from `last_request`:
+
+```ruby
+post '/posts/create', title: 'Hi'
+expect(last_request.env['rack.session'][:last_title]).to eq 'Hi'
+```
+
+## Stubbing helpers
+
+Helpers are instance methods of the app, and each request runs on a new
+instance of the app class. To stub a helper such as `current_user` in a
+controller test, stub it on any instance of the app class that handles the
+request.
+
+With RSpec's own mocks (a project generated without `-m`):
+
+```ruby
+it 'shows the posts of the current user' do
+  allow_any_instance_of(Demo::App).to receive(:current_user).and_return('alice')
+  get '/posts/mine'
+  expect(last_response.body).to eq 'posts of alice'
+end
+```
+
+With mocha (`-m mocha`, with any test framework, including RSpec):
+
+```ruby
+it 'shows the posts of the current user' do
+  Demo::App.any_instance.stubs(:current_user).returns('alice')
+  get '/posts/mine'
+  assert_equal 'posts of alice', last_response.body
+end
+```
+
+Both remove the stub when the test ends. The generator sets mocha up for RSpec,
+minitest, test-unit and shoulda; with bacon it only adds the gem and prints how
+to set it up.
 
 ---
 
@@ -3228,8 +3402,8 @@ executed automatically through the generator with:
 $ padrino g project demo_project --bundle # alias -b
 ```
 
-This can also be done manually by executing the command `bundle install` in the
-terminal at the root of the generated application.
+This can also be done manually by running `bundle install && bundle binstubs --all`
+in the terminal at the root of the generated application.
 
 For more examples of using the project generator in common cases, check out the
 [Basic Projects](/guides/getting-started/basic-projects "Basic Projects") guide.
@@ -3502,6 +3676,7 @@ namespace |         | -n      | specify the name space of your padrino project
 layout    |         | -l      | specify the layout
 parent    |         | -p      | specify the parent
 provides  |         | -f      | specify the formats for this controller
+no-helper | false   |         | don't generate a helper
 destroy   | false   | -d      | removes all generated files
 
 Run controller generators from the root of a Padrino project, the folder that
@@ -3528,8 +3703,9 @@ $ padrino g controller Admin get:index get:new post:create
 ```
 
 The controller generator will then construct the controller file within
-`app/controllers/admin.rb` and also a controller test file at
-`test/controllers/admin_controller_test.rb` according to the test framework
+`app/controllers/admin.rb`, a helper at `app/helpers/admin_helper.rb` (skip it
+with `--no-helper`) and also a controller test file at
+`test/app/controllers/admin_controller_test.rb` according to the test framework
 chosen during app generation. A default route will also be generated mapping to
 name of the controller and the route name. For example:
 
@@ -3573,6 +3749,7 @@ root            | .       | -r      | specify the root destination path
 app             | .       | -a      | specify the application destination path
 skip\_migration | false   | -s      | skip migration generation
 destroy         | false   | -d      | removes all generated files
+force           | false   | -f      | generate the model even if a model with that name already exists
 
 Run model generators from the root of a Padrino project, the folder that
 contains `config/boot.rb`. They read project settings, such as the ORM and test
@@ -3667,10 +3844,10 @@ Padrino application.
 
 Options   | Default | Aliases | Description
 --------- | ------- | ------- | ----------------------------------------------
-app       | nil     | -n      | specify the application
 root      | .       | -r      | specify the root destination path
-namespace |         | -n      | specify the name space of your padrino project
+app       | /app    | -a      | specify the application destination path
 destroy   | false   | -d      | removes all generated files
+namespace |         | -n      | specify the name space of your padrino project
 
 Run mailer generators from the root of a Padrino project, the folder that
 contains `config/boot.rb`. Unless you pass `-n`, they read the project namespace
@@ -3715,17 +3892,20 @@ This remove all created mailer files.
 Unlike other Ruby frameworks, Padrino is principally designed for mounting
 multiple apps at the same time.
 
-Options | Default | Aliases | Description
-------- | ------- | ------- | ---------------------------------
-tiny    | false   | -i      | generate tiny app skeleton
-root    | .       | -r      | specify the root destination path
-destroy | false   | -d      | removes all generated files
+Options   | Default | Aliases | Description
+--------- | ------- | ------- | ----------------------------------------------
+root      | .       | -r      | specify the root destination path
+destroy   | false   | -d      | removes all generated files
+tiny      | false   | -i      | generate tiny app skeleton
+namespace |         | -n      | specify the name space of your padrino project
+force     | false   | -f      | generate app files if the app already exists
 
 First you need to create a project:
 
 ```shell
 $ padrino g project demo_project
 $ cd demo_project
+$ bundle install && bundle binstubs --all
 ```
 
 Now you are in `demo_project` and you can create your apps:
@@ -3740,7 +3920,7 @@ By default these apps are mounted under:
 - `/one`
 - `/two`
 
-fee free to change the routing in `config/apps.rb`.
+feel free to change the routing in `config/apps.rb`.
 
 You can create controllers:
 
@@ -3755,7 +3935,7 @@ Or mailers:
 ```shell
 $ padrino g mailer registration --app one # create mailer for app one
 $ padrino g mailer registration           # create mailer for main app
-$ padrino g mailer registration --app two # create mailer for app one
+$ padrino g mailer registration --app two # create mailer for app two
 ```
 
 ---
@@ -3816,9 +3996,10 @@ The available components and their default options are same as the Project
 Generator.
 
 Options | Default | Aliases | Description
-------- | ------- | ------- | ------------------------------------------------
+------- | ------- | ------- | ------------------------------------------------------------------
+app     |         | -n      | the application name
 root    | .       | -r      | the root destination path for the project
-adapter | sqlite  | -a      | specify orm db adapter (mysql, sqlite, postgres)
+adapter | sqlite  | -a      | specify orm db adapter (sqlite, mysql, mysql2, mysql-gem, postgres)
 
 ## Examples
 
@@ -5657,7 +5838,7 @@ in `config/database.rb`, like any other gem.
 
 The available ORM choices are not listed anywhere by hand. Padrino builds them
 from the files in `padrino-gen/lib/padrino-gen/generators/components/orms/`, in
-[padrino-gen/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/actions.rb#L573-L585):
+[padrino-gen/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/lib/padrino-gen/generators/actions.rb#L650-L662):
 
 ```ruby
 # padrino-gen/lib/padrino-gen/generators/actions.rb
@@ -5697,7 +5878,7 @@ ORM without migrations leaves the last two empty, as the Mongoid and Ohm
 components do.
 
 Here is the Sequel component,
-[padrino-gen/generators/components/orms/sequel.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb):
+[padrino-gen/generators/components/orms/sequel.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb):
 
 ```ruby
 # padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb
@@ -5725,13 +5906,15 @@ def setup_orm
       sequel.gsub!(/!DB_TEST!/,       "\"sqlite://db/#{db}_test.db\"")
       require_dependencies 'sqlite3'
     else
-      say "Failed to generate `config/database.rb` for ORM adapter `#{options[:adapter]}`", :red
+      say "Failed to generate `config/database.rb` for ORM adapter `#{adapter}`", :red
       raise ArgumentError
     end
   rescue ArgumentError
-    adapter = ask('Please, choose a proper adapter:', limited_to: %w[mysql mysql2 mysql-gem postgres sqlite])
+    adapter = ask_valid_option(:adapter, %w[mysql mysql2 mysql-gem postgres sqlite], 'Please, choose a proper adapter:')
     retry
   end
+
+  # ...truncated: the Falcon fiber setting...
 
   create_file('config/database.rb', sequel)
   empty_directory('db/migrate')
@@ -5784,7 +5967,7 @@ A few things to note:
   'models', ...)` so that `padrino g model` with `-a` puts it in the right app.
 - The `SQ_*` constants are text templates with `!PLACEHOLDER!` markers. The shared
   helpers `output_model_migration` and `output_migration_file`, in
-  [padrino-gen/generators/components/actions.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/generators/components/actions.rb#L24-L86),
+  [padrino-gen/generators/components/actions.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/lib/padrino-gen/generators/components/actions.rb#L24-L86),
   fill in `!UP!`, `!DOWN!`, `!TABLE!`, `!FIELDS!` and `!COLUMNS!`, number the
   file and write it to `db/migrate`. If `myorm` has migrations, reuse these
   helpers rather than writing your own.
@@ -5794,7 +5977,7 @@ A few things to note:
 If the ORM needs rake tasks (to create or migrate the database, for instance),
 add them in `padrino-gen/lib/padrino-gen/padrino-tasks/myorm.rb`. Every file in
 that folder is registered automatically. For Sequel, see
-[padrino-tasks/sequel.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb):
+[padrino-tasks/sequel.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb):
 
 ```ruby
 # padrino-gen/lib/padrino-gen/padrino-tasks/sequel.rb
@@ -5833,7 +6016,7 @@ provided by `padrino-tasks/database.rb`.
 Next, add tests for the new component in `padrino-gen/test`, next to the
 existing Sequel ones. The project generator tests check the `Gemfile` and
 `config/database.rb`, in
-[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_project_generator.rb#L285-L331):
+[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L403-L449):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
@@ -5847,7 +6030,7 @@ end
 ```
 
 The model generator tests generate a project and then a model inside it, in
-[padrino-gen/test/test\_model\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_model_generator.rb#L268-L295):
+[padrino-gen/test/test\_model\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_model_generator.rb#L210-L237):
 
 ```ruby
 # padrino-gen/test/test_model_generator.rb
@@ -5869,7 +6052,7 @@ end
 
 If `myorm` has migrations, also cover `padrino g migration` the same way, like
 the `the migration generator for sequel` block in
-[padrino-gen/test/test\_migration\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-gen/test/test_migration_generator.rb#L173-L207).
+[padrino-gen/test/test\_migration\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_migration_generator.rb#L160-L194).
 
 ## README
 
@@ -5883,11 +6066,11 @@ also work with Padrino Admin, so that `padrino g admin` and
 ## Padrino Admin Support
 
 First, add `:myorm` to the list returned by `supported_orm` in
-[padrino-admin/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/actions.rb#L29-L31).
+[padrino-admin/generators/actions.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/lib/padrino-admin/generators/actions.rb#L29-L31).
 `padrino g admin` refuses to run for an ORM that isn't in this list.
 
 Next, teach the `Orm` class in
-[padrino-admin/generators/orm.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/orm.rb)
+[padrino-admin/generators/orm.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/lib/padrino-admin/generators/orm.rb)
 how to talk to your models. The admin controller and view templates call its
 methods to get the Ruby code they write out. Most of them branch on the ORM
 name. These are the Sequel branches:
@@ -5942,7 +6125,7 @@ Next, add the `Account` model template that `padrino g admin` writes to
 `models/account.rb`:
 `padrino-admin/lib/padrino-admin/generators/templates/account/myorm.rb.tt`.
 Use
-[account/sequel.rb.tt](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/lib/padrino-admin/generators/templates/account/sequel.rb.tt)
+[account/sequel.rb.tt](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/lib/padrino-admin/generators/templates/account/sequel.rb.tt)
 as the model to follow. The rest of the admin expects the template to provide:
 
 - the `name`, `surname`, `email`, `crypted_password` and `role` fields (the
@@ -5963,7 +6146,7 @@ optional per-ORM touches: extra middleware (ActiveRecord adds
 `rake db:create` and `rake db:migrate` for the SQL ORMs it lists.
 
 Add a test to
-[padrino-admin/test/generators/test\_account\_model\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.16.1/padrino-admin/test/generators/test_account_model_generator.rb#L85-L95):
+[padrino-admin/test/generators/test\_account\_model\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/test/generators/test_account_model_generator.rb#L61-L71):
 
 ```ruby
 # padrino-admin/test/generators/test_account_model_generator.rb
@@ -6042,7 +6225,7 @@ latest version of the javascript library to the templates folder:
 
 Let's also add a test to ensure the new JavaScript component generates as
 expected in
-[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L517):
+[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L585):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
@@ -6132,7 +6315,7 @@ def setup_script
 end
 ```
 
-and update the [tests](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L483):
+and update the [tests](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L585-L591):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
@@ -6244,7 +6427,7 @@ end
 
 Let's also add a test to ensure the new testing component generates as expected
 in
-[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L580):
+[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L683-L696):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
@@ -6303,7 +6486,7 @@ end
 ```
 
 
-Let's also add a test to ensure the new rendering component generates as expected in [padrino-gen/test/test\_project\_generator.rb](http://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L450):
+Let's also add a test to ensure the new rendering component generates as expected in [padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L565-L569):
 
 
 ```ruby
@@ -6378,7 +6561,7 @@ end
 
 Let's also add a test to ensure the new mocking component generates as expected
 in
-[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L248):
+[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L288-L293):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
@@ -6425,7 +6608,7 @@ Padrino.
 
 First, let's define the actual integration of the stylesheet engine into the
 generator in
-[padrino-gen/generators/components/stylesheets/less.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/lib/padrino-gen/generators/components/stylesheets/less.rb):
+[padrino-gen/generators/components/stylesheets/less.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/lib/padrino-gen/generators/components/stylesheets/less.rb):
 
 ```ruby
 # padrino-gen/lib/padrino-gen/generators/components/stylesheets/less.rb
@@ -6461,7 +6644,7 @@ end
 
 Let's also add a test to ensure the new stylesheet engine component generates as
 expected in
-[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/master/padrino-gen/test/test_project_generator.rb#L656):
+[padrino-gen/test/test\_project\_generator.rb](https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/test/test_project_generator.rb#L748-L754):
 
 ```ruby
 # padrino-gen/test/test_project_generator.rb
@@ -6566,7 +6749,7 @@ gem 'rake'
 # ...more gems...
 
 # Padrino Stable Gem
-gem 'padrino', '~> 0.16.1'
+gem 'padrino', '0.17.0'
 ```
 
 All dependencies and libraries required for your project should be declared in
@@ -6575,7 +6758,7 @@ application. Once the dependencies have been declared, simply run Bundler's
 install command:
 
 ```shell
-$ bundle
+$ bundle install
 ```
 
 This will resolve and install all the required libraries. Check out the
@@ -6609,10 +6792,6 @@ libraries to use in your app.
   Middlewares")
 - [Sinatra Extensions](http://www.sinatrarb.com/extensions-wild.html "Sinatra
   Extensions")
-- [Padrino Extensions](https://github.com/padrino/padrino-framework/wiki/Extensions
-  "Padrino Extensions")
-- [Padrino Integrations](https://github.com/padrino/padrino-framework/wiki/Integrations
-  "Padrino Integrations")
 
 And, of course, never underestimate searching [GitHub](https://github.com
 "GitHub") to find Rack or Sinatra compatible repositories. Any
@@ -6648,15 +6827,15 @@ gem 'haml'
 # Test requirements
 
 # Padrino Stable Gem
-gem 'padrino', '~> 0.16.1'
+gem 'padrino', '0.17.0'
 
 # Or Padrino Edge
 # gem 'padrino', github: 'padrino/padrino-framework'
 
 # Or Individual Gems
 # %w(core support gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '~> 0.16.1'
-# ends
+#   gem 'padrino-' + g, '0.17.0'
+# end
 
 gem 'sinatra-contrib'
 ```
@@ -6801,10 +6980,10 @@ $ padrino g project grappe --lean
 ```
 
 Go to the new `grappe` folder and add `gem 'grape'` to `Gemfile`. Then install the
-required gems:
+required gems and the project's binstubs:
 
 ```shell
-$ bundle
+$ bundle install && bundle binstubs --all
 ```
 
 Create file `api/api.rb` and put your Grape code there:
@@ -6854,7 +7033,7 @@ You can find the code on [Github](https://github.com/padrino/grape-example "Gith
 
 # Running Padrino on JRuby
 
-You can run Padrino (0.9.29 ... 0.16.1 is tested) on JRuby
+You can run Padrino (0.9.29 ... 0.17.0 is tested) on JRuby
 
 --------------------------------------------------------------------------------
 
@@ -6867,7 +7046,7 @@ You can easily install Padrino on jruby when you use
 $ rvm install jruby-latest
 $ rvm use --create jruby-latest@padrino
 $ gem install bundler
-$ gem install padrino -v=0.16.1
+$ gem install padrino -v=0.17.0
 ```
 
 Create Padrino project just as you do when using MRI or REE:
@@ -6889,7 +7068,7 @@ gem 'warbler'
 Now you can go:
 
 ```shell
-$ bundle
+$ bundle install && bundle binstubs --all
 ```
 
 Then, create the test controller:
@@ -7164,7 +7343,7 @@ So, let’s start by creating a project using activerecord:
 ```shell
 $ padrino g project foo --orm activerecord --tiny
 $ cd foo
-$ bundle install
+$ bundle install && bundle binstubs --all
 ```
 
 Now we need to add a model called `Account` to act as our persistence model:

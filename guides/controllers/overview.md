@@ -35,5 +35,6 @@ well when used in conjunction with the enhanced Padrino routing system.
 - [Rendering](/guides/controllers/rendering "Rendering")
 - [Sessions](/guides/controllers/sessions "Sessions")
 - [Params Whitelisting](/guides/controllers/params-whitelisting "Params Whitelisting")
+- [CSRF Protection](/guides/controllers/csrf-protection "CSRF Protection")
 
 

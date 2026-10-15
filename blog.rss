@@ -5,6 +5,74 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
+      <title>Padrino 0.16.2 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-16-2/</link>
+      <description>&lt;p&gt;Padrino 0.16.2 is a maintenance release for apps that stay on 0.16 for now, such as Middleman sites, which require padrino-helpers below 0.17. It comes out alongside &lt;a href="/blog/padrino-0-17-0/"&gt;Padrino 0.17.0&lt;/a&gt; and has nothing else from 0.17.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;HAML 6 and 7.&lt;/strong&gt; Block helpers such as &lt;code&gt;link_to ... do&lt;/code&gt;, &lt;code&gt;content_for&lt;/code&gt;, &lt;code&gt;form_tag&lt;/code&gt; and nested layouts no longer fail with &lt;code&gt;undefined method &amp;#39;block_is_haml?&amp;#39;&lt;/code&gt; in HAML 6 and 7 templates (&lt;a href="https://github.com/padrino/padrino-framework/pull/2317"&gt;#2317&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;; reported in &lt;a href="https://github.com/padrino/padrino-framework/issues/2322"&gt;#2322&lt;/a&gt; by &lt;code&gt;@kenchan&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ruby 4.0.&lt;/strong&gt; padrino-core now depends on the &lt;code&gt;ostruct&lt;/code&gt; gem, which Ruby 4.0 no longer installs as a default gem; without it, a 0.16.1 app doesn&amp;#39;t boot under Bundler on Ruby 4.0. On Ruby 4.0, &lt;code&gt;padrino console&lt;/code&gt; also tells you to add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile instead of failing with a LoadError.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-16-1"&gt;Upgrading from 0.16.1&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;bundle update padrino&lt;/code&gt; (in a Middleman site, &lt;code&gt;bundle update padrino-helpers&lt;/code&gt;). If your Gemfile pins &lt;code&gt;0.16.1&lt;/code&gt;, change it to &lt;code&gt;~&amp;gt; 0.16.2&lt;/code&gt; first.&lt;/li&gt;
+&lt;li&gt;On Ruby 4.0, add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile if you use &lt;code&gt;padrino console&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ruby 4.0 comes with Bundler 4, which removed &lt;code&gt;bundle --binstubs&lt;/code&gt;. If Padrino 0.16 asks you to run it, use &lt;code&gt;bundle binstubs --all&lt;/code&gt; instead, or run commands with &lt;code&gt;bundle exec padrino&lt;/code&gt;. Padrino 0.17 gives the new instruction itself.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
+</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-16-2/</guid>
+    </item>
+    <item>
+      <title>Padrino 0.17.0 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-17-0/</link>
+      <description>&lt;p&gt;Padrino 0.17.0 is out. It runs on Ruby 4.0 and HAML 6 and 7, adds Falcon, Vite and Tailwind CSS to the generators, and fixes a long list of bugs in the generators, the mailer, the reloader and the ActiveRecord rake tasks. It also removes generators for ORMs that are no longer maintained, so read the breaking changes below before you upgrade.&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;code&gt;@achiurizo&lt;/code&gt;, &lt;code&gt;@osbre&lt;/code&gt;, &lt;code&gt;@genkami&lt;/code&gt;, &lt;code&gt;@matsubara0507&lt;/code&gt; and &lt;code&gt;@Shaisolaris&lt;/code&gt; for their work on this release. The full list is in &lt;a href="https://github.com/padrino/padrino-framework/blob/master/CHANGES.rdoc"&gt;CHANGES.rdoc&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/blog/padrino-0-16-2/"&gt;Padrino 0.16.2&lt;/a&gt; is out too. It brings HAML 6 and 7 and Ruby 4.0 to apps that stay on 0.16 for now, such as Middleman sites.&lt;/p&gt;
+&lt;h2 id="highlights"&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ruby 4.0 and HAML 6/7.&lt;/strong&gt; Padrino also runs with &lt;code&gt;--enable-frozen-string-literal&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;New generator options:&lt;/strong&gt; &lt;code&gt;--server=falcon&lt;/code&gt;, &lt;code&gt;--script=vite&lt;/code&gt; and &lt;code&gt;--stylesheet=tailwind&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faster boot outside development:&lt;/strong&gt; files are only tracked for reloading in development.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mailers&lt;/strong&gt; are safe to deliver concurrently, and Padrino&amp;#39;s view helpers (&lt;code&gt;link_to&lt;/code&gt;, &lt;code&gt;form_for&lt;/code&gt;, &lt;code&gt;partial&lt;/code&gt;) work in mailer templates.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ActiveRecord 7.1 to 8.1&lt;/strong&gt; rake tasks work again, and the ActiveRecord model and migration generators take &lt;code&gt;:index&lt;/code&gt; and &lt;code&gt;:uniq&lt;/code&gt; (&lt;code&gt;email:string:uniq&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generated projects&lt;/strong&gt; set &lt;code&gt;SameSite=Lax&lt;/code&gt; on the session cookie and skip CSRF checks in the test environment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jQuery 3.7.1:&lt;/strong&gt; &lt;code&gt;--script jquery&lt;/code&gt; and &lt;code&gt;padrino g admin&lt;/code&gt; copy jQuery 3.7.1 (was 1.9 and 1.11), with an updated UJS adapter.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardening:&lt;/strong&gt; static files are served only from the public folder; &lt;code&gt;link_to&lt;/code&gt; and &lt;code&gt;form_tag&lt;/code&gt; drop &lt;code&gt;javascript:&lt;/code&gt; and other unsafe URL schemes; admin access control compares decoded paths.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="breaking-changes"&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Removed ORMs.&lt;/strong&gt; The DataMapper, MongoMapper, CouchRest, Ripple and Mongomatic generators and rake tasks are gone, as are the Compass and ExtCore components. Existing apps keep running, but &lt;code&gt;padrino g model&lt;/code&gt; and &lt;code&gt;padrino g migration&lt;/code&gt; stop working in projects that use them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;-s&lt;/code&gt; means &lt;code&gt;--script&lt;/code&gt; again.&lt;/strong&gt; &lt;code&gt;--server&lt;/code&gt; no longer has a short alias: use &lt;code&gt;--server=puma&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generators exit with status 1&lt;/strong&gt; when they fail, instead of 0.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reloading outside development&lt;/strong&gt; (&lt;code&gt;enable :reload&lt;/code&gt; in staging, for example) needs &lt;code&gt;Padrino::Reloader.enabled = true&lt;/code&gt; before &lt;code&gt;Padrino.load!&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Admin access control&lt;/strong&gt; matches string paths as literal prefixes on path boundaries. &lt;code&gt;allow &amp;#39;/posts&amp;#39;&lt;/code&gt; covers &lt;code&gt;/posts&lt;/code&gt;, &lt;code&gt;/posts/...&lt;/code&gt; and &lt;code&gt;/posts.json&lt;/code&gt;, but no longer &lt;code&gt;/posts_admin&lt;/code&gt;, and regular-expression syntax inside a string is no longer interpreted. A Regexp, such as &lt;code&gt;allow %r{\A/posts/\d+}&lt;/code&gt;, still matches as a pattern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Links with other schemes.&lt;/strong&gt; &lt;code&gt;link_to&lt;/code&gt; and &lt;code&gt;form_tag&lt;/code&gt; render &lt;code&gt;#&lt;/code&gt; for any scheme other than http, https, mailto, tel and ftp, such as &lt;code&gt;sms:&lt;/code&gt; or a custom app scheme.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CGI.&lt;/strong&gt; Padrino no longer loads the whole CGI library. On Ruby before 4.0, add &lt;code&gt;require &amp;#39;cgi&amp;#39;&lt;/code&gt; if your app uses &lt;code&gt;CGI::Cookie&lt;/code&gt;, &lt;code&gt;CGI.parse&lt;/code&gt; or similar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server auto-detection&lt;/strong&gt; prefers Falcon over the other servers when neither Thin nor Puma is installed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-16"&gt;Upgrading from 0.16&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;In your Gemfile, set &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.17.0&amp;#39;&lt;/code&gt; (or the same version for each &lt;code&gt;padrino-*&lt;/code&gt; gem you list), then run &lt;code&gt;bundle update padrino&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you reload code outside development, add &lt;code&gt;Padrino::Reloader.enabled = true&lt;/code&gt; before &lt;code&gt;Padrino.load!&lt;/code&gt; in &lt;code&gt;config/boot.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you use admin access control, check each &lt;code&gt;allow&lt;/code&gt; and &lt;code&gt;protect&lt;/code&gt; path: list paths such as &lt;code&gt;/posts_admin&lt;/code&gt; explicitly, and turn any string that relies on regular-expression syntax into a Regexp.&lt;/li&gt;
+&lt;li&gt;Write links with custom URL schemes as plain &lt;code&gt;&amp;lt;a href=&amp;quot;...&amp;quot;&amp;gt;&lt;/code&gt; tags instead of &lt;code&gt;link_to&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;On Ruby before 4.0, add &lt;code&gt;require &amp;#39;cgi&amp;#39;&lt;/code&gt; if you use CGI beyond escaping. On Ruby 4.0, add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile to use &lt;code&gt;padrino console&lt;/code&gt;, since irb is no longer a default gem there.&lt;/li&gt;
+&lt;li&gt;In scripts, use &lt;code&gt;--server=NAME&lt;/code&gt; instead of &lt;code&gt;-s NAME&lt;/code&gt;, and expect a non-zero exit when a generator fails.&lt;/li&gt;
+&lt;li&gt;Generated files are yours, so existing projects keep their jQuery 1.x. To update, copy &lt;code&gt;js/jquery.js&lt;/code&gt; and &lt;code&gt;ujs/jquery.js&lt;/code&gt; from &lt;a href="https://github.com/padrino/padrino-static"&gt;padrino-static&lt;/a&gt; over &lt;code&gt;public/javascripts/jquery.js&lt;/code&gt; and &lt;code&gt;public/javascripts/jquery-ujs.js&lt;/code&gt;, and for the admin, copy &lt;code&gt;jquery-3.7.1.min.js&lt;/code&gt; into &lt;code&gt;public/admin/javascripts&lt;/code&gt; and change the &lt;code&gt;javascript_include_tag&lt;/code&gt; line in &lt;code&gt;admin/views/layouts/application&lt;/code&gt; and &lt;code&gt;admin/views/sessions/new&lt;/code&gt; to it. Re-running &lt;code&gt;padrino g admin&lt;/code&gt; also works, but answer &lt;code&gt;n&lt;/code&gt; for &lt;code&gt;admin/app.rb&lt;/code&gt; and any file you changed: it overwrites them. On custom admin pages, give Bootstrap 3.1&amp;#39;s collapse, tab, modal and alert data attributes a &lt;code&gt;data-target&lt;/code&gt; instead of a bare &lt;code&gt;href=&amp;quot;#&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run your test suite and boot the app.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required, as in 0.16.&lt;/p&gt;
+</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-17-0/</guid>
+    </item>
+    <item>
       <title>Padrino 0.16.0 release</title>
       <link>http://padrinorb.com/blog/padrino-0-16-0/</link>
       <description>&lt;p&gt;We are pleased to announce the official release of Padrino 0.16.0, the first major release in several years. This release was made possible by the contributions of &lt;code&gt;@achiurizo&lt;/code&gt;, &lt;code&gt;@olleolleolle&lt;/code&gt;, &lt;code&gt;@crashtech&lt;/code&gt;, and many others.&lt;/p&gt;
@@ -111,38 +179,6 @@ in touch with the community.&lt;/p&gt;
 </description>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/padrino-0-14-4/</guid>
-    </item>
-    <item>
-      <title>Padrino 0.14.3 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-14-3/</link>
-      <description>&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;locks onto Sinatra 2&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2169" title="#2169"&gt;#2169&lt;/a&gt; drop support of ruby &amp;lt; 2.2.2 (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-14-3/</guid>
-    </item>
-    <item>
-      <title>Padrino 0.14.2 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-14-2/</link>
-      <description>&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;FIX router in non-Padrino applications (&lt;a href="https://github.com/adam12"&gt;@adam12&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/commit/04f64706613f08f4f5eaddd18afec8ce4d1855d9" title="#2154"&gt;#2154&lt;/a&gt; padrino-admin haml layout (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX Datamapper tasks (&lt;a href="https://github.com/adam12"&gt;@adam12&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/1979" title="#1979"&gt;#1979&lt;/a&gt; Add a Default Rake Task If Test Framework is Included (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/2150" title="#2150"&gt;#2150&lt;/a&gt; Project generator silently ignores invalid -a option (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/2152" title="#2152"&gt;#2152&lt;/a&gt; using open without requiring &lt;code&gt;open-uri&lt;/code&gt; (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/issues/2163" title="#2163"&gt;#2163&lt;/a&gt; preserve spaces in args of padrino gen (&lt;a href="https://github.com/ujifgc" title="ujifgc"&gt;ujifgc&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2161" title="#2161"&gt;#2161&lt;/a&gt; allow array as tag attribute (&lt;a href="https://github.com/aeris" title="aeris"&gt;aeris&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Update Sequel usage&lt;/li&gt;
-&lt;li&gt;Update &lt;a href="https://github.com/padrino/padrino-framework/commit/f45566335f0b676d9dc2a8e7de68babc2274ff44" title="ActiveRecord::Migration usage"&gt;ActiveRecord::Migration usage&lt;/a&gt; (&lt;a href="https://github.com/adam12"&gt;@adam12&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <pubDate>Tue, 8 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-14-2/</guid>
     </item>
   </channel>
 </rss>

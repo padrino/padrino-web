@@ -2497,20 +2497,10 @@ simplifying routing considerably.
 
 # Development Commands
 
-Padrino also supports robust logging capabilities. By default, logging
-information will go to the `STDOUT` in development (for use in a console) and in
-an environment-specific log file `log/development.log` in test and production
-environments.
+## Logging
 
-You can modify the logging behavior or disable logging altogether (more docs
-[here](http://www.rubydoc.info/github/padrino/padrino-framework/Padrino/Logger
-"logger")):
-
-```ruby
-# boot.rb
-Padrino::Logger::Config[:development][:stream] = :to_file
-Padrino.load!
-```
+Padrino comes with its own logger. By default it writes to `STDOUT` in
+development, to `log/production.log` in production, and nowhere in test.
 
 To use the logger within a Padrino application, simply refer to the `logger`
 method accessible within your app and any controller or views:
@@ -2522,8 +2512,45 @@ SimpleApp.controllers do
 end
 ```
 
-The logger automatically supports severity through the use of `logger.info`,
-`logger.warn`, `logger.error`, et al.
+The logger supports the levels `fatal`, `error`, `warn`, `info`, `debug` and
+`devel`, through `logger.info`, `logger.warn`, et al.
+
+Each environment has its own settings in `Padrino::Logger::Config`. Change them
+in `config/boot.rb` before `Padrino.load!`:
+
+```ruby
+# config/boot.rb
+Padrino::Logger::Config[:development][:stream] = :to_file
+Padrino::Logger::Config[:production][:log_level] = :info
+Padrino.load!
+```
+
+Option             | Default                                   | Description
+------------------ | ----------------------------------------- | -----------------------------------------------------------------
+`log_level`        | `:debug`, `:warn` in production           | lowest level written, from `:fatal` down to `:devel`
+`stream`           | `:stdout`, `:to_file` in production, `:null` in test | `:to_file`, `:stdout`, `:stderr`, `:null` (discard) or any IO object
+`log_path`         | `log/<environment>.log`                   | file or folder for `:to_file`, relative to the project root; a folder gets `<environment>.log`
+`format_datetime`  | `'%d/%b/%Y %H:%M:%S'`, none in development | `strftime` format of the timestamp
+`format_message`   | `'%s - %s %s'`                            | format of the level, timestamp and message
+`log_static`       | `false`                                   | also log requests for static files
+`colorize_logging` | `true`                                    | add ANSI colors; set it to `false` for plain log files
+`auto_flush`       | `true`                                    | write each message at once; when `false`, call `logger.flush`
+`source_location`  | `false`                                   | prefix each message with the file and line that logged it
+
+The `PADRINO_LOG_LEVEL` environment variable makes Padrino use the settings of
+another environment, for example `PADRINO_LOG_LEVEL=test` to silence the log.
+Despite its name, it takes an environment name, not a level; an unknown name
+falls back to the production settings.
+
+You can also replace the logger, for example with one from Ruby's standard
+library. The settings above then no longer apply:
+
+```ruby
+# config/boot.rb
+require 'logger'
+Padrino.logger = Logger.new($stdout)
+Padrino.load!
+```
 
 For more information about the logger, check out our
 [Logger RDoc](http://www.rubydoc.info/github/padrino/padrino-framework/Padrino/Logger
@@ -2553,6 +2580,10 @@ class SimpleApp < Padrino::Application
 end
 ```
 
+Files are only tracked for reloading in development. To reload in another
+environment, also set `Padrino::Reloader.enabled = true` in `config/boot.rb`
+before `Padrino.load!`.
+
 --------------------------------------------------------------------------------
 
 ## Gemfile Dependency Resolution
@@ -2576,12 +2607,11 @@ This gem allows us to place all our dependencies into a single file. Padrino
 will then automatically require all necessary files (if they exist on the
 system).
 
-If the dependencies are not on the system, you can automatically vendor all
-necessary gems using the `bundle install --path ./vendor` command within the
-application root or (only with bundler 1.0) run `bundle install` to install
-system wide. Note that this is all possible without any further effort than
-adding the Gemfile (or having this generated automatically with generators
-explained later).
+If the dependencies are not on the system, run `bundle install` within the
+application root. To keep the gems inside the project, run
+`bundle config set --local path vendor/bundle` first. Note that this is all
+possible without any further effort than adding the Gemfile (or having this
+generated automatically with generators explained later).
 
 --------------------------------------------------------------------------------
 
@@ -2594,22 +2624,22 @@ your application into separate files. Padrino automatically requires
 any files within the `lib` folder will be required automatically by Padrino.
 
 This is powered by the fact that Padrino will automatically load (and reload)
-any directory patterns within the 'prerequisite paths'. Additional directory
-patterns can be added to the set of reloaded files as needed by simply appending
-to the `prerequisites` within your application:
+any directory patterns within the dependency paths. Additional directory
+patterns can be added by appending to `Padrino.dependency_paths` before
+`Padrino.load!`:
 
 ```ruby
 # config/boot.rb
-Padrino.after_load do
-  SimpleApp.prerequisites << Padrino.root('my_app', 'custom_model.rb')
-  SimpleApp.prerequisites << Padrino.root('custom_folder/*.rb')
-end
+Padrino.dependency_paths << Padrino.root('custom_folder/*.rb')
 Padrino.load!
 ```
 
-This will instruct Padrino to autoload these files (and reload them when changes
-are detected). By default, the load path contains certain paths known to contain
-important files such as controllers, mailers, models, urls, and helpers.
+This will instruct Padrino to load these files in every environment (and reload
+them in development when changes are detected). They load after
+`config/apps.rb`, so code your app classes use while loading (`helpers`,
+`register`) belongs in `lib/` instead. By default, the load path
+contains certain paths known to contain important files such as controllers,
+mailers, models, urls, and helpers.
 
 --------------------------------------------------------------------------------
 
@@ -2880,7 +2910,7 @@ column names of grids, forms, `error_messages` etc ...
 automatically translated:
 
 ```haml
--form_for :account, url(:accounts_create, :format => :js), :remote => true do |f|
+= form_for :account, url(:accounts_create, :format => :js), :remote => true do |f|
   %table
     %tr
       %td=f.label :name
@@ -3234,12 +3264,12 @@ The available components and their default options are listed below:
 
 Component  | Default | Aliases | Options
 ---------- | ------- | ------- | ---------------------------------------------------------------------------------------
-server     | webrick | -s      | thin, **puma** (recommended), falcon (fiber-based, Ruby 3.0+), spider-gazelle (unmaintained), mongrel (unmaintained), trinidad, webrick
+server     | webrick | none    | thin, **puma** (recommended), falcon (fiber-based, Ruby 3.0+), spider-gazelle (unmaintained), mongrel (unmaintained), trinidad, webrick
 orm        | none    | -d      | mongoid, activerecord, minirecord, ohm, sequel, dynamoid
 test       | none    | -t      | bacon, shoulda, cucumber, testunit, rspec, minitest
-script     | none    | -s      | prototype, jquery, mootools, dojo
+script     | none    | -s      | prototype, jquery, mootools, dojo, vite
 renderer   | none    | -e      | erb, haml, slim, liquid
-stylesheet | none    | -c      | sass, less, scss
+stylesheet | none    | -c      | sass, less, scss, tailwind
 mock       | none    | -m      | rr, mocha
 
 Note: Be careful with your naming when using generators and do not have your
@@ -3275,6 +3305,16 @@ $ padrino g project your_project -t shoulda -m rr
 $ padrino g project your_project -d sequel -a mysql
 ```
 
+**Generate a project with Vite and Tailwind CSS**
+
+```shell
+$ padrino g project your_project -s vite -c tailwind -e haml
+```
+
+Both components also work on an existing project, e.g.
+`padrino g component -s vite` or `padrino g component -c tailwind`. See
+[Vite](#vite) and [Tailwind CSS](#tailwind-css) below for what they set up.
+
 **Generate a tiny project skeleton**
 
 ```shell
@@ -3298,6 +3338,76 @@ padrino g project your_project [--dev] # Use padrino from a git checkout
 Visit [The Bleeding Edge](/guides/introduction/the-bleeding-edge "The Bleeding Edge") for
 more info how to setup a **dev** environment.
 
+## Vite
+
+`-s vite` sets up [Vite](https://vite.dev) through
+[vite_padrino](https://github.com/ElMassimo/vite_ruby/tree/main/vite_padrino). It adds the
+`vite_padrino` gem and `register VitePadrino`, `config/vite.json`,
+`vite.config.ts`, a `package.json` and an entrypoint at
+`app/frontend/entrypoints/application.js`. It also adds the Vite rake tasks
+and a `vite: bundle exec vite dev` process in `Procfile.dev`.
+
+Vite needs [Node.js](https://nodejs.org). The generator doesn't run npm: run
+`npm install` (if the project already had a `package.json`, which is left as
+is, run the `npm install -D ...` command the generator prints instead), then
+add the tags to the `<head>` of your layout. The generator prints them in your
+renderer's syntax:
+
+```haml
+= vite_client_tag
+= vite_javascript_tag 'application'
+```
+
+In development, `autoBuild` builds the assets on demand, or run
+`bundle exec vite dev` (or `Procfile.dev` with a process manager such as
+foreman) for hot reloading. `rake assets:precompile` builds them for
+production; it runs `npm ci` first, so commit your `package-lock.json`.
+
+`vite_padrino` 3.0.0 needs ActiveSupport's `Object#try`, so the generator
+requires `active_support/core_ext/object/try` in `config/boot.rb` and adds
+`activesupport` to the Gemfile if it isn't there yet. Once
+[vite_ruby#635](https://github.com/ElMassimo/vite_ruby/pull/635) is released
+the require can go, and so can `activesupport` if nothing else needs it.
+
+## Tailwind CSS
+
+`-c tailwind` sets up [Tailwind CSS](https://tailwindcss.com) v4 with the
+[tailwindcss-ruby](https://github.com/flavorjones/tailwindcss-ruby) gem, which
+ships the standalone Tailwind binary, so Node isn't needed. It needs Ruby 3.0
+or later.
+
+The source is `app/stylesheets/application.css`, which starts with
+`@import "tailwindcss";`. It builds to `public/stylesheets/application.css`,
+which is gitignored. Link it in your layout:
+
+```haml
+= stylesheet_link_tag 'application'
+```
+
+- `rake tailwind:build` builds the stylesheet once, minified.
+- `rake tailwind:watch` rebuilds it on every change. `Procfile.dev` gets a
+  `css: bundle exec rake tailwind:watch` process for it.
+- `rake assets:precompile` runs `tailwind:build`, so deploys that precompile
+  assets build the CSS too.
+
+When you add Tailwind to an existing project, a hand-written
+`public/stylesheets/application.css` is moved into the new source, with its
+`@charset` and `@import` lines kept at the top. If you switch from sass, scss
+or less, remove that engine's gems from the Gemfile, its
+`register ...Initializer` line from `app/app.rb` and
+`config/initializers/<engine>.rb`.
+
+The binary comes in platform-specific gems. If you develop on macOS and deploy
+to Linux, add the platform to your lockfile:
+
+```shell
+$ bundle lock --add-platform x86_64-linux
+```
+
+On platforms without a prebuilt binary, such as JRuby, download the
+standalone Tailwind executable for your OS, save it as `tailwindcss` (and make
+it executable), and point `TAILWINDCSS_INSTALL_DIR` at that directory.
+
 ---
 
 # Generators: Plugins
@@ -3319,7 +3429,7 @@ generate a project based on a remote url such as a
 [gist](https://gist.github.com/ "gist") for an additional level of convenience:
 
 ```shell
-$ padrino g project my_project --template https://gist.github.com/356156
+$ padrino g project my_project --template https://gist.github.com/<user>/<gist-id>
 ```
 
 You can also apply templates as plugins to existing Padrino applications:
@@ -3799,6 +3909,7 @@ well when used in conjunction with the enhanced Padrino routing system.
 - [Rendering](/guides/controllers/rendering "Rendering")
 - [Sessions](/guides/controllers/sessions "Sessions")
 - [Params Whitelisting](/guides/controllers/params-whitelisting "Params Whitelisting")
+- [CSRF Protection](/guides/controllers/csrf-protection "CSRF Protection")
 
 ---
 
@@ -4350,12 +4461,11 @@ end
 
 Note that `enable :sessions` actually stores all data in a cookie. This might
 not always be what you want (storing lots of data will increase your traffic,
-for instance). You can use any Rack session middleware: in order to do so, do
-**not** call `enable :sessions`, but instead pull in your middleware of choice
-as you would any other middleware:
+for instance). You can use any Rack session middleware by passing it to the
+`sessions` setting:
 
 ```ruby
-use Rack::Session::Pool, expire_after: 2592000
+set :sessions, use: Rack::Session::Pool, config: { same_site: :lax, expire_after: 2592000 }
 
 get '/' do
   "value = #{session[:value].inspect}"
@@ -4366,13 +4476,26 @@ get '/:value' do
 end
 ```
 
+With `use:`, cookie options such as `same_site` and `secure` go in `config:`.
+`Rack::Session::Pool` keeps sessions in the memory of one process, so with Puma
+workers, several Falcon processes or several servers, use a store they share.
+
 To improve security, the session data in the cookie is signed with a session
 secret. A random secret is generated for you by Sinatra. However, since this
 secret will change with every start of your application, you might want to set
 the secret yourself, so all your application instances share it:
 
 ```ruby
-set :session_secret, 'super secret'
+configure :production do
+  set :session_secret, ENV.fetch('SESSION_SECRET')
+end
+```
+
+The secret must be at least 64 bytes long. New projects set a random one in
+`config/apps.rb`. Generate your own with:
+
+```bash
+$ ruby -rsecurerandom -e 'puts SecureRandom.hex(64)'
 ```
 
 If you want to configure it further, you may also store a hash with options in
@@ -4387,6 +4510,215 @@ domain with a `.` like this instead:
 
 ```ruby
 set :sessions, domain: '.foo.com'
+```
+
+## Cookie flags
+
+The same hash sets the cookie's `SameSite` and `Secure` attributes:
+
+```ruby
+set :sessions, same_site: :lax, secure: true
+```
+
+Use `set :sessions` in place of `enable :sessions`, not after it: a later
+`enable :sessions` sets the setting back to `true` and drops the options.
+
+`same_site` takes `:lax`, `:strict` or `:none`. Apps generated by Padrino use
+`same_site: :lax`. Browsers drop a `same_site: :none` cookie unless it is also
+`secure: true`. The cookie is also `HttpOnly` by default.
+
+`secure: true` tells the browser to send the cookie only over HTTPS. Rack also
+skips saving the session when it sees a plain HTTP request, so over HTTP every
+request starts with an empty session, and logins and CSRF tokens stop working.
+Turn it on only where the site is served over HTTPS, for example in production:
+
+```ruby
+set :sessions, same_site: :lax
+
+configure :production do
+  set :sessions, same_site: :lax, secure: true
+end
+```
+
+If a proxy or load balancer handles TLS and talks to the app over HTTP, it must
+send the `X-Forwarded-Proto: https` header so that Rack sees the request as
+HTTPS.
+
+---
+
+# Controllers: CSRF Protection
+
+# CSRF Protection
+
+Cross-site request forgery (CSRF) protection stops other sites from submitting
+forms to your app on behalf of a logged-in user. Padrino adds
+`Rack::Protection::AuthenticityToken` to an app when `protect_from_csrf` is on.
+Every request that is not a GET, HEAD, OPTIONS or TRACE must then carry a token
+that matches the one stored in the session, or it is rejected with
+`403 Forbidden`.
+
+## Turning it on
+
+Protection is off in a bare `Padrino::Application`. New projects turn it on for
+every app in `config/apps.rb`:
+
+```ruby
+Padrino.configure_apps do
+  set :session_secret, '...'
+  set :protection, except: :path_traversal
+  set :protect_from_csrf, Padrino.env != :test
+end
+```
+
+You can also set it per app:
+
+```ruby
+module Demo
+  class App < Padrino::Application
+    enable :sessions
+    enable :protect_from_csrf
+  end
+end
+```
+
+The token lives in the session, so CSRF protection needs sessions. Generated
+apps turn them on with `set :sessions, same_site: :lax`. If sessions are off,
+Padrino prints a warning and every request, GETs included, is rejected with
+`403 Forbidden`.
+
+To use another session store, pass it to the `sessions` setting so that Padrino
+adds it before the CSRF check:
+
+```ruby
+set :sessions, use: Rack::Session::Pool, config: { same_site: :lax, expire_after: 2592000 }
+```
+
+Middleware added with `use` inside the app runs after the CSRF check, so every
+request is rejected. If you add the session middleware outside Padrino, in
+`config.ru`, silence the warning in `config/boot.rb`:
+
+```ruby
+Padrino::IGNORE_CSRF_SETUP_WARNING = true
+```
+
+## Forms
+
+The form helpers add the token for you. `form_tag`, `form_for` and `button_to`
+render a hidden `authenticity_token` field in every form that does not use the
+GET method:
+
+```erb
+<% form_tag '/register' do %>
+  <%= text_field_tag :email %>
+  <%= submit_tag 'Sign up' %>
+<% end %>
+```
+
+```html
+<form action="/register" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="..." />
+  ...
+</form>
+```
+
+Use `button_to` for links that change data, such as a delete link. It renders a
+small form with the token.
+
+To leave the token out of one form, pass `protect_from_csrf: false`:
+
+```erb
+<% form_tag '/search', protect_from_csrf: false do %>
+```
+
+If you write a form by hand, add the field with `csrf_token_field`.
+
+## JavaScript requests
+
+Put the token in your layout with `csrf_meta_tags`:
+
+```erb
+<head>
+  <%= csrf_meta_tags %>
+</head>
+```
+
+It renders `csrf-param` and `csrf-token` meta tags. Send the token back in the
+`X-CSRF-Token` header:
+
+```javascript
+const token = document.querySelector('meta[name="csrf-token"]').content
+fetch('/items', { method: 'POST', headers: { 'X-CSRF-Token': token } })
+```
+
+## Skipping routes
+
+To skip the check for some paths, such as a webhook, pass `except`. It takes a
+string, a regular expression, an array of them, or a proc that receives the Rack
+env. Paths are matched inside the app, without its mount point:
+
+```ruby
+set :protect_from_csrf, except: %r{\A/webhooks/}
+```
+
+To opt out route by route, enable `allow_disabled_csrf` and pass
+`csrf_protection: false` to the route:
+
+```ruby
+enable :allow_disabled_csrf
+
+post :callback, csrf_protection: false do
+  # no token needed
+end
+```
+
+Without `allow_disabled_csrf`, `csrf_protection: false` has no effect.
+
+With `allow_disabled_csrf` (or `report_csrf_failure`, which does the same), the
+middleware only flags a failed check and each route rejects it with a 403. The
+response body is `Forbidden`, or the `message` you set:
+
+```ruby
+set :protect_from_csrf, message: 'Invalid form token'
+enable :allow_disabled_csrf
+```
+
+Set these before your routes are defined, for example in `app/app.rb` or
+`config/apps.rb`. Routes defined before `allow_disabled_csrf` is enabled are
+not checked at all.
+
+A hash value for `protect_from_csrf` turns protection on in every environment,
+replacing the generated `Padrino.env != :test`. To keep tests free of tokens,
+choose the value by environment:
+
+```ruby
+set :protect_from_csrf, Padrino.env == :test ? false : { except: %r{\A/webhooks/} }
+```
+
+## Testing
+
+The generated `config/apps.rb` turns protection off in the test environment, so
+test requests don't need a token and forms are rendered without the hidden
+field.
+
+The app reads `protect_from_csrf` when it builds its middleware, on its first
+request, so turning it on inside one test does nothing if an earlier test has
+already made a request. To test the protection itself, turn it on before the
+app is loaded and run those tests in their own process. For example, use
+`set :protect_from_csrf, Padrino.env != :test || ENV['CSRF'] == '1'` in
+`config/apps.rb`, and run the CSRF tests with `CSRF=1`. Get the form, then post
+the `authenticity_token` back with the session cookie.
+
+`rake test` loads every test file, so skip the CSRF tests when `CSRF` isn't set:
+
+```ruby
+before { skip 'run with CSRF=1' unless ENV['CSRF'] == '1' }
+```
+
+Run them on their own, since `CSRF=1` turns protection on for every test in the
+process:
+
+```bash
+$ CSRF=1 bundle exec ruby -Itest test/app/csrf_test.rb
 ```
 
 ---
@@ -6200,11 +6532,12 @@ Padrino.
 Sometimes plain Padrino is not enough. Learn how to extend Padrino, doing things async, and how to create an API.
 
 - [Extending Padrino Projects](/guides/advanced-usage/extending-padrino-projects "Extending Padrino Projects")
-- [Asynchronous Concurrency](/guides/advanced-usage/asynchronous-concurrency-with-padrino "Asynchronous Concurrency")
+- [Concurrency](/guides/advanced-usage/asynchronous-concurrency-with-padrino "Concurrency")
 - [Grape with Padrino](/guides/advanced-usage/grape-with-padrino "Grape with Padrino")
 - [Standalone Usage in Sinatra](/guides/advanced-usage/standalone-usage-in-sinatra "Standalone Usage in Sinatra")
 - [3rd Party Plugins](/guides/advanced-usage/3rd-party-plugins "3rd Party Plugins")
 - [Running Padrino on JRuby](/guides/advanced-usage/running-padrino-on-jruby "Running Padrino on JRuby")
+- [Deployment](/guides/advanced-usage/deployment "Deployment")
 
 ---
 
@@ -6351,95 +6684,103 @@ end
 
 ---
 
-# Advanced Usage: Asyncronous Concurrency
+# Advanced Usage: Concurrency
 
-# Asynchronous Concurrency
+# Concurrency
 
-> **⚠ Outdated Guide:** The libraries recommended below (Goliath, sinatra-synchrony)
-> are abandoned and incompatible with modern Padrino (Sinatra 4 / Rack 3). For
-> concurrent request handling, use [Puma](https://puma.io/) (the recommended
-> default server) or [Falcon](https://github.com/socketry/falcon) instead
-> (`padrino g project my_app --server=falcon`).
-> This guide is preserved for historical reference only.
+A Padrino app handles several requests at once when its web server runs them
+on threads, processes or fibers. You choose the model by choosing the server.
+Pick it when you generate the project:
 
-Lately, the Ruby community has become fascinated by asynchronous and concurrent
-web servers, the newest of which is called
-[Goliath](http://www.igvita.com/2011/03/08/goliath-non-blocking-ruby-19-web-server
-"Goliath"). This can be advantageous for your application especially if you have
-a lot of traffic and slow IO or Database calls (like HTTP calls to external
-APIs) since this substantially increases the number of clients your application
-can serve per process.
+```bash
+$ padrino g project my_app --server=puma
+$ padrino g project my_app --server=falcon
+```
 
-This guide is dedicated to documenting how to achieve non-blocking, asynchronous
-requests while still using Sinatra and Padrino. For a more detailed guide be
-sure to checkout the
-[Sinatra Synchrony](https://github.com/kyledrake/sinatra-synchrony "Sinatra
-Synchrony") docs.
+This adds the server gem to the `Gemfile`. In an existing project, add the gem
+yourself.
 
-## Setup
+## Puma: threads and workers
 
-Add the gem to you Gemfile:
+[Puma](https://puma.io/) runs each request on a thread from a pool. It can also
+fork worker processes, each with its own thread pool. Configure both in
+`config/puma.rb` (the generator does not create this file):
 
 ```ruby
-# Gemfile
-gem "sinatra-synchrony"
+# config/puma.rb
+threads 5, 5  # min, max threads per process
+workers 2     # forked processes; leave out to run a single process
 ```
 
-And then add the synchrony library to your Padrino application:
+Puma reads this file whether you start it with `padrino start -a puma` or
+`bundle exec puma`. With `padrino start`, the address comes from `-h` and `-p`
+(default `127.0.0.1:3000`), so any `bind` or `port` in `config/puma.rb` is
+ignored. You can also set the thread pool on the command line:
+
+```bash
+$ padrino start -a puma -O Threads=1:8
+```
+
+Threads in one process take turns running Ruby code, but they overlap while a
+request waits on the database or another service. Workers are separate
+processes, so they can use more than one CPU core.
+
+With two or more `workers`, Puma loads the app once and then forks the
+workers, so they inherit any database connection opened while loading. Sequel
+connects when `config/database.rb` runs, so close those connections before
+forking, or the workers share one socket:
 
 ```ruby
-# app/app.rb
-require 'sinatra/synchrony'
-
-class DemoApp < Padrino::Application
-  register Sinatra::Synchrony
-end
+# config/puma.rb
+before_fork { Sequel::DATABASES.each(&:disconnect) }
 ```
 
-And that is really all you need for the basics. Also, you may want to take a
-look at [JRuby](http://jruby.org "JRuby") as an alternative ruby runtime.
-(Note: Rubinius is no longer maintained.)
+Active Record reconnects in forked processes by itself. For Mongoid, follow its
+documentation on forking servers.
 
-## Benchmarks
+## Falcon: fibers
 
-Added to Gemfile:
+[Falcon](https://github.com/socketry/falcon) runs each request in its own fiber
+on Ruby's fiber scheduler. While one request waits on IO, the others keep
+running in the same thread.
 
-```ruby
-# Gemfile
-gem 'rest-client'
-gem 'sinatra-synchrony'
-gem 'faraday'
+When the project uses Falcon, the ORM generators add a fiber setting to
+`config/database.rb`, both for `padrino g project --server=falcon` and when you
+add an ORM later with `padrino g component`:
+
+ORM                       | Setting
+------------------------- | -------------------------------------------------------------
+Sequel                    | `Sequel.extension :fiber_concurrency`
+Active Record, MiniRecord | `ActiveSupport::IsolatedExecutionState.isolation_level = :fiber`
+Mongoid                   | `Mongoid::Config.isolation_level = :fiber` (Mongoid 9.1+, Ruby 3.2+)
+
+This keeps database connections and ORM state per request instead of per
+thread.
+
+`padrino start -a falcon` runs a single process. To run several, use Falcon's
+own command:
+
+```bash
+$ bundle exec falcon serve --bind http://0.0.0.0:3000 --count 4
 ```
 
-And the benchmark app:
+Fibers don't preempt each other. CPU-heavy work, or a library call that does
+not yield to the fiber scheduler, holds up every other request in that process.
 
-```ruby
-# app/app.rb
-require 'sinatra/synchrony'
-require 'rest-client'
-require 'faraday'
+## Thread safety
 
-Faraday.default_adapter = :em_synchrony
+Each request gets its own instance of your app, so instance variables set in a
+route, filter or helper belong to that request. Anything shared between
+requests is shared by every thread: constants, class variables, globals,
+settings changed at runtime and class-level caches. Don't change them while
+serving requests, or guard them with a `Mutex`.
 
-class DemoApp < Padrino::Application
-  register Sinatra::Synchrony
+Give the database pool at least as many connections as you have threads: the
+`pool` option in Active Record (default 5) or `max_connections` in Sequel
+(default 4).
 
-  get '/' do
-    Faraday.get 'http://google.com'
-  end
-end
-```
-
-And results with `ab`:
-
-```
-$ ab -c 100 -n 100 http://127.0.0.1:9292/
-...
-Time taken for tests:   0.256 seconds
-```
-
-For a perspective, this operation took 33 seconds without this extension in
-thin.
+If some code can't be made thread safe, `enable :lock` makes the app handle one
+request at a time in each process.
 
 ---
 
@@ -6995,6 +7336,148 @@ Now you can login here <http://localhost:3000>
 Follow your login process and then if needed <http://localhost:3000/destroy>
 
 That is all you need to setup a barebones authentication system in Padrino. This post has gotten you started with a working “Account” and role based authentication solution with integrated omniauth support. From here, obviously there are a number of other features you might want to add on top to flesh out, and that is left for another post or as an exercise to the reader.
+
+---
+
+# Advanced Usage: Deployment
+
+# Deployment
+
+A Padrino project is a Rack application, so any host that runs Ruby can run it:
+a virtual machine, a container or a platform as a service. This guide covers
+the steps most deployments share.
+
+## The production environment
+
+Run the app with `RACK_ENV=production`, or pass `-e production` to `padrino`
+commands. In production:
+
+- the log goes to `log/production.log` and only records warnings and errors;
+- requests are not logged, and code is not reloaded;
+- an unhandled error returns a plain `500 Internal Server Error` page and is
+  written to the log.
+
+Many platforms collect logs from standard output instead of files. To log
+there, add this to `config/boot.rb` before `Padrino.load!`:
+
+```ruby
+Padrino::Logger::Config[:production][:stream] = :stdout
+```
+
+## Starting the server
+
+New projects use WEBrick unless you chose another server. For production, use
+Puma or Falcon. Add the gem to your `Gemfile` (`gem 'puma'`), or generate the
+project with `--server=puma` or `--server=falcon`.
+
+Start the app with `padrino start`:
+
+```bash
+$ padrino start -e production -a puma -h 0.0.0.0 -p 3000
+```
+
+`padrino start` binds to `127.0.0.1:3000` by default, so pass `-h 0.0.0.0` when
+the app must accept outside connections, as in a container.
+
+You can also run the server's own command, which loads `config.ru`:
+
+```bash
+$ RACK_ENV=production bundle exec puma -p 3000
+$ RACK_ENV=production bundle exec falcon serve --bind http://0.0.0.0:3000
+```
+
+For threads, workers and processes, see
+[Concurrency](/guides/advanced-usage/asynchronous-concurrency-with-padrino).
+
+## Session secret
+
+New projects get a random `session_secret` written into `config/apps.rb`.
+Anyone with that value can forge session cookies, so don't use the committed
+value in production. Read it from the environment instead:
+
+```ruby
+Padrino.configure_apps do
+  set :session_secret, '...' # the generated value, used in development
+
+  configure :production do
+    set :session_secret, ENV.fetch('SESSION_SECRET')
+  end
+end
+```
+
+The secret must be at least 64 bytes long. Generate one with:
+
+```bash
+$ ruby -rsecurerandom -e 'puts SecureRandom.hex(64)'
+```
+
+If the site is served over HTTPS, also mark the session cookie as secure. See
+[Sessions](/guides/controllers/sessions "Sessions").
+
+## Database
+
+The generated `config/database.rb` has a production entry that points at a
+local database. Most hosts give you a `DATABASE_URL` instead.
+
+With Sequel, connect to it in the production branch:
+
+```ruby
+when :production then Sequel.connect(ENV.fetch('DATABASE_URL'), loggers: [logger])
+```
+
+Active Record reads `DATABASE_URL` itself, and it takes precedence over the
+configuration for the current environment, so you only need to set the
+variable.
+
+Either way, make sure the `Gemfile` has the driver for the production database,
+such as `pg` or `mysql2`.
+
+Run the migrations on each deploy:
+
+```bash
+$ RACK_ENV=production bundle exec rake sq:migrate   # Sequel
+$ RACK_ENV=production bundle exec rake ar:migrate   # Active Record
+```
+
+The rake tasks load the app, so they need the same environment variables as the
+server, such as `SESSION_SECRET` and `DATABASE_URL`.
+
+## Assets
+
+If the project uses the Vite script component or the Tailwind stylesheet
+component, build the assets on each deploy:
+
+```bash
+$ RACK_ENV=production bundle exec rake assets:precompile
+```
+
+- Tailwind writes a minified `public/stylesheets/application.css`.
+- Vite runs `npm ci` and builds into `public/vite`. `npm ci` needs a
+  `package-lock.json`, so run `npm install` once and commit the lock file. The
+  build machine needs Node.js.
+
+The generators add these build outputs to `.gitignore`, so they have to be
+built where you deploy, not committed.
+
+## Static files
+
+Padrino serves the files in `public/` itself, in every environment. To let
+browsers cache them, set a `Cache-Control` header:
+
+```ruby
+set :static_cache_control, [:public, max_age: 31536000]
+```
+
+Padrino's asset helpers (`stylesheet_link_tag`, `javascript_include_tag`,
+`image_tag`, `favicon_tag` and `asset_path`) add the file's modification time to
+the URL when you give them a name relative to their folder
+(`image_tag 'logo.png'`, not `'/images/logo.png'`), and Vite puts a content hash
+in its file names, so browsers fetch the new files after a deploy. Other files keep the
+cached copy until `max_age` runs out: helper calls given a path starting with `/`
+or a full URL, images referenced from CSS, the `/favicon.ico` browsers request on
+their own, and links you write by hand. Use a shorter `max_age` if those change
+often. If a web server such as nginx sits in front of the app, you can let it
+serve `public/` directly instead.
 
 ---
 

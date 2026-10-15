@@ -9,7 +9,7 @@ form.generator data-generator=""
         span.generator__label= component.name
         select.generator__select name=component.flag
           - unless component.required
-            option value="" None
+            option value="" = component.blank || 'None'
           - component.options.each do |value, label|
             option value=value selected=(value == component.preset) = label
         = icon(:chevron_down)

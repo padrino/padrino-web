@@ -183,6 +183,12 @@ components:
       - [mootools, MooTools]
       - [dojo, Dojo]
       - [vite, Vite]
+  - name: Server
+    flag: server
+    blank: WEBrick
+    options:
+      - [puma, Puma]
+      - [falcon, Falcon]
 sinatra_code:
   file: app.rb
   lang: ruby

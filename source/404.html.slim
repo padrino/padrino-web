@@ -1,0 +1,15 @@
+---
+title: Page not found
+hide_from_sitemap: true
+---
+
+h1 Page not found
+p
+  | The page you were looking for doesn't exist. It may have moved when the guides were
+    reorganized. Search the guides, or start again from the guides or the home page.
+.not-found__actions
+  button.button type="button" data-search-open=""
+    = icon(:search)
+    | Search the guides
+  = link_to 'Browse the guides', '/guides/', class: 'button button--secondary'
+  = link_to 'Go to the home page', '/', class: 'button button--secondary'

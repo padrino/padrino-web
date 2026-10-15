@@ -276,6 +276,7 @@ function activateSearch() {
   }
 
   openButton.addEventListener('click', open);
+  for (const button of document.querySelectorAll('[data-search-open]')) button.addEventListener('click', open);
   document.getElementById('search-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', (event) => {
     if (event.target === dialog) dialog.close();

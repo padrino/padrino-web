@@ -71,6 +71,13 @@ const COPY_ICONS = `
   <svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
 `;
 
+// Code blocks and tables scroll sideways, so keyboard users need to be able to focus them
+function makeScrollAreasFocusable() {
+  for (const area of document.querySelectorAll('.content pre, .content table, .code-window pre')) {
+    area.tabIndex = 0;
+  }
+}
+
 function addCodeCopyButtons() {
   for (const pre of document.querySelectorAll('.content pre')) {
     let text = pre.textContent.replace(/\n$/, '');
@@ -336,6 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
   activateDocsSidebar();
   activateThemeToggle();
   activateHeadingAnchors();
+  makeScrollAreasFocusable();
   addCodeCopyButtons();
   activatePageActions();
   activateGenerator();

@@ -183,9 +183,8 @@ components:
       - [dojo, Dojo]
   - name: Server
     flag: server
-    blank: Default (WEBrick)
+    blank: WEBrick
     options:
-      - [webrick, WEBrick]
       - [puma, Puma]
       - [falcon, Falcon]
 sinatra_code:

@@ -147,16 +147,57 @@ easily manage which functionality is available to your users.</p>
 <span class="k">end</span>
 </code></pre></div>
 <p>In the above example, we <em>protect</em> the entire admin section (all paths starting
-with &quot;/&quot;) with the only exception for all those paths starting with <code>/sessions</code>
+with &quot;/&quot;) with the only exception of <code>/sessions</code> and the paths under it,
 giving our <code>unauthenticated</code> users the possibility to log in by redirecting them
 to our login page and asking them to provide their email and password.</p>
 
-<p>If we are logged in as an <strong>admin</strong> (<code>account.role == &#39;admin&#39;</code>) we will <strong>only</strong>
-have access to the <code>/settings</code> path.</p>
+<p>If we are logged in as an <strong>admin</strong> (<code>account.role == &#39;admin&#39;</code>) we can open
+<code>/settings</code>, but not <code>/posts</code> or <code>/categories</code>, which belong to the editor role.</p>
 
-<p>If we are logged in as an <strong>editor</strong> (<code>account.role == &#39;editor&#39;</code>) we will <strong>only</strong>
-have access to the <code>/posts</code> and <code>/categories</code> paths.</p>
+<p>If we are logged in as an <strong>editor</strong> (<code>account.role == &#39;editor&#39;</code>) we can open
+<code>/posts</code> and <code>/categories</code>, but not <code>/settings</code>. Paths that no role lists, such
+as a custom page you haven&#39;t added to a module, are open to every logged-in
+account.</p>
+<h3 id="how-paths-are-matched">How paths are matched</h3>
+<p><code>allow</code>, <code>protect</code> and <code>project_module</code> are checked against the request path
+inside the app, without its mount point (<code>/posts</code> for <code>/admin/posts</code>):</p>
 
+<ul>
+<li>The path is percent-decoded first, so <code>/%70osts</code> is checked as <code>/posts</code>.</li>
+<li>A String given to <code>allow</code> (or <code>project_module</code>) matches on a path boundary:
+<code>role.allow &#39;/posts&#39;</code> covers <code>/posts</code>, <code>/posts/1</code> and <code>/posts.json</code>, but
+not <code>/posts_admin</code>. Allow such paths with their own rule.</li>
+<li><code>protect</code> in a <code>roles_for :any</code> block applies to visitors who aren&#39;t
+logged in; logged-in accounts skip it. A String given to it covers every
+path that starts with it, so <code>role.protect &#39;/posts&#39;</code> also protects
+<code>/posts_admin</code>. In another role&#39;s block, <code>protect</code> refuses the path to
+accounts of the other roles, not to visitors or to that role.</li>
+<li>A logged-in account is refused the paths given to other roles, by the same
+plain prefix, unless a <code>roles_for :any</code> rule or the account&#39;s own role
+allows them: in the example above, an admin can&#39;t open <code>/posts_admin</code>
+either. To give admins <code>/posts_admin</code>, allow it in <code>roles_for :admin</code>; an
+allow in <code>roles_for :any</code> would also open it to visitors.</li>
+<li>Strings are literal paths. To match a pattern, pass a Regexp; it matches
+from the start of the path, so end it with <code>\z</code> to match the whole path:</li>
+</ul>
+<div class="highlight"><pre class="syntax ruby"><code><span class="n">access_control</span><span class="p">.</span><span class="nf">roles_for</span> <span class="ss">:any</span> <span class="k">do</span> <span class="o">|</span><span class="n">role</span><span class="o">|</span>
+  <span class="n">role</span><span class="p">.</span><span class="nf">protect</span> <span class="s1">'/'</span>
+  <span class="n">role</span><span class="p">.</span><span class="nf">allow</span> <span class="s1">'/sessions'</span>
+  <span class="n">role</span><span class="p">.</span><span class="nf">allow</span> <span class="sr">%r{</span><span class="se">\A</span><span class="sr">/posts/</span><span class="se">\d</span><span class="sr">+</span><span class="se">\z</span><span class="sr">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<hr>
+<h2 id="custom-admin-pages-and-bootstrap">Custom Admin Pages and Bootstrap</h2>
+<p>Admins generated with <code>padrino g admin</code> use Bootstrap 3.1 with jQuery 3.7.1.
+With this jQuery, a Bootstrap collapse, tab, modal or alert link with a bare
+<code>href=&quot;#&quot;</code> raises a JavaScript error and does nothing. Give it a <code>data-target</code>
+that names its element instead:</p>
+<div class="highlight"><pre class="syntax html"><code><span class="c">&lt;!-- doesn't work with jQuery 3 --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Filters<span class="nt">&lt;/a&gt;</span>
+<span class="c">&lt;!-- works --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-target=</span><span class="s">"#filters"</span><span class="nt">&gt;</span>Filters<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"filters"</span> <span class="na">class=</span><span class="s">"collapse"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
 <hr>
 <h2 id="sharing-sessions-between-mounted-applications">Sharing Sessions Between Mounted Applications</h2>
 <p>Sessions can be shared between mounted applications by setting a <code>:session_id</code>
@@ -170,4 +211,4 @@ support with additional adapters like <a href="https://github.com/soveran/ohm" t
 so on, be sure to check out the
 <a href="/guides/adding-components/overview" title="adding components">adding components</a>
 guide.</p>
-<footer class="doc-footer"><div class="doc-footer__meta"><a href="https://github.com/padrino/padrino-docs/edit/master/guides/03_features/02_padrino-admin.html.md" class="doc-footer__edit"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.17 6.81a1 1 0 0 0-3.99-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/><path d="m15 5 4 4"/></svg>Edit this page on GitHub</a><span>Last updated 2026-10-15</span></div></footer></article></div><aside class="docs-toc"><nav aria-label="On this page" class="toc"><p class="toc__title">On this page</p><ul class="toc__items"><li class="toc__item toc__item--h2"><a class="toc__link" href="#admin-usage">Admin Usage</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#admin-authentication">Admin Authentication</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#scenario-e-commerce-user-authentication">Scenario E-commerce (User Authentication)</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#admin-scenario-user-authorization">Admin Scenario (User Authorization)</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#sharing-sessions-between-mounted-applications">Sharing Sessions Between Mounted Applications</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#contributing-persistence-adapters">Contributing Persistence Adapters</a></li></ul></nav></aside></div></main><footer class="site-footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand"><a href="/" class="brand"><img src="../../../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><p>The elegant Ruby web framework, built upon Sinatra.</p></div><div class="site-footer__column"><h2 class="site-footer__heading">Docs</h2><ul><li><a href="/guides/">Guides</a></li><li><a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a></li><li><a href="/blog/">Blog</a></li><li><a href="/llms.txt">llms.txt</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Community</h2><ul><li><a href="https://github.com/padrino/padrino-framework">GitHub</a></li><li><a href="https://github.com/padrino/padrino-framework/issues">Issues</a></li><li><a href="/contribute/">Contribute</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Project</h2><ul><li><a href="https://github.com/padrino/padrino-framework/blob/master/LICENSE">MIT License</a></li><li><a href="/blog.rss">RSS feed</a></li><li><a href="https://www.unpolo.com/">Logo by unpolo</a></li></ul></div></div><p class="site-footer__legal">Padrino is released under the MIT License. Hosted on GitHub Pages.</p></div></footer><dialog aria-label="Search documentation" class="search-dialog" id="search"><div class="search-dialog__field"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input aria-controls="search-results" autocomplete="off" id="search-input" placeholder="Search the guides" spellcheck="false" type="search" /><button class="search-dialog__close" id="search-close" type="button">Esc</button></div><ul aria-label="Results" class="search-results" id="search-results" role="listbox"></ul><p class="search-dialog__status" id="search-status">Type to search the guides.</p></dialog></body></html>
+<footer class="doc-footer"><div class="doc-footer__meta"><a href="https://github.com/padrino/padrino-docs/edit/master/guides/03_features/02_padrino-admin.html.md" class="doc-footer__edit"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.17 6.81a1 1 0 0 0-3.99-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/><path d="m15 5 4 4"/></svg>Edit this page on GitHub</a><span>Last updated 2026-10-15</span></div></footer></article></div><aside class="docs-toc"><nav aria-label="On this page" class="toc"><p class="toc__title">On this page</p><ul class="toc__items"><li class="toc__item toc__item--h2"><a class="toc__link" href="#admin-usage">Admin Usage</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#admin-authentication">Admin Authentication</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#scenario-e-commerce-user-authentication">Scenario E-commerce (User Authentication)</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#admin-scenario-user-authorization">Admin Scenario (User Authorization)</a></li><li class="toc__item toc__item--h3"><a class="toc__link" href="#how-paths-are-matched">How paths are matched</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#custom-admin-pages-and-bootstrap">Custom Admin Pages and Bootstrap</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#sharing-sessions-between-mounted-applications">Sharing Sessions Between Mounted Applications</a></li><li class="toc__item toc__item--h2"><a class="toc__link" href="#contributing-persistence-adapters">Contributing Persistence Adapters</a></li></ul></nav></aside></div></main><footer class="site-footer"><div class="container"><div class="site-footer__grid"><div class="site-footer__brand"><a href="/" class="brand"><img src="../../../images/logo-6475397a.svg" alt="" class="brand__logo" /><span class="padrino-name">Padrino</span></a><p>The elegant Ruby web framework, built upon Sinatra.</p></div><div class="site-footer__column"><h2 class="site-footer__heading">Docs</h2><ul><li><a href="/guides/">Guides</a></li><li><a href="https://www.rubydoc.info/github/padrino/padrino-framework">API reference</a></li><li><a href="/blog/">Blog</a></li><li><a href="/llms.txt">llms.txt</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Community</h2><ul><li><a href="https://github.com/padrino/padrino-framework">GitHub</a></li><li><a href="https://github.com/padrino/padrino-framework/issues">Issues</a></li><li><a href="/contribute/">Contribute</a></li></ul></div><div class="site-footer__column"><h2 class="site-footer__heading">Project</h2><ul><li><a href="https://github.com/padrino/padrino-framework/blob/master/LICENSE">MIT License</a></li><li><a href="/blog.rss">RSS feed</a></li><li><a href="https://www.unpolo.com/">Logo by unpolo</a></li></ul></div></div><p class="site-footer__legal">Padrino is released under the MIT License. Hosted on GitHub Pages.</p></div></footer><dialog aria-label="Search documentation" class="search-dialog" id="search"><div class="search-dialog__field"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input aria-controls="search-results" autocomplete="off" id="search-input" placeholder="Search the guides" spellcheck="false" type="search" /><button class="search-dialog__close" id="search-close" type="button">Esc</button></div><ul aria-label="Results" class="search-results" id="search-results" role="listbox"></ul><p class="search-dialog__status" id="search-status">Type to search the guides.</p></dialog></body></html>

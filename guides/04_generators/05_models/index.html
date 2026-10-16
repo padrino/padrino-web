@@ -66,6 +66,13 @@ they will not work in a project without it.</p>
 <p>You can also specify desired fields to be contained within your <code>User</code> model:</p>
 <div class="highlight"><pre class="syntax shell"><code><span class="nv">$ </span>padrino g model User name:string age:integer email:string
 </code></pre></div>
+<p>With ActiveRecord, a field can take a third segment: <code>index</code> adds an index on
+the column and <code>uniq</code> adds a unique index. A <code>references</code> (or <code>belongs_to</code>)
+field adds a <code>&lt;name&gt;_id</code> column, and takes the same segment:</p>
+<div class="highlight"><pre class="syntax shell"><code><span class="nv">$ </span>padrino g model Post title:string slug:string:uniq user:references:index
+</code></pre></div>
+<p>The other ORMs ignore the third segment.</p>
+
 <p>The model generator will create multiple files within your application and based
 on your ORM component. Usually the model file will generate files similar to the
 following:</p>

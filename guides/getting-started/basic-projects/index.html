@@ -36,9 +36,7 @@ to use by flagging the <code>padrino g</code> command with the <code>-d</code> o
 name of your ORM:</p>
 <div class="highlight"><pre class="syntax shell"><code><span class="nv">$ </span>padrino g project your_project <span class="nt">-d</span> mongoid
 <span class="nv">$ </span>padrino g project your_project <span class="nt">-d</span> activerecord
-<span class="nv">$ </span>padrino g project your_project <span class="nt">-d</span> ohm
 <span class="nv">$ </span>padrino g project your_project <span class="nt">-d</span> sequel
-<span class="nv">$ </span>padrino g project your_project <span class="nt">-d</span> dynamoid
 </code></pre></div>
 <p>For the SQL-based persistence engines, you can even specify the RDBMS adapter to
 use with the <code>-a</code> option followed by the name of the adapter:</p>
@@ -47,7 +45,7 @@ use with the <code>-a</code> option followed by the name of the adapter:</p>
 <span class="nv">$ </span>padrino g project your_project <span class="nt">-d</span> sequel       <span class="nt">-a</span> sqlite   <span class="c"># Uses Sequel and Sqlite3</span>
 </code></pre></div>
 <p>The adapters currently supported are <code>sqlite</code>, <code>mysql</code>, and <code>postgres</code> for use
-with <code>activerecord</code>, <code>minirecord</code>, or <code>sequel</code>.</p>
+with <code>activerecord</code> or <code>sequel</code>.</p>
 
 <hr>
 <h2 id="generating-applications">Generating Applications</h2>

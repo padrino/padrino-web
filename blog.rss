@@ -5,6 +5,119 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
+      <title>Padrino 0.18.0 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-18-0/</link>
+      <description>&lt;p&gt;Padrino 0.18.0 is out. It fixes a long list of bugs in the generators and the database rake tasks, makes generated apps safer by default, and adds &lt;code&gt;rake db:dump&lt;/code&gt;. It also removes four generator components (the Ohm, MiniRecord and Dynamoid ORMs and Less) whose projects no longer work with current gems, so read the breaking changes below before you upgrade.&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;code&gt;@achiurizo&lt;/code&gt; for his work on this release, and to &lt;code&gt;@ssut&lt;/code&gt;, &lt;code&gt;@mistergibson&lt;/code&gt;, &lt;code&gt;@Quintasan&lt;/code&gt;, &lt;code&gt;@postmodern&lt;/code&gt; and &lt;code&gt;@scockram&lt;/code&gt; for the reports behind several of these changes. The full list is in &lt;a href="https://github.com/padrino/padrino-framework/blob/master/CHANGES.rdoc"&gt;CHANGES.rdoc&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="highlights"&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;rake db:dump&lt;/code&gt;&lt;/strong&gt; (&lt;code&gt;sq:dump&lt;/code&gt;, &lt;code&gt;ar:dump&lt;/code&gt;) dumps a Postgres, MySQL or SQLite database to &lt;code&gt;tmp/&amp;lt;env&amp;gt;_dump.sql&lt;/code&gt;, or to &lt;code&gt;FILE=&lt;/code&gt;. It runs &lt;code&gt;pg_dump&lt;/code&gt;, &lt;code&gt;mysqldump&lt;/code&gt; or &lt;code&gt;sqlite3&lt;/code&gt;, which must be on your PATH.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Database tasks that work:&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rake db:create&lt;/code&gt; creates a missing Postgres or MySQL database on Active Record 7.1 and later, instead of reporting it as existing.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sq:create&lt;/code&gt; and &lt;code&gt;sq:drop&lt;/code&gt; no longer need the &lt;code&gt;createdb&lt;/code&gt; and &lt;code&gt;mysql&lt;/code&gt; command-line clients.&lt;/li&gt;
+&lt;li&gt;The Sequel migrate tasks run in a project with no migrations yet.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Safer generated apps:&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The session cookie is &lt;code&gt;Secure&lt;/code&gt; in production.&lt;/li&gt;
+&lt;li&gt;The session secret comes from &lt;code&gt;SESSION_SECRET&lt;/code&gt; when it is set.&lt;/li&gt;
+&lt;li&gt;Apps that set Sinatra&amp;#39;s &lt;code&gt;host_authorization&lt;/code&gt; (Sinatra 4.1 or later) now get that check.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generators:&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Re-running &lt;code&gt;padrino g component&lt;/code&gt; keeps the files you edited.&lt;/li&gt;
+&lt;li&gt;Field modifiers work in any order (&lt;code&gt;email:string:uniq:index&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Sequel &lt;code&gt;references&lt;/code&gt; fields become indexed foreign keys.&lt;/li&gt;
+&lt;li&gt;Mongoid models get valid field types.&lt;/li&gt;
+&lt;li&gt;Invalid names and options print a message and exit 1, instead of a backtrace.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The admin&lt;/strong&gt; uses Bootstrap 3.4.1 (was 3.1.0), and its erb and slim list pages get the right menu classes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fixes in the running app:&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Editing an &lt;code&gt;ActiveSupport::Concern&lt;/code&gt; no longer breaks reloading until a restart.&lt;/li&gt;
+&lt;li&gt;Apps mounted under a sub-path serve shared assets.&lt;/li&gt;
+&lt;li&gt;A malformed URL gets a 404 instead of a 500.&lt;/li&gt;
+&lt;li&gt;Sending an email no longer changes how erb templates escape elsewhere in the process.&lt;/li&gt;
+&lt;li&gt;WEBrick shuts down cleanly on &lt;code&gt;TERM&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="breaking-changes"&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Removed generator components:&lt;/strong&gt; the Ohm, MiniRecord and Dynamoid ORMs and the Less stylesheet engine. Projects generated with them no longer work with current gems. 0.18 doesn&amp;#39;t change how existing apps run, but &lt;code&gt;padrino g model&lt;/code&gt;, &lt;code&gt;g migration&lt;/code&gt;, &lt;code&gt;g admin&lt;/code&gt; and &lt;code&gt;g admin_page&lt;/code&gt; exit with an error in projects that use one of these ORMs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;rake ar:create&lt;/code&gt; and &lt;code&gt;ar:drop&lt;/code&gt; exit non-zero&lt;/strong&gt; when a database can&amp;#39;t be created or dropped, as Rails does. Scripts that ignored those errors now stop there.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;SqlHelpers.create_db&lt;/code&gt; and &lt;code&gt;drop_db&lt;/code&gt;&lt;/strong&gt; take the app&amp;#39;s Sequel connection options (&lt;code&gt;create_db(Sequel::Model.db.opts, charset, collation)&lt;/code&gt;), if your Rakefile calls them directly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apps mounted under a sub-path&lt;/strong&gt; serve files from the shared &lt;code&gt;public/&lt;/code&gt; under their prefix when their own &lt;code&gt;public/&amp;lt;app&amp;gt;&lt;/code&gt; doesn&amp;#39;t have them. Such a file answers before the app&amp;#39;s routes: with &lt;code&gt;public/robots.txt&lt;/code&gt;, an app mounted at &lt;code&gt;/blog&lt;/code&gt; serves that file for &lt;code&gt;/blog/robots.txt&lt;/code&gt; instead of its own &lt;code&gt;get &amp;#39;/robots.txt&amp;#39;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;host_authorization&lt;/code&gt;:&lt;/strong&gt; an app that sets &lt;code&gt;set :host_authorization, permitted_hosts: [...]&lt;/code&gt; now answers 403 for other hosts. Apps that don&amp;#39;t set it are unchanged.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inflections without ActiveSupport:&lt;/strong&gt; &lt;code&gt;singularize&lt;/code&gt; keeps words like status, address and analysis intact. Nested routes with &lt;code&gt;parent: :status&lt;/code&gt; use &lt;code&gt;params[:status_id]&lt;/code&gt; (was &lt;code&gt;:statu_id&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-17"&gt;Upgrading from 0.17&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;In your Gemfile, set &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.18.0&amp;#39;&lt;/code&gt;, then run &lt;code&gt;bundle update padrino&lt;/code&gt;. If your Gemfile lists the &lt;code&gt;padrino-*&lt;/code&gt; gems instead of &lt;code&gt;padrino&lt;/code&gt;, set each one&amp;#39;s version and name them: &lt;code&gt;bundle update padrino-core padrino-helpers ...&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If your project uses Ohm, MiniRecord, Dynamoid or Less, switch it first, and answer yes when asked:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The ORM:&lt;/strong&gt; &lt;code&gt;padrino g component --orm=activerecord&lt;/code&gt; (MiniRecord models are Active Record models), &lt;code&gt;--orm=sequel&lt;/code&gt; or &lt;code&gt;--orm=mongoid&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Less:&lt;/strong&gt; &lt;code&gt;padrino g component --stylesheet=sass&lt;/code&gt; (or &lt;code&gt;scss&lt;/code&gt;, &lt;code&gt;tailwind&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;After switching, remove what the old component left behind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gemfile:&lt;/strong&gt; the old gems (&lt;code&gt;mini_record&lt;/code&gt;; &lt;code&gt;rack-less&lt;/code&gt;, &lt;code&gt;less&lt;/code&gt; and &lt;code&gt;therubyracer&lt;/code&gt;; Ohm&amp;#39;s or Dynamoid&amp;#39;s gems). Then run &lt;code&gt;bundle install&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rakefile:&lt;/strong&gt; &lt;code&gt;PadrinoTasks.use(:minirecord)&lt;/code&gt;. The switch already added the new ORM&amp;#39;s line.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MiniRecord:&lt;/strong&gt; &lt;code&gt;ActiveRecord::Base.auto_upgrade!&lt;/code&gt; in &lt;code&gt;config/boot.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Leaving Active Record:&lt;/strong&gt; &lt;code&gt;use ConnectionPoolManagement&lt;/code&gt; in each app, and &lt;code&gt;lib/connection_pool_management_middleware.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Less:&lt;/strong&gt; &lt;code&gt;register LessInitializer&lt;/code&gt; in &lt;code&gt;app/app.rb&lt;/code&gt;, and &lt;code&gt;config/initializers/less.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then port your models to the new ORM.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If a script runs &lt;code&gt;rake ar:create&lt;/code&gt; or &lt;code&gt;ar:drop&lt;/code&gt; and expects it to carry on after an error, handle the non-zero exit.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If an app is mounted under a sub-path, check that no file in the shared &lt;code&gt;public/&lt;/code&gt; has the same path as one of its routes. If no other app needs the file, rename or remove it. Otherwise, give the app a public folder of its own that isn&amp;#39;t &lt;code&gt;public/&amp;lt;app&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;for example, create &lt;code&gt;blog/public&lt;/code&gt; with a &lt;code&gt;.keep&lt;/code&gt; file, so git keeps it;&lt;/li&gt;
+&lt;li&gt;move the app&amp;#39;s files from &lt;code&gt;public/blog&lt;/code&gt; into it;&lt;/li&gt;
+&lt;li&gt;add &lt;code&gt;set :public_folder, File.join(__dir__, &amp;#39;public&amp;#39;)&lt;/code&gt; to the app.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The folder must exist.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If an app sets &lt;code&gt;host_authorization&lt;/code&gt;, make sure &lt;code&gt;permitted_hosts&lt;/code&gt; lists every host it is served on.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The port doesn&amp;#39;t matter.&lt;/li&gt;
+&lt;li&gt;Behind a proxy that sends &lt;code&gt;X-Forwarded-Host&lt;/code&gt; (or &lt;code&gt;Forwarded: host=&lt;/code&gt;), both that host and the &lt;code&gt;Host&lt;/code&gt; the proxy sends must be listed, or have the proxy pass the original &lt;code&gt;Host&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Rack::Test requests use &lt;code&gt;example.org&lt;/code&gt;, so add it in the test environment, or the app&amp;#39;s tests get 403.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In projects without ActiveSupport, check nested routes whose parent ends in -s, -ss or -sis, and the &lt;code&gt;url(...)&lt;/code&gt; calls that pass its id. Projects that load ActiveSupport, including every project with a generated admin, are unaffected.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Generated files are yours, so existing projects keep their old defaults. To adopt the new ones:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Session cookie:&lt;/strong&gt; change &lt;code&gt;set :sessions, same_site: :lax&lt;/code&gt; to &lt;code&gt;set :sessions, same_site: :lax, secure: Padrino.env == :production&lt;/code&gt; in every app, including &lt;code&gt;admin/app.rb&lt;/code&gt;. The apps share one cookie, and an app without it rewrites the cookie without &lt;code&gt;Secure&lt;/code&gt;. Production then sends the cookie only over HTTPS: served over plain HTTP, logins and form posts fail. Behind a proxy that terminates TLS, have it send &lt;code&gt;X-Forwarded-Proto: https&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session secret:&lt;/strong&gt; in &lt;code&gt;config/apps.rb&lt;/code&gt;, use &lt;code&gt;set :session_secret, ENV.fetch(&amp;#39;SESSION_SECRET&amp;#39;) { &amp;#39;&amp;lt;your current secret&amp;gt;&amp;#39; }&lt;/code&gt;. &lt;code&gt;SESSION_SECRET&lt;/code&gt; must be 64 characters or more (&lt;code&gt;padrino rake secret&lt;/code&gt; prints one). An empty or shorter value makes every request fail with a 500.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Admin:&lt;/strong&gt; to move to Bootstrap 3.4.1, generate an admin in a scratch project and copy &lt;code&gt;public/admin/stylesheets/bootstrap.css&lt;/code&gt;, &lt;code&gt;application.css&lt;/code&gt; and &lt;code&gt;public/admin/javascripts/bootstrap/*&lt;/code&gt; together. Carry over any changes you made to &lt;code&gt;application.css&lt;/code&gt;; Font Awesome moved into it. Bootstrap 3.4.1 sanitizes HTML in tooltips and popovers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smaller fixes in generated files&lt;/strong&gt;, if they apply to your project:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;cucumber.yml:&lt;/strong&gt; use &lt;code&gt;--tags &amp;#39;not @wip&amp;#39;&lt;/code&gt;, and drop &lt;code&gt;--strict&lt;/code&gt; on cucumber 12.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bacon:&lt;/strong&gt; add &lt;code&gt;Bacon.summary_on_exit&lt;/code&gt; after the boot line in &lt;code&gt;test/test_config.rb&lt;/code&gt;, so a failing suite exits non-zero.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sequel on Postgres or MySQL:&lt;/strong&gt; add &lt;code&gt;test: false&lt;/code&gt; to the &lt;code&gt;Sequel.connect&lt;/code&gt; calls in &lt;code&gt;config/database.rb&lt;/code&gt;, so &lt;code&gt;rake sq:create&lt;/code&gt; can create a missing database.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mongoid 9:&lt;/strong&gt; add &lt;code&gt;Time.zone_default ||= Time.find_zone!(&amp;#39;UTC&amp;#39;)&lt;/code&gt; to &lt;code&gt;config/database.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run your test suite and boot the app.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required, as in 0.17.&lt;/p&gt;
+</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-18-0/</guid>
+    </item>
+    <item>
       <title>Padrino 0.17.0 release</title>
       <link>http://padrinorb.com/blog/padrino-0-17-0/</link>
       <description>&lt;p&gt;Padrino 0.17.0 is out. It runs on Ruby 4.0 and HAML 6 and 7, adds Falcon, Vite and Tailwind CSS to the generators, and fixes a long list of bugs in the generators, the mailer, the reloader and the ActiveRecord rake tasks. It also removes generators for ORMs that are no longer maintained, so read the breaking changes below before you upgrade.&lt;/p&gt;
@@ -164,21 +277,6 @@ in touch with the community.&lt;/p&gt;
 </description>
       <pubDate>Mon, 4 Feb 2019 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/gitter/</guid>
-    </item>
-    <item>
-      <title>Padrino 0.14.4 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-14-4/</link>
-      <description>&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2177" title="#2177"&gt;#2177&lt;/a&gt; regexp routes and trailing slashes (&lt;a href="https://github.com/pdlug" title="pdlug"&gt;pdlug&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2182" title="#2182"&gt;#2182&lt;/a&gt; NoMethodError on &lt;code&gt;ar&lt;/code&gt; tasks with activerecord v5.2.0 (&lt;a href="https://github.com/sue445" title="sue445"&gt;sue445&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2185" title="#2185"&gt;#2185&lt;/a&gt; self.authenticate method in mongoid.rb.tt (&lt;a href="https://github.com/LarryFransson" title="LarryFransson"&gt;LarryFransson&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2179" title="#2179"&gt;#2179&lt;/a&gt; Deprecate safe_level of &lt;code&gt;ERB.new&lt;/code&gt; in Ruby 2.6 (&lt;a href="https://github.com/koic" title="koic"&gt;koic&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2193" title="#2193"&gt;#2193&lt;/a&gt; nested require_dependencies (&lt;a href="https://github.com/genkami" title="genkami"&gt;genkami&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-14-4/</guid>
     </item>
   </channel>
 </rss>

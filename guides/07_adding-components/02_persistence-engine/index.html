@@ -58,8 +58,8 @@ ORM is added later with <code>padrino g component --orm=myorm</code>.</li>
 </ul>
 
 <p>The model and migration generators call all of these, so define each one. An
-ORM without migrations leaves the last two empty, as the Mongoid and Ohm
-components do.</p>
+ORM without migrations leaves the last two empty, as the Mongoid component
+does.</p>
 
 <p>Here is the Sequel component,
 <a href="https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-gen/lib/padrino-gen/generators/components/orms/sequel.rb">padrino-gen/generators/components/orms/sequel.rb</a>:</p>
@@ -232,11 +232,11 @@ also work with Padrino Admin, so that <code>padrino g admin</code> and
 <code>padrino g admin_page</code> generate a working dashboard. This is <strong>highly</strong> recommended.</p>
 <h2 id="padrino-admin-support">Padrino Admin Support</h2>
 <p>First, add <code>:myorm</code> to the list returned by <code>supported_orm</code> in
-<a href="https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/lib/padrino-admin/generators/actions.rb#L29-L31">padrino-admin/generators/actions.rb</a>.
+<a href="https://github.com/padrino/padrino-framework/blob/f64b4c3ffc1e1e2febbb66007ac3016cc617530b/padrino-admin/lib/padrino-admin/generators/actions.rb#L29-L31">padrino-admin/generators/actions.rb</a>.
 <code>padrino g admin</code> refuses to run for an ORM that isn&#39;t in this list.</p>
 
 <p>Next, teach the <code>Orm</code> class in
-<a href="https://github.com/padrino/padrino-framework/blob/0.17.0/padrino-admin/lib/padrino-admin/generators/orm.rb">padrino-admin/generators/orm.rb</a>
+<a href="https://github.com/padrino/padrino-framework/blob/f64b4c3ffc1e1e2febbb66007ac3016cc617530b/padrino-admin/lib/padrino-admin/generators/orm.rb">padrino-admin/generators/orm.rb</a>
 how to talk to your models. The admin controller and view templates call its
 methods to get the Ruby code they write out. Most of them branch on the ORM
 name. These are the Sequel branches:</p>
@@ -255,7 +255,7 @@ name. These are the Sequel branches:</p>
 <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
   <span class="k">case</span> <span class="n">orm</span>
   <span class="c1"># ...truncated...</span>
-  <span class="k">when</span> <span class="ss">:sequel</span><span class="p">,</span> <span class="ss">:ohm</span> <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">[</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">]"</span>
+  <span class="k">when</span> <span class="ss">:sequel</span> <span class="k">then</span> <span class="s2">"</span><span class="si">#{</span><span class="n">klass_name</span><span class="si">}</span><span class="s2">[</span><span class="si">#{</span><span class="n">params</span><span class="si">}</span><span class="s2">]"</span>
   <span class="k">else</span> <span class="k">raise</span> <span class="no">OrmError</span><span class="p">,</span> <span class="s2">"Adapter </span><span class="si">#{</span><span class="n">orm</span><span class="si">}</span><span class="s2"> is not yet supported!"</span>
   <span class="k">end</span>
 <span class="k">end</span>

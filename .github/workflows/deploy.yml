@@ -19,7 +19,8 @@ permissions:
 jobs:
   build:
     name: Build site
-    runs-on: ubuntu-latest
+    # ubuntu-latest is ubuntu-26.04, which has no build of the Ruby in .ruby-version (3.1)
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     concurrency:
       group: build-${{ github.ref }}

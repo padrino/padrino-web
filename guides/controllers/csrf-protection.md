@@ -14,7 +14,7 @@ every app in `config/apps.rb`:
 
 ```ruby
 Padrino.configure_apps do
-  set :session_secret, '...'
+  set :session_secret, ENV.fetch('SESSION_SECRET') { '...' }
   set :protection, except: :path_traversal
   set :protect_from_csrf, Padrino.env != :test
 end

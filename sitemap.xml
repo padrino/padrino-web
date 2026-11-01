@@ -482,7 +482,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/getting-started/blog-tutorial/</loc>
-    <lastmod>2026-10-31T02:00:31+00:00</lastmod>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -506,7 +506,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/advanced-usage/running-padrino-on-jruby/</loc>
-    <lastmod>2026-10-31T02:00:31+00:00</lastmod>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -518,7 +518,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/advanced-usage/extending-padrino-projects/</loc>
-    <lastmod>2026-10-31T02:00:31+00:00</lastmod>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -548,7 +548,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/advanced-usage/3rd-party-plugins/</loc>
-    <lastmod>2026-10-31T02:00:31+00:00</lastmod>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -632,7 +632,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/introduction/the-bleeding-edge/</loc>
-    <lastmod>2026-10-31T02:00:31+00:00</lastmod>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -872,7 +872,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/features/padrino-cache/</loc>
-    <lastmod>2026-10-14T19:22:12+00:00</lastmod>
+    <lastmod>2026-11-01T00:30:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -902,7 +902,7 @@
   </url>
   <url>
     <loc>https://padrinorb.com/guides/features/development-commands/</loc>
-    <lastmod>2026-10-31T02:00:31+00:00</lastmod>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

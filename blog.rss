@@ -5,6 +5,42 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
+      <title>Padrino 0.18.1 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-18-1/</link>
+      <description>&lt;p&gt;Padrino 0.18.1 is a patch release with security fixes for page caching and for generated admin apps, and a fix for the Active Record database tasks. Upgrade with &lt;code&gt;bundle update padrino&lt;/code&gt;. Admin apps you generated before need a small manual edit, described below, because generated code isn&amp;#39;t updated by a gem upgrade.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Page caching.&lt;/strong&gt; A &lt;code&gt;cache_key&lt;/code&gt; or &lt;code&gt;expires&lt;/code&gt; set while handling a request was stored on the route and reused by later requests, so a key built from the request (&lt;code&gt;cache_key &amp;quot;post-#{params[:id]}&amp;quot;&lt;/code&gt;) could make another visitor receive that request&amp;#39;s cached page. A String key and the expiry now belong to the request that set them. A cached page is also now served only after the route&amp;#39;s &lt;code&gt;before&lt;/code&gt; filters and conditions have run, so access checks written in a &lt;code&gt;controller&lt;/code&gt; block or as route conditions apply to cached pages too (&lt;a href="https://github.com/padrino/padrino-framework/pull/2448"&gt;#2448&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Admin login bypass removed.&lt;/strong&gt; The sessions controller that &lt;code&gt;padrino g admin&lt;/code&gt; generates logged in as the first account when a &lt;code&gt;bypass&lt;/code&gt; parameter was sent and the app ran in development, and the login page showed a &amp;quot;Bypass login?&amp;quot; checkbox. An app started without &lt;code&gt;RACK_ENV&lt;/code&gt; runs in development, so a deployment that leaves &lt;code&gt;RACK_ENV&lt;/code&gt; unset accepted the bypass from anyone. New admin apps no longer have it (&lt;a href="https://github.com/padrino/padrino-framework/pull/2445"&gt;#2445&lt;/a&gt;; reported by &lt;code&gt;@achiurizo&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mongoid account lookup.&lt;/strong&gt; The generated Mongoid &lt;code&gt;Account.authenticate&lt;/code&gt; matched any part of an email address, so it could pick the wrong account. It now matches the whole address, ignoring case, like the Active Record and Sequel models (&lt;a href="https://github.com/padrino/padrino-framework/pull/2445"&gt;#2445&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Active Record database tasks.&lt;/strong&gt; &lt;code&gt;rake db:migrate&lt;/code&gt; (&lt;code&gt;ar:migrate&lt;/code&gt;), &lt;code&gt;ar:schema:dump&lt;/code&gt; and &lt;code&gt;ar:structure:dump&lt;/code&gt; create &lt;code&gt;db/&lt;/code&gt; when it is missing, so a new &lt;code&gt;-d activerecord&lt;/code&gt; project on Postgres or MySQL can migrate before it has a model (&lt;a href="https://github.com/padrino/padrino-framework/pull/2433"&gt;#2433&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-18-0"&gt;Upgrading from 0.18.0&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;bundle update padrino&lt;/code&gt;. If your Gemfile pins &lt;code&gt;0.18.0&lt;/code&gt;, change it to &lt;code&gt;~&amp;gt; 0.18.1&lt;/code&gt; first. If it lists the &lt;code&gt;padrino-*&lt;/code&gt; gems instead of &lt;code&gt;padrino&lt;/code&gt; (as &lt;code&gt;--api&lt;/code&gt; projects do), set each to &lt;code&gt;~&amp;gt; 0.18.1&lt;/code&gt; and update them by name: &lt;code&gt;bundle update padrino-core padrino-gen&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If your project has a generated admin, edit two files (under the directory you named with &lt;code&gt;-a&lt;/code&gt;, if not &lt;code&gt;admin/&lt;/code&gt;):
+
+&lt;ul&gt;
+&lt;li&gt;In &lt;code&gt;admin/controllers/sessions.rb&lt;/code&gt;, delete the branch that starts with &lt;code&gt;elsif Padrino.env == :development &amp;amp;&amp;amp; params[:bypass]&lt;/code&gt; and its three lines.&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;admin/views/sessions/new.*&lt;/code&gt;, delete the &lt;code&gt;fieldset&lt;/code&gt; that holds the bypass checkbox (&lt;code&gt;check_box_tag :bypass&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;If you use page caching (&lt;code&gt;cache: true&lt;/code&gt;):
+
+&lt;ul&gt;
+&lt;li&gt;A String &lt;code&gt;cache_key&lt;/code&gt; set inside a route handler now names only that request&amp;#39;s entry, so it no longer produces cache hits. Set it in a &lt;code&gt;before&lt;/code&gt; filter instead, or use a block that reads &lt;code&gt;params&lt;/code&gt; (&lt;code&gt;cache_key { &amp;quot;post-#{params[:id]}&amp;quot; }&lt;/code&gt;). A block runs again for each request, so it must read &lt;code&gt;params&lt;/code&gt; or &lt;code&gt;request&lt;/code&gt;, not the handler&amp;#39;s local variables.&lt;/li&gt;
+&lt;li&gt;A Symbol key (&lt;code&gt;cache_key :my_name&lt;/code&gt;) is one entry shared by every request of the route: set it unconditionally, and only on routes whose page is the same for everyone.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;before&lt;/code&gt; filters in a &lt;code&gt;controller&lt;/code&gt; block and route conditions now also run when the page comes from the cache.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;If your admin uses Mongoid, change the lookup in &lt;code&gt;models/account.rb&lt;/code&gt; (or the model you named with &lt;code&gt;-m&lt;/code&gt;) to &lt;code&gt;account = where(email: /\A#{Object::Regexp.escape(email)}\z/i).first if email.present?&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Make sure production sets &lt;code&gt;RACK_ENV=production&lt;/code&gt;. Running a deployment in development also turns on code reloading and detailed error pages.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
+</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-18-1/</guid>
+    </item>
+    <item>
       <title>Padrino 0.18.0 release</title>
       <link>http://padrinorb.com/blog/padrino-0-18-0/</link>
       <description>&lt;p&gt;Padrino 0.18.0 is out. It fixes a long list of bugs in the generators and the database rake tasks, makes generated apps safer by default, and adds &lt;code&gt;rake db:dump&lt;/code&gt;. It also removes four generator components (the Ohm, MiniRecord and Dynamoid ORMs and Less) whose projects no longer work with current gems, so read the breaking changes below before you upgrade.&lt;/p&gt;
@@ -256,27 +292,6 @@ the shape of a ruby (see below)&lt;/p&gt;
 </description>
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/story-behind-padrino-logo/</guid>
-    </item>
-    <item>
-      <title>Gitter chat window</title>
-      <link>http://padrinorb.com/blog/gitter/</link>
-      <description>&lt;p&gt;&lt;em&gt;Update: the Gitter window has since been removed from the website. Questions are welcome as &lt;a href="https://github.com/padrino/padrino-framework/issues"&gt;GitHub issues&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Gitter is now available at the right bottom on every page. This makes it easier for people to ask questions and better
-in touch with the community.&lt;/p&gt;
-
-&lt;p&gt;Here is a picture of the window:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="https://user-images.githubusercontent.com/264708/52076878-f6a3ed00-258f-11e9-8a04-a92263ccc11d.png" title="Gitter window on the homepage"&gt;&lt;/p&gt;
-
-&lt;p&gt;And another pictures when the window is opened:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="https://user-images.githubusercontent.com/264708/52076890-fefc2800-258f-11e9-8142-8569ba3e2b2b.png" title="Gitte window opened"&gt;&lt;/p&gt;
-
-&lt;p&gt;Hope you enjoy this small improvement on the website.&lt;/p&gt;
-</description>
-      <pubDate>Mon, 4 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/gitter/</guid>
     </item>
   </channel>
 </rss>

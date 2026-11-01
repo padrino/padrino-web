@@ -157,6 +157,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://padrinorb.com/blog/padrino-0-18-1/</loc>
+    <lastmod>2026-11-01T00:09:23+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://padrinorb.com/blog/fikus-cms/</loc>
     <lastmod>2016-02-19T07:34:18+00:00</lastmod>
     <changefreq>weekly</changefreq>

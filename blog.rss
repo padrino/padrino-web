@@ -5,6 +5,33 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
+      <title>Padrino 0.18.3 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-18-3/</link>
+      <description>&lt;p&gt;Padrino 0.18.3 is a security release. Request paths are now compared the way the router matches them in &lt;code&gt;before&lt;/code&gt;/&lt;code&gt;after&lt;/code&gt; filters, &lt;code&gt;protect_from_csrf&lt;/code&gt; &lt;code&gt;except:&lt;/code&gt; entries and padrino-admin access rules, and form tokens written on CSRF-exempt pages are accepted again. Everyone on 0.18.x should upgrade. Thanks to &lt;code&gt;@achiurizo&lt;/code&gt; for finding and fixing these with us. The advisories, &lt;a href="https://github.com/padrino/padrino-framework/security/advisories/GHSA-gxmf-3hr3-52rc"&gt;GHSA-gxmf-3hr3-52rc&lt;/a&gt; (padrino-core) and &lt;a href="https://github.com/padrino/padrino-framework/security/advisories/GHSA-2v9v-xpxc-g5p4"&gt;GHSA-2v9v-xpxc-g5p4&lt;/a&gt; (padrino-admin), have the details.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Request paths in one place.&lt;/strong&gt; Static files, filters, &lt;code&gt;protect_from_csrf&lt;/code&gt; &lt;code&gt;except:&lt;/code&gt; entries and padrino-admin &lt;code&gt;protect&lt;/code&gt;/&lt;code&gt;allow&lt;/code&gt; rules now share one tested helper and compare the request path in the forms the router matches; compiled routes match the whole path (&lt;a href="https://github.com/padrino/padrino-framework/pull/2492"&gt;#2492&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Form tokens.&lt;/strong&gt; With &lt;code&gt;disable :protection&lt;/code&gt; (or without &lt;code&gt;:remote_token&lt;/code&gt;), the token &lt;code&gt;form_tag&lt;/code&gt;, &lt;code&gt;csrf_token_field&lt;/code&gt; and &lt;code&gt;csrf_meta_tags&lt;/code&gt; write on a &lt;code&gt;protect_from_csrf except:&lt;/code&gt; page is accepted by later POSTs instead of returning 403 (&lt;a href="https://github.com/padrino/padrino-framework/pull/2507"&gt;#2507&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-18-2"&gt;Upgrading from 0.18.2&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;In your Gemfile, change &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;0.18.2&amp;#39;&lt;/code&gt; to &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.18.3&amp;#39;&lt;/code&gt;, then run &lt;code&gt;bundle update padrino&lt;/code&gt; (or, if it lists the &lt;code&gt;padrino-*&lt;/code&gt; gems, set each to &lt;code&gt;~&amp;gt; 0.18.3&lt;/code&gt; and update them by name).&lt;/li&gt;
+&lt;li&gt;Check these, as listed in the &lt;a href="https://github.com/padrino/padrino-framework/blob/0.18-stable/CHANGES.rdoc"&gt;changelog&lt;/a&gt;:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Filter paths:&lt;/strong&gt; write a filter&amp;#39;s path decoded (&lt;code&gt;before(&amp;#39;/café&amp;#39;)&lt;/code&gt;). A filter that redirects to the same path with a format or a trailing slash can loop, so check &lt;code&gt;request.path_info&lt;/code&gt; first. A path filter also runs for forms of its path that other routes serve, so a filter that only sets state for a later check should name its route instead (&lt;code&gt;before(:list)&lt;/code&gt; with &lt;code&gt;get(:list)&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;except:&lt;/code&gt; entries:&lt;/strong&gt; write &lt;code&gt;protect_from_csrf&lt;/code&gt; and filter &lt;code&gt;except:&lt;/code&gt; paths as exact decoded Strings. A Regexp entry such as &lt;code&gt;/\.json\z/&lt;/code&gt; or &lt;code&gt;%r{\A/hooks/}&lt;/code&gt; may no longer exempt a POST it used to; list that path as a String, or set &lt;code&gt;csrf_protection: false&lt;/code&gt; on its route together with &lt;code&gt;enable :allow_disabled_csrf&lt;/code&gt; in the app.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;padrino-admin:&lt;/strong&gt; &lt;code&gt;protect&lt;/code&gt; Regexps can deny more paths than before; &lt;code&gt;allow&lt;/code&gt; a path to keep it allowed.&lt;/li&gt;
+&lt;li&gt;A request path that decodes to a newline gets 404.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
+</description>
+      <pubDate>Tue, 3 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-18-3/</guid>
+    </item>
+    <item>
       <title>Padrino 0.18.2 release</title>
       <link>http://padrinorb.com/blog/padrino-0-18-2/</link>
       <description>&lt;p&gt;Padrino 0.18.2 is a patch release with fixes for apps in directories Padrino mistook for libraries, the Erubis crash with newer Tilt, &lt;code&gt;--api&lt;/code&gt; projects, nested controllers, the generated admin and the generators. To upgrade, change the version in your Gemfile and run &lt;code&gt;bundle update&lt;/code&gt; (details below). Thanks to &lt;code&gt;@achiurizo&lt;/code&gt; for many of these fixes. One change can affect existing apps (nested &lt;code&gt;controller&lt;/code&gt; blocks, below), and generated admin and &lt;code&gt;--api&lt;/code&gt; code isn&amp;#39;t updated by a gem upgrade, so a few manual edits are listed under &amp;quot;Upgrading&amp;quot;.&lt;/p&gt;
@@ -254,45 +281,6 @@
 </description>
       <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/padrino-0-16-2/</guid>
-    </item>
-    <item>
-      <title>Padrino 0.16.0 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-16-0/</link>
-      <description>&lt;p&gt;We are pleased to announce the official release of Padrino 0.16.0, the first major release in several years. This release was made possible by the contributions of &lt;code&gt;@achiurizo&lt;/code&gt;, &lt;code&gt;@olleolleolle&lt;/code&gt;, &lt;code&gt;@crashtech&lt;/code&gt;, and many others.&lt;/p&gt;
-
-&lt;p&gt;Padrino 0.16.0 primarily modernizes the framework to ensure compatibility with the latest versions of Ruby, Sinatra, and Rack. We&amp;#39;ve shared more details about this release below.&lt;/p&gt;
-&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2308" title="#2308"&gt;#2308&lt;/a&gt;, &lt;a href="https://github.com/padrino/padrino-framework/pull/2310" title="#2310"&gt;#2310&lt;/a&gt; Code modernization. Codebase is now passing Rubocop (11 offenses only) and generator&amp;#39;s templates are using modern syntax (@crashtech)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Specs are now passing for Ruby 3.4 (@crashtech)&lt;/li&gt;
-&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Added what HTTP Server to use as an option when generating a new project (@crashtech)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Added the HTTP Server to Gemfile as Ruby 3.0 removed WEBrick from the standard library (@crashtech)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2306" title="#2306"&gt;#2306&lt;/a&gt; Patch &lt;code&gt;Padrino.core&lt;/code&gt; by filtering any &amp;#39;core&lt;em&gt;ext/kernel&lt;/em&gt;require&amp;#39; (common pattern for gems that override Kernel#require) from caller entries (@crashtech)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2294" title="#2294"&gt;#2294&lt;/a&gt; Make &lt;code&gt;detect_rack_handler&lt;/code&gt; compatible with Rack 3 (@osbre)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2292" title="#2292"&gt;#2292&lt;/a&gt; Fixes to README and cleanup (@olleolleolle)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2290" title="#2290"&gt;#2290&lt;/a&gt; Fixes nil error with latest Rack (@nesquena)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2287" title="#2287"&gt;#2287&lt;/a&gt; Bump to rack ~&amp;gt;3 and add rack to gemspec (@achirizo)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2286" title="#2286"&gt;#2286&lt;/a&gt; Bump moneta to 1.6 (@achirizo)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2282" title="#2282"&gt;#2282&lt;/a&gt; Remove FakeWeb, use Webmock (@achiurizo)&lt;/li&gt;
-&lt;li&gt;NEW &lt;a href="https://github.com/padrino/padrino-framework/pull/2279" title="#2279"&gt;#2279&lt;/a&gt; Initial Rubocop setup (@achiurizo)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2277" title="#2277"&gt;#2277&lt;/a&gt; Upgrade deprecations and support Ruby 3.2 (@achiurizo)&lt;/li&gt;
-&lt;li&gt;FIX &lt;a href="https://github.com/padrino/padrino-framework/pull/2276" title="#2276"&gt;#2276&lt;/a&gt; Rename MiniTest to Minitest (@kevin-j-m)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="new-dependencies-versions"&gt;New dependencies versions&lt;/h2&gt;
-&lt;p&gt;Padrino v0.16 now requires Ruby &amp;gt;= 2.7.8. This change aligns us with Sinatra ~&amp;gt; 4.0, which we have also changed in this release. Consequently, this upgrade also requires an upgrade to Rack &amp;gt;= 3.0. These updates ensure that Padrino applications are running on secure, modern foundations and can leverage the latest performance improvements and features available from its dependencies.&lt;/p&gt;
-&lt;h2 id="http-server-configuration"&gt;HTTP Server Configuration&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This is the only breaking change in this release.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code&gt;WEBrick&lt;/code&gt; has been removed from the Ruby Standard Library as of Ruby 3.0. This means that applications relying on the default HTTP server will encounter issues when running on Ruby versions 3.0 and above. To upgrade properly, Padrino now requires developers to explicitly specify their preferred HTTP server in the Gemfile. If your application does not have a manual HTTP server defined, add &lt;code&gt;gem &amp;#39;webrick&amp;#39;&lt;/code&gt; to your Gemfile.&lt;/p&gt;
-
-&lt;p&gt;When creating a new Padrino application, you can choose a HTTP server with the &lt;code&gt;--server&lt;/code&gt; (&lt;code&gt;-s&lt;/code&gt;) option. The full set of options are: &lt;code&gt;thin&lt;/code&gt;, &lt;code&gt;puma&lt;/code&gt;, &lt;code&gt;spider-gazelle&lt;/code&gt;, &lt;code&gt;mongrel&lt;/code&gt;, &lt;code&gt;trinidad&lt;/code&gt; (JRuby), and &lt;code&gt;webrick&lt;/code&gt; (default).&lt;/p&gt;
-&lt;h2 id="codebase-updates-for-ruby-3-4"&gt;Codebase Updates for Ruby 3.4&lt;/h2&gt;
-&lt;p&gt;We have performed a comprehensive refactoring of the codebase. Both the internal Padrino code and the code generated by our scaffolding tools have been updated to align with the syntax and best practices of Ruby 3.4. This ensures a cleaner, more efficient codebase and provides a better developer experience when working with generated files.&lt;/p&gt;
-</description>
-      <pubDate>Tue, 2 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-16-0/</guid>
     </item>
   </channel>
 </rss>

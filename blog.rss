@@ -5,6 +5,36 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
+      <title>Padrino 0.18.4 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-18-4/</link>
+      <description>&lt;p&gt;Padrino 0.18.4 is a security and performance release. On some text, &lt;code&gt;highlight&lt;/code&gt; took time that grew much faster than the text, so a few kilobytes could hold a request for seconds; it now takes time in proportion to the text. Everyone on 0.18.x who calls &lt;code&gt;highlight&lt;/code&gt; on text that visitors can influence, such as search results, should upgrade. Thanks to &lt;code&gt;@NotAFlightRisk&lt;/code&gt; for reporting it. The advisory, &lt;a href="https://github.com/padrino/padrino-framework/security/advisories/GHSA-3345-9xcr-8cjw"&gt;GHSA-3345-9xcr-8cjw&lt;/a&gt; (padrino-helpers), has the details.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;highlight&lt;/code&gt; and &lt;code&gt;number_with_delimiter&lt;/code&gt; on long text.&lt;/strong&gt; Both take time in proportion to their input. &lt;code&gt;highlight&lt;/code&gt; splits the text into tags and the text between them and highlights only the text, so it no longer puts highlight markup inside a tag name, a closing tag or a quoted attribute (&lt;a href="https://github.com/padrino/padrino-framework/pull/2517"&gt;#2517&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faster tag helpers.&lt;/strong&gt; &lt;code&gt;tag&lt;/code&gt;, &lt;code&gt;content_tag&lt;/code&gt; and the helpers built on them (&lt;code&gt;link_to&lt;/code&gt;, form fields, ...) render faster, with unchanged output (&lt;a href="https://github.com/padrino/padrino-framework/pull/2506"&gt;#2506&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faster block helpers.&lt;/strong&gt; Helpers that take a block check whether it comes from a template without evaluating code (&lt;a href="https://github.com/padrino/padrino-framework/pull/2505"&gt;#2505&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faster number helpers.&lt;/strong&gt; &lt;code&gt;number_to_currency&lt;/code&gt;, &lt;code&gt;number_to_percentage&lt;/code&gt;, &lt;code&gt;number_to_human_size&lt;/code&gt; and &lt;code&gt;number_with_precision&lt;/code&gt; look up the locale&amp;#39;s formats only for the options you leave out (&lt;a href="https://github.com/padrino/padrino-framework/pull/2503"&gt;#2503&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mailer templates compiled once.&lt;/strong&gt; With &lt;code&gt;reload_templates&lt;/code&gt; off, mailer templates rendered by name are compiled once and reused across deliveries (&lt;a href="https://github.com/padrino/padrino-framework/pull/2501"&gt;#2501&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-18-3"&gt;Upgrading from 0.18.3&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;In your Gemfile, change &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.18.3&amp;#39;&lt;/code&gt; (or &lt;code&gt;&amp;#39;0.18.3&amp;#39;&lt;/code&gt;) to &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.18.4&amp;#39;&lt;/code&gt;, then run &lt;code&gt;bundle update padrino&lt;/code&gt; (or, if it lists the &lt;code&gt;padrino-*&lt;/code&gt; gems, set each to &lt;code&gt;~&amp;gt; 0.18.4&lt;/code&gt; and update them by name).&lt;/li&gt;
+&lt;li&gt;Check these, as listed in the &lt;a href="https://github.com/padrino/padrino-framework/blob/0.18-stable/CHANGES.rdoc"&gt;changelog&lt;/a&gt;:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;highlight&lt;/code&gt;:&lt;/strong&gt; a &lt;code&gt;&amp;lt;&lt;/code&gt; followed by an ASCII letter, &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;!&lt;/code&gt; or &lt;code&gt;?&lt;/code&gt; starts a tag, as in a browser, so in unescaped text such as &lt;code&gt;x&amp;lt;y and y&lt;/code&gt; the words after &lt;code&gt;x&amp;lt;y&lt;/code&gt; aren&amp;#39;t highlighted up to the next &lt;code&gt;&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;number_with_delimiter&lt;/code&gt;:&lt;/strong&gt; the delimiter is inserted as given; a backslash in it is no longer read as a back-reference.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;block_is_template?&lt;/code&gt;&lt;/strong&gt; returns &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt; for a block in a template, instead of a string or &lt;code&gt;nil&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mailer templates:&lt;/strong&gt; with &lt;code&gt;reload_templates&lt;/code&gt; off (the default outside development), an edited mailer template takes effect only after the process restarts.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
+</description>
+      <pubDate>Wed, 4 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-18-4/</guid>
+    </item>
+    <item>
       <title>Padrino 0.18.3 release</title>
       <link>http://padrinorb.com/blog/padrino-0-18-3/</link>
       <description>&lt;p&gt;Padrino 0.18.3 is a security release. Request paths are now compared the way the router matches them in &lt;code&gt;before&lt;/code&gt;/&lt;code&gt;after&lt;/code&gt; filters, &lt;code&gt;protect_from_csrf&lt;/code&gt; &lt;code&gt;except:&lt;/code&gt; entries and padrino-admin access rules, and form tokens written on CSRF-exempt pages are accepted again. Everyone on 0.18.x should upgrade. Thanks to &lt;code&gt;@achiurizo&lt;/code&gt; for finding and fixing these with us. The advisories, &lt;a href="https://github.com/padrino/padrino-framework/security/advisories/GHSA-gxmf-3hr3-52rc"&gt;GHSA-gxmf-3hr3-52rc&lt;/a&gt; (padrino-core) and &lt;a href="https://github.com/padrino/padrino-framework/security/advisories/GHSA-2v9v-xpxc-g5p4"&gt;GHSA-2v9v-xpxc-g5p4&lt;/a&gt; (padrino-admin), have the details.&lt;/p&gt;
@@ -260,27 +290,6 @@
 </description>
       <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/padrino-0-17-0/</guid>
-    </item>
-    <item>
-      <title>Padrino 0.16.2 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-16-2/</link>
-      <description>&lt;p&gt;Padrino 0.16.2 is a maintenance release for apps that stay on 0.16 for now, such as Middleman sites, which require padrino-helpers below 0.17. It comes out alongside &lt;a href="/blog/padrino-0-17-0/"&gt;Padrino 0.17.0&lt;/a&gt; and has nothing else from 0.17.&lt;/p&gt;
-&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;HAML 6 and 7.&lt;/strong&gt; Block helpers such as &lt;code&gt;link_to ... do&lt;/code&gt;, &lt;code&gt;content_for&lt;/code&gt;, &lt;code&gt;form_tag&lt;/code&gt; and nested layouts no longer fail with &lt;code&gt;undefined method &amp;#39;block_is_haml?&amp;#39;&lt;/code&gt; in HAML 6 and 7 templates (&lt;a href="https://github.com/padrino/padrino-framework/pull/2317"&gt;#2317&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;; reported in &lt;a href="https://github.com/padrino/padrino-framework/issues/2322"&gt;#2322&lt;/a&gt; by &lt;code&gt;@kenchan&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Ruby 4.0.&lt;/strong&gt; padrino-core now depends on the &lt;code&gt;ostruct&lt;/code&gt; gem, which Ruby 4.0 no longer installs as a default gem; without it, a 0.16.1 app doesn&amp;#39;t boot under Bundler on Ruby 4.0. On Ruby 4.0, &lt;code&gt;padrino console&lt;/code&gt; also tells you to add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile instead of failing with a LoadError.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="upgrading-from-0-16-1"&gt;Upgrading from 0.16.1&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Run &lt;code&gt;bundle update padrino&lt;/code&gt; (in a Middleman site, &lt;code&gt;bundle update padrino-helpers&lt;/code&gt;). If your Gemfile pins &lt;code&gt;0.16.1&lt;/code&gt;, change it to &lt;code&gt;~&amp;gt; 0.16.2&lt;/code&gt; first.&lt;/li&gt;
-&lt;li&gt;On Ruby 4.0, add &lt;code&gt;gem &amp;#39;irb&amp;#39;&lt;/code&gt; to your Gemfile if you use &lt;code&gt;padrino console&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Ruby 4.0 comes with Bundler 4, which removed &lt;code&gt;bundle --binstubs&lt;/code&gt;. If Padrino 0.16 asks you to run it, use &lt;code&gt;bundle binstubs --all&lt;/code&gt; instead, or run commands with &lt;code&gt;bundle exec padrino&lt;/code&gt;. Padrino 0.17 gives the new instruction itself.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
-</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-16-2/</guid>
     </item>
   </channel>
 </rss>

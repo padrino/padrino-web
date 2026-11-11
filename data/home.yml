@@ -61,8 +61,8 @@ features:
     text: >-
       Padrino ships with an admin interface, akin to Django's, that includes account
       authentication and permission management. Create an admin page for any
-      model with one command. It works with ActiveRecord, Sequel, Mongoid and
-      more, and is translated into 21 languages.
+      model with one command. It works with ActiveRecord, Sequel and Mongoid,
+      and is translated into 21 languages.
     link: /guides/features/padrino-admin/
     link_text: Explore the admin
     file: Terminal
@@ -183,6 +183,7 @@ components:
     flag: server
     blank: WEBrick
     options:
+      - [thin, Thin]
       - [puma, Puma]
       - [falcon, Falcon]
 sinatra_code:

@@ -69,7 +69,7 @@ features:
     lang: shell
     code: |
       $ padrino g admin
-      # ActiveRecord and Sequel:
+      # Mongoid: skip db:migrate
       $ padrino rake db:migrate
       $ padrino rake db:seed
       $ padrino g admin_page post

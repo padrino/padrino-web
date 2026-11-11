@@ -69,6 +69,7 @@ features:
     lang: shell
     code: |
       $ padrino g admin
+      $ padrino g model post body:text
       # Mongoid: skip db:migrate
       $ padrino rake db:migrate
       $ padrino rake db:seed

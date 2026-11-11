@@ -70,10 +70,11 @@ features:
     code: |
       $ padrino g admin
       $ bundle
-      $ padrino g model post body:text
       # Mongoid: skip db:migrate
       $ padrino rake db:migrate
       $ padrino rake db:seed
+      $ padrino g model post body:text
+      $ padrino rake db:migrate
       $ padrino g admin_page post
       $ padrino start
       # => http://localhost:3000/admin

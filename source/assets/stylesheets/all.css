@@ -1680,6 +1680,13 @@ ul.post-list {
   outline-offset: -2px;
 }
 
+@media (max-width: 359px) {
+  .code-window__file,
+  .code-window pre {
+    padding-inline: 1rem;
+  }
+}
+
 /* Sections */
 
 .section {

@@ -1,397 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://padrinorb.com/blog/padrino-gets-interviewed-by-thechangelog/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-18-2/</loc>
-    <lastmod>2026-11-01T18:59:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-12-5/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-16-0/</loc>
-    <lastmod>2025-12-02T20:24:31+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/addressing-concerns-about-padrino/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-slides/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-welcomes-new-core-contributors/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-28-reloader-compatibility-and-bug-fixes/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-20-now-works-with-sinatra-1-2/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-6-activesupport-3-2-minirecord-html5-helpers-and-bug-fixes/</loc>
-    <lastmod>2026-10-14T06:13:46+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/o-reilly-sinatra-up-and-running-book/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-weekly-issue-1-announcing-padrino-weekly-changelog-podcast-0-9-11-13-released/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/upgrading-padrino-from-0-12-x-to-0-13-0-guide/</loc>
-    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-0-2/</loc>
-    <lastmod>2017-05-25T05:13:42+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-11-0-released-padrino-lives/</loc>
-    <lastmod>2026-10-15T06:57:32+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-13-3-2/</loc>
-    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-10-released-built-for-speed/</loc>
-    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-user-resources-and-screencasts/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-23-sinatra-1-2-compatibility/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-13-gets-pushed-early/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-29-stability-compatibility-and-bug-fix-release/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-0-1/</loc>
-    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-0-routing-upgrades-rbx-and-jruby-support-and-minor-breaking-changes/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-2-activesupport-3-1-travisci-support-routing-and-misc-bug-fixes-galore/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-3-sinatra-1-3-documentation-minitest-improved-logger-and-more/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-moving-forward/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/euruko-2011-is-coming-who-s-up-for-a-meeting/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-18-1/</loc>
-    <lastmod>2026-11-01T00:09:23+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-18-4/</loc>
-    <lastmod>2026-11-04T23:33:10+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/fikus-cms/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-16-2/</loc>
-    <lastmod>2026-10-15T05:42:36+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/dario-cravero-joins-the-padrino-core-team/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://padrinorb.com/blog/padrino-0-9-19-sinatra-1-1-compat-screencast/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/thank-you-steve/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/code-tv-padrino-code-school/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-12-6-backport-and-bug-fixes/</loc>
-    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-2/</loc>
-    <lastmod>2018-05-08T17:18:22+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/gitter/</loc>
-    <lastmod>2026-10-14T07:58:22+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-3/</loc>
-    <lastmod>2018-12-14T18:45:17+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-18-0/</loc>
-    <lastmod>2026-10-31T01:50:50+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-4/</loc>
-    <lastmod>2019-01-14T19:07:50+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-11-release-overview/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-12-4/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-18-fixes/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-16-important-hotfixes-to-the-admin/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/story-behind-padrino-logo/</loc>
-    <lastmod>2020-09-13T18:52:07+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/upgrade-rack-immediately/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-9-released-with-screencast/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-21-nested-forms-translations-and-more/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-17-0/</loc>
-    <lastmod>2026-10-15T05:42:36+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-7-reloader-jruby-helpers-and-other-bug-fixes/</loc>
-    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-17/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/hosting-our-first-padrino-meetup-in-san-francisco/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-27-project-settings-routing-compatibility-and-bug-fixes/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-13-1-router-reloader-updates-ruby-compatibility-and-bug-fixes/</loc>
-    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/introducing-padrino/</loc>
-    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/upgrading-padrino-from-0-11-x-to-0-12-0-guide/</loc>
-    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-and-omniauth-overview/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-13-3/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-1/</loc>
-    <lastmod>2017-06-21T19:42:46+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-4-hot-fix-release-yard-documentation-and-more/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-26-hotfix-release/</loc>
-    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-14-important-hotfixes/</loc>
-    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-weekly-issue-2-simple-apps-website-now-open-source/</loc>
-    <lastmod>2016-04-30T17:03:39+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/sleep-well-yaml-vulnerabilites-and-padrino/</loc>
-    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/new-website/</loc>
     <lastmod>2026-10-13T20:24:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -403,44 +13,20 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/blog/padrino-0-14-0/</loc>
-    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <loc>https://padrinorb.com/blog/padrino-0-14-1/</loc>
+    <lastmod>2017-06-21T19:42:46+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/blog/padrino-0-18-5/</loc>
-    <lastmod>2026-11-06T00:21:22+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-10-1-mongo-cache-store-routing-translation-and-bug-fixes/</loc>
-    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/looking-at-projects-using-padrino/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/json-gem-vulnerability/</loc>
+    <loc>https://padrinorb.com/blog/upgrade-rack-immediately/</loc>
     <lastmod>2016-02-19T07:34:18+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/blog/padrino-0-18-3/</loc>
-    <lastmod>2026-11-03T22:55:41+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/blog/padrino-0-13-0-mustermann-router-performance-enhancements-streaming-support-and-much-more/</loc>
-    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <loc>https://padrinorb.com/blog/gitter/</loc>
+    <lastmod>2026-10-14T07:58:22+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -451,7 +37,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/blog/padrino-0-9-22-quick-followup-release/</loc>
+    <loc>https://padrinorb.com/blog/padrino-0-9-11-release-overview/</loc>
     <lastmod>2026-10-13T19:57:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -463,8 +49,416 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/categories/</loc>
-    <lastmod>2026-10-13T17:08:48+00:00</lastmod>
+    <loc>https://padrinorb.com/blog/padrino-0-18-3/</loc>
+    <lastmod>2026-11-03T22:55:41+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/o-reilly-sinatra-up-and-running-book/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-26-hotfix-release/</loc>
+    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-13-0-mustermann-router-performance-enhancements-streaming-support-and-much-more/</loc>
+    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/addressing-concerns-about-padrino/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-13-1-router-reloader-updates-ruby-compatibility-and-bug-fixes/</loc>
+    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/euruko-2011-is-coming-who-s-up-for-a-meeting/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-14-0/</loc>
+    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-29-stability-compatibility-and-bug-fix-release/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-11-0-released-padrino-lives/</loc>
+    <lastmod>2026-10-15T06:57:32+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-18-2/</loc>
+    <lastmod>2026-11-01T18:59:06+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/fikus-cms/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-1-mongo-cache-store-routing-translation-and-bug-fixes/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-welcomes-new-core-contributors/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-2-activesupport-3-1-travisci-support-routing-and-misc-bug-fixes-galore/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-18-1/</loc>
+    <lastmod>2026-11-01T00:09:23+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-10-released-built-for-speed/</loc>
+    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/hosting-our-first-padrino-meetup-in-san-francisco/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/upgrading-padrino-from-0-12-x-to-0-13-0-guide/</loc>
+    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-13-3-2/</loc>
+    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-21-nested-forms-translations-and-more/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-moving-forward/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-gets-interviewed-by-thechangelog/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-weekly-issue-2-simple-apps-website-now-open-source/</loc>
+    <lastmod>2016-04-30T17:03:39+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-slides/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/dario-cravero-joins-the-padrino-core-team/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-14-0-2/</loc>
+    <lastmod>2017-05-25T05:13:42+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-4-hot-fix-release-yard-documentation-and-more/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-weekly-issue-1-announcing-padrino-weekly-changelog-podcast-0-9-11-13-released/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/thank-you-steve/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/upgrading-padrino-from-0-11-x-to-0-12-0-guide/</loc>
+    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-22-quick-followup-release/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/introducing-padrino/</loc>
+    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-16-0/</loc>
+    <lastmod>2025-12-02T20:24:31+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-0-routing-upgrades-rbx-and-jruby-support-and-minor-breaking-changes/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/new-website/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-18-fixes/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/sleep-well-yaml-vulnerabilites-and-padrino/</loc>
+    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-14-3/</loc>
+    <lastmod>2018-12-14T18:45:17+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-12-5/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-6-activesupport-3-2-minirecord-html5-helpers-and-bug-fixes/</loc>
+    <lastmod>2026-10-14T06:13:46+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-13-3/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-12-6-backport-and-bug-fixes/</loc>
+    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-and-omniauth-overview/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-3-sinatra-1-3-documentation-minitest-improved-logger-and-more/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-18-5/</loc>
+    <lastmod>2026-11-06T00:21:22+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-18-0/</loc>
+    <lastmod>2026-10-31T01:50:50+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-13-gets-pushed-early/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-20-now-works-with-sinatra-1-2/</loc>
+    <lastmod>2026-10-13T19:57:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-17-0/</loc>
+    <lastmod>2026-10-15T05:42:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-12-4/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-18-4/</loc>
+    <lastmod>2026-11-04T23:33:10+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-14-0-1/</loc>
+    <lastmod>2017-05-22T18:57:43+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-14-4/</loc>
+    <lastmod>2019-01-14T19:07:50+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-14-2/</loc>
+    <lastmod>2018-05-08T17:18:22+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/code-tv-padrino-code-school/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-16-important-hotfixes-to-the-admin/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-17/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-14-important-hotfixes/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/looking-at-projects-using-padrino/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-10-7-reloader-jruby-helpers-and-other-bug-fixes/</loc>
+    <lastmod>2026-10-13T19:56:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-16-2/</loc>
+    <lastmod>2026-10-15T05:42:36+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/json-gem-vulnerability/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-user-resources-and-screencasts/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-28-reloader-compatibility-and-bug-fixes/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/story-behind-padrino-logo/</loc>
+    <lastmod>2020-09-13T18:52:07+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-27-project-settings-routing-compatibility-and-bug-fixes/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-23-sinatra-1-2-compatibility/</loc>
+    <lastmod>2016-02-19T07:34:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/blog/padrino-0-9-9-released-with-screencast/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -487,6 +481,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://padrinorb.com/categories/</loc>
+    <lastmod>2026-10-13T17:08:48+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://padrinorb.com/guides/</loc>
     <lastmod>2016-03-17T05:06:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -499,20 +499,14 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/getting-started/installation/</loc>
-    <lastmod>2026-10-15T06:56:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/getting-started/blog-tutorial/</loc>
-    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://padrinorb.com/guides/getting-started/overview/</loc>
     <lastmod>2016-03-25T09:49:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/getting-started/installation/</loc>
+    <lastmod>2026-10-15T06:56:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -523,140 +517,86 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/grape-with-padrino/</loc>
-    <lastmod>2026-10-15T06:56:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/running-padrino-on-jruby/</loc>
+    <loc>https://padrinorb.com/guides/getting-started/blog-tutorial/</loc>
     <lastmod>2026-11-01T00:22:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/deployment/</loc>
-    <lastmod>2026-10-31T02:05:55+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/extending-padrino-projects/</loc>
-    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/asynchronous-concurrency-with-padrino/</loc>
-    <lastmod>2026-10-15T15:56:37+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/padrino-and-omniauth-overview/</loc>
-    <lastmod>2026-10-15T06:56:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/standalone-usage-in-sinatra/</loc>
-    <lastmod>2026-03-29T02:44:31+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/overview/</loc>
-    <lastmod>2026-10-14T19:43:38+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/advanced-usage/3rd-party-plugins/</loc>
-    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/sub-applications/</loc>
-    <lastmod>2026-10-15T07:25:58+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/tasks/</loc>
-    <lastmod>2016-02-21T20:39:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/mailers/</loc>
-    <lastmod>2026-10-15T06:33:44+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/models/</loc>
-    <lastmod>2026-10-17T22:09:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/controllers/</loc>
-    <lastmod>2026-10-15T06:33:44+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/overview/</loc>
-    <lastmod>2026-10-15T09:48:04+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/migrations/</loc>
-    <lastmod>2026-10-17T22:09:18+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/projects/</loc>
-    <lastmod>2026-10-15T15:56:37+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/generators/admin/</loc>
+    <loc>https://padrinorb.com/guides/application-helpers/form-builders/</loc>
     <lastmod>2026-10-14T19:22:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/generators/tiny-skeleton/</loc>
-    <lastmod>2016-02-19T09:22:25+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/application-helpers/render-helpers/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/generators/components/</loc>
-    <lastmod>2026-10-15T15:56:37+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/application-helpers/format-helpers/</loc>
+    <lastmod>2026-10-14T19:22:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/generators/plugins/</loc>
-    <lastmod>2026-10-15T04:00:07+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/application-helpers/output-helpers/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/introduction/press/</loc>
-    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/application-helpers/custom-helpers/</loc>
+    <lastmod>2016-03-27T18:29:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/introduction/the-bleeding-edge/</loc>
-    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/application-helpers/overview/</loc>
+    <lastmod>2016-04-18T10:41:17+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/form-helpers/</loc>
+    <lastmod>2026-10-15T09:48:04+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/tag-helpers/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/asset-helpers/</loc>
+    <lastmod>2026-10-15T09:48:04+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/custom-form-builders/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/standard-form-builder/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/nested-object-form-support/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/application-helpers/ujs-helpers/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -679,7 +619,157 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/controllers/routing/</loc>
+    <loc>https://padrinorb.com/guides/introduction/the-bleeding-edge/</loc>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/introduction/press/</loc>
+    <lastmod>2026-10-13T20:24:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/extending-padrino-projects/</loc>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/running-padrino-on-jruby/</loc>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/overview/</loc>
+    <lastmod>2026-10-14T19:43:38+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/padrino-and-omniauth-overview/</loc>
+    <lastmod>2026-10-15T06:56:59+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/3rd-party-plugins/</loc>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/grape-with-padrino/</loc>
+    <lastmod>2026-10-15T06:56:59+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/deployment/</loc>
+    <lastmod>2026-10-31T02:05:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/asynchronous-concurrency-with-padrino/</loc>
+    <lastmod>2026-10-15T15:56:37+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/advanced-usage/standalone-usage-in-sinatra/</loc>
+    <lastmod>2026-03-29T02:44:31+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/mailers/</loc>
+    <lastmod>2026-10-15T06:33:44+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/admin/</loc>
+    <lastmod>2026-10-14T19:22:12+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/tasks/</loc>
+    <lastmod>2016-02-21T20:39:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/models/</loc>
+    <lastmod>2026-10-17T22:09:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/components/</loc>
+    <lastmod>2026-10-15T15:56:37+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/overview/</loc>
+    <lastmod>2026-10-15T09:48:04+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/projects/</loc>
+    <lastmod>2026-10-15T15:56:37+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/plugins/</loc>
+    <lastmod>2026-10-15T04:00:07+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/sub-applications/</loc>
+    <lastmod>2026-10-15T07:25:58+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/migrations/</loc>
+    <lastmod>2026-10-17T22:09:18+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/controllers/</loc>
+    <lastmod>2026-10-15T06:33:44+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/generators/tiny-skeleton/</loc>
+    <lastmod>2016-02-19T09:22:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/controllers/custom-conditions/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/controllers/csrf-protection/</loc>
+    <lastmod>2026-10-31T02:01:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/controllers/prioritized-routes/</loc>
     <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -691,20 +781,14 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/controllers/custom-conditions/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/controllers/overview/</loc>
+    <lastmod>2026-10-14T19:38:21+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://padrinorb.com/guides/controllers/rendering/</loc>
     <lastmod>2026-10-14T19:22:12+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/controllers/prioritized-routes/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -721,24 +805,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/controllers/csrf-protection/</loc>
-    <lastmod>2026-10-31T02:01:47+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/controllers/layouts/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/controllers/overview/</loc>
-    <lastmod>2026-10-14T19:38:21+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://padrinorb.com/guides/controllers/sessions/</loc>
     <lastmod>2026-10-31T02:05:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -751,128 +817,44 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/application-helpers/render-helpers/</loc>
+    <loc>https://padrinorb.com/guides/controllers/layouts/</loc>
     <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/application-helpers/form-helpers/</loc>
-    <lastmod>2026-10-15T09:48:04+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/controllers/routing/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/application-helpers/custom-helpers/</loc>
-    <lastmod>2016-03-27T18:29:15+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/features/rake-tasks/</loc>
+    <lastmod>2026-10-31T01:28:17+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/application-helpers/format-helpers/</loc>
+    <loc>https://padrinorb.com/guides/features/development-commands/</loc>
+    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/features/mounting-applications/</loc>
+    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/features/overview/</loc>
+    <lastmod>2026-10-15T06:23:14+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/features/padrino-mailer/</loc>
     <lastmod>2026-10-14T19:22:12+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/form-builders/</loc>
-    <lastmod>2026-10-14T19:22:12+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/asset-helpers/</loc>
-    <lastmod>2026-10-15T09:48:04+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/custom-form-builders/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/overview/</loc>
-    <lastmod>2016-04-18T10:41:17+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/nested-object-form-support/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/tag-helpers/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/output-helpers/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/standard-form-builder/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/application-helpers/ujs-helpers/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/stylesheet-engine/</loc>
-    <lastmod>2026-10-15T16:11:58+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/mocking-library/</loc>
-    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/rendering-engine/</loc>
-    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/locale-translations/</loc>
-    <lastmod>2017-05-28T05:21:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/testing-library/</loc>
-    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/overview/</loc>
-    <lastmod>2017-05-28T05:21:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/persistence-engine/</loc>
-    <lastmod>2026-10-15T16:11:58+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://padrinorb.com/guides/adding-components/javascript-engine/</loc>
-    <lastmod>2026-10-15T09:48:49+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -907,32 +889,50 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/features/overview/</loc>
-    <lastmod>2026-10-15T06:23:14+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/adding-components/persistence-engine/</loc>
+    <lastmod>2026-10-15T16:11:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/features/mounting-applications/</loc>
-    <lastmod>2025-11-21T04:59:29+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/adding-components/locale-translations/</loc>
+    <lastmod>2017-05-28T05:21:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/features/rake-tasks/</loc>
-    <lastmod>2026-10-31T01:28:17+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/adding-components/overview/</loc>
+    <lastmod>2017-05-28T05:21:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/features/development-commands/</loc>
-    <lastmod>2026-11-01T00:22:13+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/adding-components/testing-library/</loc>
+    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://padrinorb.com/guides/features/padrino-mailer/</loc>
-    <lastmod>2026-10-14T19:22:12+00:00</lastmod>
+    <loc>https://padrinorb.com/guides/adding-components/mocking-library/</loc>
+    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/adding-components/stylesheet-engine/</loc>
+    <lastmod>2026-10-15T16:11:58+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/adding-components/javascript-engine/</loc>
+    <lastmod>2026-10-15T09:48:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://padrinorb.com/guides/adding-components/rendering-engine/</loc>
+    <lastmod>2026-10-15T06:39:06+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

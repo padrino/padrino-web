@@ -14,7 +14,7 @@ relevant topics.
 There is also a screencast available for this tutorial. You can check it out by:
 <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
 <iframe title="vimeo-player" src="https://player.vimeo.com/video/10522357?h=2baf45aa24" width="500" height="313" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/10522357">Blog Tutorial</a> from <a href="https://vimeo.com/padrinocasts">PadrinoCasts</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<p><a href="https://vimeo.com/10522357">Blog Tutorial</a> from <a href="https://vimeo.com/user3479413">Padrino Framework</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 </div>
 
 Please note that previous screencast, written for Padrino 0.12.2, is available under <http://vimeo.com/10522357>.
@@ -250,7 +250,7 @@ You should see no errors, and the terminal should output:
 
 
 ```shell
-=> Padrino/0.18.1 has taken the stage development at http://127.0.0.1:3000
+=> Padrino/0.18.5 has taken the stage development at http://127.0.0.1:3000
 [2026-10-31 01:57:31] INFO  WEBrick 1.9.2
 [2026-10-31 01:57:31] INFO  ruby 3.3.6 (2024-11-05) [x86_64-linux]
 [2026-10-31 01:57:31] INFO  Rackup::Handler::WEBrick::Server#start: pid=862 port=3000

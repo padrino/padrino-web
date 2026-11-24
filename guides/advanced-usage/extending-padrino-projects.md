@@ -21,7 +21,7 @@ gem 'rake'
 # ...more gems...
 
 # Padrino Stable Gem
-gem 'padrino', '0.18.5'
+gem 'padrino', '0.18.6'
 ```
 
 All dependencies and libraries required for your project should be declared in

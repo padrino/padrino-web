@@ -70,7 +70,7 @@ features:
     code: |
       $ padrino g admin
       $ bundle
-      # Mongoid: skip db:migrate
+      # Mongoid: skip each db:migrate
       $ padrino rake db:migrate
       $ padrino rake db:seed
       $ padrino g model post body:text

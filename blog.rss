@@ -5,6 +5,39 @@
     <description>Blog - Padrino Ruby Web Framework</description>
     <link>http://padrinorb.com/</link>
     <item>
+      <title>Padrino 0.18.7 release</title>
+      <link>http://padrinorb.com/blog/padrino-0-18-7/</link>
+      <description>&lt;p&gt;Padrino 0.18.7 is a maintenance release for 0.18.x with 20 fixes: code reloading in development is faster and more dependable, &lt;code&gt;provides:&lt;/code&gt; routes stop answering 500 for unusual formats, generated admin pages behave as expected, and several helpers and caches are safer on JRuby and under concurrent requests.&lt;/p&gt;
+&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Reloading in development.&lt;/strong&gt; Boot and reloads take up to about half as long on Ruby 3.1 and newer (&lt;a href="https://github.com/padrino/padrino-framework/pull/2500"&gt;#2500&lt;/a&gt;). Classes required from folders the reloader skips, such as &lt;code&gt;config/&lt;/code&gt;, or defined by gems and reopened by project files, survive a reload instead of raising &lt;code&gt;NameError&lt;/code&gt; or &lt;code&gt;NoMethodError&lt;/code&gt; (&lt;a href="https://github.com/padrino/padrino-framework/pull/2572"&gt;#2572&lt;/a&gt;, &lt;a href="https://github.com/padrino/padrino-framework/pull/2575"&gt;#2575&lt;/a&gt;). &lt;code&gt;Struct&lt;/code&gt; and &lt;code&gt;Data&lt;/code&gt; classes, classes that alias built-in methods and classes that override &lt;code&gt;to_s&lt;/code&gt; are reloaded like any other (&lt;a href="https://github.com/padrino/padrino-framework/pull/2569"&gt;#2569&lt;/a&gt;, &lt;a href="https://github.com/padrino/padrino-framework/pull/2556"&gt;#2556&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Routing and formats.&lt;/strong&gt; &lt;code&gt;provides: :any&lt;/code&gt; routes no longer answer 500 for an unknown Accept header or URL extension, and media type strings in &lt;code&gt;provides:&lt;/code&gt; work (&lt;a href="https://github.com/padrino/padrino-framework/pull/2540"&gt;#2540&lt;/a&gt;, &lt;a href="https://github.com/padrino/padrino-framework/pull/2548"&gt;#2548&lt;/a&gt;). A format that isn&amp;#39;t valid UTF-8 no longer raises (&lt;a href="https://github.com/padrino/padrino-framework/pull/2559"&gt;#2559&lt;/a&gt;). &lt;code&gt;recognize_path&lt;/code&gt; handles percent-encoded paths, and Regexp routes with the &lt;code&gt;n&lt;/code&gt; flag or a backreference no longer break requests (&lt;a href="https://github.com/padrino/padrino-framework/pull/2554"&gt;#2554&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Caching.&lt;/strong&gt; The in-memory cache stores are safe to share between threads (&lt;a href="https://github.com/padrino/padrino-framework/pull/2544"&gt;#2544&lt;/a&gt;), and page caching looks a page up only under the key the route stores it under (&lt;a href="https://github.com/padrino/padrino-framework/pull/2565"&gt;#2565&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Helpers.&lt;/strong&gt; Date and time formats for Padrino&amp;#39;s 21 locales load in every app (&lt;a href="https://github.com/padrino/padrino-framework/pull/2542"&gt;#2542&lt;/a&gt;). &lt;code&gt;number_to_currency&lt;/code&gt; and its siblings round a BigDecimal exactly (&lt;a href="https://github.com/padrino/padrino-framework/pull/2571"&gt;#2571&lt;/a&gt;). &lt;code&gt;truncate&lt;/code&gt; and &lt;code&gt;truncate_words&lt;/code&gt; keep to the requested length, and &lt;code&gt;object_model_name&lt;/code&gt; works without ActiveSupport (&lt;a href="https://github.com/padrino/padrino-framework/pull/2533"&gt;#2533&lt;/a&gt;, &lt;a href="https://github.com/padrino/padrino-framework/pull/2530"&gt;#2530&lt;/a&gt;; thanks, &lt;a href="https://github.com/rawsun007"&gt;@rawsun007&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generators and admin.&lt;/strong&gt; Generated admin pages for Active Record and Mongoid models answer 404 for a missing record (&lt;a href="https://github.com/padrino/padrino-framework/pull/2532"&gt;#2532&lt;/a&gt;); Save and Save and continue go where their names say, and number, date and time columns get matching inputs (&lt;a href="https://github.com/padrino/padrino-framework/pull/2545"&gt;#2545&lt;/a&gt;). The generator warns when falcon or tailwind need a newer Ruby (&lt;a href="https://github.com/padrino/padrino-framework/pull/2564"&gt;#2564&lt;/a&gt;), and &lt;code&gt;--api --dev&lt;/code&gt; projects take padrino-support from the checkout (&lt;a href="https://github.com/padrino/padrino-framework/pull/2574"&gt;#2574&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JRuby.&lt;/strong&gt; Template caches and the logger stay consistent when the first requests arrive at once (&lt;a href="https://github.com/padrino/padrino-framework/pull/2536"&gt;#2536&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="upgrading-from-0-18-6"&gt;Upgrading from 0.18.6&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;In your Gemfile, change &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.18.6&amp;#39;&lt;/code&gt; (or &lt;code&gt;&amp;#39;0.18.6&amp;#39;&lt;/code&gt;) to &lt;code&gt;gem &amp;#39;padrino&amp;#39;, &amp;#39;~&amp;gt; 0.18.7&amp;#39;&lt;/code&gt;, then run &lt;code&gt;bundle update padrino&lt;/code&gt; (or, if it lists the &lt;code&gt;padrino-*&lt;/code&gt; gems, set each to &lt;code&gt;~&amp;gt; 0.18.7&lt;/code&gt; and update them by name).&lt;/li&gt;
+&lt;li&gt;Check these, as listed in the &lt;a href="https://github.com/padrino/padrino-framework/blob/0.18-stable/CHANGES.rdoc"&gt;changelog&lt;/a&gt;:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Padrino::Reloader.exclude&lt;/code&gt; entries&lt;/strong&gt; name a folder or a file: an entry that is only the start of a name, such as &lt;code&gt;lib/legacy_&lt;/code&gt;, no longer matches &lt;code&gt;lib/legacy_x.rb&lt;/code&gt;. List the folder or the file instead.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A project class that a gem adds methods to&lt;/strong&gt; is now reloaded and comes back without those methods until the app restarts: define it in an excluded folder such as &lt;code&gt;config/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;provides: :any&lt;/code&gt;&lt;/strong&gt; answers only extensions with a registered MIME type: &lt;code&gt;?format=text/csv&lt;/code&gt; now gets a 404 (or 406 with &lt;code&gt;treat_format_as_accept&lt;/code&gt;). Send &lt;code&gt;?format=csv&lt;/code&gt;, or register a type with &lt;code&gt;mime_type&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;recognize_path&lt;/code&gt;&lt;/strong&gt; returns nil for a path no route matches, instead of raising &lt;code&gt;NoMethodError&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The in-memory cache stores&lt;/strong&gt; are locked, so they can&amp;#39;t be used from a &lt;code&gt;trap&lt;/code&gt; handler: pass &lt;code&gt;threadsafe: false&lt;/code&gt; for one that is.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Existing admin pages&lt;/strong&gt; keep their files. To get the new Save behaviour and inputs, run &lt;code&gt;padrino g admin_page &amp;lt;Model&amp;gt;&lt;/code&gt; again and overwrite the page&amp;#39;s controller and form, or edit them by hand. Edit the accounts page by hand, since &lt;code&gt;g admin_page&lt;/code&gt; replaces its password fields.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
+</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://padrinorb.com/blog/padrino-0-18-7/</guid>
+    </item>
+    <item>
       <title>Padrino 0.18.6 release</title>
       <link>http://padrinorb.com/blog/padrino-0-18-6/</link>
       <description>&lt;p&gt;Padrino 0.18.6 is a security release for 0.18.x. Fragment caching marked every cached fragment as HTML-safe on a cache hit, so a block that returns plain text, such as &lt;code&gt;&amp;lt;%= cache(&amp;quot;bio_#{user.id}&amp;quot;) { user.bio } %&amp;gt;&lt;/code&gt;, was escaped the first time it rendered and written into the page unescaped from then on. Everyone on 0.18.x who caches fragments containing text that visitors can influence should upgrade. The advisory, &lt;a href="https://github.com/padrino/padrino-framework/security/advisories/GHSA-265j-4jw4-q597"&gt;GHSA-265j-4jw4-q597&lt;/a&gt; (padrino-cache), has the details.&lt;/p&gt;
@@ -151,42 +184,6 @@
 </description>
       <pubDate>Sun, 1 Nov 2026 00:00:00 +0000</pubDate>
       <guid>http://padrinorb.com/blog/padrino-0-18-2/</guid>
-    </item>
-    <item>
-      <title>Padrino 0.18.1 release</title>
-      <link>http://padrinorb.com/blog/padrino-0-18-1/</link>
-      <description>&lt;p&gt;Padrino 0.18.1 is a patch release with security fixes for page caching and for generated admin apps, and a fix for the Active Record database tasks. Upgrade with &lt;code&gt;bundle update padrino&lt;/code&gt;. Admin apps you generated before need a small manual edit, described below, because generated code isn&amp;#39;t updated by a gem upgrade.&lt;/p&gt;
-&lt;h2 id="changes"&gt;Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Page caching.&lt;/strong&gt; A &lt;code&gt;cache_key&lt;/code&gt; or &lt;code&gt;expires&lt;/code&gt; set while handling a request was stored on the route and reused by later requests, so a key built from the request (&lt;code&gt;cache_key &amp;quot;post-#{params[:id]}&amp;quot;&lt;/code&gt;) could make another visitor receive that request&amp;#39;s cached page. A String key and the expiry now belong to the request that set them. A cached page is also now served only after the route&amp;#39;s &lt;code&gt;before&lt;/code&gt; filters and conditions have run, so access checks written in a &lt;code&gt;controller&lt;/code&gt; block or as route conditions apply to cached pages too (&lt;a href="https://github.com/padrino/padrino-framework/pull/2448"&gt;#2448&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Admin login bypass removed.&lt;/strong&gt; The sessions controller that &lt;code&gt;padrino g admin&lt;/code&gt; generates logged in as the first account when a &lt;code&gt;bypass&lt;/code&gt; parameter was sent and the app ran in development, and the login page showed a &amp;quot;Bypass login?&amp;quot; checkbox. An app started without &lt;code&gt;RACK_ENV&lt;/code&gt; runs in development, so a deployment that leaves &lt;code&gt;RACK_ENV&lt;/code&gt; unset accepted the bypass from anyone. New admin apps no longer have it (&lt;a href="https://github.com/padrino/padrino-framework/pull/2445"&gt;#2445&lt;/a&gt;; reported by &lt;code&gt;@achiurizo&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mongoid account lookup.&lt;/strong&gt; The generated Mongoid &lt;code&gt;Account.authenticate&lt;/code&gt; matched any part of an email address, so it could pick the wrong account. It now matches the whole address, ignoring case, like the Active Record and Sequel models (&lt;a href="https://github.com/padrino/padrino-framework/pull/2445"&gt;#2445&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Active Record database tasks.&lt;/strong&gt; &lt;code&gt;rake db:migrate&lt;/code&gt; (&lt;code&gt;ar:migrate&lt;/code&gt;), &lt;code&gt;ar:schema:dump&lt;/code&gt; and &lt;code&gt;ar:structure:dump&lt;/code&gt; create &lt;code&gt;db/&lt;/code&gt; when it is missing, so a new &lt;code&gt;-d activerecord&lt;/code&gt; project on Postgres or MySQL can migrate before it has a model (&lt;a href="https://github.com/padrino/padrino-framework/pull/2433"&gt;#2433&lt;/a&gt;, &lt;code&gt;@achiurizo&lt;/code&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="upgrading-from-0-18-0"&gt;Upgrading from 0.18.0&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Run &lt;code&gt;bundle update padrino&lt;/code&gt;. If your Gemfile pins &lt;code&gt;0.18.0&lt;/code&gt;, change it to &lt;code&gt;~&amp;gt; 0.18.1&lt;/code&gt; first. If it lists the &lt;code&gt;padrino-*&lt;/code&gt; gems instead of &lt;code&gt;padrino&lt;/code&gt; (as &lt;code&gt;--api&lt;/code&gt; projects do), set each to &lt;code&gt;~&amp;gt; 0.18.1&lt;/code&gt; and update them by name: &lt;code&gt;bundle update padrino-core padrino-gen&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If your project has a generated admin, edit two files (under the directory you named with &lt;code&gt;-a&lt;/code&gt;, if not &lt;code&gt;admin/&lt;/code&gt;):
-
-&lt;ul&gt;
-&lt;li&gt;In &lt;code&gt;admin/controllers/sessions.rb&lt;/code&gt;, delete the branch that starts with &lt;code&gt;elsif Padrino.env == :development &amp;amp;&amp;amp; params[:bypass]&lt;/code&gt; and its three lines.&lt;/li&gt;
-&lt;li&gt;In &lt;code&gt;admin/views/sessions/new.*&lt;/code&gt;, delete the &lt;code&gt;fieldset&lt;/code&gt; that holds the bypass checkbox (&lt;code&gt;check_box_tag :bypass&lt;/code&gt;).&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;If you use page caching (&lt;code&gt;cache: true&lt;/code&gt;):
-
-&lt;ul&gt;
-&lt;li&gt;A String &lt;code&gt;cache_key&lt;/code&gt; set inside a route handler now names only that request&amp;#39;s entry, so it no longer produces cache hits. Set it in a &lt;code&gt;before&lt;/code&gt; filter instead, or use a block that reads &lt;code&gt;params&lt;/code&gt; (&lt;code&gt;cache_key { &amp;quot;post-#{params[:id]}&amp;quot; }&lt;/code&gt;). A block runs again for each request, so it must read &lt;code&gt;params&lt;/code&gt; or &lt;code&gt;request&lt;/code&gt;, not the handler&amp;#39;s local variables.&lt;/li&gt;
-&lt;li&gt;A Symbol key (&lt;code&gt;cache_key :my_name&lt;/code&gt;) is one entry shared by every request of the route: set it unconditionally, and only on routes whose page is the same for everyone.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;before&lt;/code&gt; filters in a &lt;code&gt;controller&lt;/code&gt; block and route conditions now also run when the page comes from the cache.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;If your admin uses Mongoid, change the lookup in &lt;code&gt;models/account.rb&lt;/code&gt; (or the model you named with &lt;code&gt;-m&lt;/code&gt;) to &lt;code&gt;account = where(email: /\A#{Object::Regexp.escape(email)}\z/i).first if email.present?&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Make sure production sets &lt;code&gt;RACK_ENV=production&lt;/code&gt;. Running a deployment in development also turns on code reloading and detailed error pages.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Nothing else changes: Ruby 2.7.8 or later, Sinatra 4 and Rack 3 are still required.&lt;/p&gt;
-</description>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate>
-      <guid>http://padrinorb.com/blog/padrino-0-18-1/</guid>
     </item>
   </channel>
 </rss>
